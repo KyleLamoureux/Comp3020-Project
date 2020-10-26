@@ -1,0 +1,43 @@
+* {
+    margin: 0 0;
+    box-sizing: border-box;
+}
+
+.celeb {
+    background-image: url(./img/celeb.jpg);
+    background-size: cover;
+    height: 500px;
+    margin: auto auto;
+}
+
+.celeb p {
+    font-size: 150px;
+    text-align: center;
+    width: 100%;
+    padding-top: 10%;
+}
+
+.res_category {
+    overflow: auto;
+    white-space: nowrap;
+}
+
+.category{
+    
+    margin: 50px 0;
+    vertical-align: top;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.res_category img {
+    width: 200px;
+    height: 200px;
+    margin: 0 75px;
+}
+
+.name {
+    display: block;
+    font-size: 30px;
+}
