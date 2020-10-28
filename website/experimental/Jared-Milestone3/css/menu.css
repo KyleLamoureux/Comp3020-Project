@@ -1,0 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.categories{
+    text-align: center;
+    padding: 10px;
+}
+#menu-section{
+    float: left;
+    width:70%;
+    height: 100vh;
+    border-right: 1px solid #333;
+    box-sizing: border-box;
+}
+
+#cart-section{
+    float: right;
+    width: 30%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: wheat;
+}
+
+/**Food category is done with scrollbar. Just need the option to click the image*/
+.scrollbar-category{
+    background-color: rgba(107, 221, 131, 0.541);
+    overflow: auto;
+    height: auto;
+    white-space: nowrap;
+}
+
+.category-item{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px 0;
+    background: #333;
+    margin-left: 10px;
+    margin-right: 3% ;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    text-decoration: none;
+}
+
+.category-item h5{
+    font-size: 18px;
+    font-weight: lighter;    
+}
+
