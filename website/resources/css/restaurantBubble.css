@@ -1,0 +1,133 @@
+/*restaurant */
+#restuarant-ul{
+    padding: 10px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    width: 100%;
+}
+.restaurant-li{
+    position: relative;
+    margin-left: 3%;
+    padding: 5px;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.restaurant-item{
+    position: relative;
+    background-color: #333;
+    width: 320px;
+    height: 320px;
+    margin-left: 15%;
+    margin-top: 5%;
+    border-radius: 50%;
+    padding-left: 10px;
+    text-align: justify;
+}
+
+.restaurant-image{
+    border-radius: 50%;
+    display: block;
+    width: 150px;
+    height: 70px;
+    padding:  10px 0;
+    margin-left: 80px;
+}
+
+.restaurant-image-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:rgba(0,0,0, 0.75);
+    color: rgb(154, 212, 154);
+    font-weight: bold;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;/*display text in center*/
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;/*makes the text to be hovered invisible*/
+    transition: opacity 0.25s;/*animation for the hovered page*/
+}
+
+.restaurant-image-overlay a{
+    color: #fff;
+    font-weight: bold;
+    margin-top: 10px;
+    text-decoration:none ;
+    padding: 3px;
+}
+.restaurant-image-overlay:hover{
+    opacity: 1;/*show the text when image is hovered*/
+}
+
+/*Animation: Text is pushed up when image is hovered*/
+.restaurant-image-overlay > *{
+    transform: translateY(20px);
+    transition: transform 1s;
+
+}
+
+.restaurant-image-overlay:hover > *{
+    /*Text should come out from the bottom*/
+    transform: translateY(0);
+}
+
+.restaurant-name{
+    margin-top:-10px;
+    padding: 2px;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.restaurant-description{
+    font-size: 13px;
+    margin: 2px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+#food-item-list{
+    padding: 2px 0;
+}
+
+#food-item-list .food-item img{
+    width: 60px;
+    height: 60px;
+    margin-left: 8px;
+}
+
+.restaurant-li h6{
+    position: relative;
+    color: white;
+    font-size: 15px;
+    font-family: CoreSans, sans-serif;
+}
+
+.restaurant-information{
+    padding: 3px;
+}
+
+.restaurant-information h6{
+    font-size: 17px;
+}
+
+.restaurant-distance{
+    float: left;
+    margin-top: 20px;
+    margin-left: 70px;
+    display: inline;
+}
+
+.restaurant-time{
+    float:right;
+    margin-top: 20px;
+    margin-right: 70px;
+    display: inline;
+}

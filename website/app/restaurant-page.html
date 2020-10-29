@@ -6,6 +6,9 @@
 
     <script src="../resources/js/restaurant-page.js"></script>
     <link rel="stylesheet" href="../resources/css/restaurant-page.css">
+    <link rel="stylesheet" href="../resources/css/dropdown.css">
+    <link rel="stylesheet" href="../resources/css/restaurantBubble.css">
+    <link rel="stylesheet" href="../resources/css/foodCategory.css">
 </head>
 <body>
     <div class="container">
@@ -15,7 +18,15 @@
             </script>
         </div>
     </div>
-
+    <div class="dropdownarea">
+        <button class="sortbybutton" onmouseover="reset()">Sort By...</button>
+        <div class="dropdownblock" id="dropdownblock">
+            <button class="dropdownoption" onclick="sortby('price')">Price</button>
+            <button class="dropdownoption" onclick="sortby('distance')">Distance</button>
+            <button class="dropdownoption" onclick="sortby('popularity')">Popularity</button>
+            <button class="dropdownoption" onclick="sortby('relevance')">Relevance</button>
+        </div>
+    </div>
     <div class="container">
         <ul id="restaurant-ul">
             <script>
@@ -23,5 +34,6 @@
             </script>
         </ul>
     </div>
+
 </body>
 </html>

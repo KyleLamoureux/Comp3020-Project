@@ -1,0 +1,42 @@
+/** Dropdown content **/
+.dropdownarea{
+    position: relative;
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+    margin-top: 5px;
+}
+.sortbybutton{
+    background-color: chartreuse;
+    color: white;
+    padding: 10px 50px;
+    font-size: 15px;
+    border: 1px solid black;
+    cursor: pointer;
+}
+.dropdownblock{
+    display: none;
+    position: absolute;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    background-color: white;
+}
+.dropdownoption {
+    color: black;
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+    border: none;
+}
+.dropdownarea:hover .sortbybutton{
+    background-color: darkgreen;
+}
+.dropdownoption:hover{
+    background-color: azure;
+}
+.dropdownarea:hover .dropdownblock {
+    display: block;
+}

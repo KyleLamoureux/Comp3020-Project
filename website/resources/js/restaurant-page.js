@@ -84,7 +84,28 @@ var restaurants_categories = [
     }
 ];
 
+/**
+ * Js hook for sortby dropdown
+ * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
+ */
+function sortby(type){
+    try{
+        document.getElementById("dropdownblock").style.display = "none";
+        /**
+         * @kyle do your shit here
+         */
+    }catch(e){
+        alert(e);
+    }
+}
 
+/**
+ * A reset function for the dropdown hover.
+ * Please don't touch this lol
+ */
+function reset(){
+    document.getElementById("dropdownblock").style.display = "";
+}
 
 
 
