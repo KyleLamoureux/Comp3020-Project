@@ -54,7 +54,7 @@ const restaurants = [
 
 var restaurants_categories = [
     {
-        name: "Burger", 
+        name: "Burgers",
         img: "../resources/images/restaurant-page/categories/burger.jpg",
         active: true
     },
