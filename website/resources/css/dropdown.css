@@ -7,7 +7,7 @@
     margin-top: 5px;
 }
 .sortbybutton{
-    background-color: chartreuse;
+    background-color: #2AB52C;
     color: white;
     padding: 10px 50px;
     font-size: 15px;
@@ -33,10 +33,10 @@
     outline: none;
 }
 .dropdownarea:hover .sortbybutton{
-    background-color: darkgreen;
+    background-color: chartreuse;
 }
 .dropdownoption:hover{
-    background-color: #BBBBBB;
+    background-color: #3AC53C;
 }
 .dropdownarea:hover .dropdownblock {
     display: block;
