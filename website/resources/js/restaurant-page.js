@@ -208,18 +208,22 @@ function createCategories(){
 function createDivCat(element){
     var div = document.createElement("div");
     div.className = "food-item";
+    div.onclick = sortOnClick;
     
     var img = document.createElement("img");
     img.src = element["img"];
     img.alt = element["name"];
     img.id = element["name"];
-    img.onclick = sortOnClick;
+
+    var overlay = document.createElement("div");
+    overlay.className="food-item-overlay";
 
     var title = document.createElement("h5");
     var text = document.createTextNode(element["name"]);
     title.appendChild(text);
+    overlay.appendChild(title);
 
-    div = appendMultiple(div, [img, title]);
+    div = appendMultiple(div, [img, overlay]);
 
     return div;
 };
