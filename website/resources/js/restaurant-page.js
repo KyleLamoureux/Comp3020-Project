@@ -29,7 +29,7 @@ const restaurants = [
         name: "McDonalds",
         id: "mcdonalds",
         img: "../resources/images/restaurant-page/restaurants/mcdonalds/mcdonalds.png",
-        type: ["Burger"],
+        type: ["Burgers"],
         foodItems: [
             {
                 name: "Big Mac",
@@ -121,6 +121,7 @@ function createRestaurants(){
         if (!element["type"].some(item => types.includes(item)))
             eleList.appendChild(createRestListItem(element));
     });
+
 };
 
 // Creates li.
@@ -219,6 +220,7 @@ function createDivCat(element){
 
     var overlay = document.createElement("div");
     overlay.className="food-item-overlay";
+    overlay.id = element["name"];
 
     var title = document.createElement("h5");
     var text = document.createTextNode(element["name"]);
@@ -233,10 +235,13 @@ function createDivCat(element){
 // Sort based on category image click
 function sortOnClick(element){
     restaurants_categories.forEach(iter => {
+        console.log("t" + iter["name"] + " ");
+        console.log(element["target"])
         if(iter["name"] == element["target"]["id"]){
             iter["active"] = !iter["active"];
         }
     });
+    console.log(restaurants_categories);
     createCategories();
     createRestaurants();
 };
