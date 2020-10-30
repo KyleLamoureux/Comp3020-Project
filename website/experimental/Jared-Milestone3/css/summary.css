@@ -1,0 +1,159 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.wrapper{
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.heading-text{
+    margin: 10px;
+    padding: 5px 4px;
+}
+
+hr{
+
+    width: 95%;
+    margin: auto;
+}
+
+/*Left side of the summary page*/
+#left-side{
+    float: left;
+    width: 55%;
+    height: 100%;
+    border-right: 0.2px solid #333;
+}
+
+#ordered-list{
+    text-align: center;
+    margin: auto;
+    padding: 5px;
+}
+
+ul{
+    margin-left: 50px;
+    padding: 10px;
+    list-style: none;
+    margin-top: 10px;
+}
+
+li{
+    width: 90%;
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: bisque;
+    border-radius: 10px ;
+    border: 1px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#user-input-group{
+    margin-top: 10px;
+}
+
+#user-inputs{
+    margin-top:  5px;
+    padding-right: 5px;
+    float: left;
+    width: 40%;
+}
+
+#user-card-info{
+    margin-top: 5px;
+    margin-right: 60px;
+    float: right;
+    width: 45%;
+}
+
+.user-information{
+    display: block;
+    margin-top: 20px;
+    width: 100%;
+    height: 25px;
+    margin-left: 20px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+#expiry-date-label{
+    font-size: 17px;
+    margin-top: 20px;
+    margin-left: 40px;
+    padding-top: 20px;
+    float: left;
+}
+
+#expiry-date-information{
+    display: block;
+    margin-top: 20px;
+    width: 40%;
+    height: 25px;
+    padding: 10px 10px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    float: right;
+}
+
+/*Right side of the summary page*/
+#right-side{
+    float: right;
+    width: 40%;
+    height: 100%;
+}
+
+#piechart-info{
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+}
+
+#piechart{
+    width: 300px;
+    height: 300px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(128, 119, 119);
+    color: #333;
+    border-radius: 50%;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#checkbox-for-chart{
+    width: 25px;
+    height: 25px;
+}
+
+label{
+    font-size: 18px;
+}
+
+#total-order-information{
+    margin-top: 20px;
+    padding: 10px 5px;
+}
+
+.order-cost{
+    margin:5px;
+    font-size: 20px;
+
+}
+
+.sum-page-button{
+    width: 40%;
+    height: 50px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
