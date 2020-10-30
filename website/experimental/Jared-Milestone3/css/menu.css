@@ -5,7 +5,7 @@
 
 html, body{
     height: 100%;
-    background-color: wheat;
+    background-color: #E5E5E5;
 
 }
 
@@ -31,7 +31,6 @@ a {
     float: left;
     width:70%;
     height: 100vh;
-    border-right: 1px solid #333;
     box-sizing: border-box;
     background-color: #fff;
     overflow-y: auto;
@@ -39,7 +38,8 @@ a {
 
 /**Food category is done with scrollbar. Just need the option to click the image*/
 .scrollbar-category{
-    background-color: rgba(107, 221, 131, 0.541);
+    border: 1px solid #333;
+    background-color: #E5E5E5;
     overflow-x: auto;
     height: auto;
     white-space: nowrap;
