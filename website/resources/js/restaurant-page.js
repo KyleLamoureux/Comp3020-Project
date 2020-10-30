@@ -23,7 +23,8 @@ const restaurants = [
         time: 25,
         description: "Restaurant description :)",
         href: "link"
-    },
+    }
+    ,
     {
         name: "McDonalds",
         id: "mcdonalds",
@@ -53,7 +54,7 @@ const restaurants = [
 
 var restaurants_categories = [
     {
-        name: "Burger", 
+        name: "Burgers",
         img: "../resources/images/restaurant-page/categories/burger.jpg",
         active: true
     },
@@ -84,7 +85,28 @@ var restaurants_categories = [
     }
 ];
 
+/**
+ * Js hook for sortby dropdown
+ * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
+ */
+function sortby(type){
+    try{
+        document.getElementById("dropdownblock").style.display = "none";
+        /**
+         * @kyle do your shit here
+         */
+    }catch(e){
+        alert(e);
+    }
+}
 
+/**
+ * A reset function for the dropdown hover.
+ * Please don't touch this lol
+ */
+function reset(){
+    document.getElementById("dropdownblock").style.display = "";
+}
 
 
 
@@ -156,7 +178,7 @@ function createItemOrb(element){
     div.id = "food-item-list";
     element.forEach(e => {
         var subDiv = document.createElement("div");
-        subDiv.className = "food-item";
+        subDiv.className = "restaurant-food-item";
 
         var img = document.createElement("img");
         img.src = e["img"];
@@ -175,6 +197,8 @@ function createItemOrb(element){
 
 // Call this to refresh categories UI
 function createCategories(){
+
+
     var eleList = document.getElementById("scollbarFoodCategory");
     clearDiv(eleList);
 
@@ -186,18 +210,22 @@ function createCategories(){
 function createDivCat(element){
     var div = document.createElement("div");
     div.className = "food-item";
+    div.onclick = sortOnClick;
     
     var img = document.createElement("img");
     img.src = element["img"];
     img.alt = element["name"];
     img.id = element["name"];
-    img.onclick = sortOnClick;
+
+    var overlay = document.createElement("div");
+    overlay.className="food-item-overlay";
 
     var title = document.createElement("h5");
     var text = document.createTextNode(element["name"]);
     title.appendChild(text);
+    overlay.appendChild(title);
 
-    div = appendMultiple(div, [img, title]);
+    div = appendMultiple(div, [img, overlay]);
 
     return div;
 };
