@@ -1,20 +1,42 @@
 /**Food category is done with scrollbar. Just need the option to click the image*/
-.scrollbar-food-category{
-    background-color: rgba(204, 223, 135, 0.541);
+.category-container{
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin: 0 2vw;
     justify-content: center;
+    background-color: rgba(204, 223, 135, 0.541);
+}
+
+.chevron{
+    color:black;
+    font-size: 100px;
+    margin-left: 0;
+    opacity: 65%;
+    transition: opacity 0.2s;
+}
+.chevron:hover{
+    opacity: 100%;
+}
+
+.scrollbar-food-category{
+    /*background-color: rgba(204, 223, 135, 0.541);*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    margin: 0 0.5vw;
+    justify-content: center;
+    width: 65vw;
+    overflow: hidden;
+
 }
 
 .food-item{
     display: inline-block;
     color: #333;
     padding: 13px;
-    width: 7vw;
+    min-width: 7vw;
     margin: 0 1vw;
-    height: 7vw;
+    min-height: 7vw;
     position: relative;
     font-family: CoreSans, sans-serif;
     text-decoration: none;

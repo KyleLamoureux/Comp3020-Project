@@ -197,6 +197,8 @@ function createItemOrb(element){
 
 // Call this to refresh categories UI
 function createCategories(){
+
+
     var eleList = document.getElementById("scollbarFoodCategory");
     clearDiv(eleList);
 
