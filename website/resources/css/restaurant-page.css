@@ -4,7 +4,7 @@
 }
 
 body{
-    background-color: #EEEEEE;
+    background-color: #F8FAFB;
 }
 
 .container{
@@ -17,34 +17,7 @@ body{
 
 
 
-/**Food category is done with scrollbar. Just need the option to click the image*/
-.scrollbar-food-category{
-    background-color: rgba(204, 223, 135, 0.541);
-    overflow: auto;
-    white-space: nowrap;
-}
 
-.food-item{
-    display: inline-block;
-    color: #333;
-    text-align: center;
-    padding: 13px;
-    font-family: CoreSans, sans-serif;
-    text-decoration: none;
-
-}
-
-.food-item img{
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
-}
-
-#food-category-label{
-    text-align: center;
-    color: #333;
-    margin: 10px 0;
-}
 
 
 

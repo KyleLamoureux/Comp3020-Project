@@ -11,8 +11,8 @@
     color: white;
     padding: 10px 50px;
     font-size: 15px;
-    border: 1px solid black;
     cursor: pointer;
+    border: none;
 }
 .dropdownblock{
     display: none;
@@ -20,7 +20,6 @@
     right: 0;
     z-index: 1;
     width: 100%;
-    background-color: white;
 }
 .dropdownoption {
     color: black;
@@ -30,12 +29,14 @@
     text-decoration: none;
     display: block;
     border: none;
+    background-color: #CFCFCF;
+    outline: none;
 }
 .dropdownarea:hover .sortbybutton{
     background-color: darkgreen;
 }
 .dropdownoption:hover{
-    background-color: azure;
+    background-color: #BBBBBB;
 }
 .dropdownarea:hover .dropdownblock {
     display: block;

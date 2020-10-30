@@ -23,7 +23,8 @@ const restaurants = [
         time: 25,
         description: "Restaurant description :)",
         href: "link"
-    },
+    }
+    ,
     {
         name: "McDonalds",
         id: "mcdonalds",
@@ -177,7 +178,7 @@ function createItemOrb(element){
     div.id = "food-item-list";
     element.forEach(e => {
         var subDiv = document.createElement("div");
-        subDiv.className = "food-item";
+        subDiv.className = "restaurant-food-item";
 
         var img = document.createElement("img");
         img.src = e["img"];

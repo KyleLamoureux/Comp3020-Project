@@ -10,15 +10,19 @@
     color: #333;
     text-align: center;
     padding: 13px;
+    width: 8vw;
+    height: 8vw;
     font-family: CoreSans, sans-serif;
     text-decoration: none;
+    border-radius: 50%;
 
 }
 
 .food-item img{
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #food-category-label{
