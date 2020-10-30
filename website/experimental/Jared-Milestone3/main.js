@@ -27,8 +27,3 @@
         containerElement.setAttribute('class', 'blur');
     }
 };
-
-
-function loadSummaryPage(){
-  document.getElementById("content").innerHTML='<object type="text/html" data="index.html" ></object>';
-}
