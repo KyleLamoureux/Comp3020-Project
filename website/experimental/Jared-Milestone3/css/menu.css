@@ -3,11 +3,18 @@
     margin: 0;
 }
 
+html, body{
+    height: 100%;
+    background-color: wheat;
+
+}
+
 hr{
 
     width: 95%;
     margin: auto;
     margin-bottom: 10px;
+    
 }
 
 a {
@@ -19,12 +26,15 @@ a {
     text-align: center;
     padding: 10px 20px;
 }
+
 #menu-section{
     float: left;
     width:70%;
     height: 100vh;
     border-right: 1px solid #333;
     box-sizing: border-box;
+    background-color: #fff;
+    overflow-y: auto;
 }
 
 /**Food category is done with scrollbar. Just need the option to click the image*/
@@ -73,15 +83,23 @@ a {
     box-shadow: 1px 1px 3px grey;
     border: 1px solid grey;
 }
+
 .bubbleholder {
     display: inline-block;
     text-align: center;
-    margin: 1vw 0vw 0 5vw;
+    margin-top: 10px;
+    margin-left: 10px;
 }
+
 .bubbleholder p{
     margin: 10px;
     font-size: 20px;
     font-family: sans-serif;
+}
+
+.bubble{
+    width: 200px;
+    height: 200px;
 }
 
 .info{
@@ -113,20 +131,26 @@ a {
 }
 
 .category_name {
-    font-size: 30px;
+    font-size: 20px;
     font-family: sans-serif;
-    margin-top: 2vw;
-    margin-left: 1vw;
+    margin-top: 10px;
+    margin-left: 10px;
 }
-/*Cart section*/
 
+.food-item-name{
+    font-size: 16px;
+    margin:5px;
+}
+
+
+/***************************************************/
+/*Cart section*/
 /*Order div*/
 #cart-section{
     float: right;
     width: 30%;
-    height: 100vh;
+    height: 100%;
     box-sizing: border-box;
-    background-color: wheat;
 }
 
 .order-div{
