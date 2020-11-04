@@ -8,15 +8,18 @@ restaurants = [
         foodItems: [
             {
                 name: "Pancakes",
-                img: "../resources/images/restaurant-page/restaurants/perkins/pancake.jpg"
+                img: "../resources/images/restaurant-page/restaurants/perkins/pancake.jpg",
+                restaurant: "Perkins"
             },
             {
                 name: "Sandwiches",
-                img: "../resources/images/restaurant-page/restaurants/perkins/sandwich.jpg"
+                img: "../resources/images/restaurant-page/restaurants/perkins/sandwich.jpg",
+                restaurant: "Perkins"
             },
             {
                 name: "Omelet",
-                img: "../resources/images/restaurant-page/restaurants/perkins/omelet.jpg"
+                img: "../resources/images/restaurant-page/restaurants/perkins/omelet.jpg",
+                restaurant: "Perkins"
             }
         ],
         distance: 3.8,
@@ -34,15 +37,18 @@ restaurants = [
         foodItems: [
             {
                 name: "Big Mac",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/bigmac.jpg"
+                img: "../resources/images/restaurant-page/restaurants/mcdonalds/bigmac.jpg",
+                restaurant: "McDonalds"
             },
             {
                 name: "Fries",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/fries.jpg"
+                img: "../resources/images/restaurant-page/restaurants/mcdonalds/fries.jpg",
+                restaurant: "McDonalds"
             },
             {
                 name: "Ice Cream",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/icecream.jpg"
+                img: "../resources/images/restaurant-page/restaurants/mcdonalds/icecream.jpg",
+                restaurant: "McDonalds"
             }
         ],
         distance: 6.3,
@@ -125,12 +131,54 @@ function createRestaurants(){
 
     types = hiddenTypes();
 
+    eleList.appendChild(createRandomization());
     restaurants.forEach(element => {
         if (!element["type"].some(item => types.includes(item)))
             eleList.appendChild(createRestListItem(element));
     });
 
 };
+
+function createRandomization() {
+    var listOfMenuItems = [];
+    types = hiddenTypes();
+    restaurants.forEach(e => {
+        if (!e["type"].some(item => types.includes(item)))
+        listOfMenuItems = listOfMenuItems.concat(e['foodItems']);
+    });
+    for (var i = listOfMenuItems.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = listOfMenuItems[i];
+        listOfMenuItems[i] = listOfMenuItems[j];
+        listOfMenuItems[j] = temp;
+    }
+    
+    var li = document.createElement("li");
+    li.className = "restaurant-li";
+
+    // Create sub div
+    var itemDiv = document.createElement("div");
+    itemDiv.className = "restaurant-item";
+
+    // Create img
+    var orbDiv = document.createElement("div");
+    var txt = document.createElement("h2");
+    txt.className = "random-restaurant-text";
+    txt.textContent = "Random Meals"
+    orbDiv.appendChild(txt);
+    
+    // Create random menu item orbs
+    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true);
+    itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
+
+    li.appendChild(itemDiv);
+    return li; 
+}
+
+// When you click on a random food item it will take you to that restaurnts menu
+function randomItemClick(item){
+    console.log(item['target']['alt']);
+}
 
 // Creates li.
 function createRestListItem(element){
@@ -172,6 +220,7 @@ function createRestListItem(element){
     var route = document.createElement("a");
     route.href = element["href"];
     route.innerText = "Proceed To Menu";
+    route.style.textDecoration = "underline"
     imgOverlay = appendMultiple(imgOverlay, [restName, desc, route]);
 
     // Combine
@@ -181,8 +230,9 @@ function createRestListItem(element){
     return li;
 };
 
+
 // Creates <div id="food-item-list">...
-function createItemOrb(element){
+function createItemOrb(element, random=false){
     var div = document.createElement("div")
     div.id = "food-item-list";
     element.forEach(e => {
@@ -191,7 +241,9 @@ function createItemOrb(element){
 
         var img = document.createElement("img");
         img.src = e["img"];
-        img.alt = e["name"];
+        img.alt = e["name"] + "," + e['restaurant'];
+        if (random)
+            img.onclick = randomItemClick;
 
         var title = document.createElement("h6");
         var text = document.createTextNode(e["name"]);
@@ -206,8 +258,6 @@ function createItemOrb(element){
 
 // Call this to refresh categories UI
 function createCategories(){
-
-
     var eleList = document.getElementById("scollbarFoodCategory");
     clearDiv(eleList);
 

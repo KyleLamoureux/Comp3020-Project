@@ -35,6 +35,21 @@
     object-fit: cover;
 }
 
+.random-restaurant-text{
+    color: black;
+    border-radius: 40%;
+    width: 170px;
+    height: 70px;
+    padding:  10px 0;
+    margin: auto;
+    object-fit: cover;
+
+    font-style: Bold;
+    font-weight: 600;
+    font-size: 30px;
+    text-align: center;
+}
+
 .restaurant-image-overlay{
     position: absolute;
     top: 0;
