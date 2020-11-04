@@ -1,5 +1,5 @@
 /* Data */
-const restaurants = [
+restaurants = [
     {
         name: "Perkins",
         id: "perkins",
@@ -21,10 +21,11 @@ const restaurants = [
         ],
         distance: 3.8,
         time: 25,
+        price: 20,
+        popularity: 4,
         description: "Restaurant description :)",
         href: "link"
-    }
-    ,
+    },
     {
         name: "McDonalds",
         id: "mcdonalds",
@@ -46,6 +47,8 @@ const restaurants = [
         ],
         distance: 6.3,
         time: 37,
+        price: 5,
+        popularity: 2,
         description: "Restaurant description :)",
         href: "link"
     },
@@ -89,12 +92,18 @@ var restaurants_categories = [
  * Js hook for sortby dropdown
  * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
  */
+var lastSort = '';
 function sortby(type){
     try{
         document.getElementById("dropdownblock").style.display = "none";
-        /**
-         * @kyle do your shit here
-         */
+        restaurants.sort((a,b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 0));
+        if (lastSort == type){
+            restaurants.reverse();
+            lastSort = '';
+        } else {
+            lastSort = type;
+        }
+        createRestaurants();
     }catch(e){
         alert(e);
     }
@@ -107,7 +116,6 @@ function sortby(type){
 function reset(){
     document.getElementById("dropdownblock").style.display = "";
 }
-
 
 
 // Call this to refresh restaurants UI
@@ -163,7 +171,7 @@ function createRestListItem(element){
     desc.innerText = element["description"];
     var route = document.createElement("a");
     route.href = element["href"];
-    route.innerText = "Click here to proceed to the menu page";
+    route.innerText = "Proceed To Menu";
     imgOverlay = appendMultiple(imgOverlay, [restName, desc, route]);
 
     // Combine
