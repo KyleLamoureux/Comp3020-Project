@@ -284,6 +284,7 @@ function createDivCat(element){
     var text = document.createTextNode(element["name"]);
     title.appendChild(text);
     overlay.appendChild(title);
+    title.id = element["name"];
 
     div = appendMultiple(div, [img, overlay]);
 
