@@ -1,5 +1,5 @@
 /* Data */
-const restaurants = [
+restaurants = [
     {
         name: "Perkins",
         id: "perkins",
@@ -8,44 +8,53 @@ const restaurants = [
         foodItems: [
             {
                 name: "Pancakes",
-                img: "../resources/images/restaurant-page/restaurants/perkins/pancake.jpg"
+                img: "../resources/images/restaurant-page/restaurants/perkins/pancake.jpg",
+                restaurant: "Perkins"
             },
             {
                 name: "Sandwiches",
-                img: "../resources/images/restaurant-page/restaurants/perkins/sandwich.jpg"
+                img: "../resources/images/restaurant-page/restaurants/perkins/sandwich.jpg",
+                restaurant: "Perkins"
             },
             {
                 name: "Omelet",
-                img: "../resources/images/restaurant-page/restaurants/perkins/omelet.jpg"
+                img: "../resources/images/restaurant-page/restaurants/perkins/omelet.jpg",
+                restaurant: "Perkins"
             }
         ],
         distance: 3.8,
         time: 25,
+        price: 20,
+        popularity: 4,
         description: "Restaurant description :)",
         href: "link"
-    }
-    ,
+    },
     {
         name: "McDonalds",
         id: "mcdonalds",
         img: "../resources/images/restaurant-page/restaurants/mcdonalds/mcdonalds.png",
-        type: ["Burger"],
+        type: ["Burgers"],
         foodItems: [
             {
                 name: "Big Mac",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/bigmac.jpg"
+                img: "../resources/images/restaurant-page/restaurants/mcdonalds/bigmac.jpg",
+                restaurant: "McDonalds"
             },
             {
                 name: "Fries",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/fries.jpg"
+                img: "../resources/images/restaurant-page/restaurants/mcdonalds/fries.jpg",
+                restaurant: "McDonalds"
             },
             {
                 name: "Ice Cream",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/icecream.jpg"
+                img: "../resources/images/restaurant-page/restaurants/mcdonalds/icecream.jpg",
+                restaurant: "McDonalds"
             }
         ],
         distance: 6.3,
         time: 37,
+        price: 5,
+        popularity: 2,
         description: "Restaurant description :)",
         href: "link"
     },
@@ -89,12 +98,18 @@ var restaurants_categories = [
  * Js hook for sortby dropdown
  * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
  */
+var lastSort = '';
 function sortby(type){
     try{
         document.getElementById("dropdownblock").style.display = "none";
-        /**
-         * @kyle do your shit here
-         */
+        restaurants.sort((a,b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 0));
+        if (lastSort == type){
+            restaurants.reverse();
+            lastSort = '';
+        } else {
+            lastSort = type;
+        }
+        createRestaurants();
     }catch(e){
         alert(e);
     }
@@ -109,7 +124,6 @@ function reset(){
 }
 
 
-
 // Call this to refresh restaurants UI
 function createRestaurants(){
     var eleList = document.getElementById("restaurant-ul");
@@ -117,11 +131,54 @@ function createRestaurants(){
 
     types = hiddenTypes();
 
+    eleList.appendChild(createRandomization());
     restaurants.forEach(element => {
         if (!element["type"].some(item => types.includes(item)))
             eleList.appendChild(createRestListItem(element));
     });
+
 };
+
+function createRandomization() {
+    var listOfMenuItems = [];
+    types = hiddenTypes();
+    restaurants.forEach(e => {
+        if (!e["type"].some(item => types.includes(item)))
+        listOfMenuItems = listOfMenuItems.concat(e['foodItems']);
+    });
+    for (var i = listOfMenuItems.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = listOfMenuItems[i];
+        listOfMenuItems[i] = listOfMenuItems[j];
+        listOfMenuItems[j] = temp;
+    }
+    
+    var li = document.createElement("li");
+    li.className = "restaurant-li";
+
+    // Create sub div
+    var itemDiv = document.createElement("div");
+    itemDiv.className = "restaurant-item";
+
+    // Create img
+    var orbDiv = document.createElement("div");
+    var txt = document.createElement("h2");
+    txt.className = "random-restaurant-text";
+    txt.textContent = "Random Meals"
+    orbDiv.appendChild(txt);
+    
+    // Create random menu item orbs
+    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true);
+    itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
+
+    li.appendChild(itemDiv);
+    return li; 
+}
+
+// When you click on a random food item it will take you to that restaurnts menu
+function randomItemClick(item){
+    console.log(item['target']['alt']);
+}
 
 // Creates li.
 function createRestListItem(element){
@@ -162,7 +219,8 @@ function createRestListItem(element){
     desc.innerText = element["description"];
     var route = document.createElement("a");
     route.href = element["href"];
-    route.innerText = "Click here to proceed to the menu page";
+    route.innerText = "Proceed To Menu";
+    route.style.textDecoration = "underline"
     imgOverlay = appendMultiple(imgOverlay, [restName, desc, route]);
 
     // Combine
@@ -172,8 +230,9 @@ function createRestListItem(element){
     return li;
 };
 
+
 // Creates <div id="food-item-list">...
-function createItemOrb(element){
+function createItemOrb(element, random=false){
     var div = document.createElement("div")
     div.id = "food-item-list";
     element.forEach(e => {
@@ -182,7 +241,9 @@ function createItemOrb(element){
 
         var img = document.createElement("img");
         img.src = e["img"];
-        img.alt = e["name"];
+        img.alt = e["name"] + "," + e['restaurant'];
+        if (random)
+            img.onclick = randomItemClick;
 
         var title = document.createElement("h6");
         var text = document.createTextNode(e["name"]);
@@ -197,20 +258,50 @@ function createItemOrb(element){
 
 // Call this to refresh categories UI
 function createCategories(){
-
-
     var eleList = document.getElementById("scollbarFoodCategory");
     clearDiv(eleList);
 
     restaurants_categories.forEach(element => {
         eleList.appendChild(createDivCat(element));
     });
+
+    $(".food-item").click(function(event){
+
+        // let element = $(this);
+        // var e = event.target;
+        // alert(event.target["id"]);
+        // element.css("opacity: 0%");
+        restaurants_categories.forEach(iter => {
+            console.log("t" + iter["name"] + " ");
+            // console.log(event.element["target"]);
+            if(iter["name"] === event.target["id"]){
+                iter["active"] = !iter["active"];
+                if(iter["active"]){
+                    $(this).find(".food-item-check").css("opacity", "0%");
+                }else{
+                    $(this).find(".food-item-check").css("opacity", "75%");
+                }
+            }
+        });
+        createRestaurants();
+    });
+
+    $(".scrollbar-food-category").slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        arrows: true,
+        prevArrow: '<div class="chevron">&#8249;</div>',
+        nextArrow: '<div class="chevron">&#8250;</div>'
+        // prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+        // nextArrow: '<button class="slide-arrow next-arrow"></button>'
+    });
 };
 
 function createDivCat(element){
     var div = document.createElement("div");
     div.className = "food-item";
-    div.onclick = sortOnClick;
+
     
     var img = document.createElement("img");
     img.src = element["img"];
@@ -219,11 +310,21 @@ function createDivCat(element){
 
     var overlay = document.createElement("div");
     overlay.className="food-item-overlay";
+    overlay.id = element["name"];
+
+    // div.onclick = sortOnClick;
+
+    var overlaycheck = document.createElement("div");
+    overlaycheck.innerHTML="&#x2713;"
+    overlaycheck.className="food-item-check";
+    overlaycheck.id = element["name"];
 
     var title = document.createElement("h5");
     var text = document.createTextNode(element["name"]);
     title.appendChild(text);
     overlay.appendChild(title);
+    overlay.appendChild(overlaycheck);
+    title.id = element["name"];
 
     div = appendMultiple(div, [img, overlay]);
 
@@ -233,11 +334,14 @@ function createDivCat(element){
 // Sort based on category image click
 function sortOnClick(element){
     restaurants_categories.forEach(iter => {
+        console.log("t" + iter["name"] + " ");
+        console.log(element["target"]);
         if(iter["name"] == element["target"]["id"]){
             iter["active"] = !iter["active"];
         }
     });
-    createCategories();
+    console.log(restaurants_categories);
+    // createCategories();
     createRestaurants();
 };
 
