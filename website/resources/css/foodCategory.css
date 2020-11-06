@@ -4,6 +4,7 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: center;
+    padding: 10px;
     background-color: rgba(204, 223, 135, 0.541);
 }
 
@@ -11,33 +12,63 @@
     color:black;
     font-size: 100px;
     margin-left: 0;
+    /*top:10%;*/
     opacity: 65%;
+    margin-top: -10px;
     transition: opacity 0.2s;
 }
 .chevron:hover{
     opacity: 100%;
 }
 
+.food-item-check{
+    content:"ABC";
+    color:#36c236;
+    width: 100%;
+    /*color:white;*/
+    height: 100%;
+    font-size: 75px;
+    /*border-radius: 50%;*/
+    /*background-color: rgba(0,0,0,0.7);*/
+    z-index: 5;
+    text-align: center;
+    position: absolute;
+    top:0;
+    left:0;
+    display: flex;
+    opacity: 0;
+    /*background-color: #543018;*/
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    transition: opacity 0.4s;
+}
+
+/*.food-item-check{*/
+/*    opacity: 100%;*/
+/*}*/
+
 .scrollbar-food-category{
     /*background-color: rgba(204, 223, 135, 0.541);*/
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    margin: 0 0.5vw;
+    /*margin: 0 0.5vw;*/
     justify-content: center;
-    width: 65vw;
-    overflow: hidden;
-
+    width: 38vw;
+    /*border: 1px solid black;*/
+    /*overflow: hidden;*/
 }
 
 .food-item{
     display: inline-block;
     color: #333;
-    padding: 13px;
+    /*padding: 13px;*/
     min-width: 7vw;
-    margin: 0 1vw;
+    margin: auto;
+    /*margin: 0 1vw;*/
     min-height: 7vw;
     position: relative;
+    outline: none;
     font-family: CoreSans, sans-serif;
     text-decoration: none;
     border-radius: 50%;
@@ -86,4 +117,30 @@
     text-align: center;
     color: #333;
     margin: 10px 0;
+}
+
+.slick-prev:before {
+    content: "\2039";
+    color:black;
+    font-size: 75px;
+    margin-right: 10px;
+    opacity: 65%;
+    transition: opacity 0.2s;
+
+}
+
+.slick-next:before {
+    content: "\203A";
+    color:black;
+    font-size: 75px;
+    margin-left: 10px;
+    opacity: 65%;
+    transition: opacity 0.2s;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+
+.slick-slide {
+    margin: 0 15px;
 }
