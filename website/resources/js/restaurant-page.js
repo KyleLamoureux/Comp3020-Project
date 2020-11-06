@@ -101,7 +101,7 @@ var restaurants_categories = [
 var lastSort = '';
 function sortby(type){
     try{
-        document.getElementById("dropdownblock").style.display = "none";
+        document.getElementById("dropdownblock").style.opacity = "0";
         restaurants.sort((a,b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 0));
         if (lastSort == type){
             restaurants.reverse();
@@ -120,7 +120,7 @@ function sortby(type){
  * Please don't touch this lol
  */
 function reset(){
-    document.getElementById("dropdownblock").style.display = "";
+    document.getElementById("dropdownblock").style.opacity = "";
 }
 
 
