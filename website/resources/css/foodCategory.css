@@ -40,7 +40,7 @@
     /*background-color: #543018;*/
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
-    transition: opacity 0.4s;
+    transition: opacity 0.24s;
 }
 
 /*.food-item-check{*/
