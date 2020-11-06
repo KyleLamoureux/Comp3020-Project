@@ -264,12 +264,44 @@ function createCategories(){
     restaurants_categories.forEach(element => {
         eleList.appendChild(createDivCat(element));
     });
+
+    $(".food-item").click(function(event){
+
+        // let element = $(this);
+        // var e = event.target;
+        // alert(event.target["id"]);
+        // element.css("opacity: 0%");
+        restaurants_categories.forEach(iter => {
+            console.log("t" + iter["name"] + " ");
+            // console.log(event.element["target"]);
+            if(iter["name"] === event.target["id"]){
+                iter["active"] = !iter["active"];
+                if(iter["active"]){
+                    $(this).find(".food-item-check").css("opacity", "0%");
+                }else{
+                    $(this).find(".food-item-check").css("opacity", "75%");
+                }
+            }
+        });
+        createRestaurants();
+    });
+
+    $(".scrollbar-food-category").slick({
+        infinite: true,
+        slidesToShow: 4,
+        slidesToScroll: 2,
+        arrows: true,
+        prevArrow: '<div class="chevron">&#8249;</div>',
+        nextArrow: '<div class="chevron">&#8250;</div>'
+        // prevArrow: '<button class="slide-arrow prev-arrow"></button>',
+        // nextArrow: '<button class="slide-arrow next-arrow"></button>'
+    });
 };
 
 function createDivCat(element){
     var div = document.createElement("div");
     div.className = "food-item";
-    div.onclick = sortOnClick;
+
     
     var img = document.createElement("img");
     img.src = element["img"];
@@ -280,10 +312,18 @@ function createDivCat(element){
     overlay.className="food-item-overlay";
     overlay.id = element["name"];
 
+    // div.onclick = sortOnClick;
+
+    var overlaycheck = document.createElement("div");
+    overlaycheck.innerHTML="&#x2713;"
+    overlaycheck.className="food-item-check";
+    overlaycheck.id = element["name"];
+
     var title = document.createElement("h5");
     var text = document.createTextNode(element["name"]);
     title.appendChild(text);
     overlay.appendChild(title);
+    overlay.appendChild(overlaycheck);
     title.id = element["name"];
 
     div = appendMultiple(div, [img, overlay]);
@@ -295,13 +335,13 @@ function createDivCat(element){
 function sortOnClick(element){
     restaurants_categories.forEach(iter => {
         console.log("t" + iter["name"] + " ");
-        console.log(element["target"])
+        console.log(element["target"]);
         if(iter["name"] == element["target"]["id"]){
             iter["active"] = !iter["active"];
         }
     });
     console.log(restaurants_categories);
-    createCategories();
+    // createCategories();
     createRestaurants();
 };
 
