@@ -1,4 +1,9 @@
 'use strict';  
+if(document.readyState === "loading"){
+  document.addEventListener("DOMContentLoaded",main);
+}else{
+  main();
+}
 
   // When the user clicks the button, open the modal 
   function proceedCheckout() {
@@ -19,11 +24,29 @@
 
 
   function blurControl(){
-    var containerElement = document.getElementById("background");
+    let containerElement = document.getElementById("background");
 
     if (containerElement.className == 'blur'){
         containerElement.setAttribute('class', null);
     } else {
         containerElement.setAttribute('class', 'blur');
     }
-};
+  }
+
+  
+  function main(){
+    let removeCartItemButtons = document.getElementsByClassName("btn-remove");
+
+    for(let i = 0; i < removeCartItemButtons.length; i++){
+        let button = removeCartItemButtons[i];
+        button.addEventListener('click',removeCartItem);
+    }//end for
+
+
+  }//end main
+
+  function removeCartItem(event){
+    let buttonClicked = event.target;
+    buttonClicked.parentElement.parentElement.remove();
+
+  }
