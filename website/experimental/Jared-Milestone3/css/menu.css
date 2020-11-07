@@ -38,8 +38,8 @@ a {
 
 /**Food category is done with scrollbar. Just need the option to click the image*/
 .scrollbar-category{
-    border: 1px solid #333;
-    background-color: #E5E5E5;
+    border: 0.5px solid #333;
+    border-radius: 10px;
     overflow-x: auto;
     height: auto;
     white-space: nowrap;
@@ -67,79 +67,96 @@ a {
     font-weight: lighter;    
 }
 
-/*Menu list*/
-:root{
-    --rest-bubble-size: 15vw;
-}
+/*menu-list*/
 
-.bubble {
-    height: var(--rest-bubble-size);
-    width: var(--rest-bubble-size);
-    border-radius: 50%;
-    display: inline-block;
-    vertical-align: top;
-    background-repeat: no-repeat;
-    background-size: cover ;
-    box-shadow: 1px 1px 3px grey;
-    border: 1px solid grey;
-}
-
-.bubbleholder {
-    display: inline-block;
-    text-align: center;
-    margin-top: 10px;
-    margin-left: 10px;
-}
-
-.bubbleholder p{
-    margin: 10px;
+.menu-category-name{
+    margin-top: 20px;
     font-size: 20px;
-    font-family: sans-serif;
 }
 
-.bubble{
-    width: 200px;
-    height: 200px;
-}
-
-.info{
-    background-color: black;
-    opacity: 85%;
-    display:none;
-    border-radius: 50%;
-    width:100%;
-    height:100%;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
-}
-
-
-.bubbleholder:hover .info{
-    display: flex;
-}
-
-.bubble p {
-    display: inline-block;
-    color: rgb(235,235,235);
-    margin: 10px;
-    font-family: sans-serif;
-    font-size: 14px;
-    text-align: center;
-    vertical-align: middle;
-    /*line-height: calc(var(--rest-bubble-size)*0.5);*/
-    line-height: normal;
-}
-
-.category_name {
-    font-size: 20px;
-    font-family: sans-serif;
+.menu-category-name-underlined{
+    width: 20%;
+    margin: 0;
     margin-top: 10px;
-    margin-left: 10px;
 }
 
-.food-item-name{
-    font-size: 16px;
-    margin:5px;
+.menu-categories{
+    margin-left: 10px;
+    width: 90%;
+}
+
+.menu-category-grouped-items{
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.menu-category-item{
+    position: relative;
+    background-color: #333;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    text-align: justify;
+    border: 1px solid #333;
+    margin-left: 20px;
+    margin-top: 20px;
+    display: inline-block;
+
+}
+
+.menu-category-item h5{
+    text-align: center;
+    margin-top: 5px;
+    overflow-x: none;
+}
+
+.menu-category-item-image{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: inline;
+}
+
+
+.menu-category-item-image-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:rgba(0,0,0, 0.75);
+    color: #fff;
+    font-weight: lighter;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;/*display text in center*/
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;/*makes the text to be hovered invisible*/
+    transition: opacity 0.25s;/*animation for the hovered page*/  
+}
+
+.menu-category-item-image-overlay:hover{
+    opacity: 1;/*show the text when image is hovered*/
+}
+
+/*Animation: Text is pushed up when image is hovered*/
+.menu-category-item-image-overlay > *{
+    transform: translateY(20px);
+    transition: transform 1s;
+
+}
+
+.menu-category-item-image-overlay:hover > *{
+    /*Text should come out from the bottom*/
+    transform: translateY(0);
+}
+
+.menu-category-item-description{
+    font-size: 13px;
+    margin: 2px;
 }
 
 
@@ -252,3 +269,4 @@ a {
       width: 100%;
       height: 100%;
   }
+
