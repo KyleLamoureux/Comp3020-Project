@@ -25,6 +25,13 @@ function main(){
   addFoodItems("Main","Sandwich",5.99,"this is the food desc","images/sandwich.jpg");
   addFoodItems("Appetizer","Burger",8.12,"this is the food desc","images/burger.jpg");
   addFoodItems("Appetizer","Pizza",12.12,"this is the food desc","images/pizza.jpg");
+  addFoodItems("Appetizer","Omelet1",12.92,"this is the food desc","images/omelet.jpg");
+  addFoodItems("Appetizer","Sandwich",5.99,"this is the food desc","images/sandwich.jpg");
+  addFoodItems("Main","Burger",8.12,"this is the food desc","images/burger.jpg");
+  addFoodItems("Main","Pizza",12.12,"this is the food desc","images/pizza.jpg");
+  addFoodItems("Main","Omelet1",12.92,"this is the food desc","images/omelet.jpg");
+  addFoodItems("Main","Sandwich",5.99,"this is the food desc","images/sandwich.jpg");
+  addFoodItems("Appetizer","Burger",8.12,"this is the food desc","images/burger.jpg");
 
 }//end main
 
@@ -57,6 +64,7 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
 
   let newFood = document.createElement("div");//new menu-category-item 
   newFood.classList.add("menu-category-item");//add the css for the new div.
+  
 
   //insert the food-item
   let newFoodContent = `
@@ -70,9 +78,37 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
 
 
   newFood.innerHTML = newFoodContent;
+  console.log(categoryNames.innerHTML);
+
+  newFood.addEventListener("click",openFoodModal);
+
   foodItems.append(newFood);//add the new food to the list (inside menu-category-grouped-items)
-  
+
 }//end addFoodItems
+
+let modalOn = false;
+function openFoodModal(event){
+  if(!modalOn){
+    let modal = document.getElementById("menu-modal");
+    modal.style.display = "block";
+    blurControl();
+    modalOn = true;
+  }
+
+}
+
+function closeMenuDescription() {
+  let modal = document.getElementById("menu-modal");
+  modal.style.display = "none";
+  blurControl();
+  modalOn = false;  
+} 
+
+
+
+
+/*****************************************************************************************************/
+//Cart functionality
 
 function removeCartItem(event){
   let buttonClicked = event.target;
@@ -86,7 +122,7 @@ function removeCartItem(event){
   let modal = document.getElementById("summary-page");
   modal.style.display = "block";
   blurControl();
-  loadSummaryPage();
+  //loadSummaryPage();
 }
 
 // When the user clicks on <span> (x), close the modal

@@ -67,10 +67,11 @@ a {
     font-weight: lighter;    
 }
 
+/*************************************************************************************/
 /*menu-list*/
 
 .menu-category-name{
-    margin-top: 20px;
+    margin-top: 40px;
     font-size: 20px;
 }
 
@@ -82,12 +83,11 @@ a {
 
 .menu-categories{
     margin-left: 10px;
-    width: 90%;
+    width: 95%;
 }
 
 .menu-category-grouped-items{
-    margin-left: auto;
-    margin-right: auto;
+    margin-top: 20px;
 }
   
 .menu-category-item{
@@ -98,9 +98,9 @@ a {
     border-radius: 50%;
     text-align: justify;
     border: 1px solid #333;
+    display: inline-block;
     margin-left: 20px;
     margin-top: 20px;
-    display: inline-block;
 
 }
 
@@ -157,6 +157,107 @@ a {
 .menu-category-item-description{
     font-size: 13px;
     margin: 2px;
+}
+
+
+/**************************************************************************/
+/*For Menu modal*/
+#menu-modal {
+    height: 700px;
+    width: 700px;
+    border: 1px solid gray;
+    background-color: #fff;
+    border-radius: 50%;
+    display: none;
+    position: fixed;
+    left: 25%;
+    top: 10%;
+    z-index: 300;
+
+}
+
+
+.food-item-modal-image {
+    height: 200px;
+    width: 200px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    left: 33%;
+    top: 5%;
+    background-size: 200px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#modal-description {
+    position: absolute;
+    top: 42%;
+    left: 4%;
+    height: 150px;
+    width: 550px;
+    margin: auto auto;
+    text-align: center;
+}
+
+
+.food-number-button {
+    position: absolute;
+    top: 70%;
+    left: 34%;
+    margin: 5px;
+    text-align: center;
+}
+
+#plus, #minus, #num-food {
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+#num-food {
+    border: 1px solid #333;
+}
+
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+#add-to-cart {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+}
+
+
+#button-cancel-cart{
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    background-color: lightgray;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+#button-add-to-cart {
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    background-color: lightgray;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
 }
 
 
@@ -256,6 +357,8 @@ a {
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: relative;
+    
   }
   
   .close:hover,
