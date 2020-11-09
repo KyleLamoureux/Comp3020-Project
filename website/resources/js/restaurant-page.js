@@ -94,6 +94,19 @@ var restaurants_categories = [
     }
 ];
 
+
+/**
+ * Homepage Data
+ */
+userAddress = localStorage.getItem('user-address');
+function fillAddress(){
+    if(userAddress.length === 0){
+        document.getElementById("user-address").innerText = "No Address Input";
+    } else {
+        document.getElementById("user-address").innerText = userAddress;
+    }
+}
+
 /**
  * Js hook for sortby dropdown
  * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
