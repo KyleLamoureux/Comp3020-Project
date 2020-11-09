@@ -265,9 +265,10 @@ function closeMenuModal() {
  */
 function removeCartItem(event){
   let buttonClicked = event.target;
+  if(confirm("Do you want to delete this item?")){
   buttonClicked.parentElement.parentElement.remove();
   updateCartTotal();//update the subtotal after removing an item.
-  
+  }
 }//end removeCartItem
 
  /**
