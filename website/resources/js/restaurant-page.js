@@ -287,9 +287,11 @@ function createCategories(){
     });
 
     $(".scrollbar-food-category").slick({
-        infinite: true,
+        infinite: false,
         slidesToShow: 4,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
+        speed: 350,
+        initialSlide: 1,
         arrows: true,
         prevArrow: '<div class="chevron">&#8249;</div>',
         nextArrow: '<div class="chevron">&#8250;</div>'
@@ -330,21 +332,6 @@ function createDivCat(element){
 
     return div;
 };
-
-// Sort based on category image click
-function sortOnClick(element){
-    restaurants_categories.forEach(iter => {
-        console.log("t" + iter["name"] + " ");
-        console.log(element["target"]);
-        if(iter["name"] == element["target"]["id"]){
-            iter["active"] = !iter["active"];
-        }
-    });
-    console.log(restaurants_categories);
-    // createCategories();
-    createRestaurants();
-};
-
 
 
 /* Helpers */

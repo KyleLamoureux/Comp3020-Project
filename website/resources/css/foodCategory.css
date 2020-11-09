@@ -129,6 +129,11 @@
 
 }
 
+.slick-disabled {
+    opacity: 0;
+    pointer-events:none;
+}
+
 .slick-next:before {
     content: "\203A";
     color:black;
