@@ -32,13 +32,19 @@ function addAllFoodItems(){
   addFoodItems("Main","Burger",8.12,"This is the food description for Burger","images/burger.jpg");
   addFoodItems("Main","Pizza",18.99,"This is the food description for Pizza","images/pizza.jpg");
   addFoodItems("Main","Pasta",12.99,"This is the food description for Pasta","images/italian_main.jpeg");
-  addFoodItems("Main","Some dessert",5.99,"This is the food description for the dessert","images/italian_dessert.jpg");
+  addFoodItems("Dessert","Some dessert",5.99,"This is the food description for the dessert","images/italian_dessert.jpg");
   addFoodItems("Side","French Fries",2.50,"This is the food description for french fries","images/burger_side.jpeg");
   addFoodItems("Dessert","Sliced Chocolate Cake",7.99,"This is the food description for the Sliced Chocolate Cake","images/pizza_dessert.jpg");
 
   let x = " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam rem consequuntur delectus culpa voluptas laborum ea, maiores doloribus quas adipisci, vel dolorem incidunt inventore odit atque veritatis a, minus deleniti?";
   addFoodItems("Dessert","Sliced Chocolate Cake",7.99,x,"images/pizza_dessert.jpg");
-
+  addFoodItems("Appetizer","Onion Rings", 7.99, "This is the food description for Onion rings", "images/burger_appe.jpg");
+  addFoodItems("Appetizer", "Dumplings", 6.99, "This is the food description for Dumplings", "images/chinese_appe.jpg");
+  addFoodItems("Main","Chicken Stir-Fry",13.99,"This is the food description for Chicken Stir Fry", "images/chinese_main.jpg");
+  addFoodItems("Side","Wonton soup", 9.99, "This is the food description for Wonton soup", "images/chinese_side.jpg");
+  addFoodItems("Side", "Meat ball", 10.99, "This is food description for Meat ball", "images/italian_side.jpg");
+  addFoodItems("Side", "Salad", 6.99, "This is food description for Salad", "images/pizza_side.jpg");
+  addFoodItems("Side", "Salad2", 8.99, "This is food description for Salad2", "images/italian_appe.jpg");
 
 }//end addAllFoodItems
 
@@ -119,9 +125,16 @@ function openFoodModal(event){
     let foodModalContent = `
     <img class="food-item-modal-image" src="${foodItemImage}">
     <div id="modal-description">
-        <h4 class="modal-food-title">${foodItemTitle}</h4> 
-        <h5 class="modal-food-decription">${foodItemDescription}</h5>
+        <h4 class="modal-food-title">${foodItemTitle}</h4>
         <h5 class="modal-food-price">Price: ${foodItemPrice}</h5>
+    </div>
+    <div class="food-options">
+        <input type="radio" id="option1" name="food-options" value="option1">
+        <label for="option1">Option 1</label>
+        <input type="radio" id="option2" name="food-options" value="option2">
+        <label for="option1">Option 2</label>
+        <input type="radio" id="option3" name="food-options" value="option3">
+        <label for="option1">Option 3</label>
     </div>
     <div class="food-number-button">
         <button id="plus">-</button>
@@ -129,7 +142,7 @@ function openFoodModal(event){
         <button id="minus">+</button>
     </div>
     <div id="add-to-cart">
-        <button class="button-cancel-cart" onclick="closeMenuModal()">cancel</button>
+        <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
         <button class="button-add-to-cart">Add to cart</button>
     </div>
     `;

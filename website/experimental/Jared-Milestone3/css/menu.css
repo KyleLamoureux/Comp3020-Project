@@ -25,6 +25,12 @@ a {
 .categories{
     text-align: center;
     padding: 10px 20px;
+    position: fixed;
+    display: block;
+    float: left;
+    width: 67%;
+    z-index: 100;
+    background-color: #fff;
 }
 
 #menu-section{
@@ -42,6 +48,7 @@ a {
     border-radius: 10px;
     overflow-x: auto;
     height: auto;
+    margin-top: 10px;
     white-space: nowrap;
 }
 
@@ -67,10 +74,27 @@ a {
     font-weight: lighter;    
 }
 
+.heading-text {
+    float: left;
+}
+
+#category_appetizer {
+    margin-top: 200px;
+}
+
+#category_dessert {
+    position: relative;
+    padding-top: 0;
+}
 /*************************************************************************************/
 /*menu-list*/
 
+.menulist {
+    position: relative;
+}
+
 .menu-category-name{
+    display: block;
     margin-top: 40px;
     font-size: 20px;
 }
@@ -159,9 +183,15 @@ a {
     margin: 2px;
 }
 
+:target {
+    position: relative;
+    display: block;
+    padding-top: 200px;
+}
 
 /**************************************************************************/
 /*For Menu modal*/
+
 #menu-modal {
     height: 700px;
     width: 700px;
@@ -189,7 +219,20 @@ a {
     text-align: center;
     align-items: center;
     justify-content: center;
+}
 
+.modal-food-title {
+    position: absolute;
+    top: 0;
+    width: 640px;
+    font-size: 25px;
+}
+
+.modal-food-price {
+    position: absolute;
+    top: 20%;
+    width: 640px;
+    font-size: 25px;
 }
 
 #modal-description {
@@ -202,11 +245,17 @@ a {
     text-align: center;
 }
 
+.food-options {
+    position: relative;
+    top: 55%;
+    left: 28%;
+    padding: 15px;
+}
 
 .food-number-button {
     position: absolute;
     top: 70%;
-    left: 34%;
+    left: 36%;
     margin: 5px;
     text-align: center;
 }
