@@ -15,16 +15,69 @@ function main(){
       button.addEventListener('click',removeCartItem);
   }//end for
   
+  
+  let listFoodItems = [
+    {
+      foodCategory:"Appetizer",
+      foodName:"Omelet",
+      foodPrice:12.99,
+      foodDesc:"Food description for omelet",
+      foodImg:"images/omelet.jpg",
+      foodNutrition:"some image.."
+    },
+    {
+      foodCategory:"Appetizer",
+      foodName:"Sandwich",
+      foodPrice:1.99,
+      foodDesc:"Food description for sandwich",
+      foodImg:"images/sandwich.jpg",
+      foodNutrition:"some image.."
+    },
+    {
+      foodCategory:"Main",
+      foodName:"Sandwich",
+      foodPrice:1.99,
+      foodDesc:"Food description for sandwich",
+      foodImg:"images/sandwich.jpg",
+      foodNutrition:"some image.."
+    }
 
-  addAllFoodItems();
+  ];
+
+  for(let i = 0; i < listFoodItems.length;i++){
+    console.log("Food Category: " + listFoodItems[i].foodCategory 
+                  +", Food Name: " + listFoodItems[i].foodName 
+                  + ", food Price: " + listFoodItems[i].foodPrice
+                  + ", Food Description: " + listFoodItems[i].foodDesc
+                  + ", Food Image: " + listFoodItems[i].foodImg
+                  + ", Food Nutrition: " + listFoodItems[i].foodNutrition);
+  }
+
+  addAllFoodItems(listFoodItems);
 }//end main
 
 
 /**
  * addAllFoodItems - a function that adds all the food items for the menu.
+ * @param listFoodItems contains a list of food items to be displayed on the menu page.
  */
-function addAllFoodItems(){
+function addAllFoodItems(listFoodItems){
 
+  
+  for(let i = 0; i < listFoodItems.length;i++){
+    let foodCategory = listFoodItems[i].foodCategory;
+    let foodName = listFoodItems[i].foodName;
+    let foodPrice = listFoodItems[i].foodPrice;
+    let foodDesc = listFoodItems[i].foodDesc;
+    let foodImg = listFoodItems[i].foodImg;
+    let foodNutrition = listFoodItems[i].foodNutrition;
+
+    addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg);
+  }//end for
+
+
+
+  /*
   //ADD FOOD ITEMS HERE (Name of the category,foodName,foodPrice,foodDescription,foodImage)
   addFoodItems("Appetizer","Omelet",6.92,"This is the food description for Omelet","images/omelet.jpg");
   addFoodItems("Appetizer","Sandwich",5.99,"This is the food description for Sandwich","images/sandwich.jpg");
@@ -45,6 +98,7 @@ function addAllFoodItems(){
   addFoodItems("Side", "Meat ball", 10.99, "This is food description for Meat ball", "images/italian_side.jpg");
   addFoodItems("Side", "Salad", 6.99, "This is food description for Salad", "images/pizza_side.jpg");
   addFoodItems("Side", "Salad2", 8.99, "This is food description for Salad2", "images/italian_appe.jpg");
+  */
 
 }//end addAllFoodItems
 
