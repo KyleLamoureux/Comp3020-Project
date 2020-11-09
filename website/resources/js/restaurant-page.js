@@ -136,6 +136,8 @@ function reset(){
     document.getElementById("dropdownblock").style.display = "";
 }
 
+// This variable supports reverse sorting... boy is this getting messy lmao. Glad they don't look at the code.
+var activeCategories = allCats();
 
 // Call this to refresh restaurants UI
 function createRestaurants(){
@@ -275,7 +277,6 @@ function createItemOrb(element, random=false){
     return div;
 }
 
-var activeCategories = allCats();
 
 // Call this to refresh categories UI
 function createCategories(){
