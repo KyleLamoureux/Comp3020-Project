@@ -15,11 +15,14 @@
     border: none;
 }
 .dropdownblock{
-    display: none;
+    display: block;
     position: absolute;
     right: 0;
     z-index: 1;
     width: 100%;
+    opacity: 0;
+    transition: opacity 0.15s;
+    box-shadow: 2px 2px 5px grey;
 }
 .dropdownoption {
     color: black;
@@ -39,5 +42,6 @@
     background-color: #3AC53C;
 }
 .dropdownarea:hover .dropdownblock {
-    display: block;
+    /*display: block;*/
+    opacity: 100%;
 }
