@@ -62,7 +62,7 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
 
   let categoryNames = document.getElementsByClassName("menu-categories");
 
-  //need to determine which category the food will be added. 
+  //need to determine which category the food belongs to. 
   let index = 0;
   for(let i = 0; i < categoryNames.length; i++){
     if(foodCategory === categoryNames[i].getElementsByClassName("menu-category-name")[0].innerText){
