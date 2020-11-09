@@ -1,98 +1,3 @@
-/* Data */
-restaurants = [
-    {
-        name: "Perkins",
-        id: "perkins",
-        img: "../resources/images/restaurant-page/restaurants/perkins/perkins.png",
-        type: ["Breakfast"],
-        foodItems: [
-            {
-                name: "Pancakes",
-                img: "../resources/images/restaurant-page/restaurants/perkins/pancake.jpg",
-                restaurant: "Perkins"
-            },
-            {
-                name: "Sandwiches",
-                img: "../resources/images/restaurant-page/restaurants/perkins/sandwich.jpg",
-                restaurant: "Perkins"
-            },
-            {
-                name: "Omelet",
-                img: "../resources/images/restaurant-page/restaurants/perkins/omelet.jpg",
-                restaurant: "Perkins"
-            }
-        ],
-        distance: 3.8,
-        time: 25,
-        price: 20,
-        popularity: 4,
-        description: "Restaurant description :)",
-        href: "link"
-    },
-    {
-        name: "McDonalds",
-        id: "mcdonalds",
-        img: "../resources/images/restaurant-page/restaurants/mcdonalds/mcdonalds.png",
-        type: ["Burgers"],
-        foodItems: [
-            {
-                name: "Big Mac",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/bigmac.jpg",
-                restaurant: "McDonalds"
-            },
-            {
-                name: "Fries",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/fries.jpg",
-                restaurant: "McDonalds"
-            },
-            {
-                name: "Ice Cream",
-                img: "../resources/images/restaurant-page/restaurants/mcdonalds/icecream.jpg",
-                restaurant: "McDonalds"
-            }
-        ],
-        distance: 6.3,
-        time: 37,
-        price: 5,
-        popularity: 2,
-        description: "Restaurant description :)",
-        href: "link"
-    },
-    
-];
-
-var restaurants_categories = [
-    {
-        name: "Burgers",
-        img: "../resources/images/restaurant-page/categories/burger.jpg",
-        active: true
-    },
-    {
-        name: "Pizza", 
-        img: "../resources/images/restaurant-page/categories/pizza.jpg",
-        active: true
-    },
-    {
-        name: "Mexican", 
-        img: "../resources/images/restaurant-page/categories/mexican.jpg",
-        active: true
-    },
-    {
-        name: "Sushi", 
-        img: "../resources/images/restaurant-page/categories/sushi.jpg",
-        active: true
-    },
-    {
-        name: "Pasta", 
-        img: "../resources/images/restaurant-page/categories/pasta.jpg",
-        active: true
-    },
-    {
-        name: "Breakfast",
-        img: "../resources/images/restaurant-page/categories/breakfast.jpg",
-        active: true
-    }
-];
 
 
 /**
@@ -114,7 +19,7 @@ function fillAddress(){
 var lastSort = '';
 function sortby(type){
     try{
-        document.getElementById("dropdownblock").style.display = "none";
+        document.getElementById("dropdownblock").style.opacity = "0";
         restaurants.sort((a,b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 0));
         if (lastSort == type){
             restaurants.reverse();
@@ -133,7 +38,7 @@ function sortby(type){
  * Please don't touch this lol
  */
 function reset(){
-    document.getElementById("dropdownblock").style.display = "";
+    document.getElementById("dropdownblock").style.opacity = "";
 }
 
 // This variable supports reverse sorting... boy is this getting messy lmao. Glad they don't look at the code.
@@ -316,9 +221,11 @@ function createCategories(){
     });
 
     $(".scrollbar-food-category").slick({
-        infinite: true,
+        infinite: false,
         slidesToShow: 4,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
+        speed: 350,
+        initialSlide: 1,
         arrows: true,
         prevArrow: '<div class="chevron">&#8249;</div>',
         nextArrow: '<div class="chevron">&#8250;</div>'
@@ -359,22 +266,6 @@ function createDivCat(element){
 
     return div;
 };
-
-// Sort based on category image click
-function sortOnClick(element){
-    restaurants_categories.forEach(iter => {
-        console.log("t" + iter["name"] + " ");
-        console.log(element["target"]);
-        if(iter["name"] == element["target"]["id"]){
-            iter["active"] = !iter["active"];
-        }
-    });
-    console.log("test");
-    console.log(restaurants_categories);
-    // createCategories();
-    createRestaurants();
-};
-
 
 
 /* Helpers */
