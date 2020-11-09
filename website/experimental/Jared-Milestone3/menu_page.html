@@ -5,8 +5,7 @@
         <link rel="stylesheet" href="css/menu.css">
         <link rel="stylesheet" href="css/summary.css">
         <link rel="stylesheet" href="css/cart.css">
-        <script src="./main.js" async></script>
-        <script src="./script.js"></script>
+        <script src="./menu_page.js" async></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -14,9 +13,9 @@
         <div id="background">
             <section id="menu-section">
         
-                <h2 class="heading-text">Restaurant name</h2>
-                <hr>
                 <div class= "categories">
+                    <h2 class="heading-text">Restaurant name</h2>
+                <hr>
                     <div class="scrollbar-category">
                         <a href="#category_appetizer">
                             <div class="category-item">
@@ -33,9 +32,11 @@
                                 <h5>Side</h5>
                             </div>
                         </a>
-                        <div class="category-item">
-                            <h5>Dessert</h5>
-                        </div>   
+                        <a href="#category_dessert">
+                            <div class="category-item">
+                                <h5>Dessert</h5>
+                            </div>
+                        </a>   
                         <div class="category-item">
                             <h5>Breakfast</h5>
                         </div>   
@@ -47,146 +48,50 @@
                 </div>
 
                 <div class="menulist">
+
                     <!--appetizer menu-->
-                    <div id = "category_appetizer">
-                        <h3 class="category_name">Appetizer</h3>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_appe.jpg');"
-                                onclick="on()">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
+                    <div class="menu-categories">
+                        <h3 id="category_appetizer" class="menu-category-name">Appetizer</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                            <!--Food items for Appetizer are inserted in main.js-->
                         </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_appe.jpg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
+
+                     </div>
+
+                      <!--Main menu-->
+                    <div class="menu-categories">
+                        <h3 id="category_main" class="menu-category-name">Main</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                           <!--Food items for Main are inserted in main.js-->
                         </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_appe.jpg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
+
+                     </div>
+
+                      <!--Side menu-->
+                    <div class="menu-categories">
+                        <h3 id="category_side" class="menu-category-name">Side</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                           <!--Food items for Main are inserted in main.js-->
                         </div>
-                    </div>
-                    
-                    <!--main menu-->
-                    <div id = "category_main">
-                        <h3 class="category_name">Main</h3>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_main.jpeg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
+
+                     </div>
+
+
+                      <!--Dessert menu-->
+                    <div class="menu-categories">
+                        <h3 id="category_dessert" class="menu-category-name">Dessert</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                           <!--Food items for Main are inserted in main.js-->
                         </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_main.jpeg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_main.jpeg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                    
-                    </div>
-                    <!--side menu-->
-                    <div id = "category_side">
-                        <h3 class="category_name">Side</h3>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_side.jpeg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_side.jpeg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_side.jpeg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                    </div>
-                    <!--dessert menu-->
-                    <div id = "category_dessert">
-                        <h3 class="category_name">Dessert</h3>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_dessert.jpg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_dessert.jpg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                        <div class="bubbleholder">
-                            <div class="bubble" style="background-image: url('./images/burger_dessert.jpg');">
-                                <div class="info">
-                                    <p>freshly made food with special ingredients and our
-                                        signature pasta served with garlic bread</p>
-                                </div>
-                            </div>
-                            <h5 class="food-item-name">name</h5>
-                            <h5 class="food-item-price">$13.29</h5>
-                        </div>
-                    </div>
-                </div>
+
+                     </div>
+
+                </div> <!--end menulist-->
+                
             </section> <!--end menu section (left side)-->
     
             <section id="cart-section">
@@ -197,40 +102,18 @@
                     <div class="cart-row">
                         <span class="cart-item cart-header cart-column">Item</span>
                         <span class="cart-price cart-header cart-column">Price</span>
-                        <span class="cart-modify cart-header cart-column"></span>
+                        <span class="cart-modify cart-header cart-column">Remove</span>
                     </div>
                     <div class="cart-items">
-                        <div class="cart-row">
-                            <div class="cart-item cart-column">
-                                <img class="cart-item-image" src="images/burger.jpg" width="80px" height="80px">
-                                <span class="cart-item-title">Burger</span>
-                            </div>
-                            <span class="cart-price cart-column">$8.99</span>
-                            <div class="cart-modify cart-column">
-                                <button class="btn-edit" type="button">EDIT</button>
-                                <button class="btn btn-remove" type="button">REMOVE</button>
-                            </div>
-                        </div>
-                        <div class="cart-row">
-                            <div class="cart-item cart-column">
-                                <img class="cart-item-image" src="images/pancake.jpg" width="80px" height="80px">
-                                <span class="cart-item-title">Pancake</span>
-                            </div>
-                            <span class="cart-price cart-column">$5.99</span>
-                            <div class="cart-modify cart-column">
-                                <button class="btn-edit" type="button">EDIT</button>
-                                <button class="btn-remove" type="button">REMOVE</button>
-                            </div>
-                        </div>
+                        <!--list of cart items go here-->
                     </div>
     
                     <div class="checkout-div">
-                        <h3 id="total-order">Total: $123.12</h3>
-                        <button id="btnCheckout" onclick="proceedCheckout()" type="button">Checkout</button>
+                        <h4 class="total-order">Subtotal: $0</h4>
+                        <button class="btnCheckout" onclick="proceedCheckout()" type="button">Checkout</button>
         
                     </div>
                     
-                   
                 </div>
                
     
@@ -238,7 +121,16 @@
             
         </div> <!--end background (Menu page)-->
        
-            <!-- The Order Summary Page -->
+
+        <!--NOT DONE. LAYOUT NEED TO BE FIXED-->
+          <!-- Menu decription modal-->
+          <div id="menu-modal" class="modal">
+              <!--Food Item content-->
+          
+        </div> <!-- Menu decription modal end-->
+
+    
+        <!-- The Order Summary Page -->
         <div id="summary-page" class="modal">
             <!-- Order Summary page content -->
             <div class="modal-content">
