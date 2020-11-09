@@ -130,6 +130,9 @@ function createRestaurants(){
     clearDiv(eleList);
 
     types = hiddenTypes();
+    if (activeCategories.length !== allCats().length){
+        types = activeCategories;
+    }
 
     eleList.appendChild(createRandomization());
     restaurants.forEach(element => {
@@ -142,6 +145,9 @@ function createRestaurants(){
 function createRandomization() {
     var listOfMenuItems = [];
     types = hiddenTypes();
+    if (activeCategories.length !== allCats().length){
+        types = activeCategories;
+    }
     restaurants.forEach(e => {
         if (!e["type"].some(item => types.includes(item)))
         listOfMenuItems = listOfMenuItems.concat(e['foodItems']);
@@ -256,6 +262,8 @@ function createItemOrb(element, random=false){
     return div;
 }
 
+var activeCategories = allCats();
+
 // Call this to refresh categories UI
 function createCategories(){
     var eleList = document.getElementById("scollbarFoodCategory");
@@ -272,7 +280,7 @@ function createCategories(){
         // alert(event.target["id"]);
         // element.css("opacity: 0%");
         restaurants_categories.forEach(iter => {
-            console.log("t" + iter["name"] + " ");
+            //console.log("t" + iter["name"] + " ");
             // console.log(event.element["target"]);
             if(iter["name"] === event.target["id"]){
                 iter["active"] = !iter["active"];
@@ -281,8 +289,15 @@ function createCategories(){
                 }else{
                     $(this).find(".food-item-check").css("opacity", "75%");
                 }
-            }
+            } 
         });
+
+        if (activeCategories.includes(event.target["id"])){
+            activeCategories.splice(activeCategories.indexOf(event.target["id"]), 1);
+        } else {
+            activeCategories.push(event.target["id"]);
+        }
+        //console.log(activeCategories);
         createRestaurants();
     });
 
@@ -312,7 +327,7 @@ function createDivCat(element){
     overlay.className="food-item-overlay";
     overlay.id = element["name"];
 
-    // div.onclick = sortOnClick;
+    //div.onclick = sortOnClick;
 
     var overlaycheck = document.createElement("div");
     overlaycheck.innerHTML="&#x2713;"
@@ -340,6 +355,7 @@ function sortOnClick(element){
             iter["active"] = !iter["active"];
         }
     });
+    console.log("test");
     console.log(restaurants_categories);
     // createCategories();
     createRestaurants();
@@ -368,4 +384,12 @@ function hiddenTypes(){
             disabled.push(item['name']);
     });
     return disabled;
+}
+
+function allCats(){
+    all = [];
+    restaurants_categories.forEach(item => {
+        all.push(item['name']);
+    });
+    return all;
 }
