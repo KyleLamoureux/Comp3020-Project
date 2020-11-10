@@ -47,11 +47,38 @@
 /*    opacity: 100%;*/
 /*}*/
 
+.categories{
+    display: flex;
+    flex-direction: column;
+}
+
+.cancelButton{
+    background-color: indianred;
+    filter: brightness(100%);
+    font-size: 15px;
+    /*margin-top: 5vw;*/
+    visibility: hidden;
+    display: block;
+    outline: none;
+    box-shadow: 0 0 2px 1px grey;
+    border-radius: 10px;
+    border: none;
+    max-width: 5vw;
+    transition: all 0.1s linear;
+    margin-top: -1.33vw;
+    margin-left: 4vw;
+    /*margin-bottom: 1vw;*/
+}
+.cancelButton:hover{
+    filter: brightness(130%);
+}
+
 .scrollbar-food-category{
     /*background-color: rgba(204, 223, 135, 0.541);*/
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+
     /*margin: 0 0.5vw;*/
     justify-content: center;
     width: 38vw;
@@ -88,6 +115,10 @@
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     transition: opacity 0.4s;
+}
+
+.greyoverlay{
+
 }
 
 .food-item-overlay:hover{
