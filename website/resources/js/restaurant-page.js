@@ -1,4 +1,17 @@
 
+
+/**
+ * Homepage Data
+ */
+userAddress = localStorage.getItem('user-address');
+function fillAddress(){
+    if(userAddress === null || userAddress.length === 0){
+        document.getElementById("user-address").innerText = "No Address Input";
+    } else {
+        document.getElementById("user-address").innerText = userAddress;
+    }
+}
+
 /**
  * Js hook for sortby dropdown
  * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
@@ -28,6 +41,8 @@ function reset(){
     document.getElementById("dropdownblock").style.opacity = "";
 }
 
+// This variable supports reverse sorting... boy is this getting messy lmao. Glad they don't look at the code.
+var activeCategories = allCats();
 
 // Call this to refresh restaurants UI
 function createRestaurants(){
@@ -35,20 +50,40 @@ function createRestaurants(){
     clearDiv(eleList);
 
     types = hiddenTypes();
+    if (activeCategories.length !== allCats().length){
+        types = activeCategories;
+    }
 
     eleList.appendChild(createRandomization());
     restaurants.forEach(element => {
-        if (!element["type"].some(item => types.includes(item)))
+        if (doIContain(element["type"], types))
             eleList.appendChild(createRestListItem(element));
     });
 
 };
 
+/*
+* check for types overlap.
+*/
+function doIContain(element, types){
+    var anwser = false;
+    for(var i = 0; i < element.length; i++){
+        if(!types.includes(element[i])){
+            var anwser = true;
+            break;
+        }
+    }
+    return anwser;
+}
+
 function createRandomization() {
     var listOfMenuItems = [];
     types = hiddenTypes();
+    if (activeCategories.length !== allCats().length){
+        types = activeCategories;
+    }
     restaurants.forEach(e => {
-        if (!e["type"].some(item => types.includes(item)))
+        if (doIContain(e["type"], types))
         listOfMenuItems = listOfMenuItems.concat(e['foodItems']);
     });
     for (var i = listOfMenuItems.length - 1; i > 0; i--) {
@@ -123,6 +158,7 @@ function createRestListItem(element){
     // Create sub div
     var itemDiv = document.createElement("div");
     itemDiv.className = "restaurant-item";
+    itemDiv.style.backgroundColor = element['backgroundColour'];
 
     // Create img
     var img = document.createElement("img");
@@ -141,7 +177,11 @@ function createRestListItem(element){
     dist.textContent = element["distance"]+" km";
     var time = document.createElement("h6");
     time.className = "restaurant-time";
-    time.textContent = element["time"]+" m"; 
+    time.textContent = element["time"]+" m";
+    if(Object.keys(element).includes('textColour')){
+        dist.style.color = element['textColour']
+        time.style.color = element['textColour']
+    }
     infoDiv = appendMultiple(infoDiv, [dist, time]);
 
     var imgOverlay = document.createElement("div");
@@ -191,6 +231,7 @@ function createItemOrb(element, random=false){
     return div;
 }
 
+
 // Call this to refresh categories UI
 function createCategories(){
     var eleList = document.getElementById("scollbarFoodCategory");
@@ -207,7 +248,7 @@ function createCategories(){
         // alert(event.target["id"]);
         // element.css("opacity: 0%");
         restaurants_categories.forEach(iter => {
-            console.log("t" + iter["name"] + " ");
+            //console.log("t" + iter["name"] + " ");
             // console.log(event.element["target"]);
             if(iter["name"] === event.target["id"]){
                 iter["active"] = !iter["active"];
@@ -216,8 +257,15 @@ function createCategories(){
                 }else{
                     $(this).find(".food-item-check").css("opacity", "75%");
                 }
-            }
+            } 
         });
+
+        if (activeCategories.includes(event.target["id"])){
+            activeCategories.splice(activeCategories.indexOf(event.target["id"]), 1);
+        } else {
+            activeCategories.push(event.target["id"]);
+        }
+        //console.log(activeCategories);
         createRestaurants();
     });
 
@@ -249,7 +297,7 @@ function createDivCat(element){
     overlay.className="food-item-overlay";
     overlay.id = element["name"];
 
-    // div.onclick = sortOnClick;
+    //div.onclick = sortOnClick;
 
     var overlaycheck = document.createElement("div");
     overlaycheck.innerHTML="&#x2713;"
@@ -290,4 +338,12 @@ function hiddenTypes(){
             disabled.push(item['name']);
     });
     return disabled;
+}
+
+function allCats(){
+    all = [];
+    restaurants_categories.forEach(item => {
+        all.push(item['name']);
+    });
+    return all;
 }

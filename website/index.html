@@ -1,14 +1,36 @@
 <!DOCTYPE html>
-<html>
-    <link href="./resources/css/index.css" type="text/css" rel="stylesheet">
-    <script src="./resources/js/index.js"></script>
-    <head>
-        <title>Food Co.</title>
-        <h1>Food Co.</h1>
-    </head>
-    <body>
-        <button onclick="testFunction()">Click Me</button>
-        <p id="test">
-        </p>
-    </body>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WindowDash</title>
+    <link rel="stylesheet" type="text/css" href="./resources/css/homepage.css">
+    <script src="https://kit.fontawesome.com/c8bb39f35e.js" crossorigin="anonymous"></script>
+    <script src="./resources/js/homepage.js"></script>
+</head>
+
+<body onload="onLoad()">
+    <div class="homepage">
+        <div class="homepage-content">
+            <h1 class="homepage-title">You Are At The Right Place</h1>
+            <div class="bar-container">
+                <table class="bar-element">
+                    <tr>
+                        <td>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </td>
+                        <td>
+                            <input id="user-address-input" type="text" placeholder="Enter your address...">
+                        </td>
+                        <td>
+                            <i onclick="saveAddress()" class="fas fa-search-location"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>

@@ -1,32 +1,66 @@
+const cRoot = "../resources/images/restaurant-page/categories/"
 restaurants_categories = [
     {
         name: "Burgers",
-        img: "../resources/images/restaurant-page/categories/burger.jpg",
+        img: cRoot+"burger.jpg",
         active: true
     },
     {
         name: "Pizza",
-        img: "../resources/images/restaurant-page/categories/pizza.jpg",
+        img: cRoot+"pizza.jpg",
         active: true
     },
     {
         name: "Mexican",
-        img: "../resources/images/restaurant-page/categories/mexican.jpg",
+        img: cRoot+"mexican.jpg",
         active: true
     },
     {
         name: "Sushi",
-        img: "../resources/images/restaurant-page/categories/sushi.jpg",
-        active: true
-    },
-    {
-        name: "Pasta",
-        img: "../resources/images/restaurant-page/categories/pasta.jpg",
+        img: cRoot+"sushi.jpg",
         active: true
     },
     {
         name: "Breakfast",
-        img: "../resources/images/restaurant-page/categories/breakfast.jpg",
+        img: cRoot+"breakfast.jpg",
+        active: true
+    },
+    {
+        name: "Italian",
+        img: cRoot+"italian.jpg",
+        active: true
+    },
+    {
+        name: "Asian",
+        img: cRoot+"asian.jpg",
+        active: true
+    },
+    {
+        name: "Vietnamese",
+        img: cRoot+"vietnamese.jpg",
+        active: true
+    },
+    {
+        name: "Japanese",
+        img: cRoot+"japanese.jpg",
+        active: true
+    },
+    {
+        name: "Korean",
+        img: cRoot+"korean.jpg",
+        active: true
+    },
+    {
+        name: "Indian",
+        img: cRoot+"indian.jpg",
         active: true
     }
 ];
+
+/*
+    {
+        name: "Pasta",
+        img: cRoot+"pasta.jpg",
+        active: true
+    },
+*/
