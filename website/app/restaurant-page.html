@@ -21,8 +21,8 @@
     <div class="website-header" id="website-header">
         <div class="search" id="searchbar">
             <i class="fa fa-search" id="searchicon"></i>
-            <input type="text" placeholder="Search..">
-            <i class="fa fa-close" id="xicon"></i>
+            <input type="text" placeholder="Search.." oninput="onSearch()" id="searchbox">
+            <i class="fa fa-close" id="xicon" onclick="clearSearch()"></i>
         </div>
         <div class="service">
             <h2>Food Co.</h2>
@@ -40,7 +40,7 @@
             </div>
             <button class="cancelButton" onclick="clearSelection()">Reset</button>
         </div>
-
+<!--        <div class="greyoverlay"></div>-->
 <!--        <div class="chevron">&#8250;</div>-->
     </div>
 

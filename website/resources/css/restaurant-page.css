@@ -66,6 +66,11 @@ body{
     font-size: 20px;
     margin-right: 4px;
     opacity: 70%;
+    visibility: hidden;
+    transition: opacity 0.3s;
+}
+.fa-close :hover{
+    opacity: 100%;
 }
 
 

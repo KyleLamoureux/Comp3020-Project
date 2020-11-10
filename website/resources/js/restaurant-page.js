@@ -189,6 +189,27 @@ function clearSelection(){
     createRestaurants();
 }
 
+/**
+ * Called when a string of text is entered into the search box
+ */
+function onSearch(){
+    var x = document.getElementById("searchbox").value;
+    if(!x){
+         clearSearch();
+    }else{
+        $('#xicon').css("visibility", "visible");
+    }
+
+}
+
+/**
+ * Called when the little 'x' is clicked in the search bar
+ */
+function clearSearch(){
+    document.getElementById("searchbox").value = "";
+    $('#xicon').css("visibility", "hidden");
+}
+
 // Creates li.
 function createRestListItem(element){
     var li = document.createElement("li");
