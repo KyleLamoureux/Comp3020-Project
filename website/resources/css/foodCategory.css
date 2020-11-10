@@ -11,10 +11,9 @@
 .chevron{
     color:black;
     font-size: 100px;
-    margin-left: 0;
+    margin: -2vw 0 0 0.4vw;
     /*top:10%;*/
     opacity: 65%;
-    margin-top: -10px;
     transition: opacity 0.2s;
 }
 .chevron:hover{
@@ -81,7 +80,8 @@
 
     /*margin: 0 0.5vw;*/
     justify-content: center;
-    width: 38vw;
+    width: 38.5vw;
+    height: 8vw;
     /*border: 1px solid black;*/
     /*overflow: hidden;*/
 }
@@ -91,7 +91,7 @@
     color: #333;
     /*padding: 13px;*/
     min-width: 7vw;
-    margin: auto;
+    margin: 0 0 0 -0.4vw;
     /*margin: 0 1vw;*/
     min-height: 7vw;
     position: relative;
@@ -153,7 +153,7 @@
 .slick-prev:before {
     content: "\2039";
     color:black;
-    font-size: 75px;
+    font-size: 5px;
     margin-right: 10px;
     opacity: 65%;
     transition: opacity 0.2s;
@@ -168,7 +168,7 @@
 .slick-next:before {
     content: "\203A";
     color:black;
-    font-size: 75px;
+    font-size: 5px;
     margin-left: 10px;
     opacity: 65%;
     transition: opacity 0.2s;
