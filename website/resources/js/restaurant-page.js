@@ -5,7 +5,7 @@
  */
 userAddress = localStorage.getItem('user-address');
 function fillAddress(){
-    if(userAddress.length === 0){
+    if(userAddress === null || userAddress.length === 0){
         document.getElementById("user-address").innerText = "No Address Input";
     } else {
         document.getElementById("user-address").innerText = userAddress;
@@ -56,11 +56,25 @@ function createRestaurants(){
 
     eleList.appendChild(createRandomization());
     restaurants.forEach(element => {
-        if (!element["type"].some(item => types.includes(item)))
+        if (doIContain(element["type"], types))
             eleList.appendChild(createRestListItem(element));
     });
 
 };
+
+/*
+* check for types overlap.
+*/
+function doIContain(element, types){
+    var anwser = false;
+    for(var i = 0; i < element.length; i++){
+        if(!types.includes(element[i])){
+            var anwser = true;
+            break;
+        }
+    }
+    return anwser;
+}
 
 function createRandomization() {
     var listOfMenuItems = [];
@@ -69,7 +83,7 @@ function createRandomization() {
         types = activeCategories;
     }
     restaurants.forEach(e => {
-        if (!e["type"].some(item => types.includes(item)))
+        if (doIContain(e["type"], types))
         listOfMenuItems = listOfMenuItems.concat(e['foodItems']);
     });
     for (var i = listOfMenuItems.length - 1; i > 0; i--) {
@@ -114,6 +128,7 @@ function createRestListItem(element){
     // Create sub div
     var itemDiv = document.createElement("div");
     itemDiv.className = "restaurant-item";
+    itemDiv.style.backgroundColor = element['backgroundColour'];
 
     // Create img
     var img = document.createElement("img");
