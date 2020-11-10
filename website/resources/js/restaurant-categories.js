@@ -40,6 +40,21 @@ restaurants_categories = [
         img: cRoot+"vietnamese.jpg",
         active: true
     },
+    {
+        name: "Japanese",
+        img: cRoot+"japanese.jpg",
+        active: true
+    },
+    {
+        name: "Korean",
+        img: cRoot+"korean.jpg",
+        active: true
+    },
+    {
+        name: "Indian",
+        img: cRoot+"indian.jpg",
+        active: true
+    }
 ];
 
 /*

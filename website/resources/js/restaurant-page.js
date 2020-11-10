@@ -147,7 +147,11 @@ function createRestListItem(element){
     dist.textContent = element["distance"]+" km";
     var time = document.createElement("h6");
     time.className = "restaurant-time";
-    time.textContent = element["time"]+" m"; 
+    time.textContent = element["time"]+" m";
+    if(Object.keys(element).includes('textColour')){
+        dist.style.color = element['textColour']
+        time.style.color = element['textColour']
+    }
     infoDiv = appendMultiple(infoDiv, [dist, time]);
 
     var imgOverlay = document.createElement("div");
