@@ -180,6 +180,15 @@ function randomItemClick(item){
     console.log(item['target']['alt']);
 }
 
+function clearSelection(){
+    restaurants_categories.forEach(iter => {
+        iter["active"] = true;
+    });
+    $(".food-item-check").css("opacity", "0%");
+    $(".cancelButton").css("visibility", "hidden");
+    createRestaurants();
+}
+
 // Creates li.
 function createRestListItem(element){
     var li = document.createElement("li");
@@ -266,7 +275,7 @@ function createCategories(){
     });
 
     $(".food-item").click(function(event){
-
+        $(".cancelButton").css("visibility", "visible");
         // let element = $(this);
         // var e = event.target;
         // alert(event.target["id"]);

@@ -34,7 +34,6 @@ body{
     background:#555;
 }
 
-/* Style the search box inside the navigation bar */
 .search input[type=text] {
     position: relative;
     display: inline;

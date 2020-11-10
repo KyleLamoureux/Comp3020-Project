@@ -19,7 +19,7 @@
 </head>
 <body>
     <div class="website-header" id="website-header">
-        <div class="search">
+        <div class="search" id="searchbar">
             <i class="fa fa-search" id="searchicon"></i>
             <input type="text" placeholder="Search..">
             <i class="fa fa-close" id="xicon"></i>
@@ -32,11 +32,15 @@
 
     <div class="category-container">
 <!--        <div class="chevron">&#8249;</div>-->
-        <div class="scrollbar-food-category" id="scollbarFoodCategory">
-            <script>
-                createCategories();
-            </script>
+        <div class="categories">
+            <div class="scrollbar-food-category" id="scollbarFoodCategory">
+                <script>
+                    createCategories();
+                </script>
+            </div>
+            <button class="cancelButton" onclick="clearSelection()">Reset</button>
         </div>
+
 <!--        <div class="chevron">&#8250;</div>-->
     </div>
 
