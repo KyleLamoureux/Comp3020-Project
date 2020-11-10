@@ -45,6 +45,8 @@ body{
     height: 25px;
     outline: none;
     width: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .search{
