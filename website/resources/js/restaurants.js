@@ -149,7 +149,7 @@ restaurants = [
         time: 25,
         price: 15,
         popularity: 3,
-        description: "",
+        description: "Relaxed restaurant serving a menu of Pan-Asian dishes.",
         href: "link",
         backgroundColour: '#f37022'
     },
