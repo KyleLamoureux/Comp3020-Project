@@ -4,7 +4,8 @@
         <title>Menu Page</title>
         <link rel="stylesheet" href="css/menu.css">
         <link rel="stylesheet" href="css/summary.css">
-        <script src="main.js"></script>
+        <link rel="stylesheet" href="css/cart.css">
+        <script src="./menu_page.js" async></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -12,22 +13,30 @@
         <div id="background">
             <section id="menu-section">
         
-                <h2 class="heading-text">Restaurant name</h2>
-                <hr>
                 <div class= "categories">
+                    <h2 class="heading-text">Restaurant name</h2>
+                <hr>
                     <div class="scrollbar-category">
-                        <div class="category-item">
-                            <h5>Appetizer</h5>
-                        </div>   
-                        <div class="category-item">
-                            <h5>Main</h5>
-                        </div>    
-                        <div class="category-item">
-                            <h5>Dessert</h5>
-                        </div>   
-                        <div class="category-item">
-                            <h5>Drinks</h5>
-                        </div>   
+                        <a href="#category_appetizer">
+                            <div class="category-item">
+                                <h5>Appetizer</h5>
+                            </div>
+                        </a>   
+                        <a href="#category_main">
+                            <div class="category-item">
+                                <h5>Main</h5>
+                            </div>
+                        </a>
+                        <a href="#category_side">    
+                            <div class="category-item">
+                                <h5>Side</h5>
+                            </div>
+                        </a>
+                        <a href="#category_dessert">
+                            <div class="category-item">
+                                <h5>Dessert</h5>
+                            </div>
+                        </a>   
                         <div class="category-item">
                             <h5>Breakfast</h5>
                         </div>   
@@ -37,6 +46,52 @@
                         
                     </div>
                 </div>
+
+                <div class="menulist">
+
+                    <!--appetizer menu-->
+                    <div class="menu-categories">
+                        <h3 id="category_appetizer" class="menu-category-name">Appetizer</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                            <!--Food items for Appetizer are inserted in main.js-->
+                        </div>
+
+                     </div>
+
+                      <!--Main menu-->
+                    <div class="menu-categories">
+                        <h3 id="category_main" class="menu-category-name">Main</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                           <!--Food items for Main are inserted in main.js-->
+                        </div>
+
+                     </div>
+
+                      <!--Side menu-->
+                    <div class="menu-categories">
+                        <h3 id="category_side" class="menu-category-name">Side</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                           <!--Food items for Main are inserted in main.js-->
+                        </div>
+
+                     </div>
+
+
+                      <!--Dessert menu-->
+                    <div class="menu-categories">
+                        <h3 id="category_dessert" class="menu-category-name">Dessert</h3>
+                        <hr class="menu-category-name-underlined">
+                        <div class="menu-category-grouped-items">
+                           <!--Food items for Main are inserted in main.js-->
+                        </div>
+
+                     </div>
+
+                </div> <!--end menulist-->
+                
             </section> <!--end menu section (left side)-->
     
             <section id="cart-section">
@@ -44,20 +99,31 @@
                 <hr>
     
                 <div class="order-div">
-                    <div class="ordered-group-items">
-                        <ul class="ordered-list">
-                            <li class="ordered-item">Order 1</li>
-                            <li class="ordered-item">Order 2</li>
-                        </ul>
+                    <div class="cart-row">
+                        <span class="cart-item cart-header cart-column">Item</span>
+                        <span class="cart-price cart-header cart-column">Price</span>
+                        <span class="cart-modify cart-header cart-column">Remove</span>
+                    </div>
+                    <div class="cart-items">
+                        <!--list of cart items go here-->
                     </div>
     
                     <div class="checkout-div">
-                        <h3 id="total-order">Total: $123.12</h3>
-                        <button id="btnCheckout" onclick="proceedCheckout()" type="button">Checkout</button>
+                        <h4 class="total-order">Subtotal: $0</h4>
+                        <button class="btnCheckout" onclick="proceedCheckout()" type="button">Checkout</button>
         
                     </div>
                     
-                   
+                </div>
+
+                <div class="nutritional-info">
+                    <div id="nutritional-info-checkbox"> 
+                        <input type="checkbox" id="nutritional-info-text">
+                        <label for="nutritional-info-text">Show nutritional Information</label>
+                    </div>
+                    
+                    <img class="nutritional-info-img" src="images/piecharts/piechart6.png" alt="piechart1">
+
                 </div>
                
     
@@ -65,7 +131,16 @@
             
         </div> <!--end background (Menu page)-->
        
-            <!-- The Order Summary Page -->
+
+        <!--NOT DONE. LAYOUT NEED TO BE FIXED-->
+          <!-- Menu decription modal-->
+          <div id="menu-modal" class="modal">
+              <!--Food Item content-->
+          
+        </div> <!-- Menu decription modal end-->
+
+    
+        <!-- The Order Summary Page -->
         <div id="summary-page" class="modal">
             <!-- Order Summary page content -->
             <div class="modal-content">

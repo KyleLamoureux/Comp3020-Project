@@ -120,6 +120,36 @@ function randomItemClick(item){
     console.log(item['target']['alt']);
 }
 
+function clearSelection(){
+    restaurants_categories.forEach(iter => {
+        iter["active"] = true;
+    });
+    $(".food-item-check").css("opacity", "0%");
+    $(".cancelButton").css("visibility", "hidden");
+    createRestaurants();
+}
+
+/**
+ * Called when a string of text is entered into the search box
+ */
+function onSearch(){
+    var x = document.getElementById("searchbox").value;
+    if(!x){
+         clearSearch();
+    }else{
+        $('#xicon').css("visibility", "visible");
+    }
+
+}
+
+/**
+ * Called when the little 'x' is clicked in the search bar
+ */
+function clearSearch(){
+    document.getElementById("searchbox").value = "";
+    $('#xicon').css("visibility", "hidden");
+}
+
 // Creates li.
 function createRestListItem(element){
     var li = document.createElement("li");
@@ -212,7 +242,7 @@ function createCategories(){
     });
 
     $(".food-item").click(function(event){
-
+        $(".cancelButton").css("visibility", "visible");
         // let element = $(this);
         // var e = event.target;
         // alert(event.target["id"]);

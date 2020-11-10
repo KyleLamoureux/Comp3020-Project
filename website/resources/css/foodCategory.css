@@ -11,10 +11,9 @@
 .chevron{
     color:black;
     font-size: 100px;
-    margin-left: 0;
+    margin: -2vw 0 0 0.4vw;
     /*top:10%;*/
     opacity: 65%;
-    margin-top: -10px;
     transition: opacity 0.2s;
 }
 .chevron:hover{
@@ -47,14 +46,42 @@
 /*    opacity: 100%;*/
 /*}*/
 
+.categories{
+    display: flex;
+    flex-direction: column;
+}
+
+.cancelButton{
+    background-color: indianred;
+    filter: brightness(100%);
+    font-size: 15px;
+    /*margin-top: 5vw;*/
+    visibility: hidden;
+    display: block;
+    outline: none;
+    box-shadow: 0 0 2px 1px grey;
+    border-radius: 10px;
+    border: none;
+    max-width: 5vw;
+    transition: all 0.1s linear;
+    margin-top: -1.33vw;
+    margin-left: 4vw;
+    /*margin-bottom: 1vw;*/
+}
+.cancelButton:hover{
+    filter: brightness(130%);
+}
+
 .scrollbar-food-category{
     /*background-color: rgba(204, 223, 135, 0.541);*/
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+
     /*margin: 0 0.5vw;*/
     justify-content: center;
-    width: 38vw;
+    width: 38.5vw;
+    height: 8vw;
     /*border: 1px solid black;*/
     /*overflow: hidden;*/
 }
@@ -64,7 +91,7 @@
     color: #333;
     /*padding: 13px;*/
     min-width: 7vw;
-    margin: auto;
+    margin: 0 0 0 -0.4vw;
     /*margin: 0 1vw;*/
     min-height: 7vw;
     position: relative;
@@ -88,6 +115,10 @@
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
     transition: opacity 0.4s;
+}
+
+.greyoverlay{
+
 }
 
 .food-item-overlay:hover{
@@ -122,7 +153,7 @@
 .slick-prev:before {
     content: "\2039";
     color:black;
-    font-size: 75px;
+    font-size: 5px;
     margin-right: 10px;
     opacity: 65%;
     transition: opacity 0.2s;
@@ -137,7 +168,7 @@
 .slick-next:before {
     content: "\203A";
     color:black;
-    font-size: 75px;
+    font-size: 5px;
     margin-left: 10px;
     opacity: 65%;
     transition: opacity 0.2s;
