@@ -23,7 +23,7 @@ function main(){
       foodPrice:12.99,
       foodDesc:"Food description for omelet",
       foodImg:"images/omelet.jpg",
-      foodNutrition:"some image.."
+      foodNutrition:"images/piecharts/piechart1.png"
     },
     {
       foodCategory:"Appetizer",
@@ -31,7 +31,7 @@ function main(){
       foodPrice:1.99,
       foodDesc:"Food description for sandwich",
       foodImg:"images/sandwich.jpg",
-      foodNutrition:"some image.."
+      foodNutrition:"images/piecharts/piechart2.png"
     },
     {
       foodCategory:"Main",
@@ -39,7 +39,7 @@ function main(){
       foodPrice:1.99,
       foodDesc:"Food description for sandwich",
       foodImg:"images/sandwich.jpg",
-      foodNutrition:"some image.."
+      foodNutrition:"images/piecharts/piechart3.png"
     }
 
   ];
@@ -72,13 +72,14 @@ function addAllFoodItems(listFoodItems){
     let foodImg = listFoodItems[i].foodImg;
     let foodNutrition = listFoodItems[i].foodNutrition;
 
-    addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg);
+    addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutrition);
   }//end for
+  
 
-
-
+  
   /*
   //ADD FOOD ITEMS HERE (Name of the category,foodName,foodPrice,foodDescription,foodImage)
+  
   addFoodItems("Appetizer","Omelet",6.92,"This is the food description for Omelet","images/omelet.jpg");
   addFoodItems("Appetizer","Sandwich",5.99,"This is the food description for Sandwich","images/sandwich.jpg");
   addFoodItems("Appetizer","Pancake",3.99,"This is the food description for Pancake","images/pancake.jpg");
@@ -112,7 +113,7 @@ function addAllFoodItems(listFoodItems){
  * @param {*} foodImg  is the image of the food.
  * @return it does not return anything.
  */
-function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
+function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutrition){
 
   let categoryNames = document.getElementsByClassName("menu-categories");
 
@@ -146,9 +147,18 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
 
   newFood.innerHTML = newFoodContent;
   foodItems.append(newFood);//add the new food to the list (inside menu-category-grouped-items)
+  //addNutritionalInfo(foodNutrition);
   newFood.addEventListener("click",openFoodModal);//image is clicked
  
 }//end addFoodItems
+
+
+function addNutritionalInfo(foodNutrition){
+  let nutritionDiv = document.getElementsByClassName("nutritional-info")[0];
+  let nutritionImg = document.createElement("img");
+  nutritionImg.className("nutritional-info-img");
+  nutritionImg.src = foodNutrition;
+}//end addNutritionalInfo
 
 
 
@@ -260,7 +270,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage){
 
   var cartRowContents = `
   <div class="cart-item cart-column">
-    <img class="cart-item-image" src="${foodItemImage}" width="80px" height="80px" alt=${foodItemTitle}>
+    <img class="cart-item-image" src="${foodItemImage}" alt=${foodItemTitle}>
     <span class="cart-item-title">${foodItemTitle}</span>
   </div>
   <span class="cart-price cart-column">${foodItemPrice}</span>

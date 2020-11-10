@@ -24,7 +24,6 @@ a {
 
 .categories{
     text-align: center;
-    padding: 10px 20px;
     position: fixed;
     display: block;
     float: left;
@@ -48,7 +47,10 @@ a {
     border-radius: 10px;
     overflow-x: auto;
     height: auto;
+    width: 90%;
     margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
     white-space: nowrap;
 }
 
@@ -203,6 +205,7 @@ a {
     left: 25%;
     top: 2%;
     z-index: 300;
+    overflow: hidden;
 
 }
 
@@ -347,11 +350,37 @@ margin: 0;
     text-align: center;
 }
 
-
 .heading-text{
     margin: 10px;
     padding: 5px 4px;
 }
+
+/*nutritional info*/
+.nutrional-info{
+    position: absolute;
+    width: 90%;
+   
+}
+.nutritional-info-img{
+    width: 80%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#nutritional-info-checkbox{
+    width: 80%;
+    position: relative;
+    display: block;
+    margin : 0 auto;;
+    display: block;
+}
+
+#nutritional-info-text{
+    margin-left: 3%;
+}
+
 
 /*checkout-div*/
 .checkout-div{
