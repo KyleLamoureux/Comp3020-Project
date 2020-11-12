@@ -252,7 +252,6 @@ const menus = {
 }
 
 
-
 /* TEMPLATE
 {
     name : '',

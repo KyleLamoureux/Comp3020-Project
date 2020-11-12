@@ -1,4 +1,4 @@
-'use strict';  
+'use strict'; 
 //needed to load the content of the menu page and functionalities such as remove, add, etc.
 if(document.readyState === "loading"){
   document.addEventListener("DOMContentLoaded",main);
@@ -14,62 +14,40 @@ function main(){
       let button = removeCartItemButtons[i];
       button.addEventListener('click',removeCartItem);
   }//end for
-    
-  let menus = {
-    'Perkins' : {
-        omelets : [
-            {
-                name : 'Granny’s Country',
-                description : 'Filled with diced grilled ham, onions, green peppers, American cheese, cheese sauce and crispy hash browns. Topped with all of the same!',
-                price : 9.99,
-                image : "images/omelet.jpg",
-                nutrition : ''
-            },
-            {
-                name : 'The Everything',
-                description : 'Diced grilled ham, crimini mushrooms, tomatoes, onions, green peppers and American cheese – this classic omelet has it all!',
-                price : 10.99,
-                image : 'images/burger.jpg',
-                nutrition : ''
-            }
-          ],
-          griddle : [
-            {
-                name : 'Scratch-Made Belgian Waffle Platter',
-                description : 'A Belgian Waffle dusted with powdered sugar for the perfect dash of sweetness.',
-                price : 9.99,
-                image : 'images/sandwich.jpg',
-                nutrition : ''
-            },
-            {
-                name : 'Strawberry Crepes Platter',
-                description : 'Two light delicate crepes with a sweet vanilla cream cheese, topped with fresh glazed strawberries, powdered sugar and whipped topping.',
-                price : 11.99,
-                image : 'images/sandwich.jpg',
-                nutrition : ''
-            }
-          ]
-        }
-      }
   
+  //CHOSEN RESTAURANT GOES HERE.
+  let restaurantName = "Perkins";
 
-  for(let key in menus["Perkins"]){
-    if(menus["Perkins"].hasOwnProperty(key)){
-        //category keys
-        addMenuCategory(key);
+  //display the restaurant's name
+  let titleName = document.getElementsByClassName("heading-text")[0];
+  titleName.innerText = restaurantName;
 
-        //food item list for each category.
-        let categoryFoodItems = menus["Perkins"][key]; //list of food items from the category.
-        for(let i = 0; i < categoryFoodItems.length; i++){
-          //console.log(key + ": with items " + categoryFoodItems[i].name + " price: " + categoryFoodItems[i].price);
-          addFoodItems(key,categoryFoodItems[i].name,categoryFoodItems[i].price,
-                          categoryFoodItems[i].description,categoryFoodItems[i].image,categoryFoodItems[i].nutrition);
-        }//end nested for
-   
-      }//end if
+  for(let restaurant in menus){//interate through the restaurants
+    if(menus.hasOwnProperty(restaurant)){
+
+      if(restaurantName === restaurant){//find the restaurant the user has clicked.
+
+        for(let category in menus[restaurant]){
+          if(menus[restaurant].hasOwnProperty(category)){
+              //category categorys
+              addMenuCategory(category);
+              //food item list for each category.
+              let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
+              for(let j = 0; j < categoryFoodItems.length; j++){
+                addFoodItems(category,categoryFoodItems[j].name,categoryFoodItems[j].price,
+                                categoryFoodItems[j].description,categoryFoodItems[j].image,categoryFoodItems[j].nutrition);
+              }//end nested for
+         
+            }//end if
+        }//end for
+      }
+    }//end if
   }//end for
-
-
+  /*
+  //INSERT RESTAURANT NAME HERE.
+  
+  */
+  
 }//end main
 
 /**
@@ -77,7 +55,6 @@ function main(){
  * @param {*} categoryName the category that will be added to the menu page.
  */
 function addMenuCategory(categoryName){
-  console.log(categoryName);
   let categoryDiv = document.getElementsByClassName("scrollbar-category")[0];
   let aTag = document.createElement("a");
   aTag.href = "#category_"+categoryName;
@@ -91,7 +68,6 @@ function addMenuCategory(categoryName){
   aTag.innerHTML = aTagContent;
   categoryDiv.append(aTag);
   addMenuCategoryTitle(categoryName);//add the category title to the menu list section.
-
 }//end addMenuCategory
 
 /**
@@ -100,7 +76,6 @@ function addMenuCategory(categoryName){
  */
 function addMenuCategoryTitle(categoryName){
   let menuList = document.getElementsByClassName("menulist")[0];
-  console.log(menuList)
   let menuCategory = document.createElement("div");
   menuCategory.classList.add("menu-categories");//add the css to the created div.
 
@@ -146,7 +121,6 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutri
 
   let newFood = document.createElement("div");//new menu-category-item 
   newFood.classList.add("menu-category-item");//add the css for the new div.
-  console.log(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutrition);
 
   //insert the food-item
   let newFoodContent = `
