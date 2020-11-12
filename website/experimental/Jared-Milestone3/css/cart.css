@@ -4,6 +4,17 @@
     color: #333;
 }
 
+.cart-title-column {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid black;
+    margin-right: 15px;
+    padding-bottom: 5px;
+    padding-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
 .cart-column {
     display: flex;
     align-items: center;

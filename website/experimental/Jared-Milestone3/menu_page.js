@@ -44,6 +44,7 @@ function main(){
 
   ];
 
+  /*
   for(let i = 0; i < listFoodItems.length;i++){
     console.log("Food Category: " + listFoodItems[i].foodCategory 
                   +", Food Name: " + listFoodItems[i].foodName 
@@ -52,7 +53,7 @@ function main(){
                   + ", Food Image: " + listFoodItems[i].foodImg
                   + ", Food Nutrition: " + listFoodItems[i].foodNutrition);
   }
-
+  */
   addAllFoodItems(listFoodItems);
 }//end main
 
@@ -63,7 +64,7 @@ function main(){
  */
 function addAllFoodItems(listFoodItems){
 
-  
+  /*
   for(let i = 0; i < listFoodItems.length;i++){
     let foodCategory = listFoodItems[i].foodCategory;
     let foodName = listFoodItems[i].foodName;
@@ -74,10 +75,10 @@ function addAllFoodItems(listFoodItems){
 
     addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutrition);
   }//end for
-  
+  */
 
   
-  /*
+  
   //ADD FOOD ITEMS HERE (Name of the category,foodName,foodPrice,foodDescription,foodImage)
   
   addFoodItems("Appetizer","Omelet",6.92,"This is the food description for Omelet","images/omelet.jpg");
@@ -99,7 +100,7 @@ function addAllFoodItems(listFoodItems){
   addFoodItems("Side", "Meat ball", 10.99, "This is food description for Meat ball", "images/italian_side.jpg");
   addFoodItems("Side", "Salad", 6.99, "This is food description for Salad", "images/pizza_side.jpg");
   addFoodItems("Side", "Salad2", 8.99, "This is food description for Salad2", "images/italian_appe.jpg");
-  */
+  
 
 }//end addAllFoodItems
 
@@ -141,7 +142,7 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutri
         <p class="menu-category-item-description">${foodDesc}</p>
     </div>
     <h5 class="menu-category-item-title">${foodName}</h5>
-    <h5 class="menu-category-item-price">$${foodPrice}</h5>
+    <h5 class="menu-category-item-price">$${foodPrice.toFixed(2)}</h5>
   `;
 
 
@@ -175,7 +176,7 @@ function openFoodModal(event){
   
     //get the information:
     let foodItem = event.target.parentElement;
-    console.log(foodItem);
+    //console.log(foodItem);
     //NOTE: IT DOES NOT OPEN THE MODAL WHEN CLICKING THE DESCIPTION.
     let foodItemTitle = foodItem.getElementsByClassName("menu-category-item-title")[0].innerText;
     let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
@@ -262,13 +263,14 @@ function addToCartClicked(event){
  * @param {*} foodItemImage  is the image of the food.
  */
 function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage){
-  var cartRow = document.createElement("div");//row to be created
+  let cartRow = document.createElement("div");//row to be created
   cartRow.classList.add("cart-row");//get the css style for this div.
 
   cartRow.innerText = foodItemTitle;
-  var cartItems = document.getElementsByClassName("cart-items")[0];//get the div from html
+  let cartItems = document.getElementsByClassName("cart-items")[0];//get the div from html
 
-  var cartRowContents = `
+  foodItemPrice = foodItemPrice.replace("Price:","");
+  let cartRowContents = `
   <div class="cart-item cart-column">
     <img class="cart-item-image" src="${foodItemImage}" alt=${foodItemTitle}>
     <span class="cart-item-title">${foodItemTitle}</span>
@@ -302,14 +304,14 @@ function updateCartTotal(){
       let priceElement = cartRow.getElementsByClassName("cart-price")[0];      
       
       //CASE SENSITIVE. Will result NaN if the first parameter in replace is wrong.
-      let price = parseFloat(priceElement.innerHTML.replace("Price: $",""));//get the text inside the priceElement.
+      let price = parseFloat(priceElement.innerHTML.replace("$",""));//get the text inside the priceElement.
       //console.log(price);
 
       total = total + price;
   }
   
   total = Math.round(total *100)/100;
-  document.getElementsByClassName("total-order")[0].innerText = "Subtotal: $" + total;
+  document.getElementsByClassName("total-order")[0].innerText = "Subtotal: $" + total.toFixed(2);
 
 }//end updateCartTotal
 
@@ -348,6 +350,7 @@ function removeCartItem(event){
     let modal = document.getElementById("summary-page");
     modal.style.display = "block";
     blurControl();
+    getOrderedItems(); //FUNCTION FROM summary_page.js
   }else{
     alert("Please add items to the cart.");
   }//end if-else
@@ -363,6 +366,7 @@ function cancelCheckout() {
   modal.style.display = "none";
   blurControl();
 }//end cancelCheckout
+
 
 
 /**

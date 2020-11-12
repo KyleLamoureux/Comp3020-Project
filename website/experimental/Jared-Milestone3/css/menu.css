@@ -326,24 +326,8 @@ margin: 0;
 .order-div{
     padding: 10px;
     margin: 3px 3px;
-}
-
-
-.ordered-list{
-    list-style: none;
-    padding: 5px;
-    margin: 2px;
-}
-
-.ordered-item{
-    margin-bottom: 10px;
-    width: 80%;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #333;
-    padding-top: 15px;
-    padding-left: 10px;
+    overflow-y: auto;
+    height:30vh;
 }
 
 #cart-section h2{
@@ -359,10 +343,11 @@ margin: 0;
 .nutrional-info{
     position: absolute;
     width: 90%;
-   
+    height: 20vh;
 }
 .nutritional-info-img{
-    width: 80%;
+    width: 210px;
+    height: 210px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -386,6 +371,7 @@ margin: 0;
 .checkout-div{
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 10px;
     display: inline-block;
     text-align: center;
 }

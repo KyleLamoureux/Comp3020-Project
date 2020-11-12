@@ -3,8 +3,6 @@
     margin: 0;
     font-family: sans-serif;
 }
-
-
 /**************************************************************************/
 /*For Summary page*/
 .blur {
@@ -84,27 +82,47 @@ hr{
 
 #ordered-list{
     text-align: center;
-    margin: auto;
-    padding: 5px;
-}
-
-ul{
-    margin-left: 50px;
-    padding: 10px;
-    list-style: none;
     margin-top: 10px;
+    padding: 5px;
+    height: 30vh;
+    overflow-y: auto;
 }
 
-li{
-    width: 90%;
-    height: 50px;
-    margin-bottom: 15px;
-    background-color: bisque;
-    border-radius: 10px ;
-    border: 1px solid #333;
+.ordered-row {
     display: flex;
-    justify-content: center;
     align-items: center;
+    padding: 10px auto;
+    border: 1px solid #333;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    width: 55%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.ordered-item-title {
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 10px;
+
+}
+
+.ordered-item-image {
+    margin:3px 3px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+}
+
+.ordered-quantity{
+    color: #333;
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #user-input-group{
