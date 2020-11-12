@@ -51,10 +51,13 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg){
     for(let i = 0; i < orderedItemNames.length && !isDuplicate; i++){
       if(orderedItemNames[i].innerText === cartItemTitle){
         //duplicate - dont insert duplicates to order summary.
+        return;
+        /*
         console.log(orderedItemNames[i])
         isDuplicate = true;
         index = i;
         quantity++;
+        */
       }//end if
     }//end for
 
