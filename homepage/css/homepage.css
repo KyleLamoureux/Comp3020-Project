@@ -49,7 +49,7 @@ body{
     vertical-align: middle;
 }
 
-input{
+.address-input{
     border: none;
     outline: none;
     height: 100%;
@@ -60,7 +60,7 @@ input{
     border-radius: 50px;
 }
 
-a{
+.locate-button{
     color: black;
     float: right;
     width: 40px;
@@ -73,7 +73,7 @@ a{
     margin-right: -10px;
 }
 
-a:hover{
+.locate-button:hover{
     color: white;
     background: #cf4c00;
 }

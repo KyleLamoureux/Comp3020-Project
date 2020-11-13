@@ -17,9 +17,10 @@ function fillAddress(){
  * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
  */
 var lastSort = '';
-function sortby(type){
+function sortby(){
     try{
-        document.getElementById("dropdownblock").style.opacity = "0";
+        select = document.getElementById("sort-type");
+        type = select.options[select.selectedIndex].value;
         restaurants.sort((a,b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 0));
         if (lastSort == type){
             restaurants.reverse();
@@ -38,14 +39,13 @@ function sortby(type){
         alert(e);
     }
 }
-
 /**
  * A reset function for the dropdown hover.
  * Please don't touch this lol
  */
-function reset(){
-    document.getElementById("dropdownblock").style.opacity = "";
-}
+// function reset(){
+//     document.getElementById("dropdownblock").style.opacity = "";
+// }
 
 // This variable supports reverse sorting... boy is this getting messy lmao. Glad they don't look at the code.
 var activeCategories = allCats();
@@ -58,7 +58,6 @@ function createSearchedRestaurants(query){
             eleList.appendChild(createRestListItem(element));
     });
 }
-
 // Call this to refresh restaurants UI
 function createRestaurants(){
     var eleList = document.getElementById("restaurant-ul");
