@@ -65,8 +65,8 @@ a {
     color: #fff;
     text-align: center;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     text-decoration: none;
     cursor: pointer;
 }
@@ -80,14 +80,7 @@ a {
     float: left;
 }
 
-#category_appetizer {
-    margin-top: 200px;
-}
 
-#category_dessert {
-    position: relative;
-    padding-top: 0;
-}
 /*************************************************************************************/
 /*menu-list*/
 
@@ -97,7 +90,6 @@ a {
 
 .menu-category-name{
     display: block;
-    margin-top: 40px;
     font-size: 20px;
 }
 
@@ -109,6 +101,12 @@ a {
 
 .menu-categories{
     margin-left: 10px;
+    margin-top: 50px;
+    width: 95%;
+}
+
+.menu-categories:first-child{
+    margin-top: 200px;
     width: 95%;
 }
 
