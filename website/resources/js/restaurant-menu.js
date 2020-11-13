@@ -28,6 +28,73 @@ const constDrinks = [
 ]
 
 
+const buildYourOwnOptions = {
+    Protein : {
+        type : 'radio',
+        data : [
+            {
+                name : 'Chicken',
+                price : 1.00
+            },
+            {
+                name : 'Beef',
+                price : 1.50
+            },
+            {
+                name : 'Pork',
+                price : 1.25
+            }
+        ]
+    },
+    Toppings : {
+        type : 'checkbox',
+        data : [
+            {
+                name : 'Corn',
+                price : 0.00
+            },
+            {
+                name : 'Rice',
+                price : 0.00
+            },
+            {
+                name : 'Beans',
+                price : 0.00
+            },
+            {
+                name : 'Grilled veg',
+                price : 0.00
+            },
+            {
+                name : 'Lettuce',
+                price : 0.00
+            },
+            {
+                name : 'Cheese',
+                price : 0.00
+            }
+        ]
+    },
+    Sauce : {
+        type : 'checkbox',
+        data : [
+            {
+                name : 'Sour cream',
+                price : 0.00
+            },
+            {
+                name : 'Salsa',
+                price : 0.00
+            },
+            {
+                name : 'Guacamole',
+                price : 1.25
+            },
+        ]
+    }
+}
+
+
 const menus = {
     'Perkins' : {
         'Omelets' : [
@@ -629,6 +696,58 @@ const menus = {
                 description : 'Our tender, juicy Chicken McNuggets® are made with 100% white meat chicken and no artificial colors, flavors or preservatives.',
                 price : 2.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/nuggets.jpg',
+                options : {
+                    Quantity : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : '4',
+                                price : 2.99
+                            },
+                            {
+                                name : '10',
+                                price : 5.99
+                            },
+                            {
+                                name : '20',
+                                price : 10.99
+                            },
+                            {
+                                name : '40',
+                                price : 22.00
+                            }
+                        ]
+                    },
+                    Sauces : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Sweet & Sour',
+                                price : 0.50
+                            },
+                            {
+                                name : 'Sweet & Sour',
+                                price : 0.50
+                            },
+                            {
+                                name : 'Sweet & Sour',
+                                price : 0.50
+                            },
+                            {
+                                name : 'BBQ',
+                                price : 0.50
+                            },
+                            {
+                                name : 'BBQ',
+                                price : 0.50
+                            },
+                            {
+                                name : 'BBQ',
+                                price : 0.50
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'Buttermilk Crispy Chicken Sandwich',
@@ -748,6 +867,7 @@ const menus = {
                 price : 0.99,
                 image : mRoot+'/mcdonalds/desserts/cone.jpg',
                 options : {
+
                 }
             },
             {
@@ -756,6 +876,7 @@ const menus = {
                 price : 1.99,
                 image : mRoot+'/mcdonalds/desserts/apple.jpg',
                 options : {
+
                 }
             },
             {
@@ -764,6 +885,7 @@ const menus = {
                 price : 3.99,
                 image : mRoot+'/mcdonalds/desserts/flurry.jpg',
                 options : {
+
                 }
             },
             {
@@ -772,6 +894,7 @@ const menus = {
                 price : 3.99,
                 image : mRoot+'/mcdonalds/desserts/shake.jpg',
                 options : {
+
                 }
             }
         ],
@@ -784,24 +907,52 @@ const menus = {
                 description : 'Tender calamari, lightly breaded and fried. Served with marinara sauce.',
                 price : 13.29,
                 image : mRoot+'/olive_garden/appetizer/calamari.jpg',
+                options : {
+                    Additions : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add extra sauce',
+                                price : 1.00
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'Stuffed Ziti Fritta',
                 description : 'Crispy fried ziti filled with five cheeses. Served with alfredo and marinara dipping sauces.',
                 price : 9.99,
                 image : mRoot+'/olive_garden/appetizer/stuffed.jpg',
+                options : {
+                    Additions : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add extra sauce',
+                                price : 1.00
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'Spinach-Artichoke Dip',
-                description : 'A blend of spinach, artichokes and five cheeses served warm with NEW flatbread crisps, tossed with parmesan and garlic salt. ',
+                description : 'A blend of spinach, artichokes and five cheeses served warm with NEW flatbread crisps, tossed with parmesan and garlic salt.',
                 price : 11.99,
                 image : mRoot+'/olive_garden/appetizer/spinach.jpg',
+                options : {
+
+                }
             },
             {
                 name : 'Classic Shrimp Scampi Fritta',
-                description : 'Lightly breaded, fried and tossed in our signature scampi sauce. ',
+                description : 'Lightly breaded, fried and tossed in our signature scampi sauce.',
                 price : 13.29,
                 image : mRoot+'/olive_garden/appetizer/shrimp.jpg',
+                options : {
+
+                }
             }
         ],
         'Entree' : [
@@ -810,24 +961,52 @@ const menus = {
                 description : 'Not everyone knows our signature alfredo sauce is made from scratch daily. This homemade sauce combines simple, fresh ingredients like butter, cream and parmesan cheese to make a rich topping to our fettuccine pasta. Then it is topped with tender, sliced grilled chicken.',
                 price : 23.29,
                 image : mRoot+'/olive_garden/entree/alfredo.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double chicken',
+                                price : 4.00
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Tour of Italy',
                 description : 'Three OG classics all on one plate! Chicken Parmigiana, Lasagna Classico** and our signature Fettuccine Alfredo – all with homemade sauces made fresh every morning.',
                 price : 25.49,
                 image : mRoot+'/olive_garden/entree/tour.jpg',
+                options : {
+
+                }
             },
             {
                 name : 'Lasagna Classico',
                 description : 'Prepared fresh daily with layers of pasta, parmesan, mozzarella, pecorino romano and our homemade meat sauce.',
                 price : 19.29,
                 image : mRoot+'/olive_garden/entree/lasagna.jpg',
+                options : {
+
+                }
             },
             {
                 name : 'Chicken Parmigiana',
                 description : 'Two lightly fried parmesan-breaded chicken breasts are smothered with Olive Garden’s homemade marinara sauce and melted Italian cheeses. We serve our Chicken Parmigiana with a side of spaghetti for dinner.',
                 price : 22.49,
                 image : mRoot+'/olive_garden/entree/tour.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double chicken',
+                                price : 4.00
+                            }
+                        ]
+                    },
+                }
             }
         ],
         'Dessert' : [
@@ -836,24 +1015,76 @@ const menus = {
                 description : 'Pumpkin Cheesecake topped with caramel sauce. Served with whipped cream.',
                 price : 9.29,
                 image : mRoot+'/olive_garden/dessert/pumpkin.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Scoop of vanilla icecream',
+                                price : 1.50
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Tiramisu',
                 description : 'The classic Italian dessert. A layer of creamy custard set atop espresso-soaked ladyfingers.',
                 price : 8.99,
                 image : mRoot+'/olive_garden/dessert/tiramisu.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add whipcream',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Scoop of vanilla icecream',
+                                price : 1.50
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Black Tie Mousse Cake',
                 description : 'Rich layers of chocolate cake, dark chocolate cheesecake and creamy custard mousse.',
                 price : 8.99,
                 image : mRoot+'/olive_garden/dessert/tie.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Scoop of vanilla icecream',
+                                price : 1.50
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Chocolate Brownie Lasagna',
                 description : 'Eight decadent layers of rich, fudgy brownie and sweet vanilla cream cheese frosting, topped with chocolate shavings and a chocolate drizzle.',
                 price : 8.99,
                 image : mRoot+'/olive_garden/dessert/chocolate.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add whipcream',
+                                price : 0.75
+                            },
+                            {
+                                name : 'scoop of vanilla icecream',
+                                price : 1.50
+                            }
+                        ]
+                    },
+                }
             }
         ],
         'Drinks' : constDrinks
@@ -865,24 +1096,44 @@ const menus = {
                 description : 'Chili-mango sauce, peach & mango chili salsa, tomato-cucumber salad, crispy jalapeño chips and chipotle-peach crema.',
                 price : 12.99,
                 image : mRoot+'/muncho_burrito/signature/speach.png',
+                options : {
+                    
+                }
             },
             {
                 name : 'Zesty Chimichurri Bowl',
                 description : 'House-made cilantro & lime chimichurri sauce, roasted seasonal squash, in-house pickled red onions, tricoloured tortilla strips and serrano-chili crema.',
                 price : 12.99,
                 image : mRoot+'/muncho_burrito/signature/zesty.png',
+                options : {
+
+                }
             },
             {
                 name : 'Grilled Pineapple Chili Bowl',
                 description : 'Caramelized pineapple & jalapeño sauce, grilled pineapple, in-house pickled red onions, crispy jalapeño chips and pineapple-habanero crema.',
                 price : 12.99,
                 image : mRoot+'/muncho_burrito/signature/pineapple.png',
+                options : {
+
+                }
             },
             {
                 name : 'Ghost Pepper Burrito',
                 description : 'Ghost pepper bacon, ghost pepper & fig marmalade, chipotle black beans, salsa, sour cream, Monterey Jack cheese, ghost pepper hot sauce, jalapeños.',
                 price : 11.99,
                 image : mRoot+'/muncho_burrito/signature/ghost.png',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double protein',
+                                price : 3.50
+                            }
+                        ]
+                    },
+                }
             }
         ],
         'Custom' : [
@@ -890,45 +1141,94 @@ const menus = {
                 name : 'Build Your Own Burrito',
                 description : 'Fresh and fantastic, our burritos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 9.99,
-                image : mRoot+'/',
+                image : mRoot+'/muncho_burrito/build_your_own/burrito.jpg',
+                options : buildYourOwnOptions
             },
             {
                 name : 'Build Your Own Taco (3)',
                 description : 'Fresh and fantastic, our tacos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 8.99,
-                image : mRoot+'/',
+                image : mRoot+'/muncho_burrito/build_your_own/taco.jpg',
+                options : buildYourOwnOptions
             },
             {
                 name : 'Build Your Own Bowl',
                 description : 'Fresh and fantastic, our bowls can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 10.99,
-                image : mRoot+'/',
+                image : mRoot+'/muncho_burrito/build_your_own/bowl.jpg',
+                options : buildYourOwnOptions
             },
             {
                 name : 'Build Your Own Quesadilla',
                 description : 'Fresh and fantastic, our quesadillas can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 9.99,
-                image : mRoot+'/',
+                image : mRoot+'/muncho_burrito/build_your_own/quesa.jpg',
+                options : buildYourOwnOptions
             }
         ],
         'Sides' : [
             {
                 name : 'Tortilla Chips with Salsa',
-                description : '',
+                description : 'Fresh everyday tortilla chips and salsa',
                 price : 2.25,
                 image : mRoot+'/muncho_burrito/sides/salsa.jpg',
+                options : {
+                    Upscale : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Large',
+                                price : 3.50
+                            },
+                            {
+                                name : 'Huge',
+                                price : 6.00
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Tortilla Chips with Queso',
-                description : '',
+                description : 'Fresh everyday tortilla chips and queso',
                 price : 2.75,
                 image : mRoot+'/muncho_burrito/sides/queso.jpg',
+                options : {
+                    Upscale : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Large',
+                                price : 3.50
+                            },
+                            {
+                                name : 'Huge',
+                                price : 6.00
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Tortilla Chips with Guacamole',
-                description : '',
+                description : 'Fresh everyday tortilla chips and guacamole',
                 price : 3.25,
                 image : mRoot+'/muncho_burrito/sides/guac.jpg',
+                options : {
+                    Upscale : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Large',
+                                price : 3.50
+                            },
+                            {
+                                name : 'Huge',
+                                price : 6.00
+                            }
+                        ]
+                    },
+                }
             },
         ],
         'Drinks' : constDrinks

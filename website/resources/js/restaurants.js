@@ -110,7 +110,7 @@ restaurants = [
             },
             {
                 name: "Build Your Own",
-                img: root+"/muncho_burrito/build_your_own/byo.jpg",
+                img: root+"/muncho_burrito/build_your_own/burrito.jpg",
                 restaurant: "Muncho Burrito"
             }
         ],
