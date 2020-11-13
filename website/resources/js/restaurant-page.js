@@ -27,7 +27,13 @@ function sortby(type){
         } else {
             lastSort = type;
         }
-        createRestaurants();
+        var search = document.getElementById("searchbox").value;
+        if(search){
+            createSearchedRestaurants(search);
+        }else{
+            createRestaurants();
+        }
+
     }catch(e){
         alert(e);
     }
@@ -43,6 +49,15 @@ function reset(){
 
 // This variable supports reverse sorting... boy is this getting messy lmao. Glad they don't look at the code.
 var activeCategories = allCats();
+
+function createSearchedRestaurants(query){
+    var eleList = document.getElementById("restaurant-ul");
+    clearDiv(eleList);
+    restaurants.forEach(element => {
+        if (element.name.toLowerCase().includes(query.toLowerCase()))
+            eleList.appendChild(createRestListItem(element));
+    });
+}
 
 // Call this to refresh restaurants UI
 function createRestaurants(){
@@ -138,6 +153,8 @@ function onSearch(){
          clearSearch();
     }else{
         $('#xicon').css("visibility", "visible");
+        $('#categories-overlay').css("visibility", "visible").css("opacity", "65%");
+        createSearchedRestaurants(x);
     }
 
 }
@@ -148,6 +165,8 @@ function onSearch(){
 function clearSearch(){
     document.getElementById("searchbox").value = "";
     $('#xicon').css("visibility", "hidden");
+    $('#categories-overlay').css("visibility", "hidden").css("opacity", "0%");
+    createRestaurants();
 }
 
 // Creates li.
@@ -242,11 +261,12 @@ function createCategories(){
     });
 
     $(".food-item").click(function(event){
-        $(".cancelButton").css("visibility", "visible");
+
         // let element = $(this);
         // var e = event.target;
         // alert(event.target["id"]);
         // element.css("opacity: 0%");
+        var oneActive = false;
         restaurants_categories.forEach(iter => {
             //console.log("t" + iter["name"] + " ");
             // console.log(event.element["target"]);
@@ -254,11 +274,18 @@ function createCategories(){
                 iter["active"] = !iter["active"];
                 if(iter["active"]){
                     $(this).find(".food-item-check").css("opacity", "0%");
+
                 }else{
                     $(this).find(".food-item-check").css("opacity", "75%");
+                    oneActive = true;
                 }
             } 
         });
+        if(oneActive){
+            $(".cancelButton").css("visibility", "visible");
+        }else{
+            $(".cancelButton").css("visibility", "hidden");
+        }
 
         if (activeCategories.includes(event.target["id"])){
             activeCategories.splice(activeCategories.indexOf(event.target["id"]), 1);
