@@ -34,7 +34,7 @@ const constDrinks = [
 
 const menus = {
     'Perkins' : {
-        omelets : [
+        'Omelets' : [
             {
                 name : 'Granny’s Country',
                 description : 'Filled with diced grilled ham, onions, green peppers, American cheese, cheese sauce and crispy hash browns. Topped with all of the same!',
@@ -64,7 +64,7 @@ const menus = {
                 nutrition : ''
             }
         ],
-        griddle : [
+        'Griddle' : [
             {
                 name : 'Scratch-Made Belgian Waffle Platter',
                 description : 'A Belgian Waffle dusted with powdered sugar for the perfect dash of sweetness.',
@@ -94,7 +94,7 @@ const menus = {
                 nutrition : ''
             }
         ],
-        sandwiches : [
+        'Sandwiches' : [
             {
                 name : 'Sonoma Chicken Salad Croissant',
                 description : 'A flaky, buttery croissant loaded with a blend of smoked, pulled chicken, red grapes, celery, walnuts and fresh leaf lettuce.',
@@ -124,7 +124,7 @@ const menus = {
                 nutrition : ''
             }
         ],
-        dessert : [
+        'Dessert' : [
             {
                 name : 'Banana Cream',
                 description : 'Loaded with hand-sliced bananas and topped with real whipped cream and chopped walnuts.',
@@ -154,10 +154,10 @@ const menus = {
                 nutrition : ''
             }
         ],
-        drinks : constDrinks 
+        'Drinks' : constDrinks 
     },
     'McDonalds' : {
-        burgers : [
+        'Burgers' : [
             {
                 name : 'Big Mac',
                 description : 'Mouthwatering perfection starts with two 100% pure beef patties and Big Mac sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion and American cheese.',
@@ -187,7 +187,7 @@ const menus = {
                 nutrition : ''
             }
         ],
-        chickenAndSandwiches : [
+        'Chicken And Sandwiches' : [
             {
                 name : 'Chicken McNuggets',
                 description : 'Our tender, juicy Chicken McNuggets® are made with 100% white meat chicken and no artificial colors, flavors or preservatives.',
@@ -217,7 +217,7 @@ const menus = {
                 nutrition : ''
             }
         ],
-        desserts : [
+        'Desserts' : [
             {
                 name : 'Vanilla Cone',
                 description : 'Enjoy our creamy vanilla soft serve in a crispy cone!',
@@ -247,18 +247,207 @@ const menus = {
                 nutrition : ''
             }
         ],
-        drinks : constDrinks
-    }
+        'Drinks' : constDrinks
+    },
+    'Olive Garden' : {
+        'Appetizer' : [
+            {
+                name : 'Calamari',
+                description : 'Tender calamari, lightly breaded and fried. Served with marinara sauce.',
+                price : 13.29,
+                image : mRoot+'/olive_garden/appetizer/calamari.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Stuffed Ziti Fritta',
+                description : 'Crispy fried ziti filled with five cheeses. Served with alfredo and marinara dipping sauces.',
+                price : 9.99,
+                image : mRoot+'/olive_garden/appetizer/stuffed.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Spinach-Artichoke Dip',
+                description : 'A blend of spinach, artichokes and five cheeses served warm with NEW flatbread crisps, tossed with parmesan and garlic salt. ',
+                price : 11.99,
+                image : mRoot+'/olive_garden/appetizer/spinach.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Classic Shrimp Scampi Fritta',
+                description : 'Lightly breaded, fried and tossed in our signature scampi sauce. ',
+                price : 13.29,
+                image : mRoot+'/olive_garden/appetizer/shrimp.jpg',
+                nutrition : ''
+            }
+        ],
+        'Entree' : [
+            {
+                name : 'Chicken Alfredo',
+                description : 'Not everyone knows our signature alfredo sauce is made from scratch daily. This homemade sauce combines simple, fresh ingredients like butter, cream and parmesan cheese to make a rich topping to our fettuccine pasta. Then it is topped with tender, sliced grilled chicken.',
+                price : 23.29,
+                image : mRoot+'/olive_garden/entree/alfredo.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Tour of Italy',
+                description : 'Three OG classics all on one plate! Chicken Parmigiana, Lasagna Classico** and our signature Fettuccine Alfredo – all with homemade sauces made fresh every morning.',
+                price : 25.49,
+                image : mRoot+'/olive_garden/entree/tour.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Lasagna Classico',
+                description : 'Prepared fresh daily with layers of pasta, parmesan, mozzarella, pecorino romano and our homemade meat sauce.',
+                price : 19.29,
+                image : mRoot+'/olive_garden/entree/lasagna.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Chicken Parmigiana',
+                description : 'Two lightly fried parmesan-breaded chicken breasts are smothered with Olive Garden’s homemade marinara sauce and melted Italian cheeses. We serve our Chicken Parmigiana with a side of spaghetti for dinner.',
+                price : 22.49,
+                image : mRoot+'/olive_garden/entree/tour.jpg',
+                nutrition : ''
+            }
+        ],
+        'Dessert' : [
+            {
+                name : 'Pumpkin Cheesecake',
+                description : 'Pumpkin Cheesecake topped with caramel sauce. Served with whipped cream.',
+                price : 9.29,
+                image : mRoot+'/olive_garden/dessert/pumpkin.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Tiramisu',
+                description : 'The classic Italian dessert. A layer of creamy custard set atop espresso-soaked ladyfingers.',
+                price : 8.99,
+                image : mRoot+'/olive_garden/dessert/tiramisu.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Black Tie Mousse Cake',
+                description : 'Rich layers of chocolate cake, dark chocolate cheesecake and creamy custard mousse.',
+                price : 8.99,
+                image : mRoot+'/olive_garden/dessert/tie.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Chocolate Brownie Lasagna',
+                description : 'Eight decadent layers of rich, fudgy brownie and sweet vanilla cream cheese frosting, topped with chocolate shavings and a chocolate drizzle.',
+                price : 8.99,
+                image : mRoot+'/olive_garden/dessert/chocolate.jpg',
+                nutrition : ''
+            }
+        ],
+        'Drinks' : constDrinks
+    },
 }
 
 
 
-/* TEMPLATE
+/* TEMPLATE Single
 {
     name : '',
     description : '',
     price : ,
-    image : '',
+    image : mRoot+'/',
     nutrition : ''
 }
+*/
+
+/* TEMPLATE complete
+'' : {
+        : [
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        }
+    ],
+        : [
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        }
+    ],
+        : [
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        },
+        {
+            name : '',
+            description : '',
+            price : ,
+            image : mRoot+'/',
+            nutrition : ''
+        }
+    ],
+    'Drinks' : constDrinks
+},
 */

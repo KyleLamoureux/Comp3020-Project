@@ -69,19 +69,19 @@ restaurants = [
         type: ["Italian"],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Calamari",
+                img: root+"/olive_garden/appetizer/calamari.jpg",
+                restaurant: "Olive Garden"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chicken Alfredo",
+                img: root+"/olive_garden/entree/alfredo.jpg",
+                restaurant: "Olive Garden"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Tiramisu",
+                img: root+"/olive_garden/dessert/tiramisu.jpg",
+                restaurant: "Olive Garden"
             }
         ],
         distance: 6.9,
