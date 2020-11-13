@@ -65,8 +65,8 @@ a {
     color: #fff;
     text-align: center;
     border-radius: 50%;
-    width: 80px;
-    height: 80px;
+    width: 85px;
+    height: 85px;
     text-decoration: none;
     cursor: pointer;
 }
@@ -80,14 +80,7 @@ a {
     float: left;
 }
 
-#category_appetizer {
-    margin-top: 200px;
-}
 
-#category_dessert {
-    position: relative;
-    padding-top: 0;
-}
 /*************************************************************************************/
 /*menu-list*/
 
@@ -97,7 +90,6 @@ a {
 
 .menu-category-name{
     display: block;
-    margin-top: 40px;
     font-size: 20px;
 }
 
@@ -109,6 +101,12 @@ a {
 
 .menu-categories{
     margin-left: 10px;
+    margin-top: 50px;
+    width: 95%;
+}
+
+.menu-categories:first-child{
+    margin-top: 200px;
     width: 95%;
 }
 
@@ -326,24 +324,8 @@ margin: 0;
 .order-div{
     padding: 10px;
     margin: 3px 3px;
-}
-
-
-.ordered-list{
-    list-style: none;
-    padding: 5px;
-    margin: 2px;
-}
-
-.ordered-item{
-    margin-bottom: 10px;
-    width: 80%;
-    height: 40px;
-    background-color: #fff;
-    border-radius: 10px;
-    border: 1px solid #333;
-    padding-top: 15px;
-    padding-left: 10px;
+    overflow-y: auto;
+    height:30vh;
 }
 
 #cart-section h2{
@@ -355,37 +337,14 @@ margin: 0;
     padding: 5px 4px;
 }
 
-/*nutritional info*/
-.nutrional-info{
-    position: absolute;
-    width: 90%;
-   
-}
-.nutritional-info-img{
-    width: 80%;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
 
-#nutritional-info-checkbox{
-    width: 80%;
-    position: relative;
-    display: block;
-    margin : 0 auto;;
-    display: block;
-}
-
-#nutritional-info-text{
-    margin-left: 3%;
-}
 
 
 /*checkout-div*/
 .checkout-div{
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 10px;
     display: inline-block;
     text-align: center;
 }
