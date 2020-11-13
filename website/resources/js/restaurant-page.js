@@ -242,11 +242,12 @@ function createCategories(){
     });
 
     $(".food-item").click(function(event){
-        $(".cancelButton").css("visibility", "visible");
+
         // let element = $(this);
         // var e = event.target;
         // alert(event.target["id"]);
         // element.css("opacity: 0%");
+        var oneActive = false;
         restaurants_categories.forEach(iter => {
             //console.log("t" + iter["name"] + " ");
             // console.log(event.element["target"]);
@@ -254,11 +255,18 @@ function createCategories(){
                 iter["active"] = !iter["active"];
                 if(iter["active"]){
                     $(this).find(".food-item-check").css("opacity", "0%");
+
                 }else{
                     $(this).find(".food-item-check").css("opacity", "75%");
+                    oneActive = true;
                 }
             } 
         });
+        if(oneActive){
+            $(".cancelButton").css("visibility", "visible");
+        }else{
+            $(".cancelButton").css("visibility", "hidden");
+        }
 
         if (activeCategories.includes(event.target["id"])){
             activeCategories.splice(activeCategories.indexOf(event.target["id"]), 1);
