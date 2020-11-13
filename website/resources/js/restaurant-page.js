@@ -27,7 +27,12 @@ function sortby(type){
         } else {
             lastSort = type;
         }
-        createRestaurants();
+        if(false){
+
+        }else{
+            createRestaurants();
+        }
+
     }catch(e){
         alert(e);
     }
@@ -147,6 +152,7 @@ function onSearch(){
          clearSearch();
     }else{
         $('#xicon').css("visibility", "visible");
+        $('#categories-overlay').css("visibility", "visible").css("opacity", "65%");
         createSearchedRestaurants(x);
     }
 
@@ -158,6 +164,7 @@ function onSearch(){
 function clearSearch(){
     document.getElementById("searchbox").value = "";
     $('#xicon').css("visibility", "hidden");
+    $('#categories-overlay').css("visibility", "hidden").css("opacity", "0%");
     createRestaurants();
 }
 
