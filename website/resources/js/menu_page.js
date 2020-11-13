@@ -237,9 +237,7 @@ function addToCartClicked(event){
 
   addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
   updateCartTotal();
-
-
-  // alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
+  alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
   closeMenuModal();
 }//end addToCartClicked
 

@@ -116,7 +116,6 @@
                             <h2 class="heading-text">User Information</h2>
                             <hr>
                             <div id="user-input-group">
-
                                 <div id="user-inputs">
                                     <input type="text" class="user-information" id="user-Name" placeholder="Enter First Name">
                                     <input type="text" class="user-information" id="user-Phone" placeholder="Enter Last Name">
@@ -126,7 +125,8 @@
                                     <input type="text" class="user-information" id="user-card" placeholder="16 digit card number">
                                     <input type="text" class="user-information" id="user-securit-code" placeholder="Security code">
                                     <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
-                                    <input type="date" id="expiry-date-information" placeholder="expiry date">
+                                    <input type="number" class="expiry-date-information" id="expiry-year" placeholder="Year(YY)">
+                                    <input type="number" class="expiry-date-information" id="expiry-month" placeholder="Month(MM)">
                                 </div>
 
                             </div>
@@ -147,12 +147,21 @@
                             </div>
                             
                             <div id="total-order-information">
-                                <h4 class="order-cost">Subtotal: $123</h4>
-                                <h4 class="order-cost">GST: $123</h4>
-                                <h4 class="order-cost">PST: $123</h4>
-                                <h4 class="order-cost">Delivery: $123</h4>
+                                <h4 class="order-info">Subtotal: $</h4>
+                                <h4 class="order-info">GST: $</h4>
+                                <h4 class="order-info">PST: $</h4>
+                                <h4 class="order-info">Delivery: $</h4>
                                 <hr>
-                                <h4 class="order-cost">Total: $123</h4>
+                                <h4 class="order-info">Total: $</h4>
+                            </div>
+
+                            <div id="total-order-price">
+                                <h4 class="order-price" id="subtotal">100.00</h4>
+                                <h4 class="order-price" id="gst">10.00</h4>
+                                <h4 class="order-price" id="pst">2.00</h4>
+                                <h4 class="order-price" id="delivery">13.00</h4>
+                                <hr>
+                                <h4 class="order-price" id="total">125.00</h4>
                             </div>
                             
                             <div id="summary-page-buttons">
