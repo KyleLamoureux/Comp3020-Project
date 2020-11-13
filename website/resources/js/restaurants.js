@@ -130,19 +130,19 @@ restaurants = [
         type: ['Asian', 'Vietnamese'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "General's Chicken",
+                img: root+"/asia_palace/chicken/general.jpg",
+                restaurant: "Asia Palace"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Shrimp Chow Mein",
+                img: root+"/asia_palace/chow_mein/shrimp.png",
+                restaurant: "Asia Palace"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Vegetable Fried Rice",
+                img: root+"/asia_palace/fried_rice/veg.png",
+                restaurant: "Asia Palace"
             }
         ],
         distance: 2.9,
@@ -162,17 +162,17 @@ restaurants = [
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Kimchi Sushi"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Kimchi Sushi"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Kimchi Sushi"
             }
         ],
         distance: 7.9,
@@ -192,17 +192,17 @@ restaurants = [
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Boston Pizza"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Boston Pizza"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Boston Pizza"
             }
         ],
         distance: 5.1,
@@ -223,17 +223,17 @@ restaurants = [
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Clay Oven"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Clay Oven"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Clay Oven"
             }
         ],
         distance: 4.4,

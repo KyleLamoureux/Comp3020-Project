@@ -1233,6 +1233,323 @@ const menus = {
         ],
         'Drinks' : constDrinks
     },
+    'Asia Palace' : {
+        'Appetizer' : [
+            {
+                name : 'Crab Rangoon (5 pcs)',
+                description : 'Five deep-fried dumplings filled with cream cheese and crab meat.',
+                price : 7.99,
+                image : mRoot+'/asia_palace/appetizers/crab.jpg',
+                options : {
+
+                }
+            },
+            {
+                name : 'Shrimp Salad Rolls (2 pcs)',
+                description : 'Fresh vegetables, rice noodles, steamed shrimp, and herbs wrapped in rice paper.',
+                price : 4.99,
+                image : mRoot+'/asia_palace/appetizers/shrimp.jpg',
+                options : {
+
+                }
+            },
+            {
+                name : 'Tofu Salad Rolls (2 pcs)',
+                description : 'Fresh vegetables, rice noodles, tofu, and herbs wrapped in rice paper.',
+                price : 3.99,
+                image : mRoot+'/asia_palace/appetizers/tofu.png',
+                options : {
+
+                }
+            },
+        ],
+        'Chicken' : [
+            {
+                name : "General's Chicken",
+                description : 'Breaded, fried chicken in a sweet and slightly spicy sauce.',
+                price : 11.99,
+                image : mRoot+'/asia_palace/chicken/general.jpg',
+                options : {
+                    Spice : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Mild',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Medium',
+                                price : 0.00
+                            },
+                            {
+                                name : 'High',
+                                price : 0.00
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Chinese Butter Chicken',
+                description : 'Breaded, fried chicken in a creamy sauce made with curry leaves and chilies.',
+                price : 12.99,
+                image : mRoot+'/asia_palace/chicken/butter.jpg',
+                options : {
+                    Spice : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Mild',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Medium',
+                                price : 0.00
+                            },
+                            {
+                                name : 'High',
+                                price : 0.00
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Kung Pao Chicken with Peanut',
+                description : 'Tasty pieces of chicken and roasted peanuts are tossed in a spicy sauce.',
+                price : 11.99,
+                image : mRoot+'/asia_palace/chicken/peanut.png',
+                options : {
+                    Spice : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Mild',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Medium',
+                                price : 0.00
+                            },
+                            {
+                                name : 'High',
+                                price : 0.00
+                            }
+                        ]
+                    }
+                }
+            },
+        ],
+        'Chow Mein' : [
+            {
+                name : 'Deluxe Chow Mein',
+                description : 'Barbeque pork, chicken, shrimp, scallop, squid, and fresh vegetables are stir-fried in a light sauce, and served over crispy noodles.',
+                price : 11.99,
+                image : mRoot+'/asia_palace/chow_mein/deluxe.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double beef',
+                                price : 4.00
+                            },
+                            {
+                                name : 'Double chicken',
+                                price : 3.00
+                            },
+                            {
+                                name : 'Double shrimp',
+                                price : 4.00
+                            },
+                            {
+                                name : 'Double scallop',
+                                price : 4.50
+                            },
+                            {
+                                name : 'Double squid',
+                                price : 5.00
+                            },
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Shrimp Chow Mein',
+                description : 'Plump shrimp and fresh vegetables are stir-fried in a light sauce, and served over crispy noodles.',
+                price : 13.99,
+                image : mRoot+'/asia_palace/chow_mein/shrimp.png',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double shrimp',
+                                price : 4.00
+                            },
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Beef Chow Mein',
+                description : 'Tender slices of beef and fresh vegetables are stir-fried in a light sauce, and served over crispy noodles.',
+                price : 12.99,
+                image : mRoot+'/asia_palace/chow_mein/beef.png',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double beef',
+                                price : 4.00
+                            },
+                        ]
+                    } 
+                }
+            },
+        ],
+        'Fried Rice' : [
+            {
+                name : 'Deluxe Fried Rice with BBQ Pork, Chicken, Shrimp',
+                description : 'Chinese-style, wok-fried rice with vegetables, eggs, barbeque pork, chicken, and shrimp.',
+                price : 14.99,
+                image : mRoot+'/asia_palace/fried_rice/deluxe.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double pork',
+                                price : 4.00
+                            },
+                            {
+                                name : 'Double chicken',
+                                price : 3.00
+                            },
+                            {
+                                name : 'Double shrimp',
+                                price : 4.00
+                            }
+                        ]
+                    } 
+                }
+            },
+            {
+                name : 'Curry Seafood Fried Rice with Shrimp, Scallop, Pollock, Squid',
+                description : '',
+                price : 16.99,
+                image : mRoot+'/asia_palace/fried_rice/curry.png',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No shrimp',
+                                price : -1.25,
+                            },
+                            {
+                                name : 'No scallop',
+                                price : -1.25
+                            },
+                            {
+                                name : 'No pollock',
+                                price : -2.25
+                            },
+                            {
+                                name : 'No squid',
+                                price : -2.25
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double shrimp',
+                                price : 2.50
+                            },
+                            {
+                                name : 'Double scallop',
+                                price : 2.50
+                            },
+                            {
+                                name : 'Double pollock',
+                                price : 4.50
+                            },
+                            {
+                                name : 'Double squid',
+                                price : 4.50
+                            },
+                        ]
+                    } 
+                }
+            },
+            {
+                name : 'Vegetable Fried Rice',
+                description : '',
+                price : 9.99,
+                image : mRoot+'/asia_palace/fried_rice/veg.png',
+                options : {
+                    
+                }
+            },
+        ],
+        'Vietnamese Fusion' : [
+            {
+                name : 'Vietnamese Beef Noodle Soup',
+                description : 'Sliced beef, onions, cilantro, and rice noodles in a flavourful and aromatic broth.',
+                price : 9.99,
+                image : mRoot+'/asia_palace/vietnamese/noodle.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double meat',
+                                price : 4.00
+                            }
+                        ]
+                    } 
+                }
+            },
+            {
+                name : 'Deluxe BBQ Pork Vermicelli Bowl',
+                description : 'Sliced, seasoned barbecue pork and pork meatballs over a bowl of vermicelli rice noodles, with bean sprouts, cucumbers, carrots, lettuce',
+                price : 10.99,
+                image : mRoot+'/asia_palace/vietnamese/vermicelli.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double meat',
+                                price : 4.00
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'BBQ Pork Chop with Rice and BBQ Pork Sausage',
+                description : 'A bowl of perfectly cooked rice topped with a barbequed pork chop and barbequed pork sausage.',
+                price : 10.99,
+                image : mRoot+'/asia_palace/vietnamese/pork.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double meat',
+                                price : 4.00
+                            }
+                        ]
+                    }
+                }
+            },
+        ],
+        'Drinks' : constDrinks
+    },
 }
 
 
