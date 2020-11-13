@@ -44,6 +44,15 @@ function reset(){
 // This variable supports reverse sorting... boy is this getting messy lmao. Glad they don't look at the code.
 var activeCategories = allCats();
 
+function createSearchedRestaurants(query){
+    var eleList = document.getElementById("restaurant-ul");
+    clearDiv(eleList);
+    restaurants.forEach(element => {
+        if (element.name.toLowerCase().includes(query.toLowerCase()))
+            eleList.appendChild(createRestListItem(element));
+    });
+}
+
 // Call this to refresh restaurants UI
 function createRestaurants(){
     var eleList = document.getElementById("restaurant-ul");
@@ -138,6 +147,7 @@ function onSearch(){
          clearSearch();
     }else{
         $('#xicon').css("visibility", "visible");
+        createSearchedRestaurants(x);
     }
 
 }
@@ -148,6 +158,7 @@ function onSearch(){
 function clearSearch(){
     document.getElementById("searchbox").value = "";
     $('#xicon').css("visibility", "hidden");
+    createRestaurants();
 }
 
 // Creates li.
