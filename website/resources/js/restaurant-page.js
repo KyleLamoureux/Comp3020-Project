@@ -108,7 +108,7 @@ function createRandomization() {
     orbDiv.appendChild(txt);
     
     // Create random menu item orbs
-    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true);
+    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true. false);
     itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
 
     li.appendChild(itemDiv);
@@ -167,7 +167,8 @@ function createRestListItem(element){
     img.alt = element['name'];
     
     // Create menu item orbs
-    var menuItems = createItemOrb(element["foodItems"]);
+    var v = Object.keys(element).includes('textColour');
+    var menuItems = createItemOrb(element["foodItems"], false, v);
     
     // Restaurant information div's
     var infoDiv = document.createElement("div");
@@ -207,7 +208,8 @@ function createRestListItem(element){
 
 
 // Creates <div id="food-item-list">...
-function createItemOrb(element, random=false){
+function createItemOrb(element, random=false, color=false){
+    console.log(element, random, color)
     var div = document.createElement("div")
     div.id = "food-item-list";
     element.forEach(e => {
@@ -222,6 +224,8 @@ function createItemOrb(element, random=false){
 
         var title = document.createElement("h6");
         var text = document.createTextNode(e["name"]);
+        if(color)
+            title.style.color = "black"
         title.appendChild(text);
 
         subDiv = appendMultiple(subDiv, [img, title]);

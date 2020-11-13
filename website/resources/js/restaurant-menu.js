@@ -342,6 +342,92 @@ const menus = {
         ],
         'Drinks' : constDrinks
     },
+    'Muncho Burrito' : {
+        'Signature' : [
+            {
+                name : 'Smoked Peach + Chili Mango Bowl',
+                description : 'Chili-mango sauce, peach & mango chili salsa, tomato-cucumber salad, crispy jalapeño chips and chipotle-peach crema.',
+                price : 12.99,
+                image : mRoot+'/muncho_burrito/signature/speach.png',
+                nutrition : ''
+            },
+            {
+                name : 'Zesty Chimichurri Bowl',
+                description : 'House-made cilantro & lime chimichurri sauce, roasted seasonal squash, in-house pickled red onions, tricoloured tortilla strips and serrano-chili crema.',
+                price : 12.99,
+                image : mRoot+'/muncho_burrito/signature/zesty.png',
+                nutrition : ''
+            },
+            {
+                name : 'Grilled Pineapple Chili Bowl',
+                description : 'Caramelized pineapple & jalapeño sauce, grilled pineapple, in-house pickled red onions, crispy jalapeño chips and pineapple-habanero crema.',
+                price : 12.99,
+                image : mRoot+'/muncho_burrito/signature/pineapple.png',
+                nutrition : ''
+            },
+            {
+                name : 'Ghost Pepper Burrito',
+                description : 'Ghost pepper bacon, ghost pepper & fig marmalade, chipotle black beans, salsa, sour cream, Monterey Jack cheese, ghost pepper hot sauce, jalapeños.',
+                price : 11.99,
+                image : mRoot+'/muncho_burrito/signature/ghost.png',
+                nutrition : ''
+            }
+        ],
+        'Custom' : [
+            {
+                name : 'Build Your Own Burrito',
+                description : 'Fresh and fantastic, our burritos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                price : 9.99,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : 'Build Your Own 3 Tacos',
+                description : 'Fresh and fantastic, our tacos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                price : 8.99,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : 'Build Your Own Bowl',
+                description : 'Fresh and fantastic, our bowls can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                price : 10.99,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : 'Build Your Own Quesadilla',
+                description : 'Fresh and fantastic, our quesadillas can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                price : 9.99,
+                image : mRoot+'/',
+                nutrition : ''
+            }
+        ],
+        'Sides' : [
+            {
+                name : 'Tortilla Chips with Salsa',
+                description : '',
+                price : 2.25,
+                image : mRoot+'/muncho_burrito/sides/salsa.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Tortilla Chips with Queso',
+                description : '',
+                price : 2.75,
+                image : mRoot+'/muncho_burrito/sides/queso.jpg',
+                nutrition : ''
+            },
+            {
+                name : 'Tortilla Chips with Guacamole',
+                description : '',
+                price : 3.25,
+                image : mRoot+'/muncho_burrito/sides/guac.jpg',
+                nutrition : ''
+            },
+        ],
+        'Drinks' : constDrinks
+    },
 }
 
 
@@ -357,97 +443,97 @@ const menus = {
 */
 
 /* TEMPLATE complete
-'' : {
-        : [
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        }
-    ],
-        : [
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        }
-    ],
-        : [
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        },
-        {
-            name : '',
-            description : '',
-            price : ,
-            image : mRoot+'/',
-            nutrition : ''
-        }
-    ],
-    'Drinks' : constDrinks
-},
+    '' : {
+        '' : [
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            }
+        ],
+        '' : [
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            }
+        ],
+        '' : [
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            },
+            {
+                name : '',
+                description : '',
+                price : ,
+                image : mRoot+'/',
+                nutrition : ''
+            }
+        ],
+        'Drinks' : constDrinks
+    },
 */

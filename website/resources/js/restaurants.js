@@ -99,19 +99,19 @@ restaurants = [
         type: ['Mexican'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Zesty Chimichurri",
+                img: root+"/muncho_burrito/signature/zesty.png",
+                restaurant: "Muncho Burrito"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chips & Salsa",
+                img: root+"/muncho_burrito/sides/salsa.jpg",
+                restaurant: "Muncho Burrito"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Build Your Own",
+                img: root+"/muncho_burrito/build_your_own/byo.jpg",
+                restaurant: "Muncho Burrito"
             }
         ],
         distance: 6.4,
