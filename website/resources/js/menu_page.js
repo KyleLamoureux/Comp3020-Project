@@ -1,4 +1,4 @@
-'use strict';  
+'use strict'; 
 //needed to load the content of the menu page and functionalities such as remove, add, etc.
 if(document.readyState === "loading"){
   document.addEventListener("DOMContentLoaded",main);
@@ -15,94 +15,83 @@ function main(){
       button.addEventListener('click',removeCartItem);
   }//end for
   
+  //CHOSEN RESTAURANT GOES HERE.
+  let restaurantName = "Perkins";
+
+  //display the restaurant's name
+  let titleName = document.getElementsByClassName("heading-text")[0];
+  titleName.innerText = restaurantName;
+
+  for(let restaurant in menus){//interate through the restaurants
+    if(menus.hasOwnProperty(restaurant)){
+
+      if(restaurantName === restaurant){//find the restaurant the user has clicked.
+
+        for(let category in menus[restaurant]){
+          if(menus[restaurant].hasOwnProperty(category)){
+              //category categorys
+              addMenuCategory(category);
+              //food item list for each category.
+              let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
+              for(let j = 0; j < categoryFoodItems.length; j++){
+                addFoodItems(category,categoryFoodItems[j].name,categoryFoodItems[j].price,
+                                categoryFoodItems[j].description,categoryFoodItems[j].image,categoryFoodItems[j].nutrition);
+              }//end nested for
+         
+            }//end if
+        }//end for
+      }
+    }//end if
+  }//end for
+  /*
+  //INSERT RESTAURANT NAME HERE.
   
-  let listFoodItems = [
-    {
-      foodCategory:"Appetizer",
-      foodName:"Omelet",
-      foodPrice:12.99,
-      foodDesc:"Food description for omelet",
-      foodImg:"images/omelet.jpg",
-      foodNutrition:"images/piecharts/piechart1.png"
-    },
-    {
-      foodCategory:"Appetizer",
-      foodName:"Sandwich",
-      foodPrice:1.99,
-      foodDesc:"Food description for sandwich",
-      foodImg:"images/sandwich.jpg",
-      foodNutrition:"images/piecharts/piechart2.png"
-    },
-    {
-      foodCategory:"Main",
-      foodName:"Sandwich",
-      foodPrice:1.99,
-      foodDesc:"Food description for sandwich",
-      foodImg:"images/sandwich.jpg",
-      foodNutrition:"images/piecharts/piechart3.png"
-    }
-
-  ];
-
-  for(let i = 0; i < listFoodItems.length;i++){
-    console.log("Food Category: " + listFoodItems[i].foodCategory 
-                  +", Food Name: " + listFoodItems[i].foodName 
-                  + ", food Price: " + listFoodItems[i].foodPrice
-                  + ", Food Description: " + listFoodItems[i].foodDesc
-                  + ", Food Image: " + listFoodItems[i].foodImg
-                  + ", Food Nutrition: " + listFoodItems[i].foodNutrition);
-  }
-
-  addAllFoodItems(listFoodItems);
+  */
+  
 }//end main
 
+/**
+ * addMenuCategory - a function that adds menu category 'orb' to the menu page.
+ * @param {*} categoryName the category that will be added to the menu page.
+ */
+function addMenuCategory(categoryName){
+  let categoryDiv = document.getElementsByClassName("scrollbar-category")[0];
+  let aTag = document.createElement("a");
+  aTag.href = "#category_"+categoryName;
+
+  let aTagContent = `
+  <div class="category-item">
+  <h5>${categoryName}</h5>
+  </div>
+  `;
+
+  aTag.innerHTML = aTagContent;
+  categoryDiv.append(aTag);
+  addMenuCategoryTitle(categoryName);//add the category title to the menu list section.
+}//end addMenuCategory
 
 /**
- * addAllFoodItems - a function that adds all the food items for the menu.
- * @param listFoodItems contains a list of food items to be displayed on the menu page.
+ * addMenuCategoryTitle - a function that adds the title of the category on the menu list section.
+ * @param {*} categoryName is the name to be displayed (underlined) to the menu page.
  */
-function addAllFoodItems(listFoodItems){
+function addMenuCategoryTitle(categoryName){
+  let menuList = document.getElementsByClassName("menulist")[0];
+  let menuCategory = document.createElement("div");
+  menuCategory.classList.add("menu-categories");//add the css to the created div.
 
-  
-  for(let i = 0; i < listFoodItems.length;i++){
-    let foodCategory = listFoodItems[i].foodCategory;
-    let foodName = listFoodItems[i].foodName;
-    let foodPrice = listFoodItems[i].foodPrice;
-    let foodDesc = listFoodItems[i].foodDesc;
-    let foodImg = listFoodItems[i].foodImg;
-    let foodNutrition = listFoodItems[i].foodNutrition;
+  let menuCategoryID = "category_"+categoryName;
+  let menuCategoryContent = `
+  <h3 id="${menuCategoryID}" class="menu-category-name">${categoryName}</h3>
+  <hr class="menu-category-name-underlined">
+  <div class="menu-category-grouped-items">
+      <!--Food items for Appetizer are inserted in menu_page.js-->
+  </div> 
+  `;
+ 
+  menuCategory.innerHTML = menuCategoryContent;
+  menuList.append(menuCategory);
 
-    addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutrition);
-  }//end for
-  
-
-  
-  /*
-  //ADD FOOD ITEMS HERE (Name of the category,foodName,foodPrice,foodDescription,foodImage)
-  
-  addFoodItems("Appetizer","Omelet",6.92,"This is the food description for Omelet","images/omelet.jpg");
-  addFoodItems("Appetizer","Sandwich",5.99,"This is the food description for Sandwich","images/sandwich.jpg");
-  addFoodItems("Appetizer","Pancake",3.99,"This is the food description for Pancake","images/pancake.jpg");
-  addFoodItems("Main","Burger",8.12,"This is the food description for Burger","images/burger.jpg");
-  addFoodItems("Main","Pizza",18.99,"This is the food description for Pizza","images/pizza.jpg");
-  addFoodItems("Main","Pasta",12.99,"This is the food description for Pasta","images/italian_main.jpeg");
-  addFoodItems("Dessert","Some dessert",5.99,"This is the food description for the dessert","images/italian_dessert.jpg");
-  addFoodItems("Side","French Fries",2.50,"This is the food description for french fries","images/burger_side.jpeg");
-  addFoodItems("Dessert","Sliced Chocolate Cake",7.99,"This is the food description for the Sliced Chocolate Cake","images/pizza_dessert.jpg");
-
-  let x = " Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam rem consequuntur delectus culpa voluptas laborum ea, maiores doloribus quas adipisci, vel dolorem incidunt inventore odit atque veritatis a, minus deleniti?";
-  addFoodItems("Dessert","Sliced Chocolate Cake",7.99,x,"images/pizza_dessert.jpg");
-  addFoodItems("Appetizer","Onion Rings", 7.99, "This is the food description for Onion rings", "images/burger_appe.jpg");
-  addFoodItems("Appetizer", "Dumplings", 6.99, "This is the food description for Dumplings", "images/chinese_appe.jpg");
-  addFoodItems("Main","Chicken Stir-Fry",13.99,"This is the food description for Chicken Stir Fry", "images/chinese_main.jpg");
-  addFoodItems("Side","Wonton soup", 9.99, "This is the food description for Wonton soup", "images/chinese_side.jpg");
-  addFoodItems("Side", "Meat ball", 10.99, "This is food description for Meat ball", "images/italian_side.jpg");
-  addFoodItems("Side", "Salad", 6.99, "This is food description for Salad", "images/pizza_side.jpg");
-  addFoodItems("Side", "Salad2", 8.99, "This is food description for Salad2", "images/italian_appe.jpg");
-  */
-
-}//end addAllFoodItems
-
+}//end addMenuCategoryTitle
 
 /**
  * addFoodItems - add food items on the menu section depending on the given food category.
@@ -132,7 +121,6 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutri
 
   let newFood = document.createElement("div");//new menu-category-item 
   newFood.classList.add("menu-category-item");//add the css for the new div.
-  
 
   //insert the food-item
   let newFoodContent = `
@@ -141,7 +129,7 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutri
         <p class="menu-category-item-description">${foodDesc}</p>
     </div>
     <h5 class="menu-category-item-title">${foodName}</h5>
-    <h5 class="menu-category-item-price">$${foodPrice}</h5>
+    <h5 class="menu-category-item-price">$${foodPrice.toFixed(2)}</h5>
   `;
 
 
@@ -175,7 +163,7 @@ function openFoodModal(event){
   
     //get the information:
     let foodItem = event.target.parentElement;
-    console.log(foodItem);
+    //console.log(foodItem);
     //NOTE: IT DOES NOT OPEN THE MODAL WHEN CLICKING THE DESCIPTION.
     let foodItemTitle = foodItem.getElementsByClassName("menu-category-item-title")[0].innerText;
     let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
@@ -249,7 +237,6 @@ function addToCartClicked(event){
 
   addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
   updateCartTotal();
-
   alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
   closeMenuModal();
 }//end addToCartClicked
@@ -262,13 +249,14 @@ function addToCartClicked(event){
  * @param {*} foodItemImage  is the image of the food.
  */
 function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage){
-  var cartRow = document.createElement("div");//row to be created
+  let cartRow = document.createElement("div");//row to be created
   cartRow.classList.add("cart-row");//get the css style for this div.
 
   cartRow.innerText = foodItemTitle;
-  var cartItems = document.getElementsByClassName("cart-items")[0];//get the div from html
+  let cartItems = document.getElementsByClassName("cart-items")[0];//get the div from html
 
-  var cartRowContents = `
+  foodItemPrice = foodItemPrice.replace("Price:","");
+  let cartRowContents = `
   <div class="cart-item cart-column">
     <img class="cart-item-image" src="${foodItemImage}" alt=${foodItemTitle}>
     <span class="cart-item-title">${foodItemTitle}</span>
@@ -302,14 +290,15 @@ function updateCartTotal(){
       let priceElement = cartRow.getElementsByClassName("cart-price")[0];      
       
       //CASE SENSITIVE. Will result NaN if the first parameter in replace is wrong.
-      let price = parseFloat(priceElement.innerHTML.replace("Price: $",""));//get the text inside the priceElement.
+      let price = parseFloat(priceElement.innerHTML.replace("$",""));//get the text inside the priceElement.
       //console.log(price);
 
       total = total + price;
   }
   
   total = Math.round(total *100)/100;
-  document.getElementsByClassName("total-order")[0].innerText = "Subtotal: $" + total;
+  document.getElementsByClassName("total-order")[0].innerText = "Subtotal: $" + total.toFixed(2);
+  updateNutrition();
 
 }//end updateCartTotal
 
@@ -348,6 +337,7 @@ function removeCartItem(event){
     let modal = document.getElementById("summary-page");
     modal.style.display = "block";
     blurControl();
+    getOrderedItems(); //FUNCTION FROM summary_page.js
   }else{
     alert("Please add items to the cart.");
   }//end if-else
@@ -363,6 +353,7 @@ function cancelCheckout() {
   modal.style.display = "none";
   blurControl();
 }//end cancelCheckout
+
 
 
 /**
