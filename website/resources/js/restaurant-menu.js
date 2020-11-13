@@ -459,24 +459,168 @@ const menus = {
                 description : 'Mouthwatering perfection starts with two 100% pure beef patties and Big Mac sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion and American cheese.',
                 price : 6.99,
                 image : mRoot+'/mcdonalds/burgers/bigmac.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Small fry',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Medium fry',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Large fry',
+                                price : 2.00
+                            }
+                        ]
+                    },
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No pickles',
+                                price : -0.40,
+                            },
+                            {
+                                name : 'No onions',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    }
+                }  
             },
             {
                 name : 'Quarter Pounder',
                 description : '¼ lb. of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. It’s seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty American cheese on a sesame seed bun.',
                 price : 5.99,
                 image : mRoot+'/mcdonalds/burgers/quarter.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Small fry',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Medium fry',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Large fry',
+                                price : 2.00
+                            }
+                        ]
+                    },
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No pickles',
+                                price : -0.40,
+                            },
+                            {
+                                name : 'No onions',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'McDouble',
                 description : 'Two 100% pure beef patties seasoned with just a pinch of salt and pepper. It’s topped with tangy pickles, chopped onions, ketchup, mustard and a slice of melty American cheese.',
                 price : 2.99,
                 image : mRoot+'/mcdonalds/burgers/mcdouble.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Small fry',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Medium fry',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Large fry',
+                                price : 2.00
+                            }
+                        ]
+                    },
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No pickles',
+                                price : -0.40,
+                            },
+                            {
+                                name : 'No onions',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'Cheeseburger',
                 description : "Our simple, classic cheeseburger begins with a 100% pure beef patty seasoned with just a pinch of salt and pepper. It's topped with a tangy pickle, chopped onions, ketchup, mustard, and a slice of melty American cheese.",
                 price : 1.99,
                 image : mRoot+'/mcdonalds/burgers/cheeseburger.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Small fry',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Medium fry',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Large fry',
+                                price : 2.00
+                            }
+                        ]
+                    },
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No pickles',
+                                price : -0.40,
+                            },
+                            {
+                                name : 'No onions',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    }
+                }
             }
         ],
         'Chicken And Sandwiches' : [
@@ -491,18 +635,110 @@ const menus = {
                 description : "McDonald's Buttermilk Crispy Chicken Sandwich is made with all white meat chicken and no added colors. It's layered with crisp, green leaf lettuce and tasty tomato and mayonnaise and served up on a delectable artisan roll.",
                 price : 5.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/crispy.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Small fry',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Medium fry',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Large fry',
+                                price : 2.00
+                            }
+                        ]
+                    },
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No onions',
+                                price : -0.20
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'McChicken',
                 description : 'A delightfully crispy chicken sandwich with a crispy chicken fillet topped with mayonnaise, shredded iceberg lettuce, and served on a perfectly toasty bun.',
                 price : 4.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/mcChicken.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Small fry',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Medium fry',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Large fry',
+                                price : 2.00
+                            }
+                        ]
+                    },
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No mayo',
+                                price : -0.20,
+                            },
+                            {
+                                name : 'No lettuce',
+                                price : -0.20
+                            },
+                        ]
+                    }
+                }
             },
             {
                 name : 'Filet-O-Fish',
                 description : 'Sourced from sustainable fisheries, topped with melty American cheese and creamy tartar sauce, and served on a soft, steamed bun.',
                 price : 3.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/fish.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Small fry',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Medium fry',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Large fry',
+                                price : 2.00
+                            }
+                        ]
+                    },
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No tartar sauce',
+                                price : -0.40,
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    }
+                }
             }
         ],
         'Desserts' : [
@@ -511,24 +747,32 @@ const menus = {
                 description : 'Enjoy our creamy vanilla soft serve in a crispy cone!',
                 price : 0.99,
                 image : mRoot+'/mcdonalds/desserts/cone.jpg',
+                options : {
+                }
             },
             {
                 name : 'Baked Apple Pie',
                 description : "McDonald's Baked Apple Pie is loaded with 100% American-grown apples, with a lattice crust baked to perfection and topped with sprinkled sugar.",
                 price : 1.99,
                 image : mRoot+'/mcdonalds/desserts/apple.jpg',
+                options : {
+                }
             },
             {
                 name : 'McFlurry with Oreo Cookies',
                 description : 'The McDonald’s McFlurry with OREO Cookies is an popular combination of OREO pieces and vanilla soft serve!',
                 price : 3.99,
                 image : mRoot+'/mcdonalds/desserts/flurry.jpg',
+                options : {
+                }
             },
             {
                 name : 'Chocolate Shake',
                 description : 'McDonald’s Chocolate Shake is a delicious chocolate dessert made with our creamy vanilla soft serve and chocolate syrup, topped with whipped topping.',
                 price : 3.99,
                 image : mRoot+'/mcdonalds/desserts/shake.jpg',
+                options : {
+                }
             }
         ],
         'Drinks' : constDrinks
