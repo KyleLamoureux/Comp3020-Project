@@ -32,28 +32,168 @@ const menus = {
     'Perkins' : {
         'Omelets' : [
             {
-                name : 'Granny’s Country',
+                name : "Granny's Country",
                 description : 'Filled with diced grilled ham, onions, green peppers, American cheese, cheese sauce and crispy hash browns. Topped with all of the same!',
                 price : 9.99,
                 image : mRoot+'/perkins/omelets/granny.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No green peppers',
+                                price : -0.40,
+                            },
+                            {
+                                name : 'No onions',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add 1 more egg',
+                                price : 1.50
+                            },
+                            {
+                                name : 'Double cheese',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Double ham',
+                                price : 2.00
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'The Everything',
                 description : 'Diced grilled ham, crimini mushrooms, tomatoes, onions, green peppers and American cheese – this classic omelet has it all!',
                 price : 10.99,
                 image : mRoot+'/perkins/omelets/everything.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No mushrooms',
+                                price : -0.40,
+                            },
+                            {
+                                name : 'No tomatoes',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No green peppers',
+                                price : -0.50
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -0.75
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add 1 more egg',
+                                price : 1.50
+                            },
+                            {
+                                name : 'Double cheese',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Double ham',
+                                price : 2.00
+                            }
+                        ]
+                    }
+                }
             },
             {
-                name : 'Meat ‘n Potatoes',
+                name : "Meat 'n Potatoes",
                 description : 'Pork sausage, Applewood smoked bacon, smoked ham, grilled red onions and Cheddar atop an omelet stuffed with more of the same, plus crispy tots.',
                 price : 9.99,
                 image : mRoot+'/perkins/omelets/ham.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No onions',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add 1 more egg',
+                                price : 1.50
+                            },
+                            {
+                                name : 'Double pork sausage',
+                                price : 2.00
+                            },
+                            {
+                                name : 'Double smoked ham',
+                                price : 2.00
+                            },
+                            {
+                                name : 'Double applewoof smoked bacon',
+                                price : 2.00
+                            }
+                        ]
+                    }
+                }
             },
             {
-                name : 'HAM ‘N CHEESE',
+                name : "HAM 'N CHEESE",
                 description : 'A traditional favorite of diced grilled ham and American cheese. Served with three buttermilk pancakes. No sides',
                 price : 9.99,
                 image : mRoot+'/perkins/omelets/meat.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No cheese',
+                                price : -1.00
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add 1 more egg',
+                                price : 1.50
+                            },
+                            {
+                                name : 'Double cheese',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Double Ham',
+                                price : 2.00
+                            }
+                        ]
+                    }
+                }
             }
         ],
         'Griddle' : [
@@ -62,24 +202,72 @@ const menus = {
                 description : 'A Belgian Waffle dusted with powdered sugar for the perfect dash of sweetness.',
                 price : 9.99,
                 image : mRoot+'/perkins/griddle/waffle.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Additional syrup',
+                                price : 0.70
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'Strawberry Crepes Platter',
                 description : 'Two light delicate crepes with a sweet vanilla cream cheese, topped with fresh glazed strawberries, powdered sugar and whipped topping.',
                 price : 11.99,
                 image : mRoot+'/perkins/griddle/crepe.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double strawberries',
+                                price : 1.50
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'Brioche French Toast Platter',
                 description : 'Two slices of thick-cut brioche bread dipped in our signature batter, grilled and sprinkled with powdered sugar.',
                 price : 10.99,
                 image : mRoot+'/perkins/griddle/french.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Additional syrup',
+                                price : 0.70
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'Blueberry Buttermilk Pancake Platter',
                 description : 'Three buttermilk pancakes loaded with juicy blueberries, grilled and sprinkled with powdered sugar.',
                 price : 9.99,
                 image : mRoot+'/perkins/griddle/pancake.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Additional syrup',
+                                price : 0.70
+                            },
+                            {
+                                name : 'Double blueberries',
+                                price : 1.50
+                            }
+                        ]
+                    }
+                }
             }
         ],
         'Sandwiches' : [
@@ -88,24 +276,116 @@ const menus = {
                 description : 'A flaky, buttery croissant loaded with a blend of smoked, pulled chicken, red grapes, celery, walnuts and fresh leaf lettuce.',
                 price : 9.99,
                 image : mRoot+'/perkins/sandwiches/sonoma.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No walnuts',
+                                price : -0.50
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double chicken',
+                                price : 1.75
+                            },
+                        ]
+                    }
+                }
             },
             {
                 name : 'Triple Decker Club',
                 description : 'Oven-roasted turkey, Applewood smoked bacon, tomato, lettuce and mayo on white or whole wheat toast.',
                 price : 11.99,
                 image : mRoot+'/perkins/sandwiches/club.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No tomato',
+                                price : -0.20
+                            },
+                            {
+                                name : 'No mayo',
+                                price : -0.15
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double bacon',
+                                price : 1.75
+                            },
+                            {
+                                name : 'Double turkey',
+                                price : 1.75
+                            }
+                        ]
+                    }
+                }
             },
             {
                 name : 'French Dip',
                 description : 'Warm, sliced roast beef, Swiss cheese and grilled onions on a grilled hoagie with au jus for dipping.',
                 price : 10.99,
                 image : mRoot+'/perkins/sandwiches/dip.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No cheese',
+                                price : -0.50
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double roast beef',
+                                price : 0.75
+                            },
+                        ]
+                    }
+                }
             },
             {
-                name : 'Ham ‘N Cheese Melt',
+                name : "Ham 'N Cheese Melt",
                 description : 'Warm, deli-shaved ham, Applewood smoked bacon and melted American cheese on grilled sourdough bread with Honey Mustard dipping sauce.',
                 price : 9.99,
                 image : mRoot+'/perkins/sandwiches/hamCheese.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No cheese',
+                                price : -0.50
+                            }
+                        ]
+                    },
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double ham',
+                                price : 1.75
+                            },
+                            {
+                                name : 'Double bacon',
+                                price : 1.75
+                            }
+                        ]
+                    }
+                }
             }
         ],
         'Dessert' : [
@@ -114,24 +394,60 @@ const menus = {
                 description : 'Loaded with hand-sliced bananas and topped with real whipped cream and chopped walnuts.',
                 price : 6.99,
                 image : mRoot+'/perkins/desserts/banana.jpg',
+                options : {
+                    Alterations : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'No walnuts',
+                                price : -0.50
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Homestyle Apple',
                 description : 'Juicy sweet apples baked fresh inside a golden flaky crust.',
                 price : 6.99,
                 image : mRoot+'/perkins/desserts/apple.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add whip cream',
+                                price : 0.10
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Cherry',
                 description : 'Sweet and tangy cherries baked inside a golden double crust.',
                 price : 6.99,
                 image : mRoot+'/perkins/desserts/cherry.jpg',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Add whip cream',
+                                price : 0.10
+                            }
+                        ]
+                    },
+                }
             },
             {
                 name : 'Chocolate French Silk',
                 description : 'Creamy chocolate topped with real whipped cream and dark chocolate curls.',
                 price : 6.99,
                 image : mRoot+'/perkins/desserts/chocolate.jpg',
+                options : {
+                    
+                }
             }
         ],
         'Drinks' : constDrinks 
