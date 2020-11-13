@@ -4,27 +4,75 @@
 }
 
 body{
-    background-color: #F8FAFB;
+    background-color: #F2EFE4;
 }
 
 .container{
-    margin-top: 30px;
-    padding-bottom: 0;
     padding-left: 20px;
-    padding-right: 20px;
+    justify-content: center;
 }
 
 .website-header {
-    padding: 10px 16px;
-    background:#555;
-    color: #f1f1f1;
-    columns: 3;
-    font-size: 30px;
+    padding: 0px 16px;
+    height: 50px;
+    display: flex;
+    background-color: #F2EFE4;
+    font-size: 24px;
+    border: 0.5px black solid;
 }
 
+.hr-line{
+    border: none;
+    margin: 50px 200px;
+    height: 5px;
+    background: linear-gradient(to right, black, #FF5C00);
+    border-radius: 10px;
+}
 
+.celeb-title{
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 3em;
+    color: #083755;
+}
 
+.celeb-area{
+    display: flex;
+    
+}
 
+.content-circle{
+    background: #F6B78A;
+    border-radius: 50%;
+    width: 30vw;
+    height: 30vw;
+    position: relative;
+}
 
+.content{
+    position: absolute;
+    width: 20em;
+    height: auto;
+    text-align: left;
+    transform: translateY(55%);
+    padding-left: 2em;
+}
 
+.content h1{
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    color: #FF5C00;
+}
 
+.content p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    color: #083755;
+}
+
+.celeb-photo{
+    background: #FF5C00;
+    width: 60vw; 
+    clip-path: circle();
+}
