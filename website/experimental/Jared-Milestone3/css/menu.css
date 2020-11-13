@@ -339,32 +339,7 @@ margin: 0;
     padding: 5px 4px;
 }
 
-/*nutritional info*/
-.nutrional-info{
-    position: absolute;
-    width: 90%;
-    height: 20vh;
-}
-.nutritional-info-img{
-    width: 210px;
-    height: 210px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
 
-#nutritional-info-checkbox{
-    width: 80%;
-    position: relative;
-    display: block;
-    margin : 0 auto;;
-    display: block;
-}
-
-#nutritional-info-text{
-    margin-left: 3%;
-}
 
 
 /*checkout-div*/

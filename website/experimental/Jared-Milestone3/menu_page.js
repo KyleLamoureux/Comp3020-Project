@@ -251,7 +251,8 @@ function addToCartClicked(event){
   addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
   updateCartTotal();
 
-  alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
+
+  // alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
   closeMenuModal();
 }//end addToCartClicked
 
@@ -312,6 +313,7 @@ function updateCartTotal(){
   
   total = Math.round(total *100)/100;
   document.getElementsByClassName("total-order")[0].innerText = "Subtotal: $" + total.toFixed(2);
+  updateNutrition();
 
 }//end updateCartTotal
 
