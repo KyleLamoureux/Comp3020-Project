@@ -1,4 +1,17 @@
 
+
+/**
+ * Homepage Data
+ */
+userAddress = localStorage.getItem('user-address');
+function fillAddress(){
+    if(userAddress === null || userAddress.length === 0){
+        document.getElementById("user-address").innerText = "No Address Input";
+    } else {
+        document.getElementById("user-address").innerText = userAddress;
+    }
+}
+
 /**
  * Js hook for sortby dropdown
  * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
@@ -15,32 +28,76 @@ function sortby(){
         } else {
             lastSort = type;
         }
-        createRestaurants();
+        var search = document.getElementById("searchbox").value;
+        if(search){
+            createSearchedRestaurants(search);
+        }else{
+            createRestaurants();
+        }
+
     }catch(e){
         alert(e);
     }
 }
+/**
+ * A reset function for the dropdown hover.
+ * Please don't touch this lol
+ */
+// function reset(){
+//     document.getElementById("dropdownblock").style.opacity = "";
+// }
 
+// This variable supports reverse sorting... boy is this getting messy lmao. Glad they don't look at the code.
+var activeCategories = allCats();
+
+function createSearchedRestaurants(query){
+    var eleList = document.getElementById("restaurant-ul");
+    clearDiv(eleList);
+    restaurants.forEach(element => {
+        if (element.name.toLowerCase().includes(query.toLowerCase()))
+            eleList.appendChild(createRestListItem(element));
+    });
+}
 // Call this to refresh restaurants UI
 function createRestaurants(){
     var eleList = document.getElementById("restaurant-ul");
     clearDiv(eleList);
 
     types = hiddenTypes();
+    if (activeCategories.length !== allCats().length){
+        types = activeCategories;
+    }
 
     eleList.appendChild(createRandomization());
     restaurants.forEach(element => {
-        if (!element["type"].some(item => types.includes(item)))
+        if (doIContain(element["type"], types))
             eleList.appendChild(createRestListItem(element));
     });
 
 };
 
+/*
+* check for types overlap.
+*/
+function doIContain(element, types){
+    var anwser = false;
+    for(var i = 0; i < element.length; i++){
+        if(!types.includes(element[i])){
+            var anwser = true;
+            break;
+        }
+    }
+    return anwser;
+}
+
 function createRandomization() {
     var listOfMenuItems = [];
     types = hiddenTypes();
+    if (activeCategories.length !== allCats().length){
+        types = activeCategories;
+    }
     restaurants.forEach(e => {
-        if (!e["type"].some(item => types.includes(item)))
+        if (doIContain(e["type"], types))
         listOfMenuItems = listOfMenuItems.concat(e['foodItems']);
     });
     for (var i = listOfMenuItems.length - 1; i > 0; i--) {
@@ -77,6 +134,40 @@ function randomItemClick(item){
     console.log(item['target']['alt']);
 }
 
+function clearSelection(){
+    restaurants_categories.forEach(iter => {
+        iter["active"] = true;
+    });
+    $(".food-item-check").css("opacity", "0%");
+    $(".cancelButton").css("visibility", "hidden");
+    createRestaurants();
+}
+
+/**
+ * Called when a string of text is entered into the search box
+ */
+function onSearch(){
+    var x = document.getElementById("searchbox").value;
+    if(!x){
+         clearSearch();
+    }else{
+        $('#xicon').css("visibility", "visible");
+        $('#categories-overlay').css("visibility", "visible").css("opacity", "65%");
+        createSearchedRestaurants(x);
+    }
+
+}
+
+/**
+ * Called when the little 'x' is clicked in the search bar
+ */
+function clearSearch(){
+    document.getElementById("searchbox").value = "";
+    $('#xicon').css("visibility", "hidden");
+    $('#categories-overlay').css("visibility", "hidden").css("opacity", "0%");
+    createRestaurants();
+}
+
 // Creates li.
 function createRestListItem(element){
     var li = document.createElement("li");
@@ -85,6 +176,7 @@ function createRestListItem(element){
     // Create sub div
     var itemDiv = document.createElement("div");
     itemDiv.className = "restaurant-item";
+    itemDiv.style.backgroundColor = element['backgroundColour'];
 
     // Create img
     var img = document.createElement("img");
@@ -103,7 +195,11 @@ function createRestListItem(element){
     dist.textContent = element["distance"]+" km";
     var time = document.createElement("h6");
     time.className = "restaurant-time";
-    time.textContent = element["time"]+" m"; 
+    time.textContent = element["time"]+" m";
+    if(Object.keys(element).includes('textColour')){
+        dist.style.color = element['textColour']
+        time.style.color = element['textColour']
+    }
     infoDiv = appendMultiple(infoDiv, [dist, time]);
 
     var imgOverlay = document.createElement("div");
@@ -153,6 +249,7 @@ function createItemOrb(element, random=false){
     return div;
 }
 
+
 // Call this to refresh categories UI
 function createCategories(){
     var eleList = document.getElementById("scollbarFoodCategory");
@@ -168,18 +265,33 @@ function createCategories(){
         // var e = event.target;
         // alert(event.target["id"]);
         // element.css("opacity: 0%");
+        var oneActive = false;
         restaurants_categories.forEach(iter => {
-            console.log("t" + iter["name"] + " ");
+            //console.log("t" + iter["name"] + " ");
             // console.log(event.element["target"]);
             if(iter["name"] === event.target["id"]){
                 iter["active"] = !iter["active"];
                 if(iter["active"]){
                     $(this).find(".food-item-check").css("opacity", "0%");
+
                 }else{
                     $(this).find(".food-item-check").css("opacity", "75%");
+                    oneActive = true;
                 }
-            }
+            } 
         });
+        if(oneActive){
+            $(".cancelButton").css("visibility", "visible");
+        }else{
+            $(".cancelButton").css("visibility", "hidden");
+        }
+
+        if (activeCategories.includes(event.target["id"])){
+            activeCategories.splice(activeCategories.indexOf(event.target["id"]), 1);
+        } else {
+            activeCategories.push(event.target["id"]);
+        }
+        //console.log(activeCategories);
         createRestaurants();
     });
 
@@ -211,7 +323,7 @@ function createDivCat(element){
     overlay.className="food-item-overlay";
     overlay.id = element["name"];
 
-    // div.onclick = sortOnClick;
+    //div.onclick = sortOnClick;
 
     var overlaycheck = document.createElement("div");
     overlaycheck.innerHTML="&#x2713;"
@@ -252,4 +364,12 @@ function hiddenTypes(){
             disabled.push(item['name']);
     });
     return disabled;
+}
+
+function allCats(){
+    all = [];
+    restaurants_categories.forEach(item => {
+        all.push(item['name']);
+    });
+    return all;
 }

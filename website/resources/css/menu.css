@@ -1,0 +1,362 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html, body{
+    height: 100%;
+    background-color: #E5E5E5;
+
+}
+
+hr{
+
+    width: 95%;
+    margin: auto;
+    margin-bottom: 10px;
+    
+}
+
+a {
+    text-decoration: none;
+}
+/*Menu section*/
+
+.categories{
+    text-align: center;
+    position: fixed;
+    display: block;
+    float: left;
+    width: 67%;
+    z-index: 100;
+    background-color: #fff;
+}
+
+#menu-section{
+    float: left;
+    width:70%;
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: #fff;
+    overflow-y: auto;
+}
+
+/**Food category is done with scrollbar. Just need the option to click the image*/
+.scrollbar-category{
+    border: 0.5px solid #333;
+    border-radius: 10px;
+    overflow-x: auto;
+    height: auto;
+    width: 90%;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.category-item{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 6px 0;
+    background: #333;
+    margin-left: 10px;
+    margin-right: 3%;
+    color: #fff;
+    text-align: center;
+    border-radius: 50%;
+    width: 85px;
+    height: 85px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.category-item h5{
+    font-size: 16px;
+    font-weight: lighter;    
+}
+
+.heading-text {
+    float: left;
+}
+
+
+/*************************************************************************************/
+/*menu-list*/
+
+.menulist {
+    position: relative;
+}
+
+.menu-category-name{
+    display: block;
+    font-size: 20px;
+}
+
+.menu-category-name-underlined{
+    width: 20%;
+    margin: 0;
+    margin-top: 10px;
+}
+
+.menu-categories{
+    margin-left: 10px;
+    margin-top: 50px;
+    width: 95%;
+}
+
+.menu-categories:first-child{
+    margin-top: 200px;
+    width: 95%;
+}
+
+.menu-category-grouped-items{
+    margin-top: 20px;
+}
+  
+.menu-category-item{
+    position: relative;
+    background-color: #333;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    text-align: justify;
+    border: 1px solid #333;
+    display: inline-block;
+    margin-left: 20px;
+    margin-top: 20px;
+
+}
+
+.menu-category-item h5{
+    text-align: center;
+    margin-top: 5px;
+    overflow-x: none;
+}
+
+.menu-category-item-image{
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    display: inline;
+}
+
+
+.menu-category-item-image-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background:rgba(0,0,0, 0.75);
+    color: #fff;
+    font-weight: lighter;
+    font-family: 'Quicksand', sans-serif;
+    display: flex;/*display text in center*/
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;/*makes the text to be hovered invisible*/
+    transition: opacity 0.25s;/*animation for the hovered page*/  
+}
+
+.menu-category-item-image-overlay:hover{
+    opacity: 1;/*show the text when image is hovered*/
+}
+
+/*Animation: Text is pushed up when image is hovered*/
+.menu-category-item-image-overlay > *{
+    transform: translateY(20px);
+    transition: transform 1s;
+
+}
+
+.menu-category-item-image-overlay:hover > *{
+    /*Text should come out from the bottom*/
+    transform: translateY(0);
+}
+
+.menu-category-item-description{
+    font-size: 13px;
+    margin: 2px;
+}
+
+:target {
+    position: relative;
+    display: block;
+    padding-top: 200px;
+}
+
+/**************************************************************************/
+/*For Menu modal*/
+
+#menu-modal {
+    height: 700px;
+    width: 700px;
+    border: 1px solid gray;
+    background-color: #fff;
+    border-radius: 50%;
+    display: none;
+    position: fixed;
+    left: 25%;
+    top: 2%;
+    z-index: 300;
+    overflow: hidden;
+
+}
+
+
+.food-item-modal-image {
+    height: 200px;
+    width: 200px;
+    border: 1px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    left: 35%;
+    top: 5%;
+    background-size: 200px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-food-title {
+    position: absolute;
+    top: 0;
+    width: 640px;
+    font-size: 25px;
+}
+
+.modal-food-price {
+    position: absolute;
+    top: 20%;
+    width: 640px;
+    font-size: 25px;
+}
+
+#modal-description {
+    position: absolute;
+    top: 42%;
+    left: 4%;
+    height: 150px;
+    width: 550px;
+    margin: auto auto;
+    text-align: center;
+}
+
+.food-options {
+    position: relative;
+    top: 55%;
+    left: 28%;
+    padding: 15px;
+}
+
+.food-number-button {
+    position: absolute;
+    top: 70%;
+    left: 36%;
+    margin: 5px;
+    text-align: center;
+}
+
+#plus, #minus, #num-food {
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 10px;
+    border: none;
+}
+
+#num-food {
+    border: 1px solid #333;
+}
+
+input::-webkit-inner-spin-button {
+-webkit-appearance: none;
+margin: 0;
+}
+
+#add-to-cart {
+    position: absolute;
+    top: 80%;
+    left: 20%;
+}
+
+
+.button-cancel-cart{
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    background-color: lightgray;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+.button-add-to-cart {
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    border: none;
+    background-color: lightgray;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+
+/***************************************************/
+/*Cart section*/
+/*Order div*/
+#cart-section{
+    float: right;
+    width: 30%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.order-div{
+    padding: 10px;
+    margin: 3px 3px;
+    overflow-y: auto;
+    height:30vh;
+}
+
+#cart-section h2{
+    text-align: center;
+}
+
+.heading-text{
+    margin: 10px;
+    padding: 5px 4px;
+}
+
+
+
+
+/*checkout-div*/
+.checkout-div{
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align: center;
+}
+
+
+.btnCheckout{
+    margin-top: 10px;
+    padding: 3px;
+    width: 80%;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+

@@ -11,7 +11,8 @@ body{
     position: relative;
     background-size: cover;
     background-position: 50% 50%;
-    background-image: url("../resources/homepage_background.jpg");
+/*     background-image: url("../resources/homepage_background.jpg"); */
+    background-image: url("../images/homepage/homepage_background.jpg");
 }
 
 .homepage-content{
@@ -50,6 +51,7 @@ body{
 }
 
 .address-input{
+input{
     border: none;
     outline: none;
     height: 100%;
@@ -59,7 +61,7 @@ body{
     font-size: 20px;
     border-radius: 50px;
 }
-
+  
 .locate-button{
     color: black;
     float: right;
