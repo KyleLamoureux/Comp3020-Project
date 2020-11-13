@@ -27,8 +27,9 @@ function sortby(type){
         } else {
             lastSort = type;
         }
-        if(false){
-
+        var search = document.getElementById("searchbox").value;
+        if(search){
+            createSearchedRestaurants(search);
         }else{
             createRestaurants();
         }
