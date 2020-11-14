@@ -43,11 +43,15 @@ function main(){
       }
     }//end if
   }//end for
-  /*
-  //INSERT RESTAURANT NAME HERE.
-  
-  */
-  
+
+  //TODO: OPTIONS FOR A FOOD ITEM:
+  //ACCESSING THE OPTIONS BY: 
+  //menus["Perkins"]["Omelets"][0].options["Alterations"]["type"]//to get the type (checkbox)
+  //menus["Perkins"]["Omelets"][0].options["Extras"]["type"]//to get the type (checkbox)
+  //menus["Perkins"]["Omelets"][0].options["Alterations"]["data"][0] ////to get the data (data is a list)
+  //==================
+  //Do a check if options contain "Alterations"/"Extras".
+  //
 }//end main
 
 /**
