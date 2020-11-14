@@ -239,7 +239,7 @@ function openFoodModal(event){
         <button id="minus">+</button>
     </div>
     <div id="add-to-cart">
-        <button class="button-add-to-cart">Add to cart</button><br>
+        <button class="button-add-to-cart">Add to cart</button>
         <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
     </div>
     `;
@@ -249,7 +249,7 @@ function openFoodModal(event){
     blurControl();
     modalOn = true;
 
-    addFunctionality();
+    addFunctionality(foodItemImage);
   }
 }//end openFoodModal
 
@@ -257,12 +257,13 @@ function openFoodModal(event){
 /**
  * addFunctionality - implements the add to cart functionality when adding an item from the food modal.
  */
-function addFunctionality(){
+function addFunctionality(foodItemImage){
   
   let addToCartButtons = document.getElementsByClassName("button-add-to-cart");  
   for(let i = 0; i < addToCartButtons.length; i++){
      let button = addToCartButtons[i];
      button.addEventListener('click',addToCartClicked);
+     button.foodItemImg = foodItemImage;
   }//end for
 }//end addFunctionality
 
@@ -278,7 +279,7 @@ function addToCartClicked(event){
   //get the information from the modal.
   let foodItemTitle = foodModalInfo.getElementsByClassName("modal-food-title")[0].innerText;
   let foodItemPrice = foodModalInfo.getElementsByClassName("modal-food-price")[0].innerText;
-  let foodItemImage = foodModalInfo.getElementsByClassName("food-item-modal-image")[0].src;
+  let foodItemImage = event.target.foodItemImg;
 
   addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
   updateCartTotal();
