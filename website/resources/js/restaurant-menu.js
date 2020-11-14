@@ -1608,6 +1608,19 @@ const menus = {
                 price : 13.99,
                 image : mRoot+'/kimchi_sushi/entrees/chicken.jpg',
                 options : {
+                    Extra : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Soy sauce',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Wasabi',
+                                price : 0.10
+                            }
+                        ]
+                    }
                 }
             },
         ],
@@ -1618,6 +1631,19 @@ const menus = {
                 price : 8.99,
                 image : mRoot+'/kimchi_sushi/rolls/cali.png',
                 options : {
+                    Extra : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Soy sauce',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Wasabi',
+                                price : 0.10
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -1626,6 +1652,19 @@ const menus = {
                 price : 9.99,
                 image : mRoot+'/kimchi_sushi/rolls/salmon.png',
                 options : {
+                    Extra : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Soy sauce',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Wasabi',
+                                price : 0.10
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -1634,6 +1673,19 @@ const menus = {
                 price : 8.99,
                 image : mRoot+'/kimchi_sushi/rolls/bakudan.png',
                 options : {
+                    Extra : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Soy sauce',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Wasabi',
+                                price : 0.10
+                            }
+                        ]
+                    }
                 }
             },
         ],
@@ -1644,6 +1696,19 @@ const menus = {
                 price : 10.99,
                 image : mRoot+'/kimchi_sushi/kimchi/rice.png',
                 options : {
+                    Extra : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Additional egg',
+                                price : 1.25
+                            },
+                            {
+                                name : 'Double protein',
+                                price : 3.50
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -1652,6 +1717,15 @@ const menus = {
                 price : 10.99,
                 image : mRoot+'/kimchi_sushi/kimchi/gyoza.png',
                 options : {
+                    Extra : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double protein',
+                                price : 3.50
+                            }
+                        ]
+                    }
                 }
             },
             {
@@ -1660,6 +1734,19 @@ const menus = {
                 price : 10.99,
                 image : mRoot+'/kimchi_sushi/kimchi/tofu.png',
                 options : {
+                    Style : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'pan-fried tofu',
+                                price : 0.00
+                            },
+                            {
+                                name : 'fresh tofu',
+                                price : 0.00
+                            }
+                        ]
+                    }
                 }
             },
         ],
