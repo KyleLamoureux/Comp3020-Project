@@ -175,27 +175,68 @@ function openFoodModal(event){
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
     let foodModalContent = `
-    <img class="food-item-modal-image" src="${foodItemImage}">
     <div id="modal-description">
         <h4 class="modal-food-title">${foodItemTitle}</h4>
         <h5 class="modal-food-price">Price: ${foodItemPrice}</h5>
     </div>
     <div class="food-options">
-        <input type="radio" id="option1" name="food-options" value="option1">
-        <label for="option1">Option 1</label>
-        <input type="radio" id="option2" name="food-options" value="option2">
-        <label for="option1">Option 2</label>
-        <input type="radio" id="option3" name="food-options" value="option3">
-        <label for="option1">Option 3</label>
+        <h3 class="option-category">Size</h4>
+        <div id="radio-button-option">
+            <label for="r-option1">R-Option 1</label>
+            <input type="radio" id="r-option1" name="food-options" value="r-option1">
+            <label for="r-option2">R-Option 2</label>
+            <input type="radio" id="r-option2" name="food-options" value="r-option2">
+            <label for="r-option3">R-Option 3</label>
+            <input type="radio" id="r-option3" name="food-options" value="r-option3">
+        </div>
+        <br><br>
+        <h3 class="option-category">Toppings</h4>
+        <div id="check-box-option">
+            <label for="c-option1">C-Option1</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option2</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option3</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option4</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <br><br>
+            <label for="c-option1">C-Option5</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option6</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option7</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option8</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <br><br>
+            <label for="c-option1">C-Option5</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option6</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option7</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option8</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <br><br>
+            <label for="c-option1">C-Option5</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option6</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option7</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            <label for="c-option1">C-Option8</label>
+            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+        </div>
     </div>
     <div class="food-number-button">
         <button id="plus">-</button>
-        <input id="num-food" type="number">
+        <input id="num-food" type="number" value="1">
         <button id="minus">+</button>
     </div>
     <div id="add-to-cart">
+        <button class="button-add-to-cart">Add to cart</button><br>
         <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-        <button class="button-add-to-cart">Add to cart</button>
     </div>
     `;
     
