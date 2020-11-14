@@ -239,7 +239,7 @@ function openFoodModal(event){
         <button id="minus">+</button>
     </div>
     <div id="add-to-cart">
-        <button class="button-add-to-cart">Add to cart</button>
+        <button class="button-add-to-cart">Add to cart</button><br>
         <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
     </div>
     `;
