@@ -7,6 +7,11 @@ if(document.readyState === "loading"){
 } //end if-else 
 
 
+let ALTERATION_TYPE = "Alterations";
+let EXTRAS_TYPE = "Extras";
+let CHECKBOX_TYPE = "checkbox";
+let RADIOBTN_TYPE = "radiobutton"; 
+
 function main(){
   let removeCartItemButtons = document.getElementsByClassName("btn-remove");
 
@@ -22,20 +27,33 @@ function main(){
   let titleName = document.getElementsByClassName("heading-text")[0];
   titleName.innerText = restaurantName;
 
-  for(let restaurant in menus){//interate through the restaurants
+  for(let restaurant in menus){//iterate through the restaurants
     if(menus.hasOwnProperty(restaurant)){
 
       if(restaurantName === restaurant){//find the restaurant the user has clicked.
 
         for(let category in menus[restaurant]){
           if(menus[restaurant].hasOwnProperty(category)){
-              //category categorys
+              //category categories
               addMenuCategory(category);
               //food item list for each category.
               let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
               for(let j = 0; j < categoryFoodItems.length; j++){
+                
+                /*
+                for(let optionType in categoryFoodItems[j].options){
+                  if(optionType === "Alterations" && categoryFoodItems[j].options[optionType].hasOwnProperty("data")){
+
+                    for(let x = 0; x < categoryFoodItems[j].options[optionType]["data"].length; x++ ){
+                    console.log(categoryFoodItems[j].name + ": " + optionType + " (Alterations) with data " + categoryFoodItems[j].options[optionType]["data"][x].name);
+                    }
+                  }else if(optionType === "Extras"){
+                    console.log(categoryFoodItems[j].name + ": " + optionType + " (Extras)");
+                  }//end if-elseif
+                }//end for
+                */
                 addFoodItems(category,categoryFoodItems[j].name,categoryFoodItems[j].price,
-                                categoryFoodItems[j].description,categoryFoodItems[j].image,categoryFoodItems[j].nutrition);
+                                categoryFoodItems[j].description,categoryFoodItems[j].image, categoryFoodItems[j].options);
               }//end nested for
          
             }//end if
@@ -104,10 +122,32 @@ function addMenuCategoryTitle(categoryName){
  * @param {*} foodPrice is the price of the food.
  * @param {*} foodDesc is the description of the food.
  * @param {*} foodImg  is the image of the food.
+ * @param {*} foodItemOptions is the options for the selected food. 
  * @return it does not return anything.
  */
-function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutrition){
+function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItemOptions){
 
+  /*
+  for(let optionType in foodItemOptions){
+
+    if(optionType === "Alterations"){
+      
+      if(foodItemOptions[optionType].hasOwnProperty("data")){
+        for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
+          console.log(foodName + ": " + optionType + " (Alterations) with data - " + foodItemOptions[optionType]["data"][i].name);
+        } //end nested-for
+      }//end nested-if
+
+    }else if(optionType === "Extras"){
+      if(foodItemOptions[optionType].hasOwnProperty("data")){
+        for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
+          console.log(foodName + ": " + optionType + " (Extras) with data - " + foodItemOptions[optionType]["data"][i].name);
+        } //end nested-for
+      }//end nested-if
+
+    }//end if-elseif
+  }//end for
+  */
   let categoryNames = document.getElementsByClassName("menu-categories");
 
   //need to determine which category the food belongs to. 
@@ -139,19 +179,10 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutri
 
   newFood.innerHTML = newFoodContent;
   foodItems.append(newFood);//add the new food to the list (inside menu-category-grouped-items)
-  //addNutritionalInfo(foodNutrition);
+  newFood.options = foodItemOptions;
   newFood.addEventListener("click",openFoodModal);//image is clicked
- 
+  
 }//end addFoodItems
-
-
-function addNutritionalInfo(foodNutrition){
-  let nutritionDiv = document.getElementsByClassName("nutritional-info")[0];
-  let nutritionImg = document.createElement("img");
-  nutritionImg.className("nutritional-info-img");
-  nutritionImg.src = foodNutrition;
-}//end addNutritionalInfo
-
 
 
 let modalOn = false;
@@ -162,9 +193,9 @@ let modalOn = false;
  *              to pass to the foodModal window.
  */
 function openFoodModal(event){
-
-  if(!modalOn){
   
+  if(!modalOn){
+    
     //get the information:
     let foodItem = event.target.parentElement;
     //console.log(foodItem);
@@ -173,6 +204,32 @@ function openFoodModal(event){
     let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
     let foodItemDescription = foodItem.getElementsByClassName("menu-category-item-description")[0].innerText;
     let foodItemPrice = foodItem.getElementsByClassName("menu-category-item-price")[0].innerText;
+
+    let foodItemOptions = event.target.parentElement.options;
+    //TODO : DISPLAY THE DATA IN HTML. 
+    for(let optionType in foodItemOptions){
+
+      if(optionType === "Alterations"){
+        
+        if(foodItemOptions[optionType].hasOwnProperty("data")){
+          console.log( foodItemOptions[optionType]["data"].length + " size for the data.");
+          for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
+            console.log(foodItemTitle + ": " + optionType + " (Alterations) with data - " + foodItemOptions[optionType]["data"][i].name);
+          } //end nested-for
+        }//end nested-if
+  
+      }else if(optionType === "Extras"){
+        
+        if(foodItemOptions[optionType].hasOwnProperty("data")){
+          console.log( foodItemOptions[optionType]["data"].length + " size for the data.");
+
+          for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
+            console.log(foodItemTitle + ": " + optionType + " (Extras) with data - " + foodItemOptions[optionType]["data"][i].name);
+          } //end nested-for
+        }//end nested-if
+  
+      }//end if-elseif
+    }//end for
 
     //console.log(foodItemTitle,foodItemImage,foodItemDescription,foodItemPrice);
 
@@ -214,23 +271,7 @@ function openFoodModal(event){
             <label for="c-option1">C-Option8</label>
             <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
             <br><br>
-            <label for="c-option1">C-Option5</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option6</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option7</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option8</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <br><br>
-            <label for="c-option1">C-Option5</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option6</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option7</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option8</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+            
         </div>
     </div>
     <div class="food-number-button">
