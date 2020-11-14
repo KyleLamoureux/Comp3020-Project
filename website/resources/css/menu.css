@@ -204,7 +204,6 @@ a {
     top: 2%;
     z-index: 300;
     overflow: hidden;
-
 }
 
 
@@ -222,42 +221,57 @@ a {
     justify-content: center;
 }
 
-.modal-food-title {
-    position: absolute;
-    top: 0;
-    width: 640px;
-    font-size: 25px;
-}
-
 .modal-food-price {
-    position: absolute;
-    top: 20%;
-    width: 640px;
-    font-size: 25px;
+    font-size: 30px;
+    margin-top: 10px;
 }
 
 #modal-description {
     position: absolute;
-    top: 42%;
-    left: 4%;
-    height: 150px;
-    width: 550px;
-    margin: auto auto;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
     text-align: center;
 }
 
 .food-options {
-    position: relative;
-    top: 55%;
-    left: 28%;
+    position: absolute;
+    top: 28%;
+    left: 50%;
+    width: 550px;
+    max-height: 220px;
+    overflow-y: scroll;
+    transform: translateX(-50%);
     padding: 15px;
+    text-align: center;
+    background-color: whitesmoke;
+}
+
+::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgba(0,0,0,.5);
+    -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+  }
+
+.option-category {
+    margin-bottom: 10px;
+}
+
+.food-options label {
+    margin-left: 30px;
 }
 
 .food-number-button {
     position: absolute;
-    top: 70%;
-    left: 36%;
-    margin: 5px;
+    top: 65%;
+    left: 50%;
+    transform: translateX(-50%);
     text-align: center;
 }
 
@@ -282,14 +296,16 @@ margin: 0;
 
 #add-to-cart {
     position: absolute;
-    top: 80%;
-    left: 20%;
+    display: inline;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 
 .button-cancel-cart{
     height: 50px;
-    width: 200px;
+    width: 170px;
     text-align: center;
     border: none;
     background-color: lightgray;
@@ -301,7 +317,7 @@ margin: 0;
 
 .button-add-to-cart {
     height: 50px;
-    width: 200px;
+    width: 170px;
     text-align: center;
     border: none;
     background-color: lightgray;
