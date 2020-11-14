@@ -6,24 +6,32 @@ const constDrinks = [
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/coke.jpg',
+        options : {
+        }
     },
     {
         name : 'Diet Coke',
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/dietCoke.png',
+        options : {
+        }
     },
     {
         name : 'Root Beer',
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/rootBeer.jpg',
+        options : {
+        }
     },
     {
         name : 'Ginger Ale',
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/ginger.jpg',
+        options : {
+        }
     }
 ]
 
@@ -1550,6 +1558,113 @@ const menus = {
         ],
         'Drinks' : constDrinks
     },
+    'Kimchi Sushi' : {
+        'Appetizers' : [
+            {
+                name : 'Creamy Spicy Tempura',
+                description : 'Tempura, mango, and green onions tossed in a creamy spicy sauce.',
+                price : 6.99,
+                image : mRoot+'/kimchi_sushi/appetizers/creamy.png',
+                options : {
+                }
+            },
+            {
+                name : 'Supreme Shrimp Tempura',
+                description : 'Shrimp and cream cheese wrapped in a phyllo pastry, deep-fried and served with a sweet chilli sauce.',
+                price : 6.99,
+                image : mRoot+'/kimchi_sushi/appetizers/supreme.png',
+                options : {
+                }
+            },
+            {
+                name : 'Oyster Motoyaki',
+                description : 'Spinach, mushrooms, and oysters grilled on a large half shell with miso mayo.',
+                price : 7.99,
+                image : mRoot+'/kimchi_sushi/appetizers/oyster.png',
+                options : {
+                }
+            },
+        ],
+        'Entrees' : [
+            {
+                name : 'Tonkatsu',
+                description : 'Deep-fried breaded pork cutlet with sauce on the side, served with house salad.',
+                price : 14.99,
+                image : mRoot+'/kimchi_sushi/entrees/katsu.jpg',
+                options : {
+                }
+            },
+            {
+                name : 'Curry Chicken Katsu',
+                description : 'Deep-fried breaded chicken cutlet with curry sauce on top, served with house salad.',
+                price : 14.99,
+                image : mRoot+'/kimchi_sushi/entrees/curry.png',
+                options : {
+                }
+            },
+            {
+                name : 'Chicken Teriyaki',
+                description : 'Grilled chicken and sauteed vegetables in teriyaki sauce.',
+                price : 13.99,
+                image : mRoot+'/kimchi_sushi/entrees/chicken.jpg',
+                options : {
+                }
+            },
+        ],
+        'Rolls' : [
+            {
+                name : 'California Roll',
+                description : 'Crab meat, avocado, cucumber, mayo, masago, and sesame seeds.',
+                price : 8.99,
+                image : mRoot+'/kimchi_sushi/rolls/cali.png',
+                options : {
+                }
+            },
+            {
+                name : 'Spicy Salmon Roll',
+                description : 'Salmon, cucumber, special spicy sauce, and sesame seeds.',
+                price : 9.99,
+                image : mRoot+'/kimchi_sushi/rolls/salmon.png',
+                options : {
+                }
+            },
+            {
+                name : 'Bakudan Roll',
+                description : 'Tempura crumbs, cucumber, special spicy sauce, and sesame seeds.',
+                price : 8.99,
+                image : mRoot+'/kimchi_sushi/rolls/bakudan.png',
+                options : {
+                }
+            },
+        ],
+        'Kimchi' : [
+            {
+                name : 'Kimchi Fried Rice',
+                description : 'Rice sauteed with kimchi, assorted vegetables, and assorted meat. Topped with a sunny-side egg.',
+                price : 10.99,
+                image : mRoot+'/kimchi_sushi/kimchi/rice.png',
+                options : {
+                }
+            },
+            {
+                name : 'Kimchi Gyoza',
+                description : 'Deep-fried dumplings stuffed with assorted meat, vegetables, and kimchi.',
+                price : 10.99,
+                image : mRoot+'/kimchi_sushi/kimchi/gyoza.png',
+                options : {
+                }
+            },
+            {
+                name : 'Kimchi Tofu',
+                description : 'Choice of fresh or pan-fried tofu topped with stir-fried kimchi, vegetables, and pork.',
+                price : 10.99,
+                image : mRoot+'/kimchi_sushi/kimchi/tofu.png',
+                options : {
+                }
+            },
+        ],
+        'Drinks' : constDrinks
+    },
 }
 
 
@@ -1572,28 +1687,32 @@ const menus = {
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             }
         ],
         '' : [
@@ -1602,28 +1721,32 @@ const menus = {
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             }
         ],
         '' : [
@@ -1632,28 +1755,32 @@ const menus = {
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                
+                options : {
+                }
             }
         ],
         'Drinks' : constDrinks

@@ -160,18 +160,18 @@ restaurants = [
         type: ['Sushi', 'Japanese', 'Korean', 'Asian'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
+                name: "Oyster Motoyaki",
+                img: root+"/kimchi_sushi/appetizers/oyster.png",
                 restaurant: "Kimchi Sushi"
             },
             {
-                name: "",
-                img: root+"",
+                name: "Chicken Teriyaki",
+                img: root+"/kimchi_sushi/entrees/chicken.jpg",
                 restaurant: "Kimchi Sushi"
             },
             {
-                name: "",
-                img: root+"",
+                name: "Kimchi Fried Rice",
+                img: root+"/kimchi_sushi/kimchi/rice.png",
                 restaurant: "Kimchi Sushi"
             }
         ],
@@ -243,7 +243,6 @@ restaurants = [
         description: "Clay Oven Restaurant proudly boasts of the best menu and the most delicious food.Delight in our appetizing soups and snacks. Both vegetarians and non vegetarians can enjoy our culinary feasts.",
         href: "link",
         backgroundColour: '#000000',
-        
     }
 ];
 
