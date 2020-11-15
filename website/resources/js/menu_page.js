@@ -192,10 +192,9 @@ function openFoodModal(event){
 
    for(let optionType in foodItemOptions){//iterate through the options for each food item.
     
+    let foodOptionType = document.createElement("div");//create a div for the option type(checkbox/radio).
       if(foodItemOptions.hasOwnProperty(optionType)){//ensures that the option type (Alteration,Extras,Style) is in the menus data.
-        //foodOptionsContent += `<h3 class="option-category">${optionType}</h3>`;
 
-        let foodOptionType = document.createElement("div");//create a div for the option type(checkbox/radio).
         let foodOptionTypeContent = `<h3 class="option-category">${optionType}</h3>`;
         if(foodItemOptions[optionType].hasOwnProperty(TYPE) 
              && foodItemOptions[optionType].hasOwnProperty(DATA)){//ensures that option has a "type" key
@@ -211,55 +210,47 @@ function openFoodModal(event){
               let dataPrice = foodItemOptions[optionType][DATA][i].price;
             
               foodOptionTypeContent +=`
+              <div class="food-option-name">
               <input type="checkbox" id="${dataName}" name="food-options" value="${dataName}"> 
-              <label for="${dataName}">${dataName + "\n($" + dataPrice.toFixed(2) + ")"}</label>
-              <br>
+              <label for="${dataName}">${dataName}</label>
+              </div>
+              <div class="food-option-price">
+              <label>${"$" + dataPrice.toFixed(2)}</label>
+              </div>
               `;
 
             } //end nested-for
 
-            //create checkbox
           }else if(foodItemOptions[optionType][TYPE] === RADIOBTN_TYPE){
             foodOptionType.classList.add("radio-button-option");
             //create radiobtns
             console.log("2)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
 
+            for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
+              let dataName = foodItemOptions[optionType][DATA][i].name;
+              let dataPrice = foodItemOptions[optionType][DATA][i].price;
+            
+              foodOptionTypeContent +=`
+              <div class="food-option-name">
+              <input type="radio" id="${dataName}" name="food-options" value="${dataName}"> 
+              <label for="${dataName}">${dataName}</label>
+              </div>
+              <div class="food-option-price">
+              <label>${"$" + dataPrice.toFixed(2)}</label>
+              </div>
+              `;
+
+            } //end nested-for
 
           }//end if-elseif
 
-          foodOptionType.innerHTML = foodOptionTypeContent;
-          foodOptionsDiv.append(foodOptionType);
+          
         }
+        foodOptionType.innerHTML = foodOptionTypeContent;
     
-        /*
-        if(foodItemOptions[optionType].hasOwnProperty(DATA)){//ensures that options has a "data" key
-    
-          console.log( foodItemOptions[optionType][DATA].length + " size for the data.");
-      
-          //loop through the data(name & price) for the option type.
-          for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
-      
-            console.log(foodItemTitle + ": " + optionType + " with data - " + foodItemOptions[optionType][DATA][i].name);
-      
-          } //end nested-for
-    
-          console.log("\n");
-      
-        }//end nested-if
-        */
       }//end if
-      /*
-      foodOptionsContent += `
-      <div class="radio-button-option">
-        <label for="r-option1">R-Option 1</label>
-        <input type="radio" id="r-option1" name="food-options" value="r-option1">
-          <label for="r-option2">R-Option 2</label>
-          <input type="radio" id="r-option2" name="food-options" value="r-option2">
-          <label for="r-option3">R-Option 3</label>
-          <input type="radio" id="r-option3" name="food-options" value="r-option3">
-      </div>
-      `;
-      */
+      foodOptionsDiv.append(foodOptionType);
+
     }//end for
     /*
     foodOptionsContent += `

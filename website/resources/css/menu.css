@@ -261,6 +261,8 @@ a {
     margin-top: 20px;
     margin-left: 25%;
     margin-right: 25%;
+    margin-bottom: 20px;
+
 }
 
 .radio-button-option{
@@ -269,12 +271,26 @@ a {
     margin-right: 25%;
 }
 
-.option-category {
-    margin-bottom: 10px;
+.food-options h3{
+    padding-top: 10px;
 }
 
-.food-options label {
-    margin: 0 auto;
+.food-option-name{
+    float: left;
+    width: 60%;
+}
+
+.food-option-name:last-child{
+    margin-bottom: 50px;
+}
+
+.food-option-price{
+    float:right;
+    width: 30%;
+}
+
+.food-option-price:last-child{
+    margin-bottom: 10px;
 }
 
 .food-number-button {
