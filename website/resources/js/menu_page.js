@@ -6,12 +6,6 @@ if(document.readyState === "loading"){
   main();
 } //end if-else 
 
-
-let ALTERATION_TYPE = "Alterations";
-let EXTRAS_TYPE = "Extras";
-let CHECKBOX_TYPE = "checkbox";
-let RADIOBTN_TYPE = "radiobutton"; 
-
 function main(){
   let removeCartItemButtons = document.getElementsByClassName("btn-remove");
 
@@ -126,28 +120,7 @@ function addMenuCategoryTitle(categoryName){
  * @return it does not return anything.
  */
 function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItemOptions){
-
-  /*
-  for(let optionType in foodItemOptions){
-
-    if(optionType === "Alterations"){
-      
-      if(foodItemOptions[optionType].hasOwnProperty("data")){
-        for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
-          console.log(foodName + ": " + optionType + " (Alterations) with data - " + foodItemOptions[optionType]["data"][i].name);
-        } //end nested-for
-      }//end nested-if
-
-    }else if(optionType === "Extras"){
-      if(foodItemOptions[optionType].hasOwnProperty("data")){
-        for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
-          console.log(foodName + ": " + optionType + " (Extras) with data - " + foodItemOptions[optionType]["data"][i].name);
-        } //end nested-for
-      }//end nested-if
-
-    }//end if-elseif
-  }//end for
-  */
+  
   let categoryNames = document.getElementsByClassName("menu-categories");
 
   //need to determine which category the food belongs to. 
@@ -186,6 +159,13 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItem
 
 
 let modalOn = false;
+const ALTERATION_TYPE = "Alterations";
+const EXTRAS_TYPE = "Extras";
+const STYLE_TYPE = "Style";
+const CHECKBOX_TYPE = "checkbox";
+const RADIOBTN_TYPE = "radio"; 
+const TYPE = "type";
+const DATA = "data";
 /**
  * openFoodModal - once a food item is clicked, a window will be shown containing different options 
  *              for the food item and its price.
@@ -207,31 +187,98 @@ function openFoodModal(event){
 
     let foodItemOptions = event.target.parentElement.options;
     //TODO : DISPLAY THE DATA IN HTML. 
-    for(let optionType in foodItemOptions){
+    let foodOptionsDiv = document.createElement("div");//wrapper for the food options.
+    foodOptionsDiv.classList.add("food-options");
 
-      if(optionType === "Alterations"){
-        
-        if(foodItemOptions[optionType].hasOwnProperty("data")){
-          console.log( foodItemOptions[optionType]["data"].length + " size for the data.");
-          for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
-            console.log(foodItemTitle + ": " + optionType + " (Alterations) with data - " + foodItemOptions[optionType]["data"][i].name);
-          } //end nested-for
-        }//end nested-if
-  
-      }else if(optionType === "Extras"){
-        
-        if(foodItemOptions[optionType].hasOwnProperty("data")){
-          console.log( foodItemOptions[optionType]["data"].length + " size for the data.");
+   for(let optionType in foodItemOptions){//iterate through the options for each food item.
+    
+      if(foodItemOptions.hasOwnProperty(optionType)){//ensures that the option type (Alteration,Extras,Style) is in the menus data.
+        //foodOptionsContent += `<h3 class="option-category">${optionType}</h3>`;
 
-          for(let i = 0; i < foodItemOptions[optionType]["data"].length; i++ ){
-            console.log(foodItemTitle + ": " + optionType + " (Extras) with data - " + foodItemOptions[optionType]["data"][i].name);
+        let foodOptionType = document.createElement("div");//create a div for the option type(checkbox/radio).
+        let foodOptionTypeContent = `<h3 class="option-category">${optionType}</h3>`;
+        if(foodItemOptions[optionType].hasOwnProperty(TYPE) 
+             && foodItemOptions[optionType].hasOwnProperty(DATA)){//ensures that option has a "type" key
+
+          if(foodItemOptions[optionType][TYPE] === CHECKBOX_TYPE){
+            foodOptionType.classList.add("checkbox-option");
+
+            //create checkboxes
+            console.log("1)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
+
+            for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
+              let dataName = foodItemOptions[optionType][DATA][i].name;
+              let dataPrice = foodItemOptions[optionType][DATA][i].price;
+            
+              foodOptionTypeContent +=`
+              <input type="checkbox" id="${dataName}" name="food-options" value="${dataName}"> 
+              <label for="${dataName}">${dataName + "\n($" + dataPrice.toFixed(2) + ")"}</label>
+              <br>
+              `;
+
+            } //end nested-for
+
+            //create checkbox
+          }else if(foodItemOptions[optionType][TYPE] === RADIOBTN_TYPE){
+            foodOptionType.classList.add("radio-button-option");
+            //create radiobtns
+            console.log("2)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
+
+
+          }//end if-elseif
+
+          foodOptionType.innerHTML = foodOptionTypeContent;
+          foodOptionsDiv.append(foodOptionType);
+        }
+    
+        /*
+        if(foodItemOptions[optionType].hasOwnProperty(DATA)){//ensures that options has a "data" key
+    
+          console.log( foodItemOptions[optionType][DATA].length + " size for the data.");
+      
+          //loop through the data(name & price) for the option type.
+          for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
+      
+            console.log(foodItemTitle + ": " + optionType + " with data - " + foodItemOptions[optionType][DATA][i].name);
+      
           } //end nested-for
+    
+          console.log("\n");
+      
         }//end nested-if
-  
-      }//end if-elseif
+        */
+      }//end if
+      /*
+      foodOptionsContent += `
+      <div class="radio-button-option">
+        <label for="r-option1">R-Option 1</label>
+        <input type="radio" id="r-option1" name="food-options" value="r-option1">
+          <label for="r-option2">R-Option 2</label>
+          <input type="radio" id="r-option2" name="food-options" value="r-option2">
+          <label for="r-option3">R-Option 3</label>
+          <input type="radio" id="r-option3" name="food-options" value="r-option3">
+      </div>
+      `;
+      */
     }//end for
-
-    //console.log(foodItemTitle,foodItemImage,foodItemDescription,foodItemPrice);
+    /*
+    foodOptionsContent += `
+      <br><br>
+      <h3 class="option-category">Toppings</h4>
+      <div class="check-box-option">
+          <label for="c-option1">C-Option1</label>
+          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+          <label for="c-option1">C-Option2</label>
+          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+          <label for="c-option1">C-Option3</label>
+          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
+          <label for="c-option1">C-Option4</label>
+          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">            
+      </div>
+      `;
+    
+      foodOptionsDiv.innerHTML = foodOptionsContent;
+    */
 
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
@@ -239,53 +286,27 @@ function openFoodModal(event){
     <div id="modal-description">
         <h4 class="modal-food-title">${foodItemTitle}</h4>
         <h5 class="modal-food-price">Price: ${foodItemPrice}</h5>
-    </div>
-    <div class="food-options">
-        <h3 class="option-category">Size</h4>
-        <div id="radio-button-option">
-            <label for="r-option1">R-Option 1</label>
-            <input type="radio" id="r-option1" name="food-options" value="r-option1">
-            <label for="r-option2">R-Option 2</label>
-            <input type="radio" id="r-option2" name="food-options" value="r-option2">
-            <label for="r-option3">R-Option 3</label>
-            <input type="radio" id="r-option3" name="food-options" value="r-option3">
-        </div>
-        <br><br>
-        <h3 class="option-category">Toppings</h4>
-        <div id="check-box-option">
-            <label for="c-option1">C-Option1</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option2</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option3</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option4</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <br><br>
-            <label for="c-option1">C-Option5</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option6</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option7</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <label for="c-option1">C-Option8</label>
-            <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-            <br><br>
-            
-        </div>
-    </div>
-    <div class="food-number-button">
-        <button id="plus">-</button>
-        <input id="num-food" type="number" value="1">
-        <button id="minus">+</button>
-    </div>
-    <div id="add-to-cart">
-        <button class="button-add-to-cart">Add to cart</button><br>
-        <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-    </div>
+    </div>`;
+    
+    let foodNumBtns = document.createElement("div");
+    foodNumBtns.classList.add("food-number-button");
+    foodNumBtns.innerHTML = `
+    <button id="plus">-</button>
+    <input id="num-food" type="number" value="1">
+    <button id="minus">+</button>
+    `;
+
+    let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
+    buttonsDiv.classList.add("add-to-cart");
+    buttonsDiv.innerHTML = `
+    <button class="button-add-to-cart">Add to cart</button><br>
+    <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
     `;
     
     modal.innerHTML = foodModalContent;
+    modal.append(foodOptionsDiv);
+    modal.append(foodNumBtns);
+    modal.append(buttonsDiv);
     modal.style.display = "block";
     blurControl();
     modalOn = true;
