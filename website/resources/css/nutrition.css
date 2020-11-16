@@ -1,7 +1,10 @@
-.nutrional-info{
-    position: absolute;
-    width: 90%;
-    height: 20vh;
+.nutritional-info{
+    /*position: absolute;*/
+    /*width: 30%;*/
+    /*height: 20vw;*/
+    /*border: 1px solid black;*/
+    /*align-self: flex-end;*/
+    /*bottom: 0;*/
 }
 .nutritional-info-img{
     width: 210px;
@@ -28,9 +31,10 @@
 }
 
 .nutrition{
-    visibility: hidden;
+    /*visibility: hidden;*/
     /*border: 1px solid black;*/
     overflow: hidden;
+    display: none;
 }
 
 #piechart-1{

@@ -59,10 +59,10 @@ function toggleNutrition1(){
     var checkBox2 = document.getElementById("nutritional-info-text2");
     // var graph = document.getElementById("nutrition");
     if (checkBox.checked){
-        $('.nutrition').css("visibility", "visible");
+        $('.nutrition').css("display", "inline-block");
         checkBox2.checked = true;
     } else {
-        $('.nutrition').css("visibility", "hidden");
+        $('.nutrition').css("display", "none");
         checkBox2.checked = false;
     }
 }
@@ -72,10 +72,10 @@ function toggleNutrition2(){
     var checkBox2 = document.getElementById("nutritional-info-text1");
     // var graph = document.getElementById("nutrition");
     if (checkBox.checked){
-        $('.nutrition').css("visibility", "visible");
+        $('.nutrition').css("display", "inline-block");
         checkBox2.checked = true;
     } else {
-        $('.nutrition').css("visibility", "hidden");
+        $('.nutrition').css("display", "none");
         checkBox2.checked = false;
     }
 }
@@ -90,11 +90,11 @@ function updateNutrition(){
     // var graph = document.getElementById("nutrition");
     if(cartRows.length > 0){
         if (checkBox.checked){
-            $('.nutrition').css("visibility", "visible");
-            // graph.style.visibility = "visible";
+            $('.nutrition').css("display", "inline-block");
+            // graph.style.display = "inline-block";
         } else {
-            $('.nutrition').css("visibility", "hidden");
-            // graph.style.visibility = "hidden";
+            $('.nutrition').css("display", "none");
+            // graph.style.display = "none";
         }
         let fat = 0, carbs = 0, protein=0;
         for(let i = 0; i < cartRows.length;i++){
@@ -121,8 +121,8 @@ function updateNutrition(){
         chart2.draw(data, options2);
 
     }else{
-        // graph.style.visibility = "hidden";
-        $('.nutrition').css("visibility", "hidden");
+        // graph.style.display = "none";
+        $('.nutrition').css("display", "none");
     }
 
 
