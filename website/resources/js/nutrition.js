@@ -14,8 +14,8 @@ function init(){
     // Set chart options
     options1 = {
         chartArea: {
-            width: '100%',
-            height: '100%',
+            width: '90%',
+            height: '90%',
         },
         colors: ['#FCA103', "#fb5f44", "#03CFEC"],
         titlePosition: 'none',
@@ -59,7 +59,9 @@ function toggleNutrition1(){
     var checkBox2 = document.getElementById("nutritional-info-text2");
     // var graph = document.getElementById("nutrition");
     if (checkBox.checked){
-        $('.nutrition').css("display", "inline-block");
+        if(document.getElementsByClassName("cart-items")[0].getElementsByClassName("cart-row").length > 0){
+            $('.nutrition').css("display", "inline-block");
+        }
         checkBox2.checked = true;
     } else {
         $('.nutrition').css("display", "none");
@@ -72,7 +74,9 @@ function toggleNutrition2(){
     var checkBox2 = document.getElementById("nutritional-info-text1");
     // var graph = document.getElementById("nutrition");
     if (checkBox.checked){
-        $('.nutrition').css("display", "inline-block");
+        if(document.getElementsByClassName("cart-items")[0].getElementsByClassName("cart-row").length > 0){
+            $('.nutrition').css("display", "inline-block");
+        }
         checkBox2.checked = true;
     } else {
         $('.nutrition').css("display", "none");
