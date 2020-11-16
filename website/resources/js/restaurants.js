@@ -29,7 +29,6 @@ restaurants = [
         price: 20,
         popularity: 4,
         description: "Diverse moderately priced homestyle goodness, with a menu featuring breakfast, lunch, and bakery offerings.",
-        href: "link",
         backgroundColour: '#006300'
     },
     {
@@ -59,7 +58,6 @@ restaurants = [
         price: 5,
         popularity: 2,
         description: "We're McDonalds, you know what we're offering.",
-        href: "link",
         backgroundColour: '#c7161c'
     },
     {
@@ -89,7 +87,6 @@ restaurants = [
         price: 35,
         popularity: 3,
         description: "At Olive Garden, we know that life is better together and everyone is happiest when they’re with family. From never ending servings of our freshly baked breadsticks and iconic garden salad, to our homemade soups and sauces, there’s something for everyone to enjoy.",
-        href: "link",
         backgroundColour: '#54301a'
     },
     {
@@ -119,7 +116,6 @@ restaurants = [
         price: 20,
         popularity: 2,
         description: "Mexican-inspired food that lives up to their promise: Fresh Mexican Grill. Mucho Burrito only serves food that is mucho real and mucho fresh. It’s made by hand right in front of our guests’ eyes, using only the freshest ingredients, free of artificial flavours and preservatives.",
-        href: "link",
         backgroundColour: '#fdfdfd',
         textColour: '#000000'
     },
@@ -150,7 +146,6 @@ restaurants = [
         price: 15,
         popularity: 3,
         description: "Relaxed restaurant serving a menu of Pan-Asian dishes.",
-        href: "link",
         backgroundColour: '#f37022'
     },
     {
@@ -180,7 +175,6 @@ restaurants = [
         price: 20,
         popularity: 2,
         description: "Kimchi Sushi offers a wide range of excellent Japanese and Korean dishes, from classic sushi, sashimi, and tempura dishes, to Korean dishes like Bibimpap, Bulgogi, and more.",
-        href: "link",
         backgroundColour: '#000000'
     },
     {
@@ -210,7 +204,6 @@ restaurants = [
         price: 38,
         popularity: 4,
         description: "Famous for our gourmet pizzas made with our signature hand pressed dough, our extensive menu satisfies every appetite with our mouth-watering pasta dishes and a wide variety of, salads, entrées and desserts.",
-        href: "link",
         backgroundColour: '#fbffff',
         textColour: '#000000'
     },
@@ -241,7 +234,6 @@ restaurants = [
         price: 30,
         popularity: 1,
         description: "Clay Oven Restaurant proudly boasts of the best menu and the most delicious food.Delight in our appetizing soups and snacks. Both vegetarians and non vegetarians can enjoy our culinary feasts.",
-        href: "link",
         backgroundColour: '#000000',
     }
 ];
@@ -275,7 +267,6 @@ restaurants = [
     price: ,
     popularity: ,
     description: "",
-    href: "link",
     backgroundColour: ''
 },
 */
