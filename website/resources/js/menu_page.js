@@ -356,13 +356,35 @@ function addToCartClicked(event){
   let foodItemPrice = foodModalInfo.getElementsByClassName("modal-food-price")[0].innerText;
   let foodItemImage = event.target.foodItemImg;
 
-  addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
-  updateCartTotal();
+  //check if the price needs to be updated.
   foodItemPrice = foodItemPrice.replace("Price:","");
-  foodItemPrice = foodItemPrice.replace("(","");
-  foodItemPrice = foodItemPrice.replace(")","");
-  alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
-  closeMenuModal();
+  let posOne = foodItemPrice.indexOf("(");
+  let posTwo = foodItemPrice.indexOf(")");
+
+  if(posOne === -1 || posTwo === -1){//no changes to the price
+    addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
+    //alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
+  }else{
+
+    let updatePrice = foodItemPrice.substring(posOne);//additional price based on the options selected.
+    let originalPrice =foodItemPrice.replace(updatePrice,""); //price displayed from the menu page.
+
+    originalPrice = parseFloat(originalPrice.replace("$",""));//convert to float.
+
+    updatePrice = foodItemPrice.substring(posOne + 1, posTwo); //remove all the brackets.
+    updatePrice = parseFloat(updatePrice.replace("$",""));//convert to float
+
+    console.log(typeof(updatePrice))
+    let newPrice = originalPrice + updatePrice;
+    newPrice = "Price: $" + newPrice;
+    addItemToCart(foodItemTitle,newPrice,foodItemImage);
+    //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
+   
+  }//end if-else
+
+   updateCartTotal();
+
+   closeMenuModal();
 }//end addToCartClicked
 
 
