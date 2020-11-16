@@ -1,3 +1,9 @@
+/**
+ * the animation part of this dropdown was
+ * Taken from: https://codinhood.com/micro/10-dropdown-menu-animations-css-transform
+ * and modified. 
+ */
+
 /** Dropdown content **/
 .dropdownarea select{
     font-family: 'Open Sans', sans-serif;
@@ -150,9 +156,7 @@
 }
 
 
-/**
- * Taken from: https://codinhood.com/micro/10-dropdown-menu-animations-css-transform
- */
+
 @keyframes growDown {
     0% {
         transform: scaleY(0)
