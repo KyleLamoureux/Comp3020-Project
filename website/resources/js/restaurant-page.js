@@ -296,10 +296,10 @@ function createCategories(){
 
     $(".scrollbar-food-category").slick({
         infinite: false,
-        slidesToShow: 4,
+        slidesToShow: 6,
         slidesToScroll: 1,
         speed: 350,
-        initialSlide: 1,
+        initialSlide: 2,
         arrows: true,
         prevArrow: '<div class="chevron">&#8249;</div>',
         nextArrow: '<div class="chevron">&#8250;</div>'
