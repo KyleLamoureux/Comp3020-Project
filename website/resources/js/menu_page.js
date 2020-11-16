@@ -15,7 +15,7 @@ function main(){
   }//end for
   
   //CHOSEN RESTAURANT GOES HERE.
-  let restaurantName = "Perkins";
+  let restaurantName = "McDonalds";
 
   //display the restaurant's name
   let titleName = document.getElementsByClassName("heading-text")[0];
@@ -208,14 +208,22 @@ function openFoodModal(event){
             for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
               let dataName = foodItemOptions[optionType][DATA][i].name;
               let dataPrice = foodItemOptions[optionType][DATA][i].price;
+
+              let displayPrice = "";
+              if(dataPrice < 0){
+                dataPrice *= -1;
+                displayPrice = "-$" + dataPrice.toFixed(2);
+              }else{
+                displayPrice = "+$" + dataPrice.toFixed(2);
+              }
             
               foodOptionTypeContent +=`
               <div class="food-option-name">
-              <input class="food-option-item-checkbox" type="checkbox" id="${dataName}" name="food-options" value="${dataName}" onclick="clickedCheckbox()" > 
+              <input class="food-option-item-checkbox" type="checkbox" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
               <label class="food-option-name-label" for="${dataName}">${dataName}</label>
               </div>
               <div class="food-option-price">
-              <label class="food-option-price-label">${"$" + dataPrice.toFixed(2)}</label>
+              <label class="food-option-price-label">${displayPrice}</label>
               </div>
               `;
 
@@ -232,11 +240,11 @@ function openFoodModal(event){
             
               foodOptionTypeContent +=`
               <div class="food-option-name">
-              <input type="radio" id="${dataName}" name="food-options" value="${dataName}"> 
-              <label for="${dataName}">${dataName}</label>
+              <input class="food-option-item-radiobtn" type="radio" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
+              <label class="food-option-name-label" for="${dataName}">${dataName}</label>
               </div>
               <div class="food-option-price">
-              <label>${"$" + dataPrice.toFixed(2)}</label>
+              <label class="food-option-price-label">${"$" + dataPrice.toFixed(2)}</label>
               </div>
               `;
 
@@ -289,34 +297,51 @@ function openFoodModal(event){
 }//end openFoodModal
 
 /**
- * clickedCheckbox - function that updates the price from the food modal when 
+ * updateFoodPrice - function that updates the price from the food modal when 
  *                  a checkbox is clicked from the given options.
  */
-function clickedCheckbox(){
-
-  let checkboxDiv = document.getElementsByClassName("checkbox-option");
+function updateFoodPrice(){
   let priceDifference = 0;  
+
+  //for checkbox
+  let checkboxDiv = document.getElementsByClassName("checkbox-option");
   for(let i = 0; i < checkboxDiv.length; i++){
     let checkboxes = checkboxDiv[i].getElementsByClassName("food-option-item-checkbox");
     let optionItemName = checkboxDiv[i].getElementsByClassName("food-option-name-label");
     let optionItemPrice = checkboxDiv[i].getElementsByClassName("food-option-price-label");
     for(let j = 0; j < checkboxes.length; j++){
 
-      //TODO: FIX THE PRICE WHEN A CHECKBOX IS UNCLICKED.
       if(checkboxes[j].checked){
         console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
         priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
-      }
-     
-  
-    }//end for
+      }//end if
 
+    }//end nested for
   }//end for
+
+
+  //for radiobtn
+  let radioBtnDiv = document.getElementsByClassName("radio-button-option");
+
+  for(let i = 0; i < radioBtnDiv.length; i++){
+    let radiobtns = radioBtnDiv[i].getElementsByClassName("food-option-item-radiobtn");
+    let optionItemName = radioBtnDiv[i].getElementsByClassName("food-option-name-label");
+    let optionItemPrice = radioBtnDiv[i].getElementsByClassName("food-option-price-label");
+    for(let j = 0; j < radiobtns.length; j++){
+
+      if(radiobtns[j].checked){
+        console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
+        priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
+      }//end if
+
+    }//end nested for
+  }//end for
+
   
   //change the displayed price on the food modal.
   let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0];
   let originalPrice = parseFloat(modalFoodPrice.innerText.replace("Price: $",""));
-  console.log("Total difference = " + priceDifference.toFixed(2) + "\n");  
+  //console.log("Total difference = " + priceDifference.toFixed(2) + "\n");  
 
   if(priceDifference == 0){
     modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2);
@@ -327,7 +352,7 @@ function clickedCheckbox(){
     modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2) + " (-$" + priceDifference.toFixed(2) + ")";
   }
 
-}//end clickedCheckbox
+}//end updateFoodPrice
 
 /**
  * addFunctionality - implements the add to cart functionality when adding an item from the food modal.
@@ -376,7 +401,7 @@ function addToCartClicked(event){
 
     console.log(typeof(updatePrice))
     let newPrice = originalPrice + updatePrice;
-    newPrice = "Price: $" + newPrice;
+    newPrice = "Price: $" + newPrice.toFixed(2);
     addItemToCart(foodItemTitle,newPrice,foodItemImage);
     //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
    
