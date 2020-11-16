@@ -27,13 +27,14 @@
 }
 
 .restaurant-image{
-    border-radius: 40%;
+    /*border-radius: 40%;*/
     display: block;
-    width: 150px;
-    height: 70px;
-    padding:  10px 0;
-    margin: auto;
-    object-fit: cover;
+    /*border: 1px solid black;*/
+    width: 10vw;
+    height: 7vw;
+    padding:  1vw 0 0 0;
+    margin: 2vw auto auto auto;
+    object-fit: contain;
 }
 
 .random-restaurant-text{
@@ -45,7 +46,7 @@
     margin: auto;
     object-fit: cover;
 
-    font-style: Bold;
+    /*font-style: strong;*/
     font-weight: 600;
     font-size: 30px;
     text-align: center;
