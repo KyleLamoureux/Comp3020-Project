@@ -17,10 +17,9 @@ function fillAddress(){
  * @param type a string, either 'price', 'distance', 'popularity' or 'relevance'
  */
 var lastSort = '';
-function sortby(){
+function sortby(type){
     try{
-        select = document.getElementById("sort-type");
-        type = select.options[select.selectedIndex].value;
+        $()
         restaurants.sort((a,b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 0));
         if (lastSort == type){
             restaurants.reverse();
@@ -108,7 +107,7 @@ function createRandomization() {
     }
     
     var li = document.createElement("li");
-    li.className = "restaurant-li";
+    li.className = "restaurant-li random";
 
     // Create sub div
     var itemDiv = document.createElement("div");
