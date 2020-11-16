@@ -211,11 +211,11 @@ function openFoodModal(event){
             
               foodOptionTypeContent +=`
               <div class="food-option-name">
-              <input type="checkbox" id="${dataName}" name="food-options" value="${dataName}"> 
-              <label for="${dataName}">${dataName}</label>
+              <input class="food-option-item-checkbox" type="checkbox" id="${dataName}" name="food-options" value="${dataName}" onclick="clickedCheckbox()" > 
+              <label class="food-option-name-label" for="${dataName}">${dataName}</label>
               </div>
               <div class="food-option-price">
-              <label>${"$" + dataPrice.toFixed(2)}</label>
+              <label class="food-option-price-label">${"$" + dataPrice.toFixed(2)}</label>
               </div>
               `;
 
@@ -252,25 +252,7 @@ function openFoodModal(event){
       foodOptionsDiv.append(foodOptionType);
 
     }//end for
-    /*
-    foodOptionsContent += `
-      <br><br>
-      <h3 class="option-category">Toppings</h4>
-      <div class="check-box-option">
-          <label for="c-option1">C-Option1</label>
-          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-          <label for="c-option1">C-Option2</label>
-          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-          <label for="c-option1">C-Option3</label>
-          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">
-          <label for="c-option1">C-Option4</label>
-          <input type="checkbox" id="c-option1 name="food-options" value="c-option1">            
-      </div>
-      `;
     
-      foodOptionsDiv.innerHTML = foodOptionsContent;
-    */
-
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
     let foodModalContent = `
@@ -306,6 +288,38 @@ function openFoodModal(event){
   }
 }//end openFoodModal
 
+/**
+ * clickedCheckbox - function that updates the price from the food modal when 
+ *                  a checkbox is clicked from the given options.
+ */
+function clickedCheckbox(){
+
+  let checkboxDiv = document.getElementsByClassName("checkbox-option");
+  let priceDifference = 0;  
+  for(let i = 0; i < checkboxDiv.length; i++){
+    let checkboxes = checkboxDiv[i].getElementsByClassName("food-option-item-checkbox");
+    let optionItemName = checkboxDiv[i].getElementsByClassName("food-option-name-label");
+    let optionItemPrice = checkboxDiv[i].getElementsByClassName("food-option-price-label");
+    for(let j = 0; j < checkboxes.length; j++){
+
+      //TODO: FIX THE PRICE WHEN A CHECKBOX IS UNCLICKED.
+      if(checkboxes[j].checked){
+        console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
+        priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
+      }
+     
+  
+    }//end for
+
+  }//end for
+  
+  //change the displayed price on the food modal.
+  let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0];
+  let newFoodPrice = parseFloat(modalFoodPrice.innerText.replace("Price: $","")) + priceDifference;
+  //console.log("Total difference = " + priceDifference.toFixed(2) + "\n");  
+  modalFoodPrice.innerText = "Price: $" + newFoodPrice.toFixed(2);
+
+}//end clickedCheckbox
 
 /**
  * addFunctionality - implements the add to cart functionality when adding an item from the food modal.
