@@ -35,7 +35,7 @@ function main(){
               let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
               for(let j = 0; j < categoryFoodItems.length; j++){
                 addFoodItems(category,categoryFoodItems[j].name,categoryFoodItems[j].price,
-                                categoryFoodItems[j].description,categoryFoodItems[j].image,categoryFoodItems[j].nutrition);
+                                categoryFoodItems[j].description,categoryFoodItems[j].image);
               }//end nested for
          
             }//end if
@@ -43,6 +43,7 @@ function main(){
       }
     }//end if
   }//end for
+  $(".menu-category-item").click(openFoodModal)
   /*
   //INSERT RESTAURANT NAME HERE.
   
@@ -102,7 +103,7 @@ function addMenuCategoryTitle(categoryName){
  * @param {*} foodImg  is the image of the food.
  * @return it does not return anything.
  */
-function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutrition){
+function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
 
   let categoryNames = document.getElementsByClassName("menu-categories");
 
@@ -135,8 +136,8 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg,foodNutri
 
   newFood.innerHTML = newFoodContent;
   foodItems.append(newFood);//add the new food to the list (inside menu-category-grouped-items)
-  //addNutritionalInfo(foodNutrition);
-  newFood.addEventListener("click",openFoodModal);//image is clicked
+
+  // newFood.addEventListener("click",openFoodModal);//image is clicked
  
 }//end addFoodItems
 
@@ -154,21 +155,23 @@ let modalOn = false;
 /**
  * openFoodModal - once a food item is clicked, a window will be shown containing different options 
  *              for the food item and its price.
- * @param {event} event will contain all the information i.e. food title, price, image, description 
- *              to pass to the foodModal window.
  */
-function openFoodModal(event){
-
+function openFoodModal(){
+  var item = $(this);
   if(!modalOn){
   
     //get the information:
-    let foodItem = event.target.parentElement;
+    // let foodItem = event.target.parentElement;
     //console.log(foodItem);
-    //NOTE: IT DOES NOT OPEN THE MODAL WHEN CLICKING THE DESCIPTION.
-    let foodItemTitle = foodItem.getElementsByClassName("menu-category-item-title")[0].innerText;
-    let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
-    let foodItemDescription = foodItem.getElementsByClassName("menu-category-item-description")[0].innerText;
-    let foodItemPrice = foodItem.getElementsByClassName("menu-category-item-price")[0].innerText;
+    // let foodItemTitle = foodItem.getElementsByClassName("menu-category-item-title")[0].innerText;
+    // let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
+    // let foodItemDescription = foodItem.getElementsByClassName("menu-category-item-description")[0].innerText;
+    // let foodItemPrice = foodItem.getElementsByClassName("menu-category-item-price")[0].innerText;
+
+    let foodItemTitle = item.find(".menu-category-item-title").first().text();
+    let foodItemImage = item.find(".menu-category-item-image").first().attr('src');
+    let foodItemDescription = item.find(".menu-category-item-description").first().text();
+    let foodItemPrice = item.find(".menu-category-item-price").first().text();
 
     //console.log(foodItemTitle,foodItemImage,foodItemDescription,foodItemPrice);
 
