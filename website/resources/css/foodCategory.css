@@ -8,7 +8,7 @@
     border: 2px black solid;
     border-left: none;
     border-right: none;
-    padding: 1vw;
+    padding-top: 1vw;
 /*     background-color: rgba(204, 223, 135, 0.541); */
 }
 
@@ -27,10 +27,7 @@
 .chevron{
     color:black;
     font-size: 100px;
-/*     opacity: 65%;
-    margin-top: -25px; */
-    margin: -2vw 0 0 0.4vw;
-    /*top:10%;*/
+    margin-top: -3vw;
     opacity: 65%;
     transition: opacity 0.2s;
 }

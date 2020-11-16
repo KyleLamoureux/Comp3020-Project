@@ -9,70 +9,40 @@ body{
 
 .website-header {
     padding: 0px 16px;
-    height: 50px;
+    height: 40px;
     display: flex;
     background-color: #F2EFE4;
-    font-size: 24px;
     border: 0.5px black solid;
+    align-items: center;
+    justify-content: center;;
 }
-
-.container{
-    padding-left: 20px;
-    justify-content: center;
-}
-
-/*     /*margin-top: 30px;*/
-    padding-bottom: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-    /*border: 1px solid black;*/
-    float: left;
-    width: 100%;
-} */
 
 .service{
     display:inline-block;
     margin-left: 18vw;
 }
 
-.website-header .h2{
-    /*padding: 10px 16px;*/
-    color: #f1f1f1;
-
-    font-size: 30px;
-
-}
-/* .website-header{
-    padding: 10px 16px;
-    background:#555;
-} */
-
-.search input[type=text] {
-    position: relative;
-    display: inline;
-    z-index: 1;
-    font-size: 20px;
-    border: none;
-    margin-left: 5px;
-    margin-right: 10px;
-    height: 25px;
-    outline: none;
-    width: 150px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-
 .search{
-    border: none;
-    margin-top: 5px;
-    box-shadow: 0 0 8px 2px black;
-    position: relative;
-    display: inline-block;
-    background-color: white;
-    /*float: left;*/
-    margin-left: 2vw;
-    border-radius: 15px;
+    float: right;
 }
+
+#searchbox{
+    box-sizing: content-box;
+    border: solid black 0.5px;
+    position: relative;
+    float: right;
+    border-radius: 15px;
+    padding-left: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding-left: 2em;
+    outline: none;
+}
+
+#searchbox:focus{
+    border: 2.5px solid #FF5C00;
+}
+
 #searchicon{
     font-size: 20px;
     margin-left: 4px;
@@ -84,9 +54,20 @@ body{
     visibility: hidden;
     transition: opacity 0.3s;
 }
-.fa-close :hover{
-    opacity: 100%;
+
+.container{
+    padding-left: 20px;
+    justify-content: center;
+    display: flex;
 }
+
+    /* margin-top: 30px;
+    padding-bottom: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 1px solid black;
+    float: left;
+    width: 100%; */
 
 .hr-line{
     border: none;
@@ -102,11 +83,14 @@ body{
     font-family: "Roboto", sans-serif;
     font-size: 3em;
     color: #083755;
+    margin-bottom: 0.5em;
 }
 
 .celeb-area{
     display: flex;
-    
+    justify-items: center;
+    align-items: center;
+    margin-left: 4vw;
 }
 
 .content-circle{
@@ -115,31 +99,60 @@ body{
     width: 30vw;
     height: 30vw;
     position: relative;
+    justify-items: center;
+    margin-left: -15vw;
+    margin-top: 3vw;
 }
 
 .content{
     position: absolute;
-    width: 20em;
+    width: 25em;
     height: auto;
     text-align: left;
     transform: translateY(55%);
     padding-left: 2em;
+    margin-top: -1em;
 }
 
 .content h1{
     font-family: "Roboto", sans-serif;
-    font-size: 30px;
+    font-size: 40px;
     color: #FF5C00;
+    font-weight: bolder;
 }
 
 .content p{
     font-family: "Open Sans", sans-serif;
     font-size: 20px;
     color: #083755;
+    margin-top: -1em;
 }
 
 .celeb-photo{
     background: #FF5C00;
     width: 60vw; 
     clip-path: circle();
+    margin-left: 2vw;
+}
+
+.celeb-button{
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    float: right;
+    width: 150px;
+    height: 40px;
+    border-radius: 50px;
+    background: #FF5C00;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-right: 4vw;
+    margin-top: 21vw;
+    transition: 0.2s ease;
+}
+
+.celeb-button:hover{
+    color: white;
+    background: #cf4c00;
+    cursor: pointer;
 }
