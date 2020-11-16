@@ -32,10 +32,10 @@ function init(){
 
     options2 = {
         chartArea: {
-            width: '110%',
-            height: '110%',
+            width: '100%',
+            height: '100%',
             left: '0',
-            right: '15%'
+            right: '10%'
         },
         colors: ['#FCA103', "#fb5f44", "#03CFEC"],
         titlePosition: 'none',

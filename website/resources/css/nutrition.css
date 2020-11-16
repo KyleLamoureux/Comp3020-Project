@@ -7,14 +7,8 @@
     /*bottom: 0;*/
 
 }
-.nutritional-info-img{
-    width: 210px;
-    height: 210px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
+
+svg > g > g:last-child { pointer-events: none }
 
 .nutritional-info-checkbox{
     width: 80%;
