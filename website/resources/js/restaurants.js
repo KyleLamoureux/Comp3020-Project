@@ -69,19 +69,19 @@ restaurants = [
         type: ["Italian"],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Calamari",
+                img: root+"/olive_garden/appetizer/calamari.jpg",
+                restaurant: "Olive Garden"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chicken Alfredo",
+                img: root+"/olive_garden/entree/alfredo.jpg",
+                restaurant: "Olive Garden"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Tiramisu",
+                img: root+"/olive_garden/dessert/tiramisu.jpg",
+                restaurant: "Olive Garden"
             }
         ],
         distance: 6.9,
@@ -99,19 +99,19 @@ restaurants = [
         type: ['Mexican'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Zesty Chimichurri",
+                img: root+"/muncho_burrito/signature/zesty.png",
+                restaurant: "Muncho Burrito"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chips & Salsa",
+                img: root+"/muncho_burrito/sides/salsa.jpg",
+                restaurant: "Muncho Burrito"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Build Your Own",
+                img: root+"/muncho_burrito/build_your_own/burrito.jpg",
+                restaurant: "Muncho Burrito"
             }
         ],
         distance: 6.4,
@@ -130,19 +130,19 @@ restaurants = [
         type: ['Asian', 'Vietnamese'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "General's Chicken",
+                img: root+"/asia_palace/chicken/general.jpg",
+                restaurant: "Asia Palace"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Shrimp Chow Mein",
+                img: root+"/asia_palace/chow_mein/shrimp.png",
+                restaurant: "Asia Palace"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Vegetable Fried Rice",
+                img: root+"/asia_palace/fried_rice/veg.png",
+                restaurant: "Asia Palace"
             }
         ],
         distance: 2.9,
@@ -160,19 +160,19 @@ restaurants = [
         type: ['Sushi', 'Japanese', 'Korean', 'Asian'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Oyster Motoyaki",
+                img: root+"/kimchi_sushi/appetizers/oyster.png",
+                restaurant: "Kimchi Sushi"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chicken Teriyaki",
+                img: root+"/kimchi_sushi/entrees/chicken.jpg",
+                restaurant: "Kimchi Sushi"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Kimchi Fried Rice",
+                img: root+"/kimchi_sushi/kimchi/rice.png",
+                restaurant: "Kimchi Sushi"
             }
         ],
         distance: 7.9,
@@ -192,17 +192,17 @@ restaurants = [
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Boston Pizza"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Boston Pizza"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Boston Pizza"
             }
         ],
         distance: 5.1,
@@ -223,17 +223,17 @@ restaurants = [
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Clay Oven"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Clay Oven"
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: ""
+                restaurant: "Clay Oven"
             }
         ],
         distance: 4.4,
@@ -243,7 +243,6 @@ restaurants = [
         description: "Clay Oven Restaurant proudly boasts of the best menu and the most delicious food.Delight in our appetizing soups and snacks. Both vegetarians and non vegetarians can enjoy our culinary feasts.",
         href: "link",
         backgroundColour: '#000000',
-        
     }
 ];
 

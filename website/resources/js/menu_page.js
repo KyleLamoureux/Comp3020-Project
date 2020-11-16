@@ -6,7 +6,6 @@ if(document.readyState === "loading"){
   main();
 } //end if-else 
 
-
 function main(){
   let removeCartItemButtons = document.getElementsByClassName("btn-remove");
 
@@ -16,26 +15,39 @@ function main(){
   }//end for
   
   //CHOSEN RESTAURANT GOES HERE.
-  let restaurantName = "Perkins";
+  let restaurantName = "McDonalds";
 
   //display the restaurant's name
   let titleName = document.getElementsByClassName("heading-text")[0];
   titleName.innerText = restaurantName;
 
-  for(let restaurant in menus){//interate through the restaurants
+  for(let restaurant in menus){//iterate through the restaurants
     if(menus.hasOwnProperty(restaurant)){
 
       if(restaurantName === restaurant){//find the restaurant the user has clicked.
 
         for(let category in menus[restaurant]){
           if(menus[restaurant].hasOwnProperty(category)){
-              //category categorys
+              //category categories
               addMenuCategory(category);
               //food item list for each category.
               let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
               for(let j = 0; j < categoryFoodItems.length; j++){
+                
+                /*
+                for(let optionType in categoryFoodItems[j].options){
+                  if(optionType === "Alterations" && categoryFoodItems[j].options[optionType].hasOwnProperty("data")){
+
+                    for(let x = 0; x < categoryFoodItems[j].options[optionType]["data"].length; x++ ){
+                    console.log(categoryFoodItems[j].name + ": " + optionType + " (Alterations) with data " + categoryFoodItems[j].options[optionType]["data"][x].name);
+                    }
+                  }else if(optionType === "Extras"){
+                    console.log(categoryFoodItems[j].name + ": " + optionType + " (Extras)");
+                  }//end if-elseif
+                }//end for
+                */
                 addFoodItems(category,categoryFoodItems[j].name,categoryFoodItems[j].price,
-                                categoryFoodItems[j].description,categoryFoodItems[j].image);
+                                categoryFoodItems[j].description,categoryFoodItems[j].image, categoryFoodItems[j].options);
               }//end nested for
          
             }//end if
@@ -43,6 +55,15 @@ function main(){
       }
     }//end if
   }//end for
+
+  //TODO: OPTIONS FOR A FOOD ITEM:
+  //ACCESSING THE OPTIONS BY: 
+  //menus["Perkins"]["Omelets"][0].options["Alterations"]["type"]//to get the type (checkbox)
+  //menus["Perkins"]["Omelets"][0].options["Extras"]["type"]//to get the type (checkbox)
+  //menus["Perkins"]["Omelets"][0].options["Alterations"]["data"][0] ////to get the data (data is a list)
+  //==================
+  //Do a check if options contain "Alterations"/"Extras".
+  //
   $(".menu-category-item").click(openFoodModal)
   /*
   //INSERT RESTAURANT NAME HERE.
@@ -101,10 +122,10 @@ function addMenuCategoryTitle(categoryName){
  * @param {*} foodPrice is the price of the food.
  * @param {*} foodDesc is the description of the food.
  * @param {*} foodImg  is the image of the food.
+ * @param {*} foodItemOptions is the options for the selected food. 
  * @return it does not return anything.
  */
-function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
-
+function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItemOptions){
   let categoryNames = document.getElementsByClassName("menu-categories");
 
   //need to determine which category the food belongs to. 
@@ -136,30 +157,30 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg){
 
   newFood.innerHTML = newFoodContent;
   foodItems.append(newFood);//add the new food to the list (inside menu-category-grouped-items)
+  newFood.options = foodItemOptions;
 
   // newFood.addEventListener("click",openFoodModal);//image is clicked
  
 }//end addFoodItems
 
 
-function addNutritionalInfo(foodNutrition){
-  let nutritionDiv = document.getElementsByClassName("nutritional-info")[0];
-  let nutritionImg = document.createElement("img");
-  nutritionImg.className("nutritional-info-img");
-  nutritionImg.src = foodNutrition;
-}//end addNutritionalInfo
-
-
-
 let modalOn = false;
+const ALTERATION_TYPE = "Alterations";
+const EXTRAS_TYPE = "Extras";
+const STYLE_TYPE = "Style";
+const CHECKBOX_TYPE = "checkbox";
+const RADIOBTN_TYPE = "radio"; 
+const TYPE = "type";
+const DATA = "data";
 /**
  * openFoodModal - once a food item is clicked, a window will be shown containing different options 
  *              for the food item and its price.
  */
 function openFoodModal(){
   var item = $(this);
-  if(!modalOn){
   
+  if(!modalOn){
+    
     //get the information:
     // let foodItem = event.target.parentElement;
     //console.log(foodItem);
@@ -173,54 +194,185 @@ function openFoodModal(){
     let foodItemDescription = item.find(".menu-category-item-description").first().text();
     let foodItemPrice = item.find(".menu-category-item-price").first().text();
 
-    //console.log(foodItemTitle,foodItemImage,foodItemDescription,foodItemPrice);
+    let foodItemOptions = event.target.parentElement.options;
+    //TODO : DISPLAY THE DATA IN HTML. 
+    let foodOptionsDiv = document.createElement("div");//wrapper for the food options.
+    foodOptionsDiv.classList.add("food-options");
 
+   for(let optionType in foodItemOptions){//iterate through the options for each food item.
+    
+    let foodOptionType = document.createElement("div");//create a div for the option type(checkbox/radio).
+      if(foodItemOptions.hasOwnProperty(optionType)){//ensures that the option type (Alteration,Extras,Style) is in the menus data.
+
+        let foodOptionTypeContent = `<h3 class="option-category">${optionType}</h3>`;
+        if(foodItemOptions[optionType].hasOwnProperty(TYPE) 
+             && foodItemOptions[optionType].hasOwnProperty(DATA)){//ensures that option has a "type" key
+
+          if(foodItemOptions[optionType][TYPE] === CHECKBOX_TYPE){
+            foodOptionType.classList.add("checkbox-option");
+
+            //create checkboxes
+            console.log("1)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
+
+            for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
+              let dataName = foodItemOptions[optionType][DATA][i].name;
+              let dataPrice = foodItemOptions[optionType][DATA][i].price;
+
+              let displayPrice = "";
+              if(dataPrice < 0){
+                dataPrice *= -1;
+                displayPrice = "-$" + dataPrice.toFixed(2);
+              }else{
+                displayPrice = "+$" + dataPrice.toFixed(2);
+              }
+            
+              foodOptionTypeContent +=`
+              <div class="food-option-name">
+              <input class="food-option-item-checkbox" type="checkbox" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
+              <label class="food-option-name-label" for="${dataName}">${dataName}</label>
+              </div>
+              <div class="food-option-price">
+              <label class="food-option-price-label">${displayPrice}</label>
+              </div>
+              `;
+
+            } //end nested-for
+
+          }else if(foodItemOptions[optionType][TYPE] === RADIOBTN_TYPE){
+            foodOptionType.classList.add("radio-button-option");
+            //create radiobtns
+            console.log("2)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
+
+            for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
+              let dataName = foodItemOptions[optionType][DATA][i].name;
+              let dataPrice = foodItemOptions[optionType][DATA][i].price;
+            
+              foodOptionTypeContent +=`
+              <div class="food-option-name">
+              <input class="food-option-item-radiobtn" type="radio" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
+              <label class="food-option-name-label" for="${dataName}">${dataName}</label>
+              </div>
+              <div class="food-option-price">
+              <label class="food-option-price-label">${"$" + dataPrice.toFixed(2)}</label>
+              </div>
+              `;
+
+            } //end nested-for
+
+          }//end if-elseif
+
+          
+        }
+        foodOptionType.innerHTML = foodOptionTypeContent;
+    
+      }//end if
+      foodOptionsDiv.append(foodOptionType);
+
+    }//end for
+    
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
     let foodModalContent = `
-    <img class="food-item-modal-image" src="${foodItemImage}">
     <div id="modal-description">
         <h4 class="modal-food-title">${foodItemTitle}</h4>
         <h5 class="modal-food-price">Price: ${foodItemPrice}</h5>
-    </div>
-    <div class="food-options">
-        <input type="radio" id="option1" name="food-options" value="option1">
-        <label for="option1">Option 1</label>
-        <input type="radio" id="option2" name="food-options" value="option2">
-        <label for="option1">Option 2</label>
-        <input type="radio" id="option3" name="food-options" value="option3">
-        <label for="option1">Option 3</label>
-    </div>
-    <div class="food-number-button">
-        <button id="plus">-</button>
-        <input id="num-food" type="number">
-        <button id="minus">+</button>
-    </div>
-    <div id="add-to-cart">
-        <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-        <button class="button-add-to-cart">Add to cart</button>
-    </div>
+    </div>`;
+    
+    let foodNumBtns = document.createElement("div");
+    foodNumBtns.classList.add("food-number-button");
+    foodNumBtns.innerHTML = `
+    <button id="plus">-</button>
+    <input id="num-food" type="number" value="1">
+    <button id="minus">+</button>
+    `;
+
+    let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
+    buttonsDiv.classList.add("add-to-cart");
+    buttonsDiv.innerHTML = `
+    <button class="button-add-to-cart">Add to cart</button><br>
+    <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
     `;
     
     modal.innerHTML = foodModalContent;
+    modal.append(foodOptionsDiv);
+    modal.append(foodNumBtns);
+    modal.append(buttonsDiv);
     modal.style.display = "block";
     blurControl();
     modalOn = true;
 
-    addFunctionality();
+    addFunctionality(foodItemImage);
   }
 }//end openFoodModal
 
+/**
+ * updateFoodPrice - function that updates the price from the food modal when 
+ *                  a checkbox is clicked from the given options.
+ */
+function updateFoodPrice(){
+  let priceDifference = 0;  
+
+  //for checkbox
+  let checkboxDiv = document.getElementsByClassName("checkbox-option");
+  for(let i = 0; i < checkboxDiv.length; i++){
+    let checkboxes = checkboxDiv[i].getElementsByClassName("food-option-item-checkbox");
+    let optionItemName = checkboxDiv[i].getElementsByClassName("food-option-name-label");
+    let optionItemPrice = checkboxDiv[i].getElementsByClassName("food-option-price-label");
+    for(let j = 0; j < checkboxes.length; j++){
+
+      if(checkboxes[j].checked){
+        console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
+        priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
+      }//end if
+
+    }//end nested for
+  }//end for
+
+
+  //for radiobtn
+  let radioBtnDiv = document.getElementsByClassName("radio-button-option");
+
+  for(let i = 0; i < radioBtnDiv.length; i++){
+    let radiobtns = radioBtnDiv[i].getElementsByClassName("food-option-item-radiobtn");
+    let optionItemName = radioBtnDiv[i].getElementsByClassName("food-option-name-label");
+    let optionItemPrice = radioBtnDiv[i].getElementsByClassName("food-option-price-label");
+    for(let j = 0; j < radiobtns.length; j++){
+
+      if(radiobtns[j].checked){
+        console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
+        priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
+      }//end if
+
+    }//end nested for
+  }//end for
+
+  
+  //change the displayed price on the food modal.
+  let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0];
+  let originalPrice = parseFloat(modalFoodPrice.innerText.replace("Price: $",""));
+  //console.log("Total difference = " + priceDifference.toFixed(2) + "\n");  
+
+  if(priceDifference == 0){
+    modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2);
+  }else if(priceDifference > 0 ){
+    modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2) + " (+$" + priceDifference.toFixed(2) + ")";
+  }else{
+    priceDifference *= -1;
+    modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2) + " (-$" + priceDifference.toFixed(2) + ")";
+  }
+
+}//end updateFoodPrice
 
 /**
  * addFunctionality - implements the add to cart functionality when adding an item from the food modal.
  */
-function addFunctionality(){
+function addFunctionality(foodItemImage){
   
   let addToCartButtons = document.getElementsByClassName("button-add-to-cart");  
   for(let i = 0; i < addToCartButtons.length; i++){
      let button = addToCartButtons[i];
      button.addEventListener('click',addToCartClicked);
+     button.foodItemImg = foodItemImage;
   }//end for
 }//end addFunctionality
 
@@ -236,12 +388,37 @@ function addToCartClicked(event){
   //get the information from the modal.
   let foodItemTitle = foodModalInfo.getElementsByClassName("modal-food-title")[0].innerText;
   let foodItemPrice = foodModalInfo.getElementsByClassName("modal-food-price")[0].innerText;
-  let foodItemImage = foodModalInfo.getElementsByClassName("food-item-modal-image")[0].src;
+  let foodItemImage = event.target.foodItemImg;
 
-  addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
-  updateCartTotal();
-  alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
-  closeMenuModal();
+  //check if the price needs to be updated.
+  foodItemPrice = foodItemPrice.replace("Price:","");
+  let posOne = foodItemPrice.indexOf("(");
+  let posTwo = foodItemPrice.indexOf(")");
+
+  if(posOne === -1 || posTwo === -1){//no changes to the price
+    addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
+    //alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
+  }else{
+
+    let updatePrice = foodItemPrice.substring(posOne);//additional price based on the options selected.
+    let originalPrice =foodItemPrice.replace(updatePrice,""); //price displayed from the menu page.
+
+    originalPrice = parseFloat(originalPrice.replace("$",""));//convert to float.
+
+    updatePrice = foodItemPrice.substring(posOne + 1, posTwo); //remove all the brackets.
+    updatePrice = parseFloat(updatePrice.replace("$",""));//convert to float
+
+    console.log(typeof(updatePrice))
+    let newPrice = originalPrice + updatePrice;
+    newPrice = "Price: $" + newPrice.toFixed(2);
+    addItemToCart(foodItemTitle,newPrice,foodItemImage);
+    //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
+   
+  }//end if-else
+
+   updateCartTotal();
+
+   closeMenuModal();
 }//end addToCartClicked
 
 
