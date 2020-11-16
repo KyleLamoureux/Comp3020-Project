@@ -64,6 +64,12 @@ function main(){
   //==================
   //Do a check if options contain "Alterations"/"Extras".
   //
+  $(".menu-category-item").click(openFoodModal)
+  /*
+  //INSERT RESTAURANT NAME HERE.
+  
+  */
+  
 }//end main
 
 /**
@@ -120,7 +126,6 @@ function addMenuCategoryTitle(categoryName){
  * @return it does not return anything.
  */
 function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItemOptions){
-  
   let categoryNames = document.getElementsByClassName("menu-categories");
 
   //need to determine which category the food belongs to. 
@@ -153,8 +158,9 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItem
   newFood.innerHTML = newFoodContent;
   foodItems.append(newFood);//add the new food to the list (inside menu-category-grouped-items)
   newFood.options = foodItemOptions;
-  newFood.addEventListener("click",openFoodModal);//image is clicked
-  
+
+  // newFood.addEventListener("click",openFoodModal);//image is clicked
+ 
 }//end addFoodItems
 
 
@@ -169,21 +175,24 @@ const DATA = "data";
 /**
  * openFoodModal - once a food item is clicked, a window will be shown containing different options 
  *              for the food item and its price.
- * @param {event} event will contain all the information i.e. food title, price, image, description 
- *              to pass to the foodModal window.
  */
-function openFoodModal(event){
+function openFoodModal(){
+  var item = $(this);
   
   if(!modalOn){
     
     //get the information:
-    let foodItem = event.target.parentElement;
+    // let foodItem = event.target.parentElement;
     //console.log(foodItem);
-    //NOTE: IT DOES NOT OPEN THE MODAL WHEN CLICKING THE DESCIPTION.
-    let foodItemTitle = foodItem.getElementsByClassName("menu-category-item-title")[0].innerText;
-    let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
-    let foodItemDescription = foodItem.getElementsByClassName("menu-category-item-description")[0].innerText;
-    let foodItemPrice = foodItem.getElementsByClassName("menu-category-item-price")[0].innerText;
+    // let foodItemTitle = foodItem.getElementsByClassName("menu-category-item-title")[0].innerText;
+    // let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
+    // let foodItemDescription = foodItem.getElementsByClassName("menu-category-item-description")[0].innerText;
+    // let foodItemPrice = foodItem.getElementsByClassName("menu-category-item-price")[0].innerText;
+
+    let foodItemTitle = item.find(".menu-category-item-title").first().text();
+    let foodItemImage = item.find(".menu-category-item-image").first().attr('src');
+    let foodItemDescription = item.find(".menu-category-item-description").first().text();
+    let foodItemPrice = item.find(".menu-category-item-price").first().text();
 
     let foodItemOptions = event.target.parentElement.options;
     //TODO : DISPLAY THE DATA IN HTML. 
