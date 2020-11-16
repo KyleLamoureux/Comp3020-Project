@@ -138,6 +138,7 @@ function clearSelection(){
     restaurants_categories.forEach(iter => {
         iter["active"] = true;
     });
+    activeCategories = allCats();
     $(".food-item-check").css("opacity", "0%");
     $(".cancelButton").css("visibility", "hidden");
     createRestaurants();
@@ -227,7 +228,7 @@ function createRestListItem(element){
 
 // Creates <div id="food-item-list">...
 function createItemOrb(element, random=false, color=false){
-    console.log(element, random, color)
+    //console.log(element, random, color)
     var div = document.createElement("div")
     div.id = "food-item-list";
     element.forEach(e => {
