@@ -194,7 +194,7 @@ function openFoodModal(){
     let foodItemDescription = item.find(".menu-category-item-description").first().text();
     let foodItemPrice = item.find(".menu-category-item-price").first().text();
 
-    let foodItemOptions = event.target.parentElement.options;
+    let foodItemOptions = item.get(0).options;
     //TODO : DISPLAY THE DATA IN HTML. 
     let foodOptionsDiv = document.createElement("div");//wrapper for the food options.
     foodOptionsDiv.classList.add("food-options");
