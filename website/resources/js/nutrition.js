@@ -1,6 +1,6 @@
 var data;
-var chart;
-var options;
+var chart1, chart2;
+var options1,options2;
 
 function init(){
     console.log("init!");
@@ -13,7 +13,7 @@ function init(){
         ['Protein', 0]
     ]);
     // Set chart options
-    options = {
+    options1 = {
         chartArea: {
             width: '100%',
             height: '100%',
@@ -30,19 +30,54 @@ function init(){
         },
         fontSize: 12
     };
-    chart = new google.visualization.PieChart(document.getElementById('piechart-1'));
+
+    options2 = {
+        chartArea: {
+            width: '110%',
+            height: '110%',
+            left: '0',
+            right: '15%'
+        },
+        colors: ['#FCA103', "#fb5f44", "#03CFEC"],
+        titlePosition: 'none',
+        backgroundColor: '#FFFFFF',
+        legend: {
+            position: 'none'
+        },
+        pieSliceText:'value',
+        pieSliceTextStyle: {
+            color: 'black'
+        },
+        fontSize: 12
+    };
+    chart1 = new google.visualization.PieChart(document.getElementById('piechart-1'));
+    chart2 = new google.visualization.PieChart(document.getElementById('piechart-2'));
 }
 
 
-function toggleNutrition(){
-    // Get the checkbox
-    var checkBox = document.getElementById("nutritional-info-text");
-    var graph = document.getElementById("nutrition");
-    // If the checkbox is checked, display the output text
+function toggleNutrition1(){
+    var checkBox = document.getElementById("nutritional-info-text1");
+    var checkBox2 = document.getElementById("nutritional-info-text2");
+    // var graph = document.getElementById("nutrition");
     if (checkBox.checked){
-        graph.style.visibility = "visible";
+        $('.nutrition').css("visibility", "visible");
+        checkBox2.checked = true;
     } else {
-        graph.style.visibility = "hidden";
+        $('.nutrition').css("visibility", "hidden");
+        checkBox2.checked = false;
+    }
+}
+
+function toggleNutrition2(){
+    var checkBox = document.getElementById("nutritional-info-text2");
+    var checkBox2 = document.getElementById("nutritional-info-text1");
+    // var graph = document.getElementById("nutrition");
+    if (checkBox.checked){
+        $('.nutrition').css("visibility", "visible");
+        checkBox2.checked = true;
+    } else {
+        $('.nutrition').css("visibility", "hidden");
+        checkBox2.checked = false;
     }
 }
 
@@ -52,13 +87,15 @@ function toggleNutrition(){
 function updateNutrition(){
     let cartItemContainer = document.getElementsByClassName("cart-items")[0];//first element
     let cartRows = cartItemContainer.getElementsByClassName("cart-row");
-    var checkBox = document.getElementById("nutritional-info-text");
-    var graph = document.getElementById("nutrition");
+    var checkBox = document.getElementById("nutritional-info-text1");
+    // var graph = document.getElementById("nutrition");
     if(cartRows.length > 0){
         if (checkBox.checked){
-            graph.style.visibility = "visible";
+            $('.nutrition').css("visibility", "visible");
+            // graph.style.visibility = "visible";
         } else {
-            graph.style.visibility = "hidden";
+            $('.nutrition').css("visibility", "hidden");
+            // graph.style.visibility = "hidden";
         }
         let fat = 0, carbs = 0, protein=0;
         for(let i = 0; i < cartRows.length;i++){
@@ -73,7 +110,7 @@ function updateNutrition(){
         protein = Math.round(protein);
 
         let calories = (fat*9) + (carbs*4) + (protein*4);
-        $("#nutrition").find("h2").text("Calories: " + calories);
+        $(".nutrition").find("h2").text("Calories: " + calories);
         data.setValue(0, 1, fat);
         data.setFormattedValue(0, 1,'Fat: ' + fat + "g");
         data.setValue(1, 1, carbs);
@@ -81,10 +118,12 @@ function updateNutrition(){
         data.setValue(2, 1, protein);
         data.setFormattedValue(2, 1, 'Protein: ' + protein+ "g");
 
-        chart.draw(data, options);
+        chart1.draw(data, options1);
+        chart2.draw(data, options2);
 
     }else{
-        graph.style.visibility = "hidden";
+        // graph.style.visibility = "hidden";
+        $('.nutrition').css("visibility", "hidden");
     }
 
 
