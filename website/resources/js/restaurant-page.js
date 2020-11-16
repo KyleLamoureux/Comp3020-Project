@@ -213,7 +213,8 @@ function createRestListItem(element){
     desc.className = "restaurant-description";
     desc.innerText = element["description"];
     var route = document.createElement("a");
-    route.href = element["href"];
+    route.id = element['name'];
+    route.onclick = proceedToMenu;
     route.innerText = "Proceed To Menu";
     route.style.textDecoration = "underline"
     imgOverlay = appendMultiple(imgOverlay, [restName, desc, route]);
@@ -225,6 +226,11 @@ function createRestListItem(element){
     return li;
 };
 
+function proceedToMenu(objClicked) {
+    console.log(objClicked['target'].id)
+    localStorage.setItem('restaurant', objClicked['target'].id);
+    window.location.href='./menu_page.html';
+}
 
 // Creates <div id="food-item-list">...
 function createItemOrb(element, random=false, color=false){

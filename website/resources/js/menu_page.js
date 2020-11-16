@@ -16,7 +16,7 @@ function main(){
   }//end for
   
   //CHOSEN RESTAURANT GOES HERE.
-  let restaurantName = "Perkins";
+  let restaurantName = localStorage.getItem('restaurant');;
 
   //display the restaurant's name
   let titleName = document.getElementsByClassName("heading-text")[0];
