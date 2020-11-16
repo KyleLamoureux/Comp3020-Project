@@ -190,18 +190,18 @@ restaurants = [
         type: ['Pizza', 'Italian'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
+                name: "Bandera Pizza Bread",
+                img: root+"/boston_pizza/appetizer/pizza.png",
                 restaurant: "Boston Pizza"
             },
             {
-                name: "",
-                img: root+"",
+                name: "Jambalaya Fettuccini",
+                img: root+"/boston_pizza/main/pasta.png",
                 restaurant: "Boston Pizza"
             },
             {
-                name: "",
-                img: root+"",
+                name: "Build Your Own Pizza",
+                img: root+"/boston_pizza/pizza/pizza.png",
                 restaurant: "Boston Pizza"
             }
         ],
@@ -221,18 +221,18 @@ restaurants = [
         type: ['Indian', 'Asian'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
+                name: "Vegetable Samosa",
+                img: root+"/clay_oven/appetizer/samosa.jpg",
                 restaurant: "Clay Oven"
             },
             {
-                name: "",
-                img: root+"",
+                name: "Garlic Naan",
+                img: root+"/clay_oven/bread/garlic.jpg",
                 restaurant: "Clay Oven"
             },
             {
-                name: "",
-                img: root+"",
+                name: "Lamb Curry",
+                img: root+"/clay_oven/curry/lamb.jpg",
                 restaurant: "Clay Oven"
             }
         ],
