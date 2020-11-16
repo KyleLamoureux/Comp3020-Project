@@ -6,101 +6,26 @@ const constDrinks = [
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/coke.jpg',
-        options : {
-        }
     },
     {
         name : 'Diet Coke',
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/dietCoke.png',
-        options : {
-        }
     },
     {
         name : 'Root Beer',
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/rootBeer.jpg',
-        options : {
-        }
     },
     {
         name : 'Ginger Ale',
         description : '',
         price : 0.99,
         image : mRoot+'/global_menu/ginger.jpg',
-        options : {
-        }
     }
 ]
-
-
-const buildYourOwnOptions = {
-    Protein : {
-        type : 'radio',
-        data : [
-            {
-                name : 'Chicken',
-                price : 1.00
-            },
-            {
-                name : 'Beef',
-                price : 1.50
-            },
-            {
-                name : 'Pork',
-                price : 1.25
-            }
-        ]
-    },
-    Toppings : {
-        type : 'checkbox',
-        data : [
-            {
-                name : 'Corn',
-                price : 0.00
-            },
-            {
-                name : 'Rice',
-                price : 0.00
-            },
-            {
-                name : 'Beans',
-                price : 0.00
-            },
-            {
-                name : 'Grilled veg',
-                price : 0.00
-            },
-            {
-                name : 'Lettuce',
-                price : 0.00
-            },
-            {
-                name : 'Cheese',
-                price : 0.00
-            }
-        ]
-    },
-    Sauce : {
-        type : 'checkbox',
-        data : [
-            {
-                name : 'Sour cream',
-                price : 0.00
-            },
-            {
-                name : 'Salsa',
-                price : 0.00
-            },
-            {
-                name : 'Guacamole',
-                price : 1.25
-            },
-        ]
-    }
-}
 
 
 const menus = {
@@ -534,168 +459,24 @@ const menus = {
                 description : 'Mouthwatering perfection starts with two 100% pure beef patties and Big Mac sauce sandwiched between a sesame seed bun. It’s topped off with pickles, crisp shredded lettuce, finely chopped onion and American cheese.',
                 price : 6.99,
                 image : mRoot+'/mcdonalds/burgers/bigmac.jpg',
-                options : {
-                    Extras : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Small fry',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Medium fry',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Large fry',
-                                price : 2.00
-                            }
-                        ]
-                    },
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No pickles',
-                                price : -0.40,
-                            },
-                            {
-                                name : 'No onions',
-                                price : -0.20
-                            },
-                            {
-                                name : 'No cheese',
-                                price : -1.00
-                            }
-                        ]
-                    }
-                }  
             },
             {
                 name : 'Quarter Pounder',
                 description : '¼ lb. of 100% fresh beef that’s hot, deliciously juicy and cooked when you order. It’s seasoned with just a pinch of salt and pepper, sizzled on a flat iron grill, then topped with slivered onions, tangy pickles and two slices of melty American cheese on a sesame seed bun.',
                 price : 5.99,
                 image : mRoot+'/mcdonalds/burgers/quarter.jpg',
-                options : {
-                    Extras : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Small fry',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Medium fry',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Large fry',
-                                price : 2.00
-                            }
-                        ]
-                    },
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No pickles',
-                                price : -0.40,
-                            },
-                            {
-                                name : 'No onions',
-                                price : -0.20
-                            },
-                            {
-                                name : 'No cheese',
-                                price : -1.00
-                            }
-                        ]
-                    }
-                }
             },
             {
                 name : 'McDouble',
                 description : 'Two 100% pure beef patties seasoned with just a pinch of salt and pepper. It’s topped with tangy pickles, chopped onions, ketchup, mustard and a slice of melty American cheese.',
                 price : 2.99,
                 image : mRoot+'/mcdonalds/burgers/mcdouble.jpg',
-                options : {
-                    Extras : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Small fry',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Medium fry',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Large fry',
-                                price : 2.00
-                            }
-                        ]
-                    },
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No pickles',
-                                price : -0.40,
-                            },
-                            {
-                                name : 'No onions',
-                                price : -0.20
-                            },
-                            {
-                                name : 'No cheese',
-                                price : -1.00
-                            }
-                        ]
-                    }
-                }
             },
             {
                 name : 'Cheeseburger',
                 description : "Our simple, classic cheeseburger begins with a 100% pure beef patty seasoned with just a pinch of salt and pepper. It's topped with a tangy pickle, chopped onions, ketchup, mustard, and a slice of melty American cheese.",
                 price : 1.99,
                 image : mRoot+'/mcdonalds/burgers/cheeseburger.jpg',
-                options : {
-                    Extras : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Small fry',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Medium fry',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Large fry',
-                                price : 2.00
-                            }
-                        ]
-                    },
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No pickles',
-                                price : -0.40,
-                            },
-                            {
-                                name : 'No onions',
-                                price : -0.20
-                            },
-                            {
-                                name : 'No cheese',
-                                price : -1.00
-                            }
-                        ]
-                    }
-                }
             }
         ],
         'Chicken And Sandwiches' : [
@@ -704,168 +485,24 @@ const menus = {
                 description : 'Our tender, juicy Chicken McNuggets® are made with 100% white meat chicken and no artificial colors, flavors or preservatives.',
                 price : 2.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/nuggets.jpg',
-                options : {
-                    Quantity : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : '4',
-                                price : 2.99
-                            },
-                            {
-                                name : '10',
-                                price : 5.99
-                            },
-                            {
-                                name : '20',
-                                price : 10.99
-                            },
-                            {
-                                name : '40',
-                                price : 22.00
-                            }
-                        ]
-                    },
-                    Sauces : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Sweet & Sour',
-                                price : 0.50
-                            },
-                            {
-                                name : 'Sweet & Sour',
-                                price : 0.50
-                            },
-                            {
-                                name : 'Sweet & Sour',
-                                price : 0.50
-                            },
-                            {
-                                name : 'BBQ',
-                                price : 0.50
-                            },
-                            {
-                                name : 'BBQ',
-                                price : 0.50
-                            },
-                            {
-                                name : 'BBQ',
-                                price : 0.50
-                            }
-                        ]
-                    }
-                }
             },
             {
                 name : 'Buttermilk Crispy Chicken Sandwich',
                 description : "McDonald's Buttermilk Crispy Chicken Sandwich is made with all white meat chicken and no added colors. It's layered with crisp, green leaf lettuce and tasty tomato and mayonnaise and served up on a delectable artisan roll.",
                 price : 5.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/crispy.jpg',
-                options : {
-                    Extras : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Small fry',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Medium fry',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Large fry',
-                                price : 2.00
-                            }
-                        ]
-                    },
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No onions',
-                                price : -0.20
-                            }
-                        ]
-                    }
-                }
             },
             {
                 name : 'McChicken',
                 description : 'A delightfully crispy chicken sandwich with a crispy chicken fillet topped with mayonnaise, shredded iceberg lettuce, and served on a perfectly toasty bun.',
                 price : 4.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/mcChicken.jpg',
-                options : {
-                    Extras : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Small fry',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Medium fry',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Large fry',
-                                price : 2.00
-                            }
-                        ]
-                    },
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No mayo',
-                                price : -0.20,
-                            },
-                            {
-                                name : 'No lettuce',
-                                price : -0.20
-                            },
-                        ]
-                    }
-                }
             },
             {
                 name : 'Filet-O-Fish',
                 description : 'Sourced from sustainable fisheries, topped with melty American cheese and creamy tartar sauce, and served on a soft, steamed bun.',
                 price : 3.99,
                 image : mRoot+'/mcdonalds/chickenAndSandwiches/fish.jpg',
-                options : {
-                    Extras : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Small fry',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Medium fry',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Large fry',
-                                price : 2.00
-                            }
-                        ]
-                    },
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No tartar sauce',
-                                price : -0.40,
-                            },
-                            {
-                                name : 'No cheese',
-                                price : -1.00
-                            }
-                        ]
-                    }
-                }
             }
         ],
         'Desserts' : [
@@ -874,36 +511,24 @@ const menus = {
                 description : 'Enjoy our creamy vanilla soft serve in a crispy cone!',
                 price : 0.99,
                 image : mRoot+'/mcdonalds/desserts/cone.jpg',
-                options : {
-
-                }
             },
             {
                 name : 'Baked Apple Pie',
                 description : "McDonald's Baked Apple Pie is loaded with 100% American-grown apples, with a lattice crust baked to perfection and topped with sprinkled sugar.",
                 price : 1.99,
                 image : mRoot+'/mcdonalds/desserts/apple.jpg',
-                options : {
-
-                }
             },
             {
                 name : 'McFlurry with Oreo Cookies',
                 description : 'The McDonald’s McFlurry with OREO Cookies is an popular combination of OREO pieces and vanilla soft serve!',
                 price : 3.99,
                 image : mRoot+'/mcdonalds/desserts/flurry.jpg',
-                options : {
-
-                }
             },
             {
                 name : 'Chocolate Shake',
                 description : 'McDonald’s Chocolate Shake is a delicious chocolate dessert made with our creamy vanilla soft serve and chocolate syrup, topped with whipped topping.',
                 price : 3.99,
                 image : mRoot+'/mcdonalds/desserts/shake.jpg',
-                options : {
-
-                }
             }
         ],
         'Drinks' : constDrinks
@@ -915,52 +540,24 @@ const menus = {
                 description : 'Tender calamari, lightly breaded and fried. Served with marinara sauce.',
                 price : 13.29,
                 image : mRoot+'/olive_garden/appetizer/calamari.jpg',
-                options : {
-                    Additions : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Add extra sauce',
-                                price : 1.00
-                            }
-                        ]
-                    }
-                }
             },
             {
                 name : 'Stuffed Ziti Fritta',
                 description : 'Crispy fried ziti filled with five cheeses. Served with alfredo and marinara dipping sauces.',
                 price : 9.99,
                 image : mRoot+'/olive_garden/appetizer/stuffed.jpg',
-                options : {
-                    Additions : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Add extra sauce',
-                                price : 1.00
-                            }
-                        ]
-                    }
-                }
             },
             {
                 name : 'Spinach-Artichoke Dip',
-                description : 'A blend of spinach, artichokes and five cheeses served warm with NEW flatbread crisps, tossed with parmesan and garlic salt.',
+                description : 'A blend of spinach, artichokes and five cheeses served warm with NEW flatbread crisps, tossed with parmesan and garlic salt. ',
                 price : 11.99,
                 image : mRoot+'/olive_garden/appetizer/spinach.jpg',
-                options : {
-
-                }
             },
             {
                 name : 'Classic Shrimp Scampi Fritta',
-                description : 'Lightly breaded, fried and tossed in our signature scampi sauce.',
+                description : 'Lightly breaded, fried and tossed in our signature scampi sauce. ',
                 price : 13.29,
                 image : mRoot+'/olive_garden/appetizer/shrimp.jpg',
-                options : {
-
-                }
             }
         ],
         'Entree' : [
@@ -969,52 +566,24 @@ const menus = {
                 description : 'Not everyone knows our signature alfredo sauce is made from scratch daily. This homemade sauce combines simple, fresh ingredients like butter, cream and parmesan cheese to make a rich topping to our fettuccine pasta. Then it is topped with tender, sliced grilled chicken.',
                 price : 23.29,
                 image : mRoot+'/olive_garden/entree/alfredo.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double chicken',
-                                price : 4.00
-                            }
-                        ]
-                    },
-                }
             },
             {
                 name : 'Tour of Italy',
                 description : 'Three OG classics all on one plate! Chicken Parmigiana, Lasagna Classico** and our signature Fettuccine Alfredo – all with homemade sauces made fresh every morning.',
                 price : 25.49,
                 image : mRoot+'/olive_garden/entree/tour.jpg',
-                options : {
-
-                }
             },
             {
                 name : 'Lasagna Classico',
                 description : 'Prepared fresh daily with layers of pasta, parmesan, mozzarella, pecorino romano and our homemade meat sauce.',
                 price : 19.29,
                 image : mRoot+'/olive_garden/entree/lasagna.jpg',
-                options : {
-
-                }
             },
             {
                 name : 'Chicken Parmigiana',
                 description : 'Two lightly fried parmesan-breaded chicken breasts are smothered with Olive Garden’s homemade marinara sauce and melted Italian cheeses. We serve our Chicken Parmigiana with a side of spaghetti for dinner.',
                 price : 22.49,
                 image : mRoot+'/olive_garden/entree/tour.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double chicken',
-                                price : 4.00
-                            }
-                        ]
-                    },
-                }
             }
         ],
         'Dessert' : [
@@ -1023,76 +592,24 @@ const menus = {
                 description : 'Pumpkin Cheesecake topped with caramel sauce. Served with whipped cream.',
                 price : 9.29,
                 image : mRoot+'/olive_garden/dessert/pumpkin.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Scoop of vanilla icecream',
-                                price : 1.50
-                            }
-                        ]
-                    },
-                }
             },
             {
                 name : 'Tiramisu',
                 description : 'The classic Italian dessert. A layer of creamy custard set atop espresso-soaked ladyfingers.',
                 price : 8.99,
                 image : mRoot+'/olive_garden/dessert/tiramisu.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Add whipcream',
-                                price : 0.75
-                            },
-                            {
-                                name : 'Scoop of vanilla icecream',
-                                price : 1.50
-                            }
-                        ]
-                    },
-                }
             },
             {
                 name : 'Black Tie Mousse Cake',
                 description : 'Rich layers of chocolate cake, dark chocolate cheesecake and creamy custard mousse.',
                 price : 8.99,
                 image : mRoot+'/olive_garden/dessert/tie.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Scoop of vanilla icecream',
-                                price : 1.50
-                            }
-                        ]
-                    },
-                }
             },
             {
                 name : 'Chocolate Brownie Lasagna',
                 description : 'Eight decadent layers of rich, fudgy brownie and sweet vanilla cream cheese frosting, topped with chocolate shavings and a chocolate drizzle.',
                 price : 8.99,
                 image : mRoot+'/olive_garden/dessert/chocolate.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Add whipcream',
-                                price : 0.75
-                            },
-                            {
-                                name : 'scoop of vanilla icecream',
-                                price : 1.50
-                            }
-                        ]
-                    },
-                }
             }
         ],
         'Drinks' : constDrinks
@@ -1104,44 +621,24 @@ const menus = {
                 description : 'Chili-mango sauce, peach & mango chili salsa, tomato-cucumber salad, crispy jalapeño chips and chipotle-peach crema.',
                 price : 12.99,
                 image : mRoot+'/muncho_burrito/signature/speach.png',
-                options : {
-                    
-                }
             },
             {
                 name : 'Zesty Chimichurri Bowl',
                 description : 'House-made cilantro & lime chimichurri sauce, roasted seasonal squash, in-house pickled red onions, tricoloured tortilla strips and serrano-chili crema.',
                 price : 12.99,
                 image : mRoot+'/muncho_burrito/signature/zesty.png',
-                options : {
-
-                }
             },
             {
                 name : 'Grilled Pineapple Chili Bowl',
                 description : 'Caramelized pineapple & jalapeño sauce, grilled pineapple, in-house pickled red onions, crispy jalapeño chips and pineapple-habanero crema.',
                 price : 12.99,
                 image : mRoot+'/muncho_burrito/signature/pineapple.png',
-                options : {
-
-                }
             },
             {
                 name : 'Ghost Pepper Burrito',
                 description : 'Ghost pepper bacon, ghost pepper & fig marmalade, chipotle black beans, salsa, sour cream, Monterey Jack cheese, ghost pepper hot sauce, jalapeños.',
                 price : 11.99,
                 image : mRoot+'/muncho_burrito/signature/ghost.png',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double protein',
-                                price : 3.50
-                            }
-                        ]
-                    },
-                }
             }
         ],
         'Custom' : [
@@ -1149,605 +646,45 @@ const menus = {
                 name : 'Build Your Own Burrito',
                 description : 'Fresh and fantastic, our burritos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 9.99,
-                image : mRoot+'/muncho_burrito/build_your_own/burrito.jpg',
-                options : buildYourOwnOptions
+                image : mRoot+'/',
             },
             {
                 name : 'Build Your Own Taco (3)',
                 description : 'Fresh and fantastic, our tacos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 8.99,
-                image : mRoot+'/muncho_burrito/build_your_own/taco.jpg',
-                options : buildYourOwnOptions
+                image : mRoot+'/',
             },
             {
                 name : 'Build Your Own Bowl',
                 description : 'Fresh and fantastic, our bowls can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 10.99,
-                image : mRoot+'/muncho_burrito/build_your_own/bowl.jpg',
-                options : buildYourOwnOptions
+                image : mRoot+'/',
             },
             {
                 name : 'Build Your Own Quesadilla',
                 description : 'Fresh and fantastic, our quesadillas can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
                 price : 9.99,
-                image : mRoot+'/muncho_burrito/build_your_own/quesa.jpg',
-                options : buildYourOwnOptions
+                image : mRoot+'/',
             }
         ],
         'Sides' : [
             {
                 name : 'Tortilla Chips with Salsa',
-                description : 'Fresh everyday tortilla chips and salsa',
+                description : '',
                 price : 2.25,
                 image : mRoot+'/muncho_burrito/sides/salsa.jpg',
-                options : {
-                    Upscale : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Large',
-                                price : 3.50
-                            },
-                            {
-                                name : 'Huge',
-                                price : 6.00
-                            }
-                        ]
-                    },
-                }
             },
             {
                 name : 'Tortilla Chips with Queso',
-                description : 'Fresh everyday tortilla chips and queso',
+                description : '',
                 price : 2.75,
                 image : mRoot+'/muncho_burrito/sides/queso.jpg',
-                options : {
-                    Upscale : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Large',
-                                price : 3.50
-                            },
-                            {
-                                name : 'Huge',
-                                price : 6.00
-                            }
-                        ]
-                    },
-                }
             },
             {
                 name : 'Tortilla Chips with Guacamole',
-                description : 'Fresh everyday tortilla chips and guacamole',
+                description : '',
                 price : 3.25,
                 image : mRoot+'/muncho_burrito/sides/guac.jpg',
-                options : {
-                    Upscale : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Large',
-                                price : 3.50
-                            },
-                            {
-                                name : 'Huge',
-                                price : 6.00
-                            }
-                        ]
-                    },
-                }
-            },
-        ],
-        'Drinks' : constDrinks
-    },
-    'Asia Palace' : {
-        'Appetizer' : [
-            {
-                name : 'Crab Rangoon (5 pcs)',
-                description : 'Five deep-fried dumplings filled with cream cheese and crab meat.',
-                price : 7.99,
-                image : mRoot+'/asia_palace/appetizers/crab.jpg',
-                options : {
-
-                }
-            },
-            {
-                name : 'Shrimp Salad Rolls (2 pcs)',
-                description : 'Fresh vegetables, rice noodles, steamed shrimp, and herbs wrapped in rice paper.',
-                price : 4.99,
-                image : mRoot+'/asia_palace/appetizers/shrimp.jpg',
-                options : {
-
-                }
-            },
-            {
-                name : 'Tofu Salad Rolls (2 pcs)',
-                description : 'Fresh vegetables, rice noodles, tofu, and herbs wrapped in rice paper.',
-                price : 3.99,
-                image : mRoot+'/asia_palace/appetizers/tofu.png',
-                options : {
-
-                }
-            },
-        ],
-        'Chicken' : [
-            {
-                name : "General's Chicken",
-                description : 'Breaded, fried chicken in a sweet and slightly spicy sauce.',
-                price : 11.99,
-                image : mRoot+'/asia_palace/chicken/general.jpg',
-                options : {
-                    Spice : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Mild',
-                                price : 0.00
-                            },
-                            {
-                                name : 'Medium',
-                                price : 0.00
-                            },
-                            {
-                                name : 'High',
-                                price : 0.00
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Chinese Butter Chicken',
-                description : 'Breaded, fried chicken in a creamy sauce made with curry leaves and chilies.',
-                price : 12.99,
-                image : mRoot+'/asia_palace/chicken/butter.jpg',
-                options : {
-                    Spice : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Mild',
-                                price : 0.00
-                            },
-                            {
-                                name : 'Medium',
-                                price : 0.00
-                            },
-                            {
-                                name : 'High',
-                                price : 0.00
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Kung Pao Chicken with Peanut',
-                description : 'Tasty pieces of chicken and roasted peanuts are tossed in a spicy sauce.',
-                price : 11.99,
-                image : mRoot+'/asia_palace/chicken/peanut.png',
-                options : {
-                    Spice : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Mild',
-                                price : 0.00
-                            },
-                            {
-                                name : 'Medium',
-                                price : 0.00
-                            },
-                            {
-                                name : 'High',
-                                price : 0.00
-                            }
-                        ]
-                    }
-                }
-            },
-        ],
-        'Chow Mein' : [
-            {
-                name : 'Deluxe Chow Mein',
-                description : 'Barbeque pork, chicken, shrimp, scallop, squid, and fresh vegetables are stir-fried in a light sauce, and served over crispy noodles.',
-                price : 11.99,
-                image : mRoot+'/asia_palace/chow_mein/deluxe.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double beef',
-                                price : 4.00
-                            },
-                            {
-                                name : 'Double chicken',
-                                price : 3.00
-                            },
-                            {
-                                name : 'Double shrimp',
-                                price : 4.00
-                            },
-                            {
-                                name : 'Double scallop',
-                                price : 4.50
-                            },
-                            {
-                                name : 'Double squid',
-                                price : 5.00
-                            },
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Shrimp Chow Mein',
-                description : 'Plump shrimp and fresh vegetables are stir-fried in a light sauce, and served over crispy noodles.',
-                price : 13.99,
-                image : mRoot+'/asia_palace/chow_mein/shrimp.png',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double shrimp',
-                                price : 4.00
-                            },
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Beef Chow Mein',
-                description : 'Tender slices of beef and fresh vegetables are stir-fried in a light sauce, and served over crispy noodles.',
-                price : 12.99,
-                image : mRoot+'/asia_palace/chow_mein/beef.png',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double beef',
-                                price : 4.00
-                            },
-                        ]
-                    } 
-                }
-            },
-        ],
-        'Fried Rice' : [
-            {
-                name : 'Deluxe Fried Rice with BBQ Pork, Chicken, Shrimp',
-                description : 'Chinese-style, wok-fried rice with vegetables, eggs, barbeque pork, chicken, and shrimp.',
-                price : 14.99,
-                image : mRoot+'/asia_palace/fried_rice/deluxe.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double pork',
-                                price : 4.00
-                            },
-                            {
-                                name : 'Double chicken',
-                                price : 3.00
-                            },
-                            {
-                                name : 'Double shrimp',
-                                price : 4.00
-                            }
-                        ]
-                    } 
-                }
-            },
-            {
-                name : 'Curry Seafood Fried Rice with Shrimp, Scallop, Pollock, Squid',
-                description : '',
-                price : 16.99,
-                image : mRoot+'/asia_palace/fried_rice/curry.png',
-                options : {
-                    Alterations : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'No shrimp',
-                                price : -1.25,
-                            },
-                            {
-                                name : 'No scallop',
-                                price : -1.25
-                            },
-                            {
-                                name : 'No pollock',
-                                price : -2.25
-                            },
-                            {
-                                name : 'No squid',
-                                price : -2.25
-                            }
-                        ]
-                    },
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double shrimp',
-                                price : 2.50
-                            },
-                            {
-                                name : 'Double scallop',
-                                price : 2.50
-                            },
-                            {
-                                name : 'Double pollock',
-                                price : 4.50
-                            },
-                            {
-                                name : 'Double squid',
-                                price : 4.50
-                            },
-                        ]
-                    } 
-                }
-            },
-            {
-                name : 'Vegetable Fried Rice',
-                description : '',
-                price : 9.99,
-                image : mRoot+'/asia_palace/fried_rice/veg.png',
-                options : {
-                    
-                }
-            },
-        ],
-        'Vietnamese Fusion' : [
-            {
-                name : 'Vietnamese Beef Noodle Soup',
-                description : 'Sliced beef, onions, cilantro, and rice noodles in a flavourful and aromatic broth.',
-                price : 9.99,
-                image : mRoot+'/asia_palace/vietnamese/noodle.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double meat',
-                                price : 4.00
-                            }
-                        ]
-                    } 
-                }
-            },
-            {
-                name : 'Deluxe BBQ Pork Vermicelli Bowl',
-                description : 'Sliced, seasoned barbecue pork and pork meatballs over a bowl of vermicelli rice noodles, with bean sprouts, cucumbers, carrots, lettuce',
-                price : 10.99,
-                image : mRoot+'/asia_palace/vietnamese/vermicelli.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double meat',
-                                price : 4.00
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'BBQ Pork Chop with Rice and BBQ Pork Sausage',
-                description : 'A bowl of perfectly cooked rice topped with a barbequed pork chop and barbequed pork sausage.',
-                price : 10.99,
-                image : mRoot+'/asia_palace/vietnamese/pork.jpg',
-                options : {
-                    Extras : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double meat',
-                                price : 4.00
-                            }
-                        ]
-                    }
-                }
-            },
-        ],
-        'Drinks' : constDrinks
-    },
-    'Kimchi Sushi' : {
-        'Appetizers' : [
-            {
-                name : 'Creamy Spicy Tempura',
-                description : 'Tempura, mango, and green onions tossed in a creamy spicy sauce.',
-                price : 6.99,
-                image : mRoot+'/kimchi_sushi/appetizers/creamy.png',
-                options : {
-                }
-            },
-            {
-                name : 'Supreme Shrimp Tempura',
-                description : 'Shrimp and cream cheese wrapped in a phyllo pastry, deep-fried and served with a sweet chilli sauce.',
-                price : 6.99,
-                image : mRoot+'/kimchi_sushi/appetizers/supreme.png',
-                options : {
-                }
-            },
-            {
-                name : 'Oyster Motoyaki',
-                description : 'Spinach, mushrooms, and oysters grilled on a large half shell with miso mayo.',
-                price : 7.99,
-                image : mRoot+'/kimchi_sushi/appetizers/oyster.png',
-                options : {
-                }
-            },
-        ],
-        'Entrees' : [
-            {
-                name : 'Tonkatsu',
-                description : 'Deep-fried breaded pork cutlet with sauce on the side, served with house salad.',
-                price : 14.99,
-                image : mRoot+'/kimchi_sushi/entrees/katsu.jpg',
-                options : {
-                }
-            },
-            {
-                name : 'Curry Chicken Katsu',
-                description : 'Deep-fried breaded chicken cutlet with curry sauce on top, served with house salad.',
-                price : 14.99,
-                image : mRoot+'/kimchi_sushi/entrees/curry.png',
-                options : {
-                }
-            },
-            {
-                name : 'Chicken Teriyaki',
-                description : 'Grilled chicken and sauteed vegetables in teriyaki sauce.',
-                price : 13.99,
-                image : mRoot+'/kimchi_sushi/entrees/chicken.jpg',
-                options : {
-                    Extra : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'Soy sauce',
-                                price : 0.00
-                            },
-                            {
-                                name : 'Wasabi',
-                                price : 0.10
-                            }
-                        ]
-                    }
-                }
-            },
-        ],
-        'Rolls' : [
-            {
-                name : 'California Roll',
-                description : 'Crab meat, avocado, cucumber, mayo, masago, and sesame seeds.',
-                price : 8.99,
-                image : mRoot+'/kimchi_sushi/rolls/cali.png',
-                options : {
-                    Extra : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Soy sauce',
-                                price : 0.00
-                            },
-                            {
-                                name : 'Wasabi',
-                                price : 0.10
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Spicy Salmon Roll',
-                description : 'Salmon, cucumber, special spicy sauce, and sesame seeds.',
-                price : 9.99,
-                image : mRoot+'/kimchi_sushi/rolls/salmon.png',
-                options : {
-                    Extra : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Soy sauce',
-                                price : 0.00
-                            },
-                            {
-                                name : 'Wasabi',
-                                price : 0.10
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Bakudan Roll',
-                description : 'Tempura crumbs, cucumber, special spicy sauce, and sesame seeds.',
-                price : 8.99,
-                image : mRoot+'/kimchi_sushi/rolls/bakudan.png',
-                options : {
-                    Extra : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Soy sauce',
-                                price : 0.00
-                            },
-                            {
-                                name : 'Wasabi',
-                                price : 0.10
-                            }
-                        ]
-                    }
-                }
-            },
-        ],
-        'Kimchi' : [
-            {
-                name : 'Kimchi Fried Rice',
-                description : 'Rice sauteed with kimchi, assorted vegetables, and assorted meat. Topped with a sunny-side egg.',
-                price : 10.99,
-                image : mRoot+'/kimchi_sushi/kimchi/rice.png',
-                options : {
-                    Extra : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Additional egg',
-                                price : 1.25
-                            },
-                            {
-                                name : 'Double protein',
-                                price : 3.50
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Kimchi Gyoza',
-                description : 'Deep-fried dumplings stuffed with assorted meat, vegetables, and kimchi.',
-                price : 10.99,
-                image : mRoot+'/kimchi_sushi/kimchi/gyoza.png',
-                options : {
-                    Extra : {
-                        type : 'checkbox',
-                        data : [
-                            {
-                                name : 'Double protein',
-                                price : 3.50
-                            }
-                        ]
-                    }
-                }
-            },
-            {
-                name : 'Kimchi Tofu',
-                description : 'Choice of fresh or pan-fried tofu topped with stir-fried kimchi, vegetables, and pork.',
-                price : 10.99,
-                image : mRoot+'/kimchi_sushi/kimchi/tofu.png',
-                options : {
-                    Style : {
-                        type : 'radio',
-                        data : [
-                            {
-                                name : 'pan-fried tofu',
-                                price : 0.00
-                            },
-                            {
-                                name : 'fresh tofu',
-                                price : 0.00
-                            }
-                        ]
-                    }
-                }
             },
         ],
         'Drinks' : constDrinks
@@ -1774,32 +711,28 @@ const menus = {
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             }
         ],
         '' : [
@@ -1808,32 +741,28 @@ const menus = {
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             }
         ],
         '' : [
@@ -1842,32 +771,28 @@ const menus = {
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             },
             {
                 name : '',
                 description : '',
                 price : ,
                 image : mRoot+'/',
-                options : {
-                }
+                
             }
         ],
         'Drinks' : constDrinks

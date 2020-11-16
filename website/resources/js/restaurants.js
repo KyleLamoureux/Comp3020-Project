@@ -110,7 +110,7 @@ restaurants = [
             },
             {
                 name: "Build Your Own",
-                img: root+"/muncho_burrito/build_your_own/burrito.jpg",
+                img: root+"/muncho_burrito/build_your_own/byo.jpg",
                 restaurant: "Muncho Burrito"
             }
         ],
@@ -130,19 +130,19 @@ restaurants = [
         type: ['Asian', 'Vietnamese'],
         foodItems: [
             {
-                name: "General's Chicken",
-                img: root+"/asia_palace/chicken/general.jpg",
-                restaurant: "Asia Palace"
+                name: "",
+                img: root+"",
+                restaurant: ""
             },
             {
-                name: "Shrimp Chow Mein",
-                img: root+"/asia_palace/chow_mein/shrimp.png",
-                restaurant: "Asia Palace"
+                name: "",
+                img: root+"",
+                restaurant: ""
             },
             {
-                name: "Vegetable Fried Rice",
-                img: root+"/asia_palace/fried_rice/veg.png",
-                restaurant: "Asia Palace"
+                name: "",
+                img: root+"",
+                restaurant: ""
             }
         ],
         distance: 2.9,
@@ -160,19 +160,19 @@ restaurants = [
         type: ['Sushi', 'Japanese', 'Korean', 'Asian'],
         foodItems: [
             {
-                name: "Oyster Motoyaki",
-                img: root+"/kimchi_sushi/appetizers/oyster.png",
-                restaurant: "Kimchi Sushi"
+                name: "",
+                img: root+"",
+                restaurant: ""
             },
             {
-                name: "Chicken Teriyaki",
-                img: root+"/kimchi_sushi/entrees/chicken.jpg",
-                restaurant: "Kimchi Sushi"
+                name: "",
+                img: root+"",
+                restaurant: ""
             },
             {
-                name: "Kimchi Fried Rice",
-                img: root+"/kimchi_sushi/kimchi/rice.png",
-                restaurant: "Kimchi Sushi"
+                name: "",
+                img: root+"",
+                restaurant: ""
             }
         ],
         distance: 7.9,
@@ -192,17 +192,17 @@ restaurants = [
             {
                 name: "",
                 img: root+"",
-                restaurant: "Boston Pizza"
+                restaurant: ""
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: "Boston Pizza"
+                restaurant: ""
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: "Boston Pizza"
+                restaurant: ""
             }
         ],
         distance: 5.1,
@@ -223,17 +223,17 @@ restaurants = [
             {
                 name: "",
                 img: root+"",
-                restaurant: "Clay Oven"
+                restaurant: ""
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: "Clay Oven"
+                restaurant: ""
             },
             {
                 name: "",
                 img: root+"",
-                restaurant: "Clay Oven"
+                restaurant: ""
             }
         ],
         distance: 4.4,
@@ -243,6 +243,7 @@ restaurants = [
         description: "Clay Oven Restaurant proudly boasts of the best menu and the most delicious food.Delight in our appetizing soups and snacks. Both vegetarians and non vegetarians can enjoy our culinary feasts.",
         href: "link",
         backgroundColour: '#000000',
+        
     }
 ];
 
