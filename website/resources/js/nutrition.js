@@ -3,7 +3,6 @@ var chart1, chart2;
 var options1,options2;
 
 function init(){
-    console.log("init!");
     data = new google.visualization.DataTable();
     data.addColumn('string', 'Macro');
     data.addColumn('number', 'Amount (g)');
