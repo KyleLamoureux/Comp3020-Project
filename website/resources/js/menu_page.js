@@ -315,9 +315,17 @@ function clickedCheckbox(){
   
   //change the displayed price on the food modal.
   let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0];
-  let newFoodPrice = parseFloat(modalFoodPrice.innerText.replace("Price: $","")) + priceDifference;
-  //console.log("Total difference = " + priceDifference.toFixed(2) + "\n");  
-  modalFoodPrice.innerText = "Price: $" + newFoodPrice.toFixed(2);
+  let originalPrice = parseFloat(modalFoodPrice.innerText.replace("Price: $",""));
+  console.log("Total difference = " + priceDifference.toFixed(2) + "\n");  
+
+  if(priceDifference == 0){
+    modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2);
+  }else if(priceDifference > 0 ){
+    modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2) + " (+$" + priceDifference.toFixed(2) + ")";
+  }else{
+    priceDifference *= -1;
+    modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2) + " (-$" + priceDifference.toFixed(2) + ")";
+  }
 
 }//end clickedCheckbox
 
@@ -350,6 +358,9 @@ function addToCartClicked(event){
 
   addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
   updateCartTotal();
+  foodItemPrice = foodItemPrice.replace("Price:","");
+  foodItemPrice = foodItemPrice.replace("(","");
+  foodItemPrice = foodItemPrice.replace(")","");
   alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
   closeMenuModal();
 }//end addToCartClicked
