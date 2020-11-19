@@ -10,6 +10,15 @@
     width: 100%;
     list-style-type: none;
 }
+
+#restaurant-ul > p{
+    /*font-weight: bold;*/
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1.5em;
+    text-align: right;
+    margin: 6vw 14vw 3vw 0;
+}
+
 .restaurant-li{
     position: relative;
     margin-left: 3%;
