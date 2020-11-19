@@ -33,19 +33,7 @@ function main(){
               //food item list for each category.
               let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
               for(let j = 0; j < categoryFoodItems.length; j++){
-                
-                /*
-                for(let optionType in categoryFoodItems[j].options){
-                  if(optionType === "Alterations" && categoryFoodItems[j].options[optionType].hasOwnProperty("data")){
-
-                    for(let x = 0; x < categoryFoodItems[j].options[optionType]["data"].length; x++ ){
-                    console.log(categoryFoodItems[j].name + ": " + optionType + " (Alterations) with data " + categoryFoodItems[j].options[optionType]["data"][x].name);
-                    }
-                  }else if(optionType === "Extras"){
-                    console.log(categoryFoodItems[j].name + ": " + optionType + " (Extras)");
-                  }//end if-elseif
-                }//end for
-                */
+              
                 addFoodItems(category,categoryFoodItems[j].name,categoryFoodItems[j].price,
                                 categoryFoodItems[j].description,categoryFoodItems[j].image, categoryFoodItems[j].options);
               }//end nested for
@@ -56,19 +44,8 @@ function main(){
     }//end if
   }//end for
 
-  //TODO: OPTIONS FOR A FOOD ITEM:
-  //ACCESSING THE OPTIONS BY: 
-  //menus["Perkins"]["Omelets"][0].options["Alterations"]["type"]//to get the type (checkbox)
-  //menus["Perkins"]["Omelets"][0].options["Extras"]["type"]//to get the type (checkbox)
-  //menus["Perkins"]["Omelets"][0].options["Alterations"]["data"][0] ////to get the data (data is a list)
-  //==================
-  //Do a check if options contain "Alterations"/"Extras".
-  //
   $(".menu-category-item").click(openFoodModal)
-  /*
-  //INSERT RESTAURANT NAME HERE.
   
-  */
   
 }//end main
 
@@ -182,13 +159,7 @@ function openFoodModal(){
   if(!modalOn){
     
     //get the information:
-    // let foodItem = event.target.parentElement;
-    //console.log(foodItem);
-    // let foodItemTitle = foodItem.getElementsByClassName("menu-category-item-title")[0].innerText;
-    // let foodItemImage = foodItem.getElementsByClassName("menu-category-item-image")[0].src;
-    // let foodItemDescription = foodItem.getElementsByClassName("menu-category-item-description")[0].innerText;
-    // let foodItemPrice = foodItem.getElementsByClassName("menu-category-item-price")[0].innerText;
-
+  
     let foodItemTitle = item.find(".menu-category-item-title").first().text();
     let foodItemImage = item.find(".menu-category-item-image").first().attr('src');
     let foodItemDescription = item.find(".menu-category-item-description").first().text();
@@ -456,6 +427,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage){
   cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click",removeCartItem);
   
 
+
 }//end addItemToCart
 
 /**
@@ -533,8 +505,6 @@ function cancelCheckout() {
   modal.style.display = "none";
   blurControl();
 }//end cancelCheckout
-
-
 
 /**
  * blurControl - controls the blur background when a modal (foodModal, summaryModal) is open.
