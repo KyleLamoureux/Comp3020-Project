@@ -153,17 +153,38 @@ const DATA = "data";
  * openFoodModal - once a food item is clicked, a window will be shown containing different options 
  *              for the food item and its price.
  */
-function openFoodModal(){
+function openFoodModal(event){
   var item = $(this);
-  
+  console.log("openfoodmodal..");
+  let foodItemTitle = null;
+  let foodItemImage = null;
+  //let foodItemDescription = null;
+  let foodItemPrice = null;
   if(!modalOn){
     
+    let fromEditClick = false;
     //get the information:
-  
-    let foodItemTitle = item.find(".menu-category-item-title").first().text();
-    let foodItemImage = item.find(".menu-category-item-image").first().attr('src');
-    let foodItemDescription = item.find(".menu-category-item-description").first().text();
-    let foodItemPrice = item.find(".menu-category-item-price").first().text();
+    let edtFoodItem = event.target;
+    let edtFoodTitle = edtFoodItem.editFoodTitle;
+    let edtFoodPrice = edtFoodItem.editFoodPrice;
+    let edtFoodImage = edtFoodItem.editFoodImage;
+
+    if(edtFoodTitle === undefined && edtFoodPrice === undefined && edtFoodImage === undefined){
+      console.log("edit button is not clicked.");
+      foodItemTitle = item.find(".menu-category-item-title").first().text();
+      foodItemImage = item.find(".menu-category-item-image").first().attr('src');
+      //foodItemDescription = item.find(".menu-category-item-description").first().text();
+      foodItemPrice = item.find(".menu-category-item-price").first().text();
+    
+    }else{
+      console.log("edit button is clicked." + edtFoodTitle + ", " + edtFoodPrice);
+      foodItemTitle = edtFoodTitle;
+      foodItemPrice = edtFoodPrice;
+      foodItemImage = edtFoodImage;
+      fromEditClick = true;
+    }//end if-else
+    
+    
 
     let foodItemOptions = item.get(0).options;
     //TODO : DISPLAY THE DATA IN HTML. 
@@ -258,11 +279,20 @@ function openFoodModal(){
     `;
 
     let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
-    buttonsDiv.classList.add("add-to-cart");
-    buttonsDiv.innerHTML = `
-    <button class="button-add-to-cart">Add to cart</button><br>
-    <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-    `;
+    buttonsDiv.classList.add("modify-cart");
+''
+    //if the click is from edit, we want to do a "save" instead of "Add to cart".
+    if(fromEditClick){
+      buttonsDiv.innerHTML = `
+      <button class="button-save-to-cart">Save</button><br>
+      <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
+      `;
+    }else{
+      buttonsDiv.innerHTML = `
+      <button class="button-add-to-cart">Add to cart</button><br>
+      <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
+      `;
+    }//end if-else
     
     modal.innerHTML = foodModalContent;
     modal.append(foodOptionsDiv);
@@ -425,9 +455,12 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage){
   
   //add the functionality to the (new) remove button since its been added after the document has been loaded
   cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click",removeCartItem);
-  
 
-
+  //pass information from edit to the food modal.
+  cartRow.getElementsByClassName("btn-edit")[0].addEventListener("click",editCartItem);
+  cartRow.getElementsByClassName("btn-edit")[0].title = foodItemTitle;
+  cartRow.getElementsByClassName("btn-edit")[0].price = foodItemPrice;
+  cartRow.getElementsByClassName("btn-edit")[0].image = foodItemImage;
 }//end addItemToCart
 
 /**
@@ -475,6 +508,18 @@ function removeCartItem(event){
   updateCartTotal();//update the subtotal after removing an item.
   }
 }//end removeCartItem
+
+/**
+ * editCartItem - edit the cart by opening the food modal with the saved information.
+ */
+function editCartItem(event){
+ // alert("edit btn has been clicked");
+  let foodItem = event.target;
+  foodItem.addEventListener("click",openFoodModal);//eidt btn is clicked
+  foodItem.editFoodTitle = foodItem.title;
+  foodItem.editFoodPrice = foodItem.price;
+  foodItem.editFoodImage= foodItem.image;
+}//end editCartItem
 
  /**
   * proceedCheckout - opens the order summary window when checkout button is clicked.
