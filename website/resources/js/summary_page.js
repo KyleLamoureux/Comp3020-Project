@@ -8,7 +8,6 @@ if(document.readyState === "loading"){
 
 
 function main(){
-
 }//end main
 
 /**
@@ -27,8 +26,8 @@ function getOrderedItems(){
         let cartItemPrices = cartItemsDiv.getElementsByClassName("cart-price");//price is not inside the cartItem div
         let cartItemPrice = cartItemPrices[i].innerText;
         displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg);
-        
     }//end for
+    displayTotalPrice();
   }//end getOrderedItems
   
   
@@ -83,3 +82,30 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg){
    
 
 }//end displayOrderedItem
+
+
+
+/**
+ * displayTotalPrice - a function that gets the subtotal from the cart section 
+ *                     and display subtotal, gst, pst, delivery fee and the total price
+ *                     in the summary modal.
+ */
+function displayTotalPrice(){
+    // Get subtotal from cart and convert it to float
+    let totalPriceString = document.getElementsByClassName("total-order")[0].innerText;
+    totalPriceString = totalPriceString.replace("Subtotal: $", "");
+    let totalPrice = parseFloat(totalPriceString);
+
+    // tax rate and delivery fee info
+    let gstRate = 0.07;
+    let pstRate = 0.05;
+    let deliveryFee = 5.00;
+
+    // Display all info in the order summary page
+    document.getElementById("subtotal").innerHTML = totalPrice;
+    document.getElementById("gst").innerHTML = (totalPrice * gstRate).toFixed(2);
+    document.getElementById("pst").innerHTML = (totalPrice * pstRate).toFixed(2);
+    document.getElementById("delivery").innerHTML = deliveryFee.toFixed(2);
+    document.getElementById("total").innerHTML = (totalPrice + (totalPrice * (gstRate + pstRate)) + deliveryFee).toFixed(2);
+    
+}// end displayTotalPrice
