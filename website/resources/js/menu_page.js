@@ -75,7 +75,7 @@ function main(){
 }//end main
 
 /**
- * presetDish - Finds the 'random dish' in the menu of the restaurnt and returns which category it belongs to.
+ * presetDish - Finds the 'random dish' dish in the menu of the restaurnt and returns which category it belongs to.
  */
 function presetDish(){
   var result = "";

@@ -909,7 +909,7 @@ const menus = {
         'Drinks' : constDrinks
     },
     'Olive Garden' : {
-        'Appetizer' : [
+        'Appetizers' : [
             {
                 name : 'Calamari',
                 description : 'Tender calamari, lightly breaded and fried. Served with marinara sauce.',
@@ -963,7 +963,7 @@ const menus = {
                 }
             }
         ],
-        'Entree' : [
+        'Entrees' : [
             {
                 name : 'Chicken Alfredo',
                 description : 'Not everyone knows our signature alfredo sauce is made from scratch daily. This homemade sauce combines simple, fresh ingredients like butter, cream and parmesan cheese to make a rich topping to our fettuccine pasta. Then it is topped with tender, sliced grilled chicken.',
@@ -1017,7 +1017,7 @@ const menus = {
                 }
             }
         ],
-        'Dessert' : [
+        'Desserts' : [
             {
                 name : 'Pumpkin Cheesecake',
                 description : 'Pumpkin Cheesecake topped with caramel sauce. Served with whipped cream.',
@@ -1103,7 +1103,7 @@ const menus = {
                 name : 'Smoked Peach + Chili Mango Bowl',
                 description : 'Chili-mango sauce, peach & mango chili salsa, tomato-cucumber salad, crispy jalapeño chips and chipotle-peach crema.',
                 price : 12.99,
-                image : mRoot+'/muncho_burrito/signature/speach.png',
+                image : mRoot+'/muncho_burrito/signature/peach.png',
                 options : {
                     
                 }
@@ -1242,7 +1242,7 @@ const menus = {
         'Drinks' : constDrinks
     },
     'Asia Palace' : {
-        'Appetizer' : [
+        'Appetizers' : [
             {
                 name : 'Crab Rangoon (5 pcs)',
                 description : 'Five deep-fried dumplings filled with cream cheese and crab meat.',

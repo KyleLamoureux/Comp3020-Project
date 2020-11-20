@@ -136,7 +136,6 @@ function randomItemClick(item){
     localStorage.setItem('restaurant', place);
     localStorage.setItem('dish', dish);
     window.location.href='./menu_page.html';
-
 }
 
 function clearSelection(){
@@ -249,7 +248,7 @@ function createItemOrb(element, random=false, color=false){
 
         var img = document.createElement("img");
         img.src = e["img"];
-        img.alt = e["name"] + "," + e['restaurant'];
+        img.alt = e["dish"] + "," + e['restaurant'];
         if (random)
             img.onclick = randomItemClick;
 

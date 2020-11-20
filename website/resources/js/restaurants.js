@@ -11,17 +11,20 @@ restaurants = [
             {
                 name: "Pancakes",
                 img: root+"/perkins/griddle/pancake.jpg",
-                restaurant: "Perkins"
+                restaurant: "Perkins",
+                dish: "Blueberry Buttermilk Pancake Platter"
             },
             {
                 name: "Sandwiches",
                 img: root+"/perkins/sandwiches/club.jpg",
-                restaurant: "Perkins"
+                restaurant: "Perkins",
+                dish: "Triple Decker Club"
             },
             {
-                name: "Omelet",
+                name: "Omelets",
                 img: root+"/perkins/omelets/everything.jpg",
-                restaurant: "Perkins"
+                restaurant: "Perkins",
+                dish: "The Everything"
             }
         ],
         distance: 3.8,
@@ -40,17 +43,20 @@ restaurants = [
             {
                 name: "Big Mac",
                 img: root+"/mcdonalds/burgers/bigmac.jpg",
-                restaurant: "McDonalds"
+                restaurant: "McDonalds",
+                dish: "Big Mac"
             },
             {
                 name: "Nuggets",
                 img: root+"/mcdonalds/chickenAndSandwiches/nuggets.jpg",
-                restaurant: "McDonalds"
+                restaurant: "McDonalds",
+                dish: "Chicken McNuggets"
             },
             {
                 name: "Vanilla Cone",
                 img: root+"/mcdonalds/desserts/cone.jpg",
-                restaurant: "McDonalds"
+                restaurant: "McDonalds",
+                dish: "Vanilla Cone"
             }
         ],
         distance: 6.3,
@@ -69,17 +75,20 @@ restaurants = [
             {
                 name: "Calamari",
                 img: root+"/olive_garden/appetizer/calamari.jpg",
-                restaurant: "Olive Garden"
+                restaurant: "Olive Garden",
+                dish: "Calamari"
             },
             {
                 name: "Chicken Alfredo",
                 img: root+"/olive_garden/entree/alfredo.jpg",
-                restaurant: "Olive Garden"
+                restaurant: "Olive Garden",
+                dish: "Chicken Alfredo"
             },
             {
                 name: "Tiramisu",
                 img: root+"/olive_garden/dessert/tiramisu.jpg",
-                restaurant: "Olive Garden"
+                restaurant: "Olive Garden",
+                dish: "Tiramisu"
             }
         ],
         distance: 6.9,
@@ -98,17 +107,20 @@ restaurants = [
             {
                 name: "Zesty Chimichurri",
                 img: root+"/muncho_burrito/signature/zesty.png",
-                restaurant: "Muncho Burrito"
+                restaurant: "Muncho Burrito",
+                dish: "Zesty Chimichurri Bowl"
             },
             {
                 name: "Chips & Salsa",
                 img: root+"/muncho_burrito/sides/salsa.jpg",
-                restaurant: "Muncho Burrito"
+                restaurant: "Muncho Burrito",
+                dish: "Tortilla Chips with Salsa"
             },
             {
                 name: "Build Your Own",
                 img: root+"/muncho_burrito/build_your_own/burrito.jpg",
-                restaurant: "Muncho Burrito"
+                restaurant: "Muncho Burrito",
+                dish: "Build Your Own Burrito"
             }
         ],
         distance: 6.4,
@@ -128,17 +140,20 @@ restaurants = [
             {
                 name: "General's Chicken",
                 img: root+"/asia_palace/chicken/general.jpg",
-                restaurant: "Asia Palace"
+                restaurant: "Asia Palace",
+                dish: "General's Chicken"
             },
             {
                 name: "Shrimp Chow Mein",
                 img: root+"/asia_palace/chow_mein/shrimp.png",
-                restaurant: "Asia Palace"
+                restaurant: "Asia Palace",
+                dish: "Shrimp Chow Mein"
             },
             {
                 name: "Vegetable Fried Rice",
                 img: root+"/asia_palace/fried_rice/veg.png",
-                restaurant: "Asia Palace"
+                restaurant: "Asia Palace",
+                dish: "Vegetable Fried Rice"
             }
         ],
         distance: 2.9,
@@ -157,17 +172,20 @@ restaurants = [
             {
                 name: "Oyster Motoyaki",
                 img: root+"/kimchi_sushi/appetizers/oyster.png",
-                restaurant: "Kimchi Sushi"
+                restaurant: "Kimchi Sushi",
+                dish: "Oyster Motoyaki"
             },
             {
                 name: "Chicken Teriyaki",
                 img: root+"/kimchi_sushi/entrees/chicken.jpg",
-                restaurant: "Kimchi Sushi"
+                restaurant: "Kimchi Sushi",
+                dish: "Chicken Teriyaki"
             },
             {
                 name: "Kimchi Fried Rice",
                 img: root+"/kimchi_sushi/kimchi/rice.png",
-                restaurant: "Kimchi Sushi"
+                restaurant: "Kimchi Sushi",
+                dish: "Kimchi Fried Rice"
             }
         ],
         distance: 7.9,
@@ -184,19 +202,22 @@ restaurants = [
         type: ['Pizza', 'Italian'],
         foodItems: [
             {
-                name: "Bandera Pizza Bread",
+                name: "Pizza Bread",
                 img: root+"/boston_pizza/appetizer/pizza.png",
-                restaurant: "Boston Pizza"
+                restaurant: "Boston Pizza",
+                dish: "Bandera Pizza Bread"
             },
             {
-                name: "Jambalaya Fettuccini",
+                name: "Jambalaya",
                 img: root+"/boston_pizza/main/pasta.png",
-                restaurant: "Boston Pizza"
+                restaurant: "Boston Pizza",
+                dish: "Jambalaya Fettuccini"
             },
             {
-                name: "Build Your Own Pizza",
+                name: "Pizza",
                 img: root+"/boston_pizza/pizza/pizza.png",
-                restaurant: "Boston Pizza"
+                restaurant: "Boston Pizza",
+                dish: "Build Your Own"
             }
         ],
         distance: 5.1,
@@ -216,17 +237,20 @@ restaurants = [
             {
                 name: "Vegetable Samosa",
                 img: root+"/clay_oven/appetizer/samosa.jpg",
-                restaurant: "Clay Oven"
+                restaurant: "Clay Oven",
+                dish: "Vegetable Samosa (4)"
             },
             {
                 name: "Garlic Naan",
                 img: root+"/clay_oven/bread/garlic.jpg",
-                restaurant: "Clay Oven"
+                restaurant: "Clay Oven",
+                dish: "Garlic Naan (3)"
             },
             {
                 name: "Lamb Curry",
                 img: root+"/clay_oven/curry/lamb.jpg",
-                restaurant: "Clay Oven"
+                restaurant: "Clay Oven",
+                dish: "Lamb Curry"
             }
         ],
         distance: 4.4,
