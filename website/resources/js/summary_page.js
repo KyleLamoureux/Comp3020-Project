@@ -1,15 +1,4 @@
 'use strict';  
-//needed to load the content of the summary page
-if(document.readyState === "loading"){
-  document.addEventListener("DOMContentLoaded",main);
-}else{
-  main();
-} //end if-else 
-
-
-function main(){
-
-}//end main
 
 /**
  * getOrderedItems - a function that gets the ordered items from the cart section and display it
@@ -17,7 +6,7 @@ function main(){
  */
 function getOrderedItems(){
     let cartItemsDiv = document.getElementsByClassName("cart-items")[0];
-    let listCartItems = cartItemsDiv.getElementsByClassName("cart-item");
+    let listCartItems = cartItemsDiv.getElementsByClassName("cart-row");
   
     for(let i = 0; i < listCartItems.length; i++){
         let cartItem = listCartItems[i];
@@ -39,47 +28,99 @@ function getOrderedItems(){
  * @param {*} cartItemImg  is the image of the food item.
  */
 function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg){
-    let orderedListDiv = document.getElementById("ordered-list");
+  let orderedListDiv = document.getElementById("ordered-list");
+  console.log("in display???")
 
+  let orderedItemNames = document.getElementsByClassName("ordered-item-title");
 
-    let orderedItemNames = document.getElementsByClassName("ordered-item-title");
-  
-    //TODO: NEED TO FIX DUPLICATE CALCULATION
-    let isDuplicate = false;
-    let index = 0;
-    let quantity = 1;
-    for(let i = 0; i < orderedItemNames.length && !isDuplicate; i++){
-      if(orderedItemNames[i].innerText === cartItemTitle){
-        //duplicate - dont insert duplicates to order summary.
-        return;
-        /*
-        console.log(orderedItemNames[i])
-        isDuplicate = true;
-        index = i;
-        quantity++;
-        */
-      }//end if
-    }//end for
-
-    let orderedItem = null;
-    if(isDuplicate){
-      //change the quantity of the ordered item.
-      orderedItem = document.getElementsByClassName("ordered-row")[index];
-      orderedItem.getElementsByClassName("ordered-quantity")[0].innerText = quantity;
-      //console.log();
-      console.log("with duplicate.")
-    }else{
-      console.log("no duplicate");
-      let newOrderedItem = document.createElement("div");
-      newOrderedItem.classList.add("ordered-row");  
-      let orderedItemContent = `
-      <img class="ordered-item-image" src="${cartItemImg}" alt=${cartItemTitle}>
-      <span class="ordered-item-title">${cartItemTitle}</span>
-      <span class="ordered-quantity">Quantity:${cartItemPrice}</span>
-      `;
-      newOrderedItem.innerHTML = orderedItemContent;
-      orderedListDiv.append(newOrderedItem);
-    }
-   
+  //TODO: NEED TO FIX DUPLICATE CALCULATION
+  //console.log("no duplicate");
+  let newOrderedItem = document.createElement("div");
+  newOrderedItem.classList.add("order-row");  
+  let orderedItemContent = `
+  <div class="cart-item-info">
+    <img class="cart-item-image" src="${cartItemImg}" alt=${cartItemTitle}>               
+    <h4 class="cart-item-title">${cartItemTitle}</h4>
+  <div class="cart-item-quantity">Quantity: 1</div>
+  </div>
+  <div class="options">
+    <ul class="list-options">
+    <h4>Options</h4>
+      <li class="list-option-item">item 1</li>
+      <li class="list-option-item">item 2</li>
+      <li class="list-option-item">item 3</li>
+      <li class="list-option-item">item 4</li>
+    </ul>
+  </div>
+  <div class="cart-bottom-section">
+    <h4 class="cart-price">${cartItemPrice}</h4>
+  </div>
+  `;
+  newOrderedItem.innerHTML = orderedItemContent;
+  orderedListDiv.append(newOrderedItem);
 
 }//end displayOrderedItem
+
+/**
+ * payOrder - Moves to the restaurant page if inputs are valid.
+ */
+function payOrder(){
+  let userFirstName = document.getElementById("user-first-name").value;
+  let userLastName = document.getElementById("user-last-name").value;
+  let userAddress = document.getElementById("user-address").value;
+  let userCard = document.getElementById("user-card").value;
+  let userSecurityCode = document.getElementById("user-security-code").value;
+
+
+  if(userFirstName.length === 0){
+    alert("Please enter your first name.");
+  }else if(userLastName.length ===0){
+    alert("Please enter your last name.");
+  }else if(userAddress.length === 0){
+    alert("Please enter your addres.");
+  }else if(userCard.length < 16){
+    alert("Please enter your 16 digit card number.");
+  }else if(userSecurityCode.length < 3){//TODO: make security code input box to store only 3 digits.
+    alert("Please enter your 3 digit security code.");
+  }else{
+    location.href = "../app/restaurant-page.html"
+    alert("Thank you for your purchase " + userFirstName + " " + userLastName + "!");
+  }
+
+
+}//end payOrder
+
+/**
+ * checkUserInput - check if user information is valid.
+ */
+function checkUserInput(){
+
+  let userFirstName = document.getElementById("user-first-name").value;
+  let userLastName = document.getElementById("user-last-name").value;
+  let userAddress = document.getElementById("user-address").value;
+
+  if(userFirstName.length === 0){
+    alert("Please enter your first name.");
+  }else if(userLastName.length ===0){
+    alert("Please enter your last name.");
+  }else if(userAddress.length === 0){
+    alert("Please enter your addres.");
+  }
+
+}//end checkUserInput
+
+/**
+ * checkUserCard - check if user's card info is valid.
+ */
+function checkUserCard(){
+  let userCard = document.getElementById("user-card").value;
+  let userSecurityCode = document.getElementById("user-security-code").value;
+
+  //TODO: make security code input box to store only 3 digits.
+  if(userCard.length < 16){
+    alert("Please enter your 16 digit card number.");
+  }else if(userSecurityCode.length < 3){
+    alert("Please enter your 3 digit security code.");
+  }
+
+}//end checkUserCard

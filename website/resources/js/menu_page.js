@@ -499,9 +499,10 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions
   <div class="cart-bottom-section">
     <h4 class="cart-price">${foodItemPrice}</h4>
     <div class="btn">
-    <button class="btn btn-remove" type="button">REMOVE</button>
-    <button class="btn btn-edit" type="button">EDIT</button>
+      <button class="btn btn-remove" type="button">REMOVE</button>
+      <button class="btn btn-edit" type="button">EDIT</button>
     </div>  
+  </div> 
   `;
 
   cartRow.innerHTML = cartRowContents;
@@ -510,7 +511,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions
   
   //add the functionality to the (new) remove button since its been added after the document has been loaded
   cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click",removeCartItem);
-
+  cartRow.getElementsByClassName("btn-remove")[0].title = foodItemTitle;
   //pass information from edit to the food modal.
   cartRow.getElementsByClassName("btn-edit")[0].addEventListener("click",editCartItem);
   cartRow.getElementsByClassName("btn-edit")[0].title = foodItemTitle;
@@ -559,7 +560,7 @@ function closeMenuModal() {
  */
 function removeCartItem(event){
   let buttonClicked = event.target;
-  if(confirm("Do you want to delete this item?")){
+  if(confirm("Do you want to delete the order " + buttonClicked.title + "?")){
   buttonClicked.parentElement.parentElement.parentElement.remove();
   updateCartTotal();//update the subtotal after removing an item.
   }

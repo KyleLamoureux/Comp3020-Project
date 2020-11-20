@@ -68,12 +68,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
-    
             </section><!--end cart section (right side)-->
             
         </div> <!--end background (Menu page)-->
@@ -111,13 +105,13 @@
                             <hr>
                             <div id="user-input-group">
                                 <div id="user-inputs">
-                                    <input type="text" class="user-information" id="user-Name" placeholder="Enter First Name">
-                                    <input type="text" class="user-information" id="user-Phone" placeholder="Enter Last Name">
+                                    <input type="text" class="user-information" id="user-first-name" placeholder="Enter First Name">
+                                    <input type="text" class="user-information" id="user-last-name" placeholder="Enter Last Name">
                                     <input type="text" class="user-information" id="user-address" placeholder="Enter Address">
                                 </div> 
                                 <div id="user-card-info">
-                                    <input type="text" class="user-information" id="user-card" placeholder="16 digit card number">
-                                    <input type="text" class="user-information" id="user-securit-code" placeholder="Security code">
+                                    <input type="number" class="user-information" id="user-card" placeholder="16 digit card number">
+                                    <input type="number" class="user-information" id="user-security-code" placeholder="Security code">
                                     <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
                                     <input type="number" class="expiry-date-information" id="expiry-year" placeholder="Year(YY)">
                                     <input type="number" class="expiry-date-information" id="expiry-month" placeholder="Month(MM)">
@@ -165,7 +159,7 @@
 
                                 <div id="summary-page-buttons">
                                     <button class="sum-page-button">Cancel</button>
-                                    <button class="sum-page-button">Pay</button>
+                                    <button class="sum-page-button" id="payment-btn" onclick="payOrder()">Pay</button>
                                 </div>
                             </div>
 

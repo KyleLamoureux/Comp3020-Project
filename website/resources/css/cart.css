@@ -32,12 +32,14 @@
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
+    width: 30%;
     
 }
 
 .cart-item-quantity{
     margin-top: 20px;
     margin-left: 20px;
+    width: 50%;
 }
 
 
