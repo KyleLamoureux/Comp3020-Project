@@ -909,7 +909,7 @@ const menus = {
         'Drinks' : constDrinks
     },
     'Olive Garden' : {
-        'Appetizer' : [
+        'Appetizers' : [
             {
                 name : 'Calamari',
                 description : 'Tender calamari, lightly breaded and fried. Served with marinara sauce.',
@@ -963,7 +963,7 @@ const menus = {
                 }
             }
         ],
-        'Entree' : [
+        'Entrees' : [
             {
                 name : 'Chicken Alfredo',
                 description : 'Not everyone knows our signature alfredo sauce is made from scratch daily. This homemade sauce combines simple, fresh ingredients like butter, cream and parmesan cheese to make a rich topping to our fettuccine pasta. Then it is topped with tender, sliced grilled chicken.',
@@ -1017,7 +1017,7 @@ const menus = {
                 }
             }
         ],
-        'Dessert' : [
+        'Desserts' : [
             {
                 name : 'Pumpkin Cheesecake',
                 description : 'Pumpkin Cheesecake topped with caramel sauce. Served with whipped cream.',
@@ -1103,7 +1103,7 @@ const menus = {
                 name : 'Smoked Peach + Chili Mango Bowl',
                 description : 'Chili-mango sauce, peach & mango chili salsa, tomato-cucumber salad, crispy jalapeño chips and chipotle-peach crema.',
                 price : 12.99,
-                image : mRoot+'/muncho_burrito/signature/speach.png',
+                image : mRoot+'/muncho_burrito/signature/peach.png',
                 options : {
                     
                 }
@@ -1242,7 +1242,7 @@ const menus = {
         'Drinks' : constDrinks
     },
     'Asia Palace' : {
-        'Appetizer' : [
+        'Appetizers' : [
             {
                 name : 'Crab Rangoon (5 pcs)',
                 description : 'Five deep-fried dumplings filled with cream cheese and crab meat.',
@@ -1745,6 +1745,275 @@ const menus = {
                                 name : 'fresh tofu',
                                 price : 0.00
                             }
+                        ]
+                    }
+                }
+            },
+        ],
+        'Drinks' : constDrinks
+    },
+    'Boston Pizza' : {
+        'Appetizer' : [
+            {
+                name : 'All Meat Bites',
+                description : 'Seasoned chicken breast pieces, lightly breaded and fried.',
+                price : 7.99,
+                image : mRoot+'/boston_pizza/appetizer/bite.png',
+                options : {
+                    'Dipping Sauce' : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Sante Fe ranch dip',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Ranch dip',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Cheese dip',
+                                price : 0.00
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Bandera Pizza Bread',
+                description : 'Pizza bread, Italian spices, pizza mozzarella and freshly grated Parmesan. Served with Santa Fe ranch dip.',
+                price : 7.99,
+                image : mRoot+'/boston_pizza/appetizer/pizza.png',
+                options : {
+                    'Dipping Sauce' : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Sante Fe ranch dip',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Marinara dip',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Cheese dip',
+                                price : 0.00
+                            }
+                        ]
+                    }
+                }
+            },
+        ],
+        'Main' : [
+            {
+                name : 'Slow-Roasted Pork Back Ribs',
+                description : 'Our tender ribs are slow-cooked with our blend of spices, and finished with your choice of sauce. Served with seasonal vegetables.',
+                price : 17.99,
+                image : mRoot+'/boston_pizza/main/rib.png',
+                options : {
+                    Sauce : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'House BBQ',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Spicy BBQ',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Tangy BBQ',
+                                price : 0.00
+                            }
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Jambalaya Fettuccini',
+                description : 'Chicken breast, shrimp, spicy Italian sausage, tomatoes, green peppers, green onions, Cajun seasoning and marinara sauce.',
+                price : 17.99,
+                image : mRoot+'/boston_pizza/main/pasta.png',
+                options : {
+                    Extras : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Double chicken',
+                                price : 3.00
+                            },
+                            {
+                                name : 'Double shrimp',
+                                price : 4.00
+                            },
+                            {
+                                name : 'Double sausage',
+                                price : 3.50
+                            }
+                        ]
+                    }
+                }
+            },
+        ],
+        'Pizza' : [
+            {
+                name : 'Build Your Own',
+                description : 'Classic pizza with our signature pizza sauce and pizza mozzarella.',
+                price : 8.99,
+                image : mRoot+'/boston_pizza/pizza/pizza.png',
+                options : {
+                    Protein : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Pepperoni',
+                                price : 1.00
+                            },
+                            {
+                                name : 'Sausage',
+                                price : 1.00
+                            },
+                            {
+                                name : 'Bacon',
+                                price : 1.25
+                            }
+                        ]
+                    },
+                    Sauce : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Classic',
+                                price : 0.00
+                            },
+                            {
+                                name : 'White',
+                                price : 0.00
+                            },
+                            {
+                                name : 'Spicy',
+                                price : 0.00
+                            }
+                        ]
+                    },
+                    'Extra Cheese' : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Feta',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Cheddar',
+                                price : 0.75
+                            },
+                            {
+                                name : 'Provolone',
+                                price : 0.75
+                            }
+                        ]
+                    },
+                    Toppings : {
+                        type : 'checkbox',
+                        data : [
+                            {
+                                name : 'Onions',
+                                price : 0.50
+                            },
+                            {
+                                name : 'Mushrooms',
+                                price : 0.50
+                            },
+                            {
+                                name : 'Black Olives',
+                                price : 0.50
+                            }
+                        ]
+                    }
+                }
+            },
+        ],
+        'Drinks' : constDrinks
+    },
+    'Clay Oven' : {
+        'Appetizers' : [
+            {
+                name : 'Vegetable Samosa (4)',
+                description : 'Crispy turnover delicately spiced with potatoes and green peas',
+                price : 6.99,
+                image : mRoot+'/clay_oven/appetizer/samosa.jpg',
+                options : {
+                    Sauce : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Mint Chutney',
+                                price : 0.75
+                            },
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Chicken Pakora',
+                description : 'Chicken, dipped in spiced batter and fried to golden perfection',
+                price : 9.99,
+                image : mRoot+'/clay_oven/appetizer/chicken.jpg',
+                options : {
+                }
+            },
+        ],
+        'Indian Bread' : [
+            {
+                name : 'Garlic Naan (3)',
+                description : 'Naan with garlic Just delicious!',
+                price : 3.99,
+                image : mRoot+'/clay_oven/bread/garlic.jpg',
+                options : {
+                }
+            },
+            {
+                name : 'Naan (3)',
+                description : 'Traditional bread baked in the clay oven.',
+                price : 2.99,
+                image : mRoot+'/clay_oven/bread/naan.jpg',
+                options : {
+                }
+            },
+        ],
+        'Curry' : [
+            {
+                name : 'Lamb Curry',
+                description : 'Chunks of young lamb cooked in a curry sauce.',
+                price : 17.99,
+                image : mRoot+'/clay_oven/curry/lamb.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Additional bowl of rice',
+                                price : 1.00
+                            },
+                        ]
+                    }
+                }
+            },
+            {
+                name : 'Chicken Curry',
+                description : 'Traditional Curried Chicken.',
+                price : 15.99,
+                image : mRoot+'/clay_oven/curry/chicken.jpg',
+                options : {
+                    Extras : {
+                        type : 'radio',
+                        data : [
+                            {
+                                name : 'Additional bowl of rice',
+                                price : 1.00
+                            },
                         ]
                     }
                 }
