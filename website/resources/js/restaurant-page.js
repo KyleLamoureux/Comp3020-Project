@@ -320,6 +320,15 @@ function createCategories(){
         // prevArrow: '<button class="slide-arrow prev-arrow"></button>',
         // nextArrow: '<button class="slide-arrow next-arrow"></button>'
     });
+
+    // $(".celeb-scroll").slick({
+    //     infinite: false,
+    //     slidesToShow: 1,
+    //     arrows: true,
+    //     // prevArrow: '<div class="chevron">&#8249;</div>',
+    //     // nextArrow: '<div class="chevron">&#8250;</div>'
+    // });
+
 };
 
 function createDivCat(element){
