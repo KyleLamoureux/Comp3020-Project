@@ -124,8 +124,8 @@
                                     <input type="text" class="user-information" id="user-card" placeholder="16 digit card number">
                                     <input type="text" class="user-information" id="user-securit-code" placeholder="Security code">
                                     <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
-                                    <input type="number" class="expiry-date-information" id="expiry-year" placeholder="Year(YY)">
-                                    <input type="number" class="expiry-date-information" id="expiry-month" placeholder="Month(MM)">
+                                    <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)" onchange="checkValidYear()">
+                                    <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)" onchange="checkValidMonth()">
                                 </div>
 
                             </div>
@@ -151,7 +151,7 @@
 
                             <div id="ordersummaryinfo">
                                 <div id="total-order-information">
-                                    <h4 class="order-info">Subtotal: $</h4>
+                                    <h4 class="order-info" >Subtotal: $</h4>
                                     <h4 class="order-info">GST: $</h4>
                                     <h4 class="order-info">PST: $</h4>
                                     <h4 class="order-info">Delivery: $</h4>
