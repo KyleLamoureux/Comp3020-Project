@@ -28,6 +28,10 @@
     color:black;
     font-size: 100px;
     margin-top: -3vw;
+/*     opacity: 65%;
+    margin-top: -25px; */
+/*     margin: -2vw 0.6vw 0 0; */
+    /*top:10%;*/
     opacity: 65%;
     transition: opacity 0.2s;
 }
@@ -99,7 +103,7 @@
 
     /*margin: 0 0.5vw;*/
     justify-content: center;
-    width: 38.5vw;
+    width: 55vw;
     height: 8vw;
     /*border: 1px solid black;*/
     /*overflow: hidden;*/
@@ -118,6 +122,7 @@
     font-family: CoreSans, sans-serif;
     text-decoration: none;
     border-radius: 50%;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2)
 }
 .food-item-overlay{
     width: 100%;

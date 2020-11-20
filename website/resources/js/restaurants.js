@@ -11,17 +11,20 @@ restaurants = [
             {
                 name: "Pancakes",
                 img: root+"/perkins/griddle/pancake.jpg",
-                restaurant: "Perkins"
+                restaurant: "Perkins",
+                dish: "Blueberry Buttermilk Pancake Platter"
             },
             {
                 name: "Sandwiches",
                 img: root+"/perkins/sandwiches/club.jpg",
-                restaurant: "Perkins"
+                restaurant: "Perkins",
+                dish: "Triple Decker Club"
             },
             {
-                name: "Omelet",
+                name: "Omelets",
                 img: root+"/perkins/omelets/everything.jpg",
-                restaurant: "Perkins"
+                restaurant: "Perkins",
+                dish: "The Everything"
             }
         ],
         distance: 3.8,
@@ -29,7 +32,6 @@ restaurants = [
         price: 20,
         popularity: 4,
         description: "Diverse moderately priced homestyle goodness, with a menu featuring breakfast, lunch, and bakery offerings.",
-        href: "link",
         backgroundColour: '#006300'
     },
     {
@@ -41,17 +43,20 @@ restaurants = [
             {
                 name: "Big Mac",
                 img: root+"/mcdonalds/burgers/bigmac.jpg",
-                restaurant: "McDonalds"
+                restaurant: "McDonalds",
+                dish: "Big Mac"
             },
             {
                 name: "Nuggets",
                 img: root+"/mcdonalds/chickenAndSandwiches/nuggets.jpg",
-                restaurant: "McDonalds"
+                restaurant: "McDonalds",
+                dish: "Chicken McNuggets"
             },
             {
                 name: "Vanilla Cone",
                 img: root+"/mcdonalds/desserts/cone.jpg",
-                restaurant: "McDonalds"
+                restaurant: "McDonalds",
+                dish: "Vanilla Cone"
             }
         ],
         distance: 6.3,
@@ -59,7 +64,6 @@ restaurants = [
         price: 5,
         popularity: 2,
         description: "We're McDonalds, you know what we're offering.",
-        href: "link",
         backgroundColour: '#c7161c'
     },
     {
@@ -69,19 +73,22 @@ restaurants = [
         type: ["Italian"],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Calamari",
+                img: root+"/olive_garden/appetizer/calamari.jpg",
+                restaurant: "Olive Garden",
+                dish: "Calamari"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chicken Alfredo",
+                img: root+"/olive_garden/entree/alfredo.jpg",
+                restaurant: "Olive Garden",
+                dish: "Chicken Alfredo"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Tiramisu",
+                img: root+"/olive_garden/dessert/tiramisu.jpg",
+                restaurant: "Olive Garden",
+                dish: "Tiramisu"
             }
         ],
         distance: 6.9,
@@ -89,7 +96,6 @@ restaurants = [
         price: 35,
         popularity: 3,
         description: "At Olive Garden, we know that life is better together and everyone is happiest when they’re with family. From never ending servings of our freshly baked breadsticks and iconic garden salad, to our homemade soups and sauces, there’s something for everyone to enjoy.",
-        href: "link",
         backgroundColour: '#54301a'
     },
     {
@@ -99,19 +105,22 @@ restaurants = [
         type: ['Mexican'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Zesty Chimichurri",
+                img: root+"/muncho_burrito/signature/zesty.png",
+                restaurant: "Muncho Burrito",
+                dish: "Zesty Chimichurri Bowl"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chips & Salsa",
+                img: root+"/muncho_burrito/sides/salsa.jpg",
+                restaurant: "Muncho Burrito",
+                dish: "Tortilla Chips with Salsa"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Build Your Own",
+                img: root+"/muncho_burrito/build_your_own/burrito.jpg",
+                restaurant: "Muncho Burrito",
+                dish: "Build Your Own Burrito"
             }
         ],
         distance: 6.4,
@@ -119,7 +128,6 @@ restaurants = [
         price: 20,
         popularity: 2,
         description: "Mexican-inspired food that lives up to their promise: Fresh Mexican Grill. Mucho Burrito only serves food that is mucho real and mucho fresh. It’s made by hand right in front of our guests’ eyes, using only the freshest ingredients, free of artificial flavours and preservatives.",
-        href: "link",
         backgroundColour: '#fdfdfd',
         textColour: '#000000'
     },
@@ -130,19 +138,22 @@ restaurants = [
         type: ['Asian', 'Vietnamese'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "General's Chicken",
+                img: root+"/asia_palace/chicken/general.jpg",
+                restaurant: "Asia Palace",
+                dish: "General's Chicken"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Shrimp Chow Mein",
+                img: root+"/asia_palace/chow_mein/shrimp.png",
+                restaurant: "Asia Palace",
+                dish: "Shrimp Chow Mein"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Vegetable Fried Rice",
+                img: root+"/asia_palace/fried_rice/veg.png",
+                restaurant: "Asia Palace",
+                dish: "Vegetable Fried Rice"
             }
         ],
         distance: 2.9,
@@ -150,7 +161,6 @@ restaurants = [
         price: 15,
         popularity: 3,
         description: "Relaxed restaurant serving a menu of Pan-Asian dishes.",
-        href: "link",
         backgroundColour: '#f37022'
     },
     {
@@ -160,19 +170,22 @@ restaurants = [
         type: ['Sushi', 'Japanese', 'Korean', 'Asian'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Oyster Motoyaki",
+                img: root+"/kimchi_sushi/appetizers/oyster.png",
+                restaurant: "Kimchi Sushi",
+                dish: "Oyster Motoyaki"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Chicken Teriyaki",
+                img: root+"/kimchi_sushi/entrees/chicken.jpg",
+                restaurant: "Kimchi Sushi",
+                dish: "Chicken Teriyaki"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Kimchi Fried Rice",
+                img: root+"/kimchi_sushi/kimchi/rice.png",
+                restaurant: "Kimchi Sushi",
+                dish: "Kimchi Fried Rice"
             }
         ],
         distance: 7.9,
@@ -180,7 +193,6 @@ restaurants = [
         price: 20,
         popularity: 2,
         description: "Kimchi Sushi offers a wide range of excellent Japanese and Korean dishes, from classic sushi, sashimi, and tempura dishes, to Korean dishes like Bibimpap, Bulgogi, and more.",
-        href: "link",
         backgroundColour: '#000000'
     },
     {
@@ -190,19 +202,22 @@ restaurants = [
         type: ['Pizza', 'Italian'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Pizza Bread",
+                img: root+"/boston_pizza/appetizer/pizza.png",
+                restaurant: "Boston Pizza",
+                dish: "Bandera Pizza Bread"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Jambalaya",
+                img: root+"/boston_pizza/main/pasta.png",
+                restaurant: "Boston Pizza",
+                dish: "Jambalaya Fettuccini"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Pizza",
+                img: root+"/boston_pizza/pizza/pizza.png",
+                restaurant: "Boston Pizza",
+                dish: "Build Your Own"
             }
         ],
         distance: 5.1,
@@ -210,7 +225,6 @@ restaurants = [
         price: 38,
         popularity: 4,
         description: "Famous for our gourmet pizzas made with our signature hand pressed dough, our extensive menu satisfies every appetite with our mouth-watering pasta dishes and a wide variety of, salads, entrées and desserts.",
-        href: "link",
         backgroundColour: '#fbffff',
         textColour: '#000000'
     },
@@ -221,19 +235,22 @@ restaurants = [
         type: ['Indian', 'Asian'],
         foodItems: [
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Vegetable Samosa",
+                img: root+"/clay_oven/appetizer/samosa.jpg",
+                restaurant: "Clay Oven",
+                dish: "Vegetable Samosa (4)"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Garlic Naan",
+                img: root+"/clay_oven/bread/garlic.jpg",
+                restaurant: "Clay Oven",
+                dish: "Garlic Naan (3)"
             },
             {
-                name: "",
-                img: root+"",
-                restaurant: ""
+                name: "Lamb Curry",
+                img: root+"/clay_oven/curry/lamb.jpg",
+                restaurant: "Clay Oven",
+                dish: "Lamb Curry"
             }
         ],
         distance: 4.4,
@@ -241,9 +258,7 @@ restaurants = [
         price: 30,
         popularity: 1,
         description: "Clay Oven Restaurant proudly boasts of the best menu and the most delicious food.Delight in our appetizing soups and snacks. Both vegetarians and non vegetarians can enjoy our culinary feasts.",
-        href: "link",
         backgroundColour: '#000000',
-        
     }
 ];
 
@@ -276,7 +291,6 @@ restaurants = [
     price: ,
     popularity: ,
     description: "",
-    href: "link",
     backgroundColour: ''
 },
 */

@@ -1,10 +1,12 @@
+/**
+ * the animation part of this dropdown was
+ * Taken from: https://codinhood.com/micro/10-dropdown-menu-animations-css-transform
+ * and modified.
+ */
+
 /** Dropdown content **/
 .dropdownarea select{
     font-family: 'Open Sans', sans-serif;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    -ms-appearance: none;
-    appearance: none;
     outline: 0;
     box-shadow: none;
     border: 0;
@@ -17,26 +19,105 @@
     font-weight: bold;
 }
 
-.dropdownarea select::-ms-expand{
-    display: none;
-}
-
 .dropdownarea select option{
     background: #FF5C00;
     font-weight: bold;
 
 }
 
-.dropdownarea{
-    position: relative;
+.dropdown{
+    position: absolute;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    /*background: #34495e;*/
+    perspective: 1000px;
+    z-index: 100;
+    font-family: 'Open Sans', sans-serif;
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+    background: #FF5C00;
+    flex: 1;
+    /*padding: 0.5em;*/
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 1em;
     width: 10em;
     height: 3em;
-    background: #FF5C00;
-    overflow: hidden;
+    /*background: #FF5C00;*/
+    /*overflow: hidden;*/
     border-radius: 0.25em;
     margin-left: 0.25em;
     margin-top: 0.25em;
+}
+
+
+.dropdown:hover{
+    background-color: #d98600;
+    cursor: pointer;
+    border-bottom-left-radius: 0;
+}
+
+
+#arrow{
+    background-color: #592800;
+    border-top-right-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
+    padding: 0.2em 1em 0.3em 0.95em;
+    /*padding: 0.2em 0.5em;*/
+    margin: 0 -0.2vw 0 2.97vw;
+    font-size: 1.5em;
+
+}
+
+.dropdown:hover #arrow {
+    border-bottom-right-radius: 0;
+}
+
+.dropdown:hover #arrow i{
+    transform: rotate(-90deg);
+}
+
+.dropdown:hover .dropdown_menu li{
+    display: block
+}
+
+.dropdown_menu{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    perspective: 1000px;
+    z-index: -1;
+}
+
+.dropdown_menu li{
+    display: none;
+    color: white;
+    background: #a34900;
+    padding: 10px 20px;
+    font-size: 1em;
+    opacity: 0;
+}
+
+.dropdown_menu li:hover{
+    background: #934400;
+}
+
+
+
+ .dropdownarea{
+     position: relative;
+     display: flex;
+     width: 10em;
+     height: 3em;
+     background: #FF5C00;
+     overflow: hidden;
+     border-radius: 0.25em;
+     margin-left: 0.25em;
+     margin-top: 0.25em;
 }
 
 .dropdownarea::after{
@@ -52,6 +133,38 @@
     color: white;
 }
 
-.dropdownarea:hover::after{
-    color: #FF5C00;
+/*.dropdownarea:hover::after{*/
+/*    color: #FF5C00;*/
+/*}*/
+
+.dropdown:hover .dropdown_menu--animated{
+    display: block;
+}
+
+.dropdown_menu--animated{
+    display: none
+}
+.dropdown_menu--animated li{
+    display: block;
+    opacity: 1
+}
+
+
+.dropdown_menu-6{
+    animation: growDown 250ms ease-in-out forwards;
+    transform-origin: top center;
+}
+
+
+
+@keyframes growDown {
+    0% {
+        transform: scaleY(0)
+    }
+    80% {
+        transform: scaleY(1.05)
+    }
+    100% {
+        transform: scaleY(1)
+    }
 }

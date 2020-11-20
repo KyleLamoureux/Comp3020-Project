@@ -44,7 +44,7 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg){
 
     let orderedItemNames = document.getElementsByClassName("ordered-item-title");
   
-    //NEED TO FIX DUPLICATE CALCULATION
+    //TODO: NEED TO FIX DUPLICATE CALCULATION
     let isDuplicate = false;
     let index = 0;
     let quantity = 1;

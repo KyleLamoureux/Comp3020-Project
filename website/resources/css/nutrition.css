@@ -1,18 +1,16 @@
-.nutrional-info{
-    position: absolute;
-    width: 90%;
-    height: 20vh;
-}
-.nutritional-info-img{
-    width: 210px;
-    height: 210px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+.nutritional-info{
+    /*position: absolute;*/
+    /*width: 30%;*/
+    /*height: 20vw;*/
+    /*border: 1px solid black;*/
+    /*align-self: flex-end;*/
+    /*bottom: 0;*/
+
 }
 
-#nutritional-info-checkbox{
+svg > g > g:last-child { pointer-events: none }
+
+.nutritional-info-checkbox{
     width: 80%;
     position: relative;
     display: block;
@@ -20,12 +18,19 @@
     display: block;
 }
 
-#nutritional-info-text{
+#nutritional-info-text1{
+    margin-left: 3%;
+}
+#nutritional-info-text2{
     margin-left: 3%;
 }
 
-#nutrition{
-    visibility: hidden;
+.nutrition{
+    /*visibility: hidden;*/
+    /*border: 1px solid black;*/
+    overflow: hidden;
+    /*text-align: center;*/
+    display: none;
 }
 
 #piechart-1{
@@ -35,10 +40,21 @@
     padding: 0;
     z-index: -1;
 }
-#nutrition h2{
-    margin: 5px 0 0 4.9vw;
+#piechart-2{
+    /*position: relative;*/
+    /*width: 100%;*/
+    /*height: 20vw;*/
+    /*margin: 0 9vw 0 0;*/
+    padding: 0;
+    /*margin-right: 10vw;*/
+    z-index: -1;
+    margin-top: 1vw;
+    /*border: 1px solid black;*/
+}
+.nutrition h2{
+    margin: 0 0 0 -9vw;
     z-index: 2;
-    font-size: 17px;
+    font-size: 1em;
     text-align: left;
     font-weight: normal;
 }
