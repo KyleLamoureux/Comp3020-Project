@@ -73,6 +73,15 @@ function createSearchedRestaurants(query){
         if (element.name.toLowerCase().includes(query.toLowerCase()))
             eleList.appendChild(createRestListItem(element));
     });
+    if(!eleList.hasChildNodes()){
+        eleList.appendChild(document.createElement("div"));
+        var text = document.createElement("p");
+        text.innerText = "No Results found for '"+query+"'.";
+        eleList.appendChild(text);
+        $('.dropdown').css("visibility", "hidden");
+    }else{
+        $('.dropdown').css("visibility", "visible");
+    }
 }
 // Call this to refresh restaurants UI
 function createRestaurants(){
@@ -188,6 +197,7 @@ function clearSearch(){
     $('#xicon').css("visibility", "hidden");
     $('#categories-overlay').css("visibility", "hidden").css("opacity", "0%");
     createRestaurants();
+    $('.dropdown').css("visibility", "visible");
 }
 
 // Creates li.
@@ -340,6 +350,15 @@ function createCategories(){
         // prevArrow: '<button class="slide-arrow prev-arrow"></button>',
         // nextArrow: '<button class="slide-arrow next-arrow"></button>'
     });
+
+    // $(".celeb-scroll").slick({
+    //     infinite: false,
+    //     slidesToShow: 1,
+    //     arrows: true,
+    //     // prevArrow: '<div class="chevron">&#8249;</div>',
+    //     // nextArrow: '<div class="chevron">&#8250;</div>'
+    // });
+
 };
 
 function createDivCat(element){

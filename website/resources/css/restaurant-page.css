@@ -14,19 +14,26 @@ body{
     background-color: #F2EFE4;
     align-items: center;
 }
+.container-2{
+    position: relative;
+    /*border: 1px solid crimson;*/
+}
 
 .sticky {
     position: fixed;
     top: 0;
     width: 100%;
 /*     font-size: 24px; */
-/* } */
+}
 
 /* .container{
     padding-left: 20px;
     justify-content: center;
-    position: absolute;
-} */
+    /*border: 1px solid black;*/
+    margin-right: 15vw;
+/* } */
+/*     position: absolute; */
+/* }  */
 
 /*!*     !*margin-top: 30px;*!*/
 /*    padding-bottom: 0;*/
@@ -35,7 +42,7 @@ body{
 
 /*    float: left;*/
 /*    width: 100%;*/
-/*} *!*/
+/*}*/
 
 /* .service{
     display:inline-block;
@@ -103,100 +110,4 @@ body{
     padding-left: 20px;
     justify-content: center;
     display: flex;
-}
-
-    /* margin-top: 30px;
-    padding-bottom: 0;
-    padding-left: 20px;
-    padding-right: 20px;
-    border: 1px solid black;
-    float: left;
-    width: 100%; */
-
-.hr-line{
-    border: none;
-    margin: 50px 200px;
-    height: 5px;
-    background: linear-gradient(to right, black, #FF5C00);
-    border-radius: 10px;
-}
-
-.celeb-title{
-    display: flex;
-    justify-content: center;
-    font-family: "Roboto", sans-serif;
-    font-size: 3em;
-    color: #083755;
-    margin-bottom: 0.5em;
-}
-
-.celeb-area{
-    display: flex;
-    justify-items: center;
-    align-items: center;
-    margin-left: 4vw;
-}
-
-.content-circle{
-    background: #F6B78A;
-    border-radius: 50%;
-    width: 30vw;
-    height: 30vw;
-    position: relative;
-    justify-items: center;
-    margin-left: -15vw;
-    margin-top: 3vw;
-}
-
-.content{
-    position: absolute;
-    width: 25em;
-    height: auto;
-    text-align: left;
-    transform: translateY(55%);
-    padding-left: 2em;
-    margin-top: -1em;
-}
-
-.content h1{
-    font-family: "Roboto", sans-serif;
-    font-size: 40px;
-    color: #FF5C00;
-    font-weight: bolder;
-}
-
-.content p{
-    font-family: "Open Sans", sans-serif;
-    font-size: 20px;
-    color: #083755;
-    margin-top: -1em;
-}
-
-.celeb-photo{
-    background: #FF5C00;
-    width: 60vw; 
-    clip-path: circle();
-    margin-left: 2vw;
-}
-
-.celeb-button{
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    float: right;
-    width: 150px;
-    height: 40px;
-    border-radius: 50px;
-    background: #FF5C00;
-    align-items: center;
-    justify-content: center;
-    display: flex;
-    margin-right: 4vw;
-    margin-top: 21vw;
-    transition: 0.2s ease;
-}
-
-.celeb-button:hover{
-    color: white;
-    background: #cf4c00;
-    cursor: pointer;
 }
