@@ -94,8 +94,9 @@
     background: #F6B78A;
     border-radius: 50%;
     width: 25vw;
+    padding-top: 0.5vh;
     height: 25vw;
-    left: 25vw;
+    left: 20vw;
     margin:0;
     /*right: 15vw;*/
     /*top: 5vw;*/
@@ -105,7 +106,7 @@
 .content{
     /*position: absolute;*/
     /*width: 20em;*/
-    margin-top: 3vh;
+    margin-top: 2vh;
     margin-left: 5vw;
     margin-right: 2vw;
     padding-top: 2vh;
@@ -157,7 +158,8 @@
     background: #cf4c00;
     cursor: pointer;
 }
-.content img{
+
+.content .img1{
     float: left;
     width: 4vw;
     height: 4vw;
@@ -165,6 +167,25 @@
     margin-top: 2vw;
     object-fit: cover;
     border-radius: 50%;
+}
+
+.content .img2{
+    float: left;
+    width: 6vw;
+    height: 3vw;
+    margin-left: 0;
+    margin-top: 2.7vw;
+    object-fit: contain;
+}
+
+.content .img3{
+    float: left;
+    width: 8.1vw;
+    height: 4.5vw;
+    margin-left: 0;
+    margin-top: 2.1vw;
+    object-fit: contain;
+    /*border-radius: 50%;*/
 }
 
 .content h1{
@@ -181,7 +202,11 @@
 
 .celeb-photo{
     background: #FF5C00;
-    width: 40vw;
+    width: 25vw;
+    height: 25vw;
+    overflow: hidden;
+    max-width: 25vw;
+    max-height: 25vw;
     object-fit: cover;
     clip-path: circle();
     position: absolute;
