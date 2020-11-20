@@ -332,7 +332,7 @@ function addOptions(foodItemOptions,foodOptionsDiv){
 
 /**
  * updateFoodPrice - function that updates the price from the food modal when 
- *                  a checkbox is clicked from the given options.
+ *                  a checkbox/radibtn is clicked from the given options.
  */
 function updateFoodPrice(){
   let priceDifference = 0;  
@@ -356,29 +356,21 @@ function updateFoodPrice(){
 
   //for radiobtn
   let radioBtnDiv = document.getElementsByClassName("radio-button-option");
+  for(let i = 0; i < radioBtnDiv.length; i++){
+  let radiobtns = radioBtnDiv[i].getElementsByClassName("food-option-item-radiobtn");
+  let optionItemName = radioBtnDiv[i].getElementsByClassName("food-option-name-label");
+  let optionItemPrice = radioBtnDiv[i].getElementsByClassName("food-option-price-label");
+  for(let j = 0; j < radiobtns.length; j++){
 
-  if(radioBtnDiv.length > 0 ){
-    for(let i = 0; i < radioBtnDiv.length; i++){
-      let radiobtns = radioBtnDiv[i].getElementsByClassName("food-option-item-radiobtn");
-      let optionItemName = radioBtnDiv[i].getElementsByClassName("food-option-name-label");
-      let optionItemPrice = radioBtnDiv[i].getElementsByClassName("food-option-price-label");
-      for(let j = 0; j < radiobtns.length; j++){
-  
-        if(radiobtns[j].checked){
-          console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
-          priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
-          isRadiobtnClicked = true;
-        }//end if
-  
-      }//end nested for
-    }//end for    
+    if(radiobtns[j].checked){
+      console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
+      priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
+      isRadiobtnClicked = true;
+    }//end if
 
-  }else{
-    //we have no radio button so clicking add to cart will close the modal.
-    isRadiobtnClicked = true;
-  }
+  }//end nested for
+}//end for    
 
-  
   
   //change the displayed price on the food modal.
   let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0];
@@ -409,6 +401,7 @@ function addFunctionality(foodItemImage,foodOptionsDiv,foodItemPriceDisplay){
      button.addEventListener('click',addToCartClicked);
      button.foodItemImg = foodItemImage;
      button.foodItemOptions = foodOptionsDiv;
+    
   }//end for
 }//end addFunctionality
 
@@ -419,7 +412,10 @@ function addFunctionality(foodItemImage,foodOptionsDiv,foodItemPriceDisplay){
  */
 function addToCartClicked(event){
 
-  if(isRadiobtnClicked){
+  let radioBtnDiv = document.getElementsByClassName("radio-button-option"); 
+  //only lets the user add items to the cart if the radiobutton is clicked, or if there is no radiobutton in the food modal i.e. drinks.
+  console.log(radioBtnDiv.length + " ADDTOCART!xx");
+  if(isRadiobtnClicked || radioBtnDiv.length === 0){
     let addButton = event.target;//target is the add button.
     let foodModalInfo = addButton.parentElement.parentElement;//moves to the modal div (the parent element of the whole content)
     
