@@ -479,16 +479,29 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions
   let cartItems = document.getElementsByClassName("cart-items")[0];//get the div from html
 
   foodItemPrice = foodItemPrice.replace("Price:","");
+
+  //TODO: add the list of selected options
   let cartRowContents = `
-  <div class="cart-item cart-column">
-    <img class="cart-item-image" src="${foodItemImage}" alt=${foodItemTitle}>
-    <span class="cart-item-title">${foodItemTitle}</span>
+  <div class="cart-item-info">
+    <img class="cart-item-image" src="${foodItemImage}" alt=${foodItemTitle}>               
+    <h4 class="cart-item-title">${foodItemTitle}</h4>
+    <div class="cart-item-quantity">Quantity: 1</div>
   </div>
-  <span class="cart-price cart-column">${foodItemPrice}</span>
-  <div class="cart-modify cart-column">
-      <button class="btn-edit" type="button">EDIT</button>
-      <button class="btn btn-remove" type="button">REMOVE</button>
+  <div class="options">
+    <ul class="list-options">
+    <h4>Options</h4>
+    <li class="list-option-item">item 1</li>
+    <li class="list-option-item">item 2</li>
+    <li class="list-option-item">item 3</li>
+    <li class="list-option-item">item 4</li>
+    </ul>
   </div>
+  <div class="cart-bottom-section">
+    <h4 class="cart-price">${foodItemPrice}</h4>
+    <div class="btn">
+    <button class="btn btn-remove" type="button">REMOVE</button>
+    <button class="btn btn-edit" type="button">EDIT</button>
+    </div>  
   `;
 
   cartRow.innerHTML = cartRowContents;
@@ -547,7 +560,7 @@ function closeMenuModal() {
 function removeCartItem(event){
   let buttonClicked = event.target;
   if(confirm("Do you want to delete this item?")){
-  buttonClicked.parentElement.parentElement.remove();
+  buttonClicked.parentElement.parentElement.parentElement.remove();
   updateCartTotal();//update the subtotal after removing an item.
   }
 }//end removeCartItem
