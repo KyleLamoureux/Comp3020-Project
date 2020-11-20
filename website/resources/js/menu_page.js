@@ -6,6 +6,17 @@ if(document.readyState === "loading"){
   main();
 } //end if-else 
 
+
+const ALTERATION_TYPE = "Alterations";
+const EXTRAS_TYPE = "Extras";
+const STYLE_TYPE = "Style";
+const CHECKBOX_TYPE = "checkbox";
+const RADIOBTN_TYPE = "radio"; 
+const TYPE = "type";
+const DATA = "data";
+let modalOn = false;
+let isRadiobtnClicked = false;
+
 function main(){
   let removeCartItemButtons = document.getElementsByClassName("btn-remove");
 
@@ -141,14 +152,6 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItem
 }//end addFoodItems
 
 
-let modalOn = false;
-const ALTERATION_TYPE = "Alterations";
-const EXTRAS_TYPE = "Extras";
-const STYLE_TYPE = "Style";
-const CHECKBOX_TYPE = "checkbox";
-const RADIOBTN_TYPE = "radio"; 
-const TYPE = "type";
-const DATA = "data";
 /**
  * openFoodModal - once a food item is clicked, a window will be shown containing different options 
  *              for the food item and its price.
@@ -161,10 +164,10 @@ function openFoodModal(event){
   //let foodItemDescription = null;
   let foodItemPrice = null;
   let foodItemOptions = null;
+  let buttonsContent = null;
 
   if(!modalOn){
-    
-    let fromEditClick = false;
+      
     //get the information:
     let edtFoodItem = event.target;
     let edtFoodTitle = edtFoodItem.editFoodTitle;
@@ -172,97 +175,44 @@ function openFoodModal(event){
     let edtFoodImage = edtFoodItem.editFoodImage;
     let edtFoodOptionsDiv = edtFoodItem.editFoodOptionsDiv;
 
-    if(edtFoodTitle === undefined && edtFoodPrice === undefined && edtFoodImage === undefined){
+    //check if the click is from the edit button or from the food item.
+    let isFromEditClick = !(edtFoodTitle === undefined && edtFoodPrice === undefined && edtFoodImage === undefined && edtFoodOptionsDiv === undefined);
+   
+    
+    let foodOptionsDiv = null;
+
+    if(isFromEditClick){
+      console.log("edit button is clicked." + edtFoodTitle + ", " + edtFoodPrice);
+      foodItemTitle = edtFoodTitle;
+      foodItemPrice = edtFoodPrice;
+      foodItemImage = edtFoodImage;
+      foodOptionsDiv = edtFoodOptionsDiv;
+      //"Save" buton instead of "add to cart" if the click is from edit btn
+      buttonsContent = `
+      <button class="button-save-to-cart">Save</button><br>
+      <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
+      `;
+
+    }else{
       console.log("edit button is not clicked.");
       foodItemTitle = item.find(".menu-category-item-title").first().text();
       foodItemImage = item.find(".menu-category-item-image").first().attr('src');
       //foodItemDescription = item.find(".menu-category-item-description").first().text();
       foodItemPrice = item.find(".menu-category-item-price").first().text();
+
+      foodOptionsDiv = document.createElement("div");//wrapper for the food options.
+      foodItemOptions = item.get(0).options;
+      foodOptionsDiv.classList.add("food-options");
+      addOptions(foodItemOptions,foodOptionsDiv);
+      
+      //add to cart button if the click is from the food item.
+      buttonsContent = `
+      <button class="button-add-to-cart">Add to cart</button><br>
+      <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
+      `;
     
-    }else{
-      console.log("edit button is clicked." + edtFoodTitle + ", " + edtFoodPrice);
-      foodItemTitle = edtFoodTitle;
-      foodItemPrice = edtFoodPrice;
-      foodItemImage = edtFoodImage;
-      fromEditClick = true;
     }//end if-else
     
-    
-    foodItemOptions = item.get(0).options;
-    //TODO : DISPLAY THE DATA IN HTML. 
-    let foodOptionsDiv = document.createElement("div");//wrapper for the food options.
-    foodOptionsDiv.classList.add("food-options");
-
-   for(let optionType in foodItemOptions){//iterate through the options for each food item.
-    
-    let foodOptionType = document.createElement("div");//create a div for the option type(checkbox/radio).
-      if(foodItemOptions.hasOwnProperty(optionType)){//ensures that the option type (Alteration,Extras,Style) is in the menus data.
-
-        let foodOptionTypeContent = `<h3 class="option-category">${optionType}</h3>`;
-        if(foodItemOptions[optionType].hasOwnProperty(TYPE) 
-             && foodItemOptions[optionType].hasOwnProperty(DATA)){//ensures that option has a "type" key
-
-          if(foodItemOptions[optionType][TYPE] === CHECKBOX_TYPE){
-            foodOptionType.classList.add("checkbox-option");
-
-            //create checkboxes
-            console.log("1)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
-
-            for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
-              let dataName = foodItemOptions[optionType][DATA][i].name;
-              let dataPrice = foodItemOptions[optionType][DATA][i].price;
-
-              let displayPrice = "";
-              if(dataPrice < 0){
-                dataPrice *= -1;
-                displayPrice = "-$" + dataPrice.toFixed(2);
-              }else{
-                displayPrice = "+$" + dataPrice.toFixed(2);
-              }
-            
-              foodOptionTypeContent +=`
-              <div class="food-option-name">
-              <input class="food-option-item-checkbox" type="checkbox" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
-              <label class="food-option-name-label" for="${dataName}">${dataName}</label>
-              </div>
-              <div class="food-option-price">
-              <label class="food-option-price-label">${displayPrice}</label>
-              </div>
-              `;
-
-            } //end nested-for
-
-          }else if(foodItemOptions[optionType][TYPE] === RADIOBTN_TYPE){
-            foodOptionType.classList.add("radio-button-option");
-            //create radiobtns
-            console.log("2)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
-
-            for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
-              let dataName = foodItemOptions[optionType][DATA][i].name;
-              let dataPrice = foodItemOptions[optionType][DATA][i].price;
-            
-              foodOptionTypeContent +=`
-              <div class="food-option-name">
-              <input class="food-option-item-radiobtn" type="radio" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
-              <label class="food-option-name-label" for="${dataName}">${dataName}</label>
-              </div>
-              <div class="food-option-price">
-              <label class="food-option-price-label">${"$" + dataPrice.toFixed(2)}</label>
-              </div>
-              `;
-
-            } //end nested-for
-
-          }//end if-elseif
-
-          
-        }
-        foodOptionType.innerHTML = foodOptionTypeContent;
-    
-      }//end if
-      foodOptionsDiv.append(foodOptionType);
-
-    }//end for
     
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
@@ -272,6 +222,7 @@ function openFoodModal(event){
         <h5 class="modal-food-price">Price: ${foodItemPrice}</h5>
     </div>`;
     
+    //TODO:FUNCTIONALITY FOR THE QUANTITY
     let foodNumBtns = document.createElement("div");
     foodNumBtns.classList.add("food-number-button");
     foodNumBtns.innerHTML = `
@@ -281,40 +232,103 @@ function openFoodModal(event){
     `;
 
     let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
-    buttonsDiv.classList.add("modify-cart");
-''
-    //if the click is from edit, we want to do a "save" instead of "Add to cart".
-    if(fromEditClick){
-      buttonsDiv.innerHTML = `
-      <button class="button-save-to-cart">Save</button><br>
-      <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-      `;
-    }else{
-      buttonsDiv.innerHTML = `
-      <button class="button-add-to-cart">Add to cart</button><br>
-      <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-      `;
-    }//end if-else
-    
-    modal.innerHTML = foodModalContent;
-    if(edtFoodOptionsDiv === undefined){
-      modal.append(foodOptionsDiv);
-    }else{
-      modal.append(edtFoodOptionsDiv);
-    }
+    buttonsDiv.classList.add("modify-cart"); 
+    buttonsDiv.innerHTML = buttonsContent; //add the buttons in the div.
 
+    //add all content to the modal.
+    modal.innerHTML = foodModalContent;
+    modal.append(foodOptionsDiv);
     modal.append(foodNumBtns);
     modal.append(buttonsDiv);
     modal.style.display = "block";
     blurControl();
     modalOn = true;
 
-    ///fooditemprice needed to get the brackets when edit button is clicked.
+    ///fooditemprice is needed to get the brackets when edit button is clicked.
     addFunctionality(foodItemImage,foodOptionsDiv,foodItemPrice);
   }//end if
 
 
 }//end openFoodModal
+
+/**
+ * addOptions - creates tags and put all the food option information in those tags.
+ * @param {*} foodItemOptions the list of options for the food.
+ * @param {*} foodOptionsDiv the parent tag for the entire options section.
+ */
+function addOptions(foodItemOptions,foodOptionsDiv){
+  for(let optionType in foodItemOptions){//iterate through the options for each food item.
+    
+    let foodOptionType = document.createElement("div");//create a div for the option type(checkbox/radio).
+    if(foodItemOptions.hasOwnProperty(optionType)){//ensures that the option type (Alteration,Extras,Style) is in the menus data.
+
+      let foodOptionTypeContent = `<h3 class="option-category">${optionType}</h3>`;
+      if(foodItemOptions[optionType].hasOwnProperty(TYPE) 
+           && foodItemOptions[optionType].hasOwnProperty(DATA)){//ensures that option has a "type" key
+
+        if(foodItemOptions[optionType][TYPE] === CHECKBOX_TYPE){
+          foodOptionType.classList.add("checkbox-option");
+
+          //create checkboxes
+          console.log("1)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
+
+          for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
+            let dataName = foodItemOptions[optionType][DATA][i].name;
+            let dataPrice = foodItemOptions[optionType][DATA][i].price;
+
+            let displayPrice = "";
+            if(dataPrice < 0){
+              dataPrice *= -1;
+              displayPrice = "-$" + dataPrice.toFixed(2);
+            }else{
+              displayPrice = "+$" + dataPrice.toFixed(2);
+            }
+          
+            foodOptionTypeContent +=`
+            <div class="food-option-name">
+            <input class="food-option-item-checkbox" type="checkbox" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
+            <label class="food-option-name-label" for="${dataName}">${dataName}</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">${displayPrice}</label>
+            </div>
+            `;
+
+          } //end nested-for
+
+        }else if(foodItemOptions[optionType][TYPE] === RADIOBTN_TYPE){
+          foodOptionType.classList.add("radio-button-option");
+          //create radiobtns
+          console.log("2)option type: " + optionType + " with " +foodItemOptions[optionType][TYPE] + " !" );
+
+          for(let i = 0; i < foodItemOptions[optionType][DATA].length; i++ ){
+            let dataName = foodItemOptions[optionType][DATA][i].name;
+            let dataPrice = foodItemOptions[optionType][DATA][i].price;
+          
+            foodOptionTypeContent +=`
+            <div class="food-option-name">
+            <input class="food-option-item-radiobtn" type="radio" id="${dataName}" name="food-options" value="${dataName}" onclick="updateFoodPrice()" > 
+            <label class="food-option-name-label" for="${dataName}">${dataName}</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">${"$" + dataPrice.toFixed(2)}</label>
+            </div>
+            `;
+
+          } //end nested-for
+
+        }//end if-elseif
+
+        
+      }
+      
+      foodOptionType.innerHTML = foodOptionTypeContent;
+  
+    }//end if
+    foodOptionsDiv.append(foodOptionType);
+
+  }//end for
+}//end addOptions
 
 /**
  * updateFoodPrice - function that updates the price from the food modal when 
@@ -343,20 +357,28 @@ function updateFoodPrice(){
   //for radiobtn
   let radioBtnDiv = document.getElementsByClassName("radio-button-option");
 
-  for(let i = 0; i < radioBtnDiv.length; i++){
-    let radiobtns = radioBtnDiv[i].getElementsByClassName("food-option-item-radiobtn");
-    let optionItemName = radioBtnDiv[i].getElementsByClassName("food-option-name-label");
-    let optionItemPrice = radioBtnDiv[i].getElementsByClassName("food-option-price-label");
-    for(let j = 0; j < radiobtns.length; j++){
+  if(radioBtnDiv.length > 0 ){
+    for(let i = 0; i < radioBtnDiv.length; i++){
+      let radiobtns = radioBtnDiv[i].getElementsByClassName("food-option-item-radiobtn");
+      let optionItemName = radioBtnDiv[i].getElementsByClassName("food-option-name-label");
+      let optionItemPrice = radioBtnDiv[i].getElementsByClassName("food-option-price-label");
+      for(let j = 0; j < radiobtns.length; j++){
+  
+        if(radiobtns[j].checked){
+          console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
+          priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
+          isRadiobtnClicked = true;
+        }//end if
+  
+      }//end nested for
+    }//end for    
 
-      if(radiobtns[j].checked){
-        console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
-        priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
-      }//end if
+  }else{
+    //we have no radio button so clicking add to cart will close the modal.
+    isRadiobtnClicked = true;
+  }
 
-    }//end nested for
-  }//end for
-
+  
   
   //change the displayed price on the food modal.
   let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0];
@@ -396,44 +418,53 @@ function addFunctionality(foodItemImage,foodOptionsDiv,foodItemPriceDisplay){
  * @param{event} event will provide the information of the food-item in order to pass it to the cart section.
  */
 function addToCartClicked(event){
-  let addButton = event.target;//target is the add button.
-  let foodModalInfo = addButton.parentElement.parentElement;//moves to the modal div (the parent element of the whole content)
-  
-  //get the information from the modal.
-  let foodItemTitle = foodModalInfo.getElementsByClassName("modal-food-title")[0].innerText;
-  let foodItemPrice = foodModalInfo.getElementsByClassName("modal-food-price")[0].innerText;
-  let foodItemImage = event.target.foodItemImg;
-  let foodItemOptions =event.target.foodItemOptions;
 
-  //check if the price needs to be updated.
-  foodItemPrice = foodItemPrice.replace("Price:","");
-  let posOne = foodItemPrice.indexOf("(");
-  let posTwo = foodItemPrice.indexOf(")");
+  if(isRadiobtnClicked){
+    let addButton = event.target;//target is the add button.
+    let foodModalInfo = addButton.parentElement.parentElement;//moves to the modal div (the parent element of the whole content)
+    
+    //get the information from the modal.
+    let foodItemTitle = foodModalInfo.getElementsByClassName("modal-food-title")[0].innerText;
+    let foodItemPrice = foodModalInfo.getElementsByClassName("modal-food-price")[0].innerText;
+    let foodItemImage = event.target.foodItemImg;
+    let foodItemOptions =event.target.foodItemOptions;
 
-  if(posOne === -1 || posTwo === -1){//no changes to the price
-    addItemToCart(foodItemTitle,foodItemPrice,foodItemImage, foodItemOptions);
-    //alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
+    //check if the price needs to be updated.
+    foodItemPrice = foodItemPrice.replace("Price:","");
+    let posOne = foodItemPrice.indexOf("(");
+    let posTwo = foodItemPrice.indexOf(")");
+
+    if(posOne === -1 || posTwo === -1){//no changes to the price
+      addItemToCart(foodItemTitle,foodItemPrice,foodItemImage, foodItemOptions);
+      //alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
+    }else{
+
+      let updatePrice = foodItemPrice.substring(posOne);//additional price based on the options selected.
+      let originalPrice =foodItemPrice.replace(updatePrice,""); //price displayed from the menu page.
+
+      originalPrice = parseFloat(originalPrice.replace("$",""));//convert to float.
+
+      updatePrice = foodItemPrice.substring(posOne + 1, posTwo); //remove all the brackets.
+      updatePrice = parseFloat(updatePrice.replace("$",""));//convert to float
+
+      console.log(typeof(updatePrice))
+      let newPrice = originalPrice + updatePrice;
+      newPrice = "Price: $" + newPrice.toFixed(2);
+      addItemToCart(foodItemTitle,newPrice,foodItemImage, foodItemOptions);
+      //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
+    
+    }//end if-else
+
+    updateCartTotal();
+    closeMenuModal();
+    //reset the state for other food items.
+    isRadiobtnClicked = false;
+
   }else{
-
-    let updatePrice = foodItemPrice.substring(posOne);//additional price based on the options selected.
-    let originalPrice =foodItemPrice.replace(updatePrice,""); //price displayed from the menu page.
-
-    originalPrice = parseFloat(originalPrice.replace("$",""));//convert to float.
-
-    updatePrice = foodItemPrice.substring(posOne + 1, posTwo); //remove all the brackets.
-    updatePrice = parseFloat(updatePrice.replace("$",""));//convert to float
-
-    console.log(typeof(updatePrice))
-    let newPrice = originalPrice + updatePrice;
-    newPrice = "Price: $" + newPrice.toFixed(2);
-    addItemToCart(foodItemTitle,newPrice,foodItemImage, foodItemOptions);
-    //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
-   
+    //TODO: change the message.
+    alert("please select the following option.");
   }//end if-else
-
-   updateCartTotal();
-
-   closeMenuModal();
+  
 }//end addToCartClicked
 
 
