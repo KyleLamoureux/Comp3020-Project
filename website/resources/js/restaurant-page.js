@@ -121,7 +121,7 @@ function createRandomization() {
     orbDiv.appendChild(txt);
     
     // Create random menu item orbs
-    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true. false);
+    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true, false);
     itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
 
     li.appendChild(itemDiv);
@@ -130,7 +130,13 @@ function createRandomization() {
 
 // When you click on a random food item it will take you to that restaurnts menu
 function randomItemClick(item){
-    console.log(item['target']['alt']);
+    var split = item['target']['alt'].split(',');
+    var dish = split[0];
+    var place = split[1];
+    localStorage.setItem('restaurant', place);
+    localStorage.setItem('dish', dish);
+    window.location.href='./menu_page.html';
+
 }
 
 function clearSelection(){
@@ -228,6 +234,7 @@ function createRestListItem(element){
 function proceedToMenu(objClicked) {
     console.log(objClicked['target'].id)
     localStorage.setItem('restaurant', objClicked['target'].id);
+    localStorage.removeItem('dish');
     window.location.href='./menu_page.html';
 }
 
