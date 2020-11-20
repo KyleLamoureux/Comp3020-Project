@@ -71,9 +71,11 @@ body{
     justify-content: center;
     display: flex;
     margin-right: -10px;
+    transition: 0.2s ease;
 }
 
 .locate-button:hover{
     color: white;
     background: #cf4c00;
+    cursor: pointer;
 }

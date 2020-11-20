@@ -13,7 +13,6 @@
     <script src="https://kit.fontawesome.com/c8bb39f35e.js" crossorigin="anonymous"></script>
     <script type="text/javascript" src="../resources/js/slick.js"></script>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../resources/css/slick.css"/>
     <link rel="stylesheet" href="../resources/css/slick-theme.css"/>
     <link rel="stylesheet" href="../resources/css/restaurant-page.css">
@@ -39,18 +38,24 @@
 </head>
 
 <body>
-<div class="website-header" id="website-header">
-    <p id="user-address"></p>
-    <script>
-        // fillAddress();
-    </script>
-    <div class="search" id="searchbar">
-        <i class="fa fa-search" id="searchicon"></i>
-        <input type="text" placeholder="Search.." oninput="onSearch()" id="searchbox">
-        <i class="fa fa-close" id="xicon" onclick="clearSearch()"></i>
-    </div>
-    <div class="service">
-        <h2>Food Co.</h2>
+    <div class="website-header" id="header">
+        <div class="search" id="searchbar">
+            <i class="fa fa-search" id="searchicon"></i>
+            <input type="text" placeholder="Search..." oninput="onSearch()" id="searchbox">
+            <i class="fa fa-close" id="xicon" onclick="clearSearch()"></i>
+        </div>
+        <div class="service">
+            <img src="../resources/images/restaurant-page/Real_Meal_Delivery-removebg-preview.png">
+            <h2>OrbEat</h2>
+        </div>
+        <div class="address">
+            <strong>Address: </strong>
+            <p id="user-address"></p>
+            <script>
+                fillAddress();
+            </script>
+    
+        </div>
     </div>
 
 </div>

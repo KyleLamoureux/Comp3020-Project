@@ -29,7 +29,7 @@
 }
 
 .random{
-    margin-top: 1vw;
+    margin-top: 0vw;
 }
 
 .restaurant-item{
@@ -46,7 +46,7 @@
 }
 
 .restaurant-image{
-    /*border-radius: 40%;*/
+    border-radius: 40%;
     display: block;
     /*border: 1px solid black;*/
     width: 12vw;
@@ -59,11 +59,11 @@
 .random-restaurant-text{
     color: black;
     border-radius: 40%;
-    width: 170px;
-    height: 70px;
-    padding:  10px 0;
-    margin: auto;
-    object-fit: cover;
+    width: 12vw;
+    height: 6.5vw;
+    padding:  1vw 0 0 0;
+    margin: 2vw auto auto auto;
+    object-fit: contain;
 
     /*font-style: strong;*/
     font-weight: 600;
@@ -132,6 +132,10 @@
     display: inline-block;
     text-align: center;
     /*padding: 13px;*/
+    padding-top: 7px;
+    padding-right: 3px;
+    padding-bottom: 7px;
+    padding-left: 3px;
     border-radius: 50%;
     clear: none;
 }
@@ -148,9 +152,9 @@
 #food-item-list{
     padding: 2px 0;
     display: flex;
-    margin-right: 1.5vw;
-    margin-left: 1.5vw;
-    margin-top: 3vw;
+    margin-right: 1vw;
+    margin-left: 1vw;
+    margin-top: 1vw;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-between;
@@ -173,6 +177,7 @@
 
 .restaurant-information{
     padding: 3px;
+    display: initial;
 }
 
 .restaurant-information h6{
@@ -181,14 +186,14 @@
 
 .restaurant-distance{
     float: left;
-    margin-top: 20px;
+    margin-top: 2px;
     margin-left: 70px;
     display: inline;
 }
 
 .restaurant-time{
     float:right;
-    margin-top: 20px;
+    margin-top: 2px;
     margin-right: 70px;
     display: inline;
 }

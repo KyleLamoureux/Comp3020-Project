@@ -15,7 +15,7 @@ function main(){
   }//end for
   
   //CHOSEN RESTAURANT GOES HERE.
-  let restaurantName = "McDonalds";
+  let restaurantName = localStorage.getItem('restaurant');
 
   //display the restaurant's name
   let titleName = document.getElementsByClassName("heading-text")[0];
@@ -69,8 +69,29 @@ function main(){
   //INSERT RESTAURANT NAME HERE.
   
   */
+  if(localStorage.getItem('dish') !== null)
+    var orb = document.getElementById(presetDish()).click();
   
 }//end main
+
+/**
+ * presetDish - Finds the 'random dish' dish in the menu of the restaurnt and returns which category it belongs to.
+ */
+function presetDish(){
+  var result = "";
+  var dishName = localStorage.getItem('dish');
+  var restMenu = menus[localStorage.getItem('restaurant')];
+  var keys = Object.keys(restMenu);
+
+  keys.forEach(key => {
+    restMenu[key].forEach(item => {
+      if(item['name']===dishName){
+        result =  "hidden_category_"+key
+      }
+    });
+  });
+  return result;
+}
 
 /**
  * addMenuCategory - a function that adds menu category 'orb' to the menu page.
@@ -80,6 +101,7 @@ function addMenuCategory(categoryName){
   let categoryDiv = document.getElementsByClassName("scrollbar-category")[0];
   let aTag = document.createElement("a");
   aTag.href = "#category_"+categoryName;
+  aTag.id = "hidden_category_"+categoryName;
 
   let aTagContent = `
   <div class="category-item">

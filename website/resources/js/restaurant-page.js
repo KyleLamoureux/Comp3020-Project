@@ -1,4 +1,21 @@
+// When the user scrolls the page, execute myFunction
+window.onscroll = function() {myFunction()};
 
+// Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+    // Get the header
+    var header = document.getElementById("header");
+
+    // Get the offset position of the navbar
+    var sticky = header.offsetTop;
+
+    if (window.pageYOffset > sticky) {
+        header.classList.add("sticky");
+    } 
+    else {
+        header.classList.remove("sticky");
+    }
+}
 
 /**
  * Homepage Data
@@ -130,7 +147,7 @@ function createRandomization() {
     orbDiv.appendChild(txt);
     
     // Create random menu item orbs
-    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true. false);
+    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true, false);
     itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
 
     li.appendChild(itemDiv);
@@ -139,13 +156,19 @@ function createRandomization() {
 
 // When you click on a random food item it will take you to that restaurnts menu
 function randomItemClick(item){
-    console.log(item['target']['alt']);
+    var split = item['target']['alt'].split(',');
+    var dish = split[0];
+    var place = split[1];
+    localStorage.setItem('restaurant', place);
+    localStorage.setItem('dish', dish);
+    window.location.href='./menu_page.html';
 }
 
 function clearSelection(){
     restaurants_categories.forEach(iter => {
         iter["active"] = true;
     });
+    activeCategories = allCats();
     $(".food-item-check").css("opacity", "0%");
     $(".cancelButton").css("visibility", "hidden");
     createRestaurants();
@@ -221,7 +244,8 @@ function createRestListItem(element){
     desc.className = "restaurant-description";
     desc.innerText = element["description"];
     var route = document.createElement("a");
-    route.href = element["href"];
+    route.id = element['name'];
+    route.onclick = proceedToMenu;
     route.innerText = "Proceed To Menu";
     route.style.textDecoration = "underline"
     imgOverlay = appendMultiple(imgOverlay, [restName, desc, route]);
@@ -233,10 +257,16 @@ function createRestListItem(element){
     return li;
 };
 
+function proceedToMenu(objClicked) {
+    console.log(objClicked['target'].id)
+    localStorage.setItem('restaurant', objClicked['target'].id);
+    localStorage.removeItem('dish');
+    window.location.href='./menu_page.html';
+}
 
 // Creates <div id="food-item-list">...
 function createItemOrb(element, random=false, color=false){
-    console.log(element, random, color)
+    //console.log(element, random, color)
     var div = document.createElement("div")
     div.id = "food-item-list";
     element.forEach(e => {
@@ -245,7 +275,7 @@ function createItemOrb(element, random=false, color=false){
 
         var img = document.createElement("img");
         img.src = e["img"];
-        img.alt = e["name"] + "," + e['restaurant'];
+        img.alt = e["dish"] + "," + e['restaurant'];
         if (random)
             img.onclick = randomItemClick;
 
