@@ -10,9 +10,15 @@ body{
 .website-header {
     padding: 0px 16px;
     height: 50px;
-    display: inline-flex;
+    display: flex;
     background-color: #F2EFE4;
     align-items: center;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 
 .search{
@@ -28,7 +34,6 @@ body{
 
 #searchbox{
     box-sizing: content-box;
-    position: relative;
     border: none;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
@@ -50,13 +55,27 @@ body{
 }
 
 .service{
-    margin-left: 44vw;
+    margin-left: 41vw;
     position: absolute;
+    display: inline-flex;
 }
 
-.website-header p{
-    margin-left: 70em;
-    position: absolute;
+.service img{
+    width: 80px;
+    height: 60px;
+    margin-right: -20px;
+}
+
+.service h2{
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    color: #FF5C00;
+}
+
+.address{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    margin-left: auto;
 }
 
 .container{
