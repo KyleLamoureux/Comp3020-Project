@@ -226,9 +226,9 @@ function openFoodModal(event){
     let foodNumBtns = document.createElement("div");
     foodNumBtns.classList.add("food-number-button");
     foodNumBtns.innerHTML = `
-    <button id="plus">-</button>
-    <input id="num-food" type="number" value="1">
-    <button id="minus">+</button>
+    <button id="minus" onclick="subtractFoodQuantity()">-</button>
+    <input id="num-food" type="text" value="1" onkeypress="return onlyNumberKey(event)" onchange="checkFoodQuantity()">
+    <button id="plus" onclick="addFoodQuantity()">+</button>
     `;
 
     let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
@@ -622,3 +622,66 @@ function blurControl(){
       containerElement.setAttribute('class', 'blur');
   }
 }//end blurControl
+
+
+
+/**
+ * addFoodQuantity - increase the food quantity in the food modal by 1
+ */
+function addFoodQuantity() {
+    let currentQuantity = document.getElementById("num-food").value;
+    let foodQuantity = document.getElementById("num-food");
+    currentQuantity = parseInt(currentQuantity) + 1;
+    foodQuantity.setAttribute("value", currentQuantity);
+}
+
+
+
+/**
+ * subtractFoodQuantity - decrease the food quantity in the food modal by 1
+ *                        the quantity will not be updated if the current quantity is less than or equal to 1.
+ */
+function subtractFoodQuantity() {
+  let currentQuantity = document.getElementById("num-food").value;
+  let foodQuantity = document.getElementById("num-food");
+  
+  if (currentQuantity >= 2){
+    currentQuantity = parseInt(currentQuantity) - 1;
+  }
+
+  foodQuantity.setAttribute("value", currentQuantity);
+}
+
+
+
+function onlyNumberKey(evt) { 
+  // Only ASCII charactar in that range allowed 
+  var ASCIICode = (evt.which) ? evt.which : evt.keyCode 
+  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) 
+      return false; 
+  return true; 
+} 
+
+
+function checkFoodQuantity(){
+    let foodQuantity = document.getElementById("num-food");
+    let currentQuantity = parseInt(foodQuantity.value);
+    if(currentQuantity === 0 ){
+      foodQuantity.setAttribute("value", 1);
+    }
+}
+
+
+function checkValidMonth() {
+    let expiryMonth = document.getElementById("expiry-month");
+    if(parseInt(expiryMonth.value) < 1 || parseInt(expiryMonth.value) > 12 || (expiryMonth.value).length === 1 ){
+      alert("Invalid Input");
+    }
+}
+
+function checkValidYear() {
+  let expiryMonth = document.getElementById("expiry-year");
+  if( parseInt(expiryMonth.value) < 20 || (expiryMonth.value).length === 1 ){
+    alert("Invalid Input");
+  }
+}
