@@ -552,6 +552,7 @@ function closeMenuModal() {
   modal.style.display = "none";
   blurControl();
   modalOn = false;  
+  isRadiobtnClicked = false;
 } //end closeMenuModal
 
 /**
@@ -669,19 +670,4 @@ function checkFoodQuantity(){
     if(currentQuantity === 0 ){
       foodQuantity.setAttribute("value", 1);
     }
-}
-
-
-function checkValidMonth() {
-    let expiryMonth = document.getElementById("expiry-month");
-    if(parseInt(expiryMonth.value) < 1 || parseInt(expiryMonth.value) > 12 || (expiryMonth.value).length === 1 ){
-      alert("Invalid Input");
-    }
-}
-
-function checkValidYear() {
-  let expiryMonth = document.getElementById("expiry-year");
-  if( parseInt(expiryMonth.value) < 20 || (expiryMonth.value).length === 1 ){
-    alert("Invalid Input");
-  }
 }

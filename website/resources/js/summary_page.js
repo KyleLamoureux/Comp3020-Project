@@ -88,6 +88,10 @@ function payOrder(){
   }
 
 
+  checkValidMonth();
+  checkValidYear();
+
+
 }//end payOrder
 
 /**
@@ -152,3 +156,18 @@ function displayTotalPrice(){
     document.getElementById("total").innerHTML = (totalPrice + (totalPrice * (gstRate + pstRate)) + deliveryFee).toFixed(2);
     
 }// end displayTotalPrice
+
+
+function checkValidMonth() {
+  let expiryMonth = document.getElementById("expiry-month");
+  if(parseInt(expiryMonth.value) < 1 || parseInt(expiryMonth.value) > 12 || (expiryMonth.value).length === 1 ){
+    alert("Invalid Input");
+  }
+}
+
+function checkValidYear() {
+let expiryMonth = document.getElementById("expiry-year");
+if( parseInt(expiryMonth.value) < 20 || (expiryMonth.value).length === 1 ){
+  alert("Invalid Input");
+}
+}
