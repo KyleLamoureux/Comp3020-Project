@@ -374,7 +374,7 @@ margin: 0;
     padding: 10px;
     margin: 3px 3px;
     overflow-y: auto;
-    min-height:30vh;
+    min-height:25vh;
     flex-grow: 30;
 }
 

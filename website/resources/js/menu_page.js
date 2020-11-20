@@ -160,6 +160,8 @@ function openFoodModal(event){
   let foodItemImage = null;
   //let foodItemDescription = null;
   let foodItemPrice = null;
+  let foodItemOptions = null;
+
   if(!modalOn){
     
     let fromEditClick = false;
@@ -168,6 +170,7 @@ function openFoodModal(event){
     let edtFoodTitle = edtFoodItem.editFoodTitle;
     let edtFoodPrice = edtFoodItem.editFoodPrice;
     let edtFoodImage = edtFoodItem.editFoodImage;
+    let edtFoodOptionsDiv = edtFoodItem.editFoodOptionsDiv;
 
     if(edtFoodTitle === undefined && edtFoodPrice === undefined && edtFoodImage === undefined){
       console.log("edit button is not clicked.");
@@ -185,8 +188,7 @@ function openFoodModal(event){
     }//end if-else
     
     
-
-    let foodItemOptions = item.get(0).options;
+    foodItemOptions = item.get(0).options;
     //TODO : DISPLAY THE DATA IN HTML. 
     let foodOptionsDiv = document.createElement("div");//wrapper for the food options.
     foodOptionsDiv.classList.add("food-options");
@@ -295,15 +297,23 @@ function openFoodModal(event){
     }//end if-else
     
     modal.innerHTML = foodModalContent;
-    modal.append(foodOptionsDiv);
+    if(edtFoodOptionsDiv === undefined){
+      modal.append(foodOptionsDiv);
+    }else{
+      modal.append(edtFoodOptionsDiv);
+    }
+
     modal.append(foodNumBtns);
     modal.append(buttonsDiv);
     modal.style.display = "block";
     blurControl();
     modalOn = true;
 
-    addFunctionality(foodItemImage);
-  }
+    ///fooditemprice needed to get the brackets when edit button is clicked.
+    addFunctionality(foodItemImage,foodOptionsDiv,foodItemPrice);
+  }//end if
+
+
 }//end openFoodModal
 
 /**
@@ -366,14 +376,17 @@ function updateFoodPrice(){
 
 /**
  * addFunctionality - implements the add to cart functionality when adding an item from the food modal.
+ * @param foodItemImage - contains the image of the food.
+ * @param foodOptionsDiv - the div that contains all the options (including the selected options) for the food item.
  */
-function addFunctionality(foodItemImage){
+function addFunctionality(foodItemImage,foodOptionsDiv,foodItemPriceDisplay){
   
   let addToCartButtons = document.getElementsByClassName("button-add-to-cart");  
   for(let i = 0; i < addToCartButtons.length; i++){
      let button = addToCartButtons[i];
      button.addEventListener('click',addToCartClicked);
      button.foodItemImg = foodItemImage;
+     button.foodItemOptions = foodOptionsDiv;
   }//end for
 }//end addFunctionality
 
@@ -390,6 +403,7 @@ function addToCartClicked(event){
   let foodItemTitle = foodModalInfo.getElementsByClassName("modal-food-title")[0].innerText;
   let foodItemPrice = foodModalInfo.getElementsByClassName("modal-food-price")[0].innerText;
   let foodItemImage = event.target.foodItemImg;
+  let foodItemOptions =event.target.foodItemOptions;
 
   //check if the price needs to be updated.
   foodItemPrice = foodItemPrice.replace("Price:","");
@@ -397,7 +411,7 @@ function addToCartClicked(event){
   let posTwo = foodItemPrice.indexOf(")");
 
   if(posOne === -1 || posTwo === -1){//no changes to the price
-    addItemToCart(foodItemTitle,foodItemPrice,foodItemImage);
+    addItemToCart(foodItemTitle,foodItemPrice,foodItemImage, foodItemOptions);
     //alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
   }else{
 
@@ -412,7 +426,7 @@ function addToCartClicked(event){
     console.log(typeof(updatePrice))
     let newPrice = originalPrice + updatePrice;
     newPrice = "Price: $" + newPrice.toFixed(2);
-    addItemToCart(foodItemTitle,newPrice,foodItemImage);
+    addItemToCart(foodItemTitle,newPrice,foodItemImage, foodItemOptions);
     //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
    
   }//end if-else
@@ -428,8 +442,9 @@ function addToCartClicked(event){
  * @param {*} foodItemTitle is the name of the food.
  * @param {*} foodItemPrice is the price of the food.
  * @param {*} foodItemImage  is the image of the food.
+ * @param {*} foodItemOptions is the options for the food including the selected options.
  */
-function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage){
+function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions){
   let cartRow = document.createElement("div");//row to be created
   cartRow.classList.add("cart-row");//get the css style for this div.
 
@@ -461,6 +476,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage){
   cartRow.getElementsByClassName("btn-edit")[0].title = foodItemTitle;
   cartRow.getElementsByClassName("btn-edit")[0].price = foodItemPrice;
   cartRow.getElementsByClassName("btn-edit")[0].image = foodItemImage;
+  cartRow.getElementsByClassName("btn-edit")[0].options = foodItemOptions;
 }//end addItemToCart
 
 /**
@@ -519,6 +535,8 @@ function editCartItem(event){
   foodItem.editFoodTitle = foodItem.title;
   foodItem.editFoodPrice = foodItem.price;
   foodItem.editFoodImage= foodItem.image;
+  foodItem.editFoodOptionsDiv = foodItem.options;
+  //console.log(foodItem.options.innerHTML);
 }//end editCartItem
 
  /**
