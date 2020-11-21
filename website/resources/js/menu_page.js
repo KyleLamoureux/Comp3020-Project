@@ -107,8 +107,9 @@ function addMenuCategory(categoryName, img){
   <div class="category-item">
   <img src="${img}" alt="${categoryName}">
   <div class="category-item-overlay">
-        <h5>${categoryName}</h5>
+          <p>${categoryName}</p>
   </div>
+
 
   </div>
   `;
