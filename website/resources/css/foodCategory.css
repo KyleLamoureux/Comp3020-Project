@@ -141,10 +141,6 @@
     transition: opacity 0.4s;
 }
 
-.greyoverlay{
-
-}
-
 .food-item-overlay:hover{
     opacity: 100%;
 }

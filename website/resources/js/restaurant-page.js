@@ -369,7 +369,7 @@ function createDivCat(element){
     var img = document.createElement("img");
     img.src = element["img"];
     img.alt = element["name"];
-    img.id = element["name"];
+    img.id = element["name"];x
 
     var overlay = document.createElement("div");
     overlay.className="food-item-overlay";

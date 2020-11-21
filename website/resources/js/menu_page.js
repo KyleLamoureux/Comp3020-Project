@@ -29,7 +29,7 @@ function main(){
         for(let category in menus[restaurant]){
           if(menus[restaurant].hasOwnProperty(category)){
               //category categories
-              addMenuCategory(category);
+              addMenuCategory(category, menus[restaurant][category][0].image);
               //food item list for each category.
               let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
               for(let j = 0; j < categoryFoodItems.length; j++){
@@ -97,7 +97,7 @@ function presetDish(){
  * addMenuCategory - a function that adds menu category 'orb' to the menu page.
  * @param {*} categoryName the category that will be added to the menu page.
  */
-function addMenuCategory(categoryName){
+function addMenuCategory(categoryName, img){
   let categoryDiv = document.getElementsByClassName("scrollbar-category")[0];
   let aTag = document.createElement("a");
   aTag.href = "#category_"+categoryName;
@@ -105,7 +105,11 @@ function addMenuCategory(categoryName){
 
   let aTagContent = `
   <div class="category-item">
-  <h5>${categoryName}</h5>
+  <img src="${img}" alt="${categoryName}">
+  <div class="category-item-overlay">
+        <h5>${categoryName}</h5>
+  </div>
+
   </div>
   `;
 
