@@ -1,0 +1,220 @@
+.hr-line{
+    border: none;
+    /*margin: 50px 200px;*/
+    margin: 8vh 10vw 3vh 10vw;
+    width: 80vw;
+    height: 5px;
+    background: linear-gradient(to right, black, #FF5C00);
+    border-radius: 10px;
+}
+
+.celeb-title{
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 3em;
+    color: #083755;
+}
+
+.chevron2{
+    color:black;
+    font-size: 100px;
+    /*     opacity: 65%;
+        margin-top: -25px; */
+    margin: 17vh 0 0 0;
+    /*top:10%;*/
+    opacity: 65%;
+    outline: none;
+    transition: opacity 0.2s;
+}
+
+.chevron2:hover{
+    opacity: 100%;
+}
+
+.slick-disabled {
+    opacity: 0;
+    pointer-events:none;
+}
+
+
+
+.celebritycontainer {
+    margin: 0 auto;
+    padding: 1vw;
+    width: 80%;
+    /*border: 1px solid red;*/
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+/*.slick-slide {*/
+/*    text-align: center;*/
+/*    color: #419be0;*/
+/*}*/
+
+.celeb-scroll{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 95%;
+    margin: 0 auto;
+    /*margin: 0 0.5vw;*/
+    justify-content: center;
+    /*width: 55vw;*/
+    /*height: 8vw;*/
+    /*border: 1px solid black;*/
+    /*overflow: hidden;*/
+}
+
+.celeb-area{
+    /*display: flex;*/
+    /*color: #333;*/
+    /*padding: 13px;*/
+    /*min-width: 7vw;*/
+    /*margin: 0 0 0 -0.4vw;*/
+    /*margin: 0 1vw;*/
+    /*min-height: 7vw;*/
+    position: relative;
+    outline: none;
+    width: 65vw;
+    height: 60vh;
+    margin-left: 5vw;
+    padding-left: 5.7vw;
+    max-width: 65vw;
+    /*max-height: 20vw;*/
+    /*border: 1px solid darkgreen;*/
+
+    /*font-family: CoreSans, sans-serif;*/
+    /*text-decoration: none;*/
+    /*border-radius: 50%;*/
+}
+
+.content-circle{
+    background: #F6B78A;
+    border-radius: 50%;
+    width: 25vw;
+    padding-top: 0.5vh;
+    height: 25vw;
+    left: 20vw;
+    margin:0;
+    /*right: 15vw;*/
+    /*top: 5vw;*/
+    position: relative;
+}
+
+.content{
+    /*position: absolute;*/
+    /*width: 20em;*/
+    margin-top: 2vh;
+    margin-left: 5vw;
+    margin-right: 2vw;
+    padding-top: 2vh;
+    /*border: 1px solid black;*/
+    /*height: auto;*/
+    /*height: 20vh;*/
+    text-align: left;
+    right: 10vw;
+    /*transform: translateY(55%);*/
+    /*padding-left: 2em;*/
+}
+
+/*.content button{*/
+/*    outline: none;*/
+/*    border: none;*/
+/*    border-radius: 15px;*/
+/*    margin-top: 3vw;*/
+/*    margin-left: 2vw;*/
+/*    padding: 5px 10px;*/
+/*    background-color: #FF5C00;*/
+/*}*/
+
+
+
+.content button{
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    padding: 7px 13px;
+    /*float: right;*/
+    border-radius: 50px;
+    background: #FF5C00;
+    /*align-items: center;*/
+    justify-content: center;
+    /*display: flex;*/
+    margin-top: 3vw;
+    margin-left: 2vw;
+    transition: 0.2s ease;
+}
+.content b{
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color:#5e3787;
+    font-weight: 900;
+}
+
+.content button:hover{
+    color: white;
+    background: #cf4c00;
+    cursor: pointer;
+}
+
+.content .img1{
+    float: left;
+    width: 4vw;
+    height: 4vw;
+    margin-left: 0;
+    margin-top: 2vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.content .img2{
+    float: left;
+    max-width: 7vw;
+    max-height: 3.5vw;
+    margin-left: -0.3vw;
+    margin-top: 2.6vw;
+    object-fit: contain;
+    border-radius: 15px;
+}
+
+.content .img3{
+    float: left;
+    max-width: 8.1vw;
+    max-height: 4.5vw;
+    margin-left: 0;
+    margin-top: 3.15vw;
+    object-fit: contain;
+    border-radius: 15px;
+    padding: 5px 10px;
+    /*clip-path: circle();*/
+    background-color: white;
+    /*border-radius: 50%;*/
+}
+
+.content h1{
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    color: #FF5C00;
+}
+
+.content p{
+    font-family: "Open Sans", sans-serif;
+    font-size: 16px;
+    color: #083755;
+}
+
+.celeb-photo{
+    background: #FF5C00;
+    width: 25vw;
+    height: 25vw;
+    overflow: hidden;
+    max-width: 25vw;
+    max-height: 25vw;
+    object-fit: cover;
+    clip-path: circle();
+    position: absolute;
+}

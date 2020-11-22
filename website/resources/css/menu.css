@@ -313,7 +313,7 @@ input::-webkit-inner-spin-button {
 margin: 0;
 }
 
-.add-to-cart {
+.modify-cart {
     position: absolute;
     display: inline;
     top: 75%;
@@ -331,6 +331,8 @@ margin: 0;
     margin-top: 10px;
     border-radius: 10px;
     font-size: 16px;
+    border: 1px solid #333;
+
 }
 
 
@@ -343,6 +345,21 @@ margin: 0;
     margin-top: 10px;
     border-radius: 10px;
     font-size: 16px;
+    border: 1px solid #333;
+
+}
+
+.button-save-to-cart {
+    height: 50px;
+    width: 170px;
+    text-align: center;
+    border: none;
+    background-color: lightgray;
+    margin-top: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    border: 1px solid #333;
+
 }
 
 
@@ -364,7 +381,7 @@ margin: 0;
     padding: 10px;
     margin: 3px 3px;
     overflow-y: auto;
-    min-height:30vh;
+    min-height:25vh;
     flex-grow: 30;
 }
 
