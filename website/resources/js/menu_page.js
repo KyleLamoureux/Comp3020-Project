@@ -878,8 +878,8 @@ function blurControl(){
  * addFoodQuantity - increase the food quantity in the food modal by 1
  */
 function addFoodQuantity() {
-    let currentQuantity = document.getElementById("num-food").value;
-    let foodQuantity = document.getElementById("num-food");
+    let currentQuantity = document.getElementsByClassName("num-food-input")[0].value;
+    let foodQuantity = document.getElementsByClassName("num-food-input")[0];
     currentQuantity = parseInt(currentQuantity) + 1;
     foodQuantity.setAttribute("value", currentQuantity);
 }
@@ -891,9 +891,8 @@ function addFoodQuantity() {
  *                        the quantity will not be updated if the current quantity is less than or equal to 1.
  */
 function subtractFoodQuantity() {
-  let currentQuantity = document.getElementById("num-food").value;
-  let foodQuantity = document.getElementById("num-food");
-  
+  let currentQuantity = document.getElementsByClassName("num-food-input")[0].value;
+  let foodQuantity = document.getElementsByClassName("num-food-input")[0];
   if (currentQuantity >= 2){
     currentQuantity = parseInt(currentQuantity) - 1;
   }
