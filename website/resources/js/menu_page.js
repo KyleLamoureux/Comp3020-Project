@@ -130,7 +130,8 @@ function addMenuCategoryTitle(categoryName){
 
   let menuCategoryID = "category_"+categoryName;
   let menuCategoryContent = `
-  <h3 id="${menuCategoryID}" class="menu-category-name">${categoryName}</h3>
+  <div class="huh"></div>
+  <h3 id="${menuCategoryID}" class="menu-category-namee">${categoryName}</h3>
   <hr class="menu-category-name-underlined">
   <div class="menu-category-grouped-items">
       <!--Food items for Appetizer are inserted in menu_page.js-->
@@ -158,7 +159,7 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItem
   //need to determine which category the food belongs to. 
   let index = 0;
   for(let i = 0; i < categoryNames.length; i++){
-    if(foodCategory === categoryNames[i].getElementsByClassName("menu-category-name")[0].innerText){
+    if(foodCategory === categoryNames[i].getElementsByClassName("menu-category-namee")[0].innerText){
       index = i;
     }//end if
   }//end for
