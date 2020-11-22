@@ -252,9 +252,9 @@ function openFoodModal(event){
     let foodNumBtns = document.createElement("div");
     foodNumBtns.classList.add("food-number-button");
     foodNumBtns.innerHTML = `
-    <button id="minus" onclick="subtractFoodQuantity()">-</button>
-    <input id="num-food" type="text" value="1" onkeypress="return onlyNumberKey(event)" onchange="checkFoodQuantity()">
-    <button id="plus" onclick="addFoodQuantity()">+</button>
+    <button class="minus-btn" onclick="subtractFoodQuantity()">-</button>
+    <input class="num-food-input" type="number" value="1">
+    <button class="plus-btn" onclick="addFoodQuantity()">+</button>
     `;
 
     let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
@@ -269,8 +269,9 @@ function openFoodModal(event){
     modal.style.display = "block";
     blurControl();
     modalOn = true;
-
+  
     addFunctionality(foodItemImage,foodOptionsDiv);
+    quantityFunctionality();
     saveFunctionality(foodItemTitle,foodItemPrice,listOfSelectedOptions);
   }//end if
 
@@ -466,6 +467,24 @@ function saveFunctionality(foodItemTitle,foodItemPrice,optionsSelected){
 
 }//end saveFunctionality.
 
+/**
+ * quantityFunctionality - implements the quantity functionality when a quantity is entered from the food modal.
+ */
+function quantityFunctionality(){
+  let quantityInputs = document.getElementsByClassName("num-food-input");
+  for(let i = 0; i < quantityInputs.length; i++){
+    let quantity = quantityInputs[i];
+    quantity.addEventListener('change',quantityChanged);
+ }//end for
+}//end quantityFunctionality
+
+
+function quantityChanged(event) {
+  let input = event.target
+  if (isNaN(input.value) || input.value <= 0) {
+      input.value = 1;
+  }
+}//end quantityChanged
 
 /**
  * addToCartClicked - event click listener when the add button is clicked in the food modal window. Also updates the cart subtotal.

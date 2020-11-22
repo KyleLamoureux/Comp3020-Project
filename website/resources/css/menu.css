@@ -294,14 +294,14 @@ a {
     text-align: center;
 }
 
-#plus, #minus, #num-food {
+.plus-btn, .minus-btn, .num-food-input {
     height: 50px;
     width: 50px;
     margin: 3px;
     text-align: center;
     font-size: 20px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid #333;
 }
 
 #num-food {
