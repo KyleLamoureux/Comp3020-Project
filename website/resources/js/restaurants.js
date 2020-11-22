@@ -99,27 +99,27 @@ restaurants = [
         backgroundColour: '#54301a'
     },
     {
-        name: "Muncho Burrito",
-        id: "muncho_burrito",
-        img: root+"/muncho_burrito/mbLogo.jpg",
+        name: "Mucho Burrito",
+        id: "mucho_burrito",
+        img: root+"/mucho_burrito/mbLogo.jpg",
         type: ['Mexican'],
         foodItems: [
             {
                 name: "Zesty Chimichurri",
-                img: root+"/muncho_burrito/signature/zesty.png",
-                restaurant: "Muncho Burrito",
+                img: root+"/mucho_burrito/signature/zesty.png",
+                restaurant: "Mucho Burrito",
                 dish: "Zesty Chimichurri Bowl"
             },
             {
                 name: "Chips & Salsa",
-                img: root+"/muncho_burrito/sides/salsa.jpg",
-                restaurant: "Muncho Burrito",
+                img: root+"/mucho_burrito/sides/salsa.jpg",
+                restaurant: "Mucho Burrito",
                 dish: "Tortilla Chips with Salsa"
             },
             {
                 name: "Build Your Own",
-                img: root+"/muncho_burrito/build_your_own/burrito.jpg",
-                restaurant: "Muncho Burrito",
+                img: root+"/mucho_burrito/build_your_own/burrito.jpg",
+                restaurant: "Mucho Burrito",
                 dish: "Build Your Own Burrito"
             }
         ],

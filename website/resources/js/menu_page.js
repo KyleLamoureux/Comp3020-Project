@@ -57,9 +57,37 @@ function main(){
 
   $(".menu-category-item").click(openFoodModal)
   
-  
-  if(localStorage.getItem('dish') !== null)
+  if(localStorage.getItem('celeb') !== null){
+    var celeb = localStorage.getItem('celeb');
+    localStorage.removeItem('celeb');
+    var title, price, image, options;
+    if("zendaya" === celeb){
+      title = "Build Your Own Burrito";
+      price = "$11.99";
+      image = "../resources/images/restaurant-page/restaurants/mucho_burrito/build_your_own/burrito.jpg";
+      options = celebs[celeb];
+      localStorage.setItem('dish', title);
+    }
+    else if("keanu" === celeb){
+      title = "Deluxe Chow Mein";
+      price = "$11.99";
+      image = "../resources/images/restaurant-page/restaurants/asia_palace/chow_mein/deluxe.jpg";
+      options = celebs[celeb];
+      localStorage.getItem('dish', title);
+    }
+    else if("kevin" === celeb){
+      title = "Build Your Own";
+      price = "Price: $12.24";
+      image = "../resources/images/restaurant-page/restaurants/boston_pizza/pizza/pizza.png";
+      options = celebs[celeb];
+      localStorage.getItem('dish', title);
+    }
+    addItemToCart(title, price, image, options)
+    document.getElementById(presetDish()).click();
+  }
+  else if(localStorage.getItem('dish') !== null){
     var orb = document.getElementById(presetDish()).click();
+  }
   
 }//end main
 
