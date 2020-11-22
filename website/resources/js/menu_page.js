@@ -57,6 +57,7 @@ function main(){
 
   $(".menu-category-item").click(openFoodModal)
   
+  // Avert your eyes chaps it's about to get gross
   if(localStorage.getItem('celeb') !== null){
     var celeb = localStorage.getItem('celeb');
     localStorage.removeItem('celeb');
