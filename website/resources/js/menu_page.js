@@ -515,6 +515,8 @@ function addToCartClicked(event){
     let foodItemPrice = foodModalInfo.getElementsByClassName("modal-food-price")[0].innerText;
     let foodItemImage = event.target.foodItemImg;
     let foodItemOptions =event.target.foodItemOptions;
+    let foodQuantity = foodModalInfo.getElementsByClassName("num-food-input")[0].value;
+    foodQuantity = parseFloat(foodQuantity);
 
     //check if the price needs to be updated.
     foodItemPrice = foodItemPrice.replace("Price:","");
@@ -522,7 +524,9 @@ function addToCartClicked(event){
     let posTwo = foodItemPrice.indexOf(")");
     
     if(posOne === -1 || posTwo === -1){//no changes to the price
-      addItemToCart(foodItemTitle,foodItemPrice,foodItemImage, foodItemOptions);
+      let newPrice = parseFloat(foodItemPrice.replace("$","")) * foodQuantity;
+      newPrice = "Price: $" + newPrice.toFixed(2);
+      addItemToCart(foodItemTitle,newPrice,foodQuantity,foodItemImage,foodItemOptions);
       //alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
     }else{
 
@@ -535,9 +539,10 @@ function addToCartClicked(event){
       updatePrice = parseFloat(updatePrice.replace("$",""));//convert to float
 
       //console.log(typeof(updatePrice))
-      let newPrice = originalPrice + updatePrice;
+      let newPrice = (originalPrice + updatePrice) * foodQuantity;
       newPrice = "Price: $" + newPrice.toFixed(2);
-      addItemToCart(foodItemTitle,newPrice,foodItemImage, foodItemOptions);
+
+      addItemToCart(foodItemTitle,newPrice, foodQuantity,foodItemImage, foodItemOptions);
       //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
     
     }//end if-else
@@ -725,10 +730,11 @@ function updateOptionsForCartItem(index){
  * addItemToCart - a function that adds the given information from the food modal to the cart.
  * @param {*} foodItemTitle is the name of the food.
  * @param {*} foodItemPrice is the price of the food.
+ * @param {*} foodQuantity is the quantity of the food.
  * @param {*} foodItemImage  is the image of the food.
  * @param {*} foodItemOptions is the div options content for the food including the selected options.
  */
-function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions){
+function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,foodItemOptions){
   let cartRow = document.createElement("div");//row to be created
   cartRow.classList.add("cart-row");//get the css style for this div.
 
@@ -740,7 +746,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions
   <div class="cart-item-info">
     <img class="cart-item-image" src="${foodItemImage}" alt=${foodItemTitle}>               
     <h4 class="cart-item-title">${foodItemTitle}</h4>
-    <div class="cart-item-quantity">Quantity: 1</div>
+    <div class="cart-item-quantity">Quantity: ${foodQuantity}</div>
   </div>
   `;
 
