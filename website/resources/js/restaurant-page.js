@@ -142,7 +142,7 @@ function createRestaurants(animate){
                 if (doIContain(element["type"], types))
                     eleList.appendChild(createRestListItem(element));
             });
-        }, 400);
+        }, 450);
     }
 
 
