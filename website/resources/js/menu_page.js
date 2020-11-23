@@ -16,8 +16,8 @@ const TYPE = "type";
 const DATA = "data";
 let modalOn = false;
 let isRadiobtnClicked = false;
-let listOfSelectedOptions =[];//list of selected options from the cart section.
 let selectedOptions = []; //selected options per cart item.
+let undoSelectOptions = []; //unchecked options that were checked before.
 let savedPrice = null;
 
 function main(){
@@ -272,7 +272,7 @@ function openFoodModal(event){
   
     addFunctionality(foodItemImage,foodOptionsDiv);
     quantityFunctionality();
-    saveFunctionality(foodItemTitle,foodItemPrice,listOfSelectedOptions);
+    saveFunctionality(foodItemTitle,foodItemPrice,selectedOptions);
   }//end if
 
 
@@ -363,6 +363,7 @@ function updateFoodPrice(){
   let priceDifference = 0;  
  
   selectedOptions = [];
+  undoSelectOptions = [];
 
   //for radiobtn
   let radioBtnDiv = document.getElementsByClassName("radio-button-option");
@@ -405,6 +406,12 @@ function updateFoodPrice(){
         if(!selectedOptions.includes(optionItemName[j].innerText)){
           //console.log("inserting (checkbox) " + optionItemName[j].innerText)
           selectedOptions.push(optionItemName[j].innerText);
+        }
+
+      }else{
+
+        if(!undoSelectOptions.includes(optionItemName[j].innerText)){
+          undoSelectOptions.push(optionItemName[j].innerText)
         }
 
       }
@@ -479,6 +486,9 @@ function quantityFunctionality(){
 }//end quantityFunctionality
 
 
+/**
+ * quantityChanged - function that makes invalid input default to 1.
+ */
 function quantityChanged(event) {
   let input = event.target
   if (isNaN(input.value) || input.value <= 0) {
@@ -491,7 +501,9 @@ function quantityChanged(event) {
  * @param{event} event will provide the information of the food-item in order to pass it to the cart section.
  */
 function addToCartClicked(event){
-  console.log("selected options are : " + selectedOptions);
+  console.log(" ");
+  console.log("addToCartClicked function");
+  
   let radioBtnDiv = document.getElementsByClassName("radio-button-option"); 
   //only lets the user add items to the cart if the radiobutton is clicked, or if there is no radiobutton in the food modal i.e. drinks.
   if(isRadiobtnClicked || radioBtnDiv.length === 0){
@@ -532,7 +544,11 @@ function addToCartClicked(event){
 
     updateCartTotal();
     closeMenuModal();
-
+    console.log("selectedOptions = " + selectedOptions);
+    console.log("undoselectoptions = " + undoSelectOptions);
+    selectedOptions = [];
+    undoSelectOptions = [];
+    
   }else{
     //TODO: change the message.
     alert("please select the following option.");
@@ -554,7 +570,7 @@ function saveClicked(event){
   
   let posOne = foodPrice.indexOf("(");
   let posTwo = foodPrice.indexOf(")");
-
+  console.log(" ");
   console.log("saveClicked function");
 
   if(posOne !== -1 && posTwo !== -1){
@@ -582,10 +598,14 @@ function saveClicked(event){
   console.log("and selected options are : " +selectedOptions);
   if(whichPosition !== -1){
     updateOptionsForCartItem(whichPosition);
-    
   }
   updateCartTotal();
   closeMenuModal();
+  console.log("selectedOptions = " + selectedOptions);
+  console.log("unSelectedOptions = " + undoSelectOptions);
+
+  selectedOptions = [];
+  undoSelectOptions = [];
 
 }//end saveClicked
 
@@ -648,21 +668,28 @@ function findCartItem(foodName,foodPrice,foodOptions){
  * @param index is the position of the cart item that needs to be updated.
  */
 function updateOptionsForCartItem(index){
-  console.log("UPDATE OPTIONS FOR CART ITEM FUNCTION");
+  console.log(" ");
+  console.log("updateOptionsForCartItem function");
+
   let cartItem = document.getElementsByClassName("cart-row")[index];
   //let cartItemName = cartItem.getElementsByClassName("cart-item-title")[0].innerText;
   let cartItemPrice = cartItem.getElementsByClassName("cart-price")[0];
-  let listOptions = cartItem.getElementsByClassName("list-options")[0];
-  console.log("length of list options is " + listOptions.length);
+  let ulTag = cartItem.getElementsByClassName("list-options")[0];
+  let liTag = cartItem.getElementsByClassName("list-option-item");
+  console.log("list length " + liTag.length);
+  if(liTag.length === selectedOptions.length){
+    console.log("NO NEW CHANGES!!")
+  }
+
   if(selectedOptions.length !== 0){//new changes
     //remove all the li tags before adding the new changes.
-    listOptions.innerHTML = ``; //remove the li tags
+    ulTag.innerHTML = ``; //remove the li tags
 
     for(let i = 0; i < selectedOptions.length; i++){
       let newOptionItem = document.createElement("li");
       newOptionItem.classList.add("list-option-item");
       newOptionItem.innerText = selectedOptions[i];
-      listOptions.append(newOptionItem);
+      ulTag.append(newOptionItem);
     }//end for
 
     let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0].innerText;
@@ -670,15 +697,22 @@ function updateOptionsForCartItem(index){
   
     let posOne = originalPrice.indexOf("(");
     let posTwo = originalPrice.indexOf(")");
-    let additionalPrice = originalPrice.substring(posOne + 1,posTwo).replace("$","");
 
-    //convert to float
+    if(posOne === -1 && posTwo === -1){
+      cartItemPrice.innerText = "$" + originalPrice;//no additions selected
+    }else{
 
-    originalPrice = parseFloat(originalPrice);
-    additionalPrice = parseFloat(additionalPrice);
-    let totalPrice = (originalPrice + additionalPrice).toFixed(2);
-    //console.log("originalprice " + originalPrice + ", additionalPrice " + additionalPrice + " = " + totalPrice);
-    cartItemPrice.innerText = "$" + totalPrice;
+      let additionalPrice = originalPrice.substring(posOne + 1,posTwo).replace("$","");
+      //convert to float
+      originalPrice = parseFloat(originalPrice);
+      additionalPrice = parseFloat(additionalPrice);
+      let totalPrice = (originalPrice + additionalPrice).toFixed(2);
+      //console.log("originalprice " + originalPrice + ", additionalPrice " + additionalPrice + " = " + totalPrice);
+      cartItemPrice.innerText = "$" + totalPrice;
+
+    }//end nested-f-else
+    
+   
   }//end if
   
 
@@ -787,10 +821,6 @@ function closeMenuModal() {
   blurControl();
   modalOn = false;  
   isRadiobtnClicked = false;
-  //BUG: find a way to save the selected options in order to check it when "save" btn is clicked.
-  listOfSelectedOptions.push(selectedOptions);
-  console.log("LIST OF SELECTED OPTIONS: " + listOfSelectedOptions);
-  selectedOptions = [];
 } //end closeMenuModal
 
 /**
@@ -798,10 +828,15 @@ function closeMenuModal() {
  * @param {*} event 
  */
 function removeCartItem(event){
+  console.log(" ");
+  console.log("removeCartItem function: ");
+
   let buttonClicked = event.target;
   if(confirm("Do you want to delete the order " + buttonClicked.title + "?")){
-  buttonClicked.parentElement.parentElement.parentElement.remove();
-  updateCartTotal();//update the subtotal after removing an item.
+    let cartItem = buttonClicked.parentElement.parentElement.parentElement;
+
+    cartItem.remove();
+    updateCartTotal();//update the subtotal after removing an item.
   }
 }//end removeCartItem
 
@@ -815,10 +850,10 @@ function editCartItem(event){
   foodItem.editFoodTitle = foodItem.title;
   foodItem.editFoodImage= foodItem.image;
   foodItem.editFoodOptionsDiv = foodItem.options;
-
+  
   if(savedPrice !== null){//price has been modified with the selected options.
     savedPrice = savedPrice.replace("Price: ","");
-    console.log("saved price is " + savedPrice)
+    //console.log("saved price is " + savedPrice)
     foodItem.editFoodPrice = savedPrice;
   }else{
     foodItem.editFoodPrice = foodItem.price;
