@@ -103,20 +103,49 @@ function createSearchedRestaurants(query){
     }
 }
 // Call this to refresh restaurants UI
-function createRestaurants(){
+function createRestaurants(animate){
     var eleList = document.getElementById("restaurant-ul");
-    clearDiv(eleList);
 
-    types = hiddenTypes();
+    var types = hiddenTypes();
     if (activeCategories.length !== allCats().length){
         types = activeCategories;
     }
 
-    eleList.appendChild(createRandomization());
-    restaurants.forEach(element => {
-        if (doIContain(element["type"], types))
-            eleList.appendChild(createRestListItem(element));
-    });
+    if(arguments.length===0 || !animate){
+        var el = document.getElementById("restaurant-ul");
+        clearDiv(el);
+        el.appendChild(createRandomization());
+
+        restaurants.forEach(element => {
+            if (doIContain(element["type"], types))
+                eleList.appendChild(createRestListItem(element));
+        });
+    }else{
+        console.log("heyy");
+        // eleList.childNodes.forEach(function () {
+        //     console.log("yupp");
+        // })
+        $(".restaurant-li").each(function(){
+            console.log($(this).data("type"));
+            var data = $(this).data("type");
+            if(data !== undefined && !doIContain($(this).data("type"), types)){
+                $(this).css("opacity", "0%");
+            }
+        });
+
+        window.setTimeout(function () {
+            var el = document.getElementById("restaurant-ul");
+            clearDiv(el);
+            el.appendChild(createRandomization());
+
+            restaurants.forEach(element => {
+                if (doIContain(element["type"], types))
+                    eleList.appendChild(createRestListItem(element));
+            });
+        }, 400);
+    }
+
+
 
 };
 
@@ -222,6 +251,7 @@ function clearSearch(){
 // Creates li.
 function createRestListItem(element){
     var li = document.createElement("li");
+    $(li).data("type", element["type"]);
     li.className = "restaurant-li";
 
     // Create sub div
@@ -266,7 +296,7 @@ function createRestListItem(element){
     route.id = element['name'];
     route.onclick = proceedToMenu;
     route.innerText = "Proceed To Menu";
-    route.style.textDecoration = "underline"
+    route.style.textDecoration = "underline";
     imgOverlay = appendMultiple(imgOverlay, [restName, desc, route]);
 
     // Combine
@@ -311,7 +341,12 @@ function createItemOrb(element, random=false, color=false){
     return div;
 }
 
-
+/**
+ * Indicates whether or not, before a filter was applied,
+ * whether or not 'vanilla' sorting is active.
+ * Vanilla sorting = everything shown.
+ */
+let vanilla=true;
 // Call this to refresh categories UI
 function createCategories(){
     var eleList = document.getElementById("scollbarFoodCategory");
@@ -342,19 +377,28 @@ function createCategories(){
                 }
             } 
         });
-        if(oneActive){
-            $(".cancelButton").css("visibility", "visible");
-        }else{
-            $(".cancelButton").css("visibility", "hidden");
-        }
-
         if (activeCategories.includes(event.target["id"])){
             activeCategories.splice(activeCategories.indexOf(event.target["id"]), 1);
         } else {
             activeCategories.push(event.target["id"]);
         }
+
+        if(oneActive){
+            $(".cancelButton").css("visibility", "visible");
+        }else{
+            $(".cancelButton").css("visibility", "hidden");
+        }
+        console.log(oneActive + ": " + vanilla);
+        if(oneActive && vanilla){
+            createRestaurants(true);
+        }else{
+            createRestaurants();
+        }
+        vanilla=!oneActive;
+
+
         //console.log(activeCategories);
-        createRestaurants();
+
     });
 
     $(".scrollbar-food-category").slick({
