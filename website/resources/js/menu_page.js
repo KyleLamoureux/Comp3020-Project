@@ -252,9 +252,7 @@ function openFoodModal(event){
     let foodNumBtns = document.createElement("div");
     foodNumBtns.classList.add("food-number-button");
     foodNumBtns.innerHTML = `
-    <button class="minus-btn" onclick="subtractFoodQuantity()">-</button>
     <input class="num-food-input" type="number" value="1">
-    <button class="plus-btn" onclick="addFoodQuantity()">+</button>
     `;
 
     let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
@@ -715,8 +713,8 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions
   <div class="cart-bottom-section">
     <h4 class="cart-price">${foodItemPrice}</h4>
     <div class="btn">
-      <button class="btn btn-remove" type="button">REMOVE</button>
-      <button class="btn btn-edit" type="button">EDIT</button>
+      <button class="btn btn-edit" type="button"><img src="../resources/images/edit.png"></button>
+      <button class="btn btn-remove" type="button"><img src="../resources/images/cancel.png"/></button>
     </div>  
   </div> 
   `;
@@ -800,7 +798,7 @@ function closeMenuModal() {
 function removeCartItem(event){
   let buttonClicked = event.target;
   if(confirm("Do you want to delete the order " + buttonClicked.title + "?")){
-  buttonClicked.parentElement.parentElement.parentElement.remove();
+  buttonClicked.parentElement.parentElement.parentElement.parentElement.remove();
   updateCartTotal();//update the subtotal after removing an item.
   }
 }//end removeCartItem
@@ -812,9 +810,9 @@ function editCartItem(event){
  // alert("edit btn has been clicked");
   let foodItem = event.target;
   foodItem.addEventListener("click",openFoodModal);//eidt btn is clicked
-  foodItem.editFoodTitle = foodItem.title;
-  foodItem.editFoodImage= foodItem.image;
-  foodItem.editFoodOptionsDiv = foodItem.options;
+  foodItem.editFoodTitle = foodItem.parentElement.title;
+  foodItem.editFoodImage= foodItem.parentElement.image;
+  foodItem.editFoodOptionsDiv = foodItem.parentElement.options;
 
   if(savedPrice !== null){//price has been modified with the selected options.
     savedPrice = savedPrice.replace("Price: ","");
