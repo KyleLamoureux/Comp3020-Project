@@ -35,13 +35,32 @@ function fillAddress(){
  */
 var lastSort = '';
 function sortby(type){
+    console.log($(this));
     try{
-        $()
+        $(".dropdownoption").children("div").text("")
         restaurants.sort((a,b) => (a[type] > b[type]) ? 1 : ((b[type] > a[type]) ? -1 : 0));
         if (lastSort == type){
             restaurants.reverse();
+            if(type ==='price'){
+                $("#pricediv").text("$$$");
+            }else if(type === 'distance'){
+                $("#distancediv").text("\u25B2");
+            }else if(type === 'popularity'){
+                $("#popdiv").text("\u25B2");
+            }else{
+                $("#timediv").text("\u25B2");
+            }
             lastSort = '';
         } else {
+            if(type ==='price'){
+                $("#pricediv").text("$");
+            }else if(type === 'distance'){
+                $("#distancediv").text("\u25BC");
+            }else if(type === 'popularity'){
+                $("#popdiv").text("\u25BC");
+            }else{
+                $("#timediv").text("\u25BC");
+            }
             lastSort = type;
         }
         var search = document.getElementById("searchbox").value;
