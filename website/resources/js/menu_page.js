@@ -20,6 +20,50 @@ let listOfSelectedOptions =[];//list of selected options from the cart section.
 let selectedOptions = []; //selected options per cart item.
 let savedPrice = null;
 
+loaded();
+
+function loaded(){
+  // Avert your eyes chaps it's about to get gross
+  if(localStorage.getItem('celeb') !== null){
+    var celeb = localStorage.getItem('celeb');
+    localStorage.removeItem('celeb');
+    var title, price, image, options;
+
+    var parser = new DOMParser();
+    var doc = parser.parseFromString(celebs[celeb], 'text/html');
+
+    if("zendaya" === celeb){
+      title = "Build Your Own Burrito";
+      price = "$11.99";
+      image = "../resources/images/restaurant-page/restaurants/mucho_burrito/build_your_own/burrito.jpg";
+      options = doc.body.children[0];
+      selectedOptions = [];
+      localStorage.setItem('dish', title);
+    }
+    else if("keanu" === celeb){
+      title = "Deluxe Chow Mein";
+      price = "$11.99";
+      image = "../resources/images/restaurant-page/restaurants/asia_palace/chow_mein/deluxe.jpg";
+      options = doc.body.children[0];
+      selectedOptions = [];
+      localStorage.getItem('dish', title);
+    }
+    else if("kevin" === celeb){
+      title = "Build Your Own";
+      price = "Price: $12.99";
+      image = "../resources/images/restaurant-page/restaurants/boston_pizza/pizza/pizza.png";
+      options = doc.body.children[0];
+      selectedOptions = ["Classic","Pepperoni","Bacon","Cheddar","Onions","Black Olives"];
+      localStorage.getItem('dish', title);
+    }
+    addItemToCart(title, price, image, options)
+    document.getElementById(presetDish()).click();
+  }
+  else if(localStorage.getItem('dish') !== null){
+    var orb = document.getElementById(presetDish()).click();
+  }
+}
+
 function main(){
   let removeCartItemButtons = document.getElementsByClassName("btn-remove");
 
@@ -60,38 +104,6 @@ function main(){
 
   $(".menu-category-item").click(openFoodModal)
   
-  // Avert your eyes chaps it's about to get gross
-  if(localStorage.getItem('celeb') !== null){
-    var celeb = localStorage.getItem('celeb');
-    localStorage.removeItem('celeb');
-    var title, price, image, options;
-    if("zendaya" === celeb){
-      title = "Build Your Own Burrito";
-      price = "$11.99";
-      image = "../resources/images/restaurant-page/restaurants/mucho_burrito/build_your_own/burrito.jpg";
-      options = celebs[celeb];
-      localStorage.setItem('dish', title);
-    }
-    else if("keanu" === celeb){
-      title = "Deluxe Chow Mein";
-      price = "$11.99";
-      image = "../resources/images/restaurant-page/restaurants/asia_palace/chow_mein/deluxe.jpg";
-      options = celebs[celeb];
-      localStorage.getItem('dish', title);
-    }
-    else if("kevin" === celeb){
-      title = "Build Your Own";
-      price = "Price: $12.24";
-      image = "../resources/images/restaurant-page/restaurants/boston_pizza/pizza/pizza.png";
-      options = celebs[celeb];
-      localStorage.getItem('dish', title);
-    }
-    addItemToCart(title, price, image, options)
-    document.getElementById(presetDish()).click();
-  }
-  else if(localStorage.getItem('dish') !== null){
-    var orb = document.getElementById(presetDish()).click();
-  }
   
 }//end main
 
@@ -724,6 +736,8 @@ function updateOptionsForCartItem(index){
  * @param {*} foodItemOptions is the div options content for the food including the selected options.
  */
 function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions){
+  console.log(foodItemPrice)
+  console.log(foodItemOptions)
   let cartRow = document.createElement("div");//row to be created
   cartRow.classList.add("cart-row");//get the css style for this div.
 

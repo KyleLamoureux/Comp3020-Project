@@ -154,7 +154,7 @@ const menus = {
             },
             {
                 name : 'The Everything',
-                description : 'Diced grilled ham, crimini mushrooms, tomatoes, onions, green peppers and American cheese – this classic omelet has it all!',
+                description : 'Diced grilled ham, crimini mushrooms, tomatoes, onions, green peppers and American cheese - this classic omelet has it all!',
                 price : 10.99,
                 image : mRoot+'/perkins/omelets/everything.jpg',
                 options : {
@@ -2029,148 +2029,147 @@ const menus = {
 
 
 celebs = {
-    "kevin" : `
-        <div class="food-options"><div class="checkbox-option"><h3 class="option-category">Protein</h3>
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Pepperoni" name="food-options" value="Pepperoni" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Pepperoni">Pepperoni</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$1.00</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Sausage" name="food-options" value="Sausage" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Sausage">Sausage</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$1.00</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Bacon" name="food-options" value="Bacon" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Bacon">Bacon</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$1.25</label>
-        </div>
-        </div><div class="radio-button-option"><h3 class="option-category">Sauce</h3>
-        <div class="food-option-name">
-        <input class="food-option-item-radiobtn" type="radio" id="Classic" name="food-options" value="Classic" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Classic">Classic</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">$0.00</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-radiobtn" type="radio" id="White" name="food-options" value="White" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="White">White</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">$0.00</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-radiobtn" type="radio" id="Spicy" name="food-options" value="Spicy" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Spicy">Spicy</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">$0.00</label>
-        </div>
-        </div><div class="checkbox-option"><h3 class="option-category">Extra Cheese</h3>
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Feta" name="food-options" value="Feta" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Feta">Feta</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$0.75</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Cheddar" name="food-options" value="Cheddar" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Cheddar">Cheddar</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$0.75</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Provolone" name="food-options" value="Provolone" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Provolone">Provolone</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$0.75</label>
-        </div>
-        </div><div class="checkbox-option"><h3 class="option-category">Toppings</h3>
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Onions" name="food-options" value="Onions" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Onions">Onions</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$0.50</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Mushrooms" name="food-options" value="Mushrooms" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Mushrooms">Mushrooms</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$0.50</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Black Olives" name="food-options" value="Black Olives" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Black Olives">Black Olives</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$0.50</label>
-        </div>
-        </div>
-        </div>`,
+    "kevin" : `<div class="food-options"><div class="checkbox-option"><h3 class="option-category">Protein</h3>
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Pepperoni" name="food-options" value="Pepperoni" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Pepperoni">Pepperoni</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$1.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Sausage" name="food-options" value="Sausage" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Sausage">Sausage</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$1.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Bacon" name="food-options" value="Bacon" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Bacon">Bacon</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$1.25</label>
+    </div>
+    </div><div class="radio-button-option"><h3 class="option-category">Sauce</h3>
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="Classic" name="food-options" value="Classic" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Classic">Classic</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="White" name="food-options" value="White" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="White">White</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="Spicy" name="food-options" value="Spicy" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Spicy">Spicy</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$0.00</label>
+    </div>
+    </div><div class="checkbox-option"><h3 class="option-category">Extra Cheese</h3>
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Feta" name="food-options" value="Feta" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Feta">Feta</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.75</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Cheddar" name="food-options" value="Cheddar" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Cheddar">Cheddar</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.75</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Provolone" name="food-options" value="Provolone" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Provolone">Provolone</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.75</label>
+    </div>
+    </div><div class="checkbox-option"><h3 class="option-category">Toppings</h3>
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Onions" name="food-options" value="Onions" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Onions">Onions</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.50</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Mushrooms" name="food-options" value="Mushrooms" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Mushrooms">Mushrooms</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.50</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Black Olives" name="food-options" value="Black Olives" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Black Olives">Black Olives</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.50</label>
+    </div>
+    </div></div>`,
 
-    "keanu": `
-        <div class="food-options"><div class="checkbox-option"><h3 class="option-category">Extras</h3>
+    "keanu": `<div class="food-options">
+    <div class="checkbox-option"><h3 class="option-category">Extras</h3>
         <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Double beef" name="food-options" value="Double beef" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Double beef">Double beef</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$4.00</label>
+            <input class="food-option-item-checkbox" type="checkbox" id="Double beef" name="food-options" value="Double beef" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double beef">Double beef</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$4.00</label>
         </div>
         
         <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Double chicken" name="food-options" value="Double chicken" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Double chicken">Double chicken</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$3.00</label>
-        </div>
-        
-        <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Double shrimp" name="food-options" value="Double shrimp" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Double shrimp">Double shrimp</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$4.00</label>
+            <input class="food-option-item-checkbox" type="checkbox" id="Double chicken" name="food-options" value="Double chicken" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double chicken">Double chicken</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$3.00</label>
         </div>
         
         <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Double scallop" name="food-options" value="Double scallop" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Double scallop">Double scallop</label>
-        </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$4.50</label>
+            <input class="food-option-item-checkbox" type="checkbox" id="Double shrimp" name="food-options" value="Double shrimp" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double shrimp">Double shrimp</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$4.00</label>
         </div>
         
         <div class="food-option-name">
-        <input class="food-option-item-checkbox" type="checkbox" id="Double squid" name="food-options" value="Double squid" onclick="updateFoodPrice()"> 
-        <label class="food-option-name-label" for="Double squid">Double squid</label>
+            <input class="food-option-item-checkbox" type="checkbox" id="Double scallop" name="food-options" value="Double scallop" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double scallop">Double scallop</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$4.50</label>
         </div>
-        <div class="food-option-price">
-        <label class="food-option-price-label">+$5.00</label>
+        
+        <div class="food-option-name">
+            <input class="food-option-item-checkbox" type="checkbox" id="Double squid" name="food-options" value="Double squid" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double squid">Double squid</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$5.00</label>
         </div>
-        </div></div>
+    </div>
+</div>
     `,
 
     "zendaya" : `
