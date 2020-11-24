@@ -94,8 +94,6 @@ function addMenuCategory(categoryName, img){
 
   let aTagContent = `
   <div class="category-item">
-  <img src="${img}" alt="${categoryName}">
-  <div class="category-item-overlay">
           <p>${categoryName}</p>
   </div>
 
