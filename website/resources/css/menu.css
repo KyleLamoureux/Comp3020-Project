@@ -153,7 +153,7 @@ a {
 
 .heading{
     display: flex;
-    align-items: left;
+    /*align-items: left;*/
     position: relative;
 }
 
@@ -165,7 +165,7 @@ a {
     height: auto;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
-    color: #fff; */
+    color: #fff;
 }
 
 /*.category-item h5{*/
@@ -202,7 +202,7 @@ a {
 :target {
     position: relative;
     display: block;
-    scroll-margin-top: 25vh; }
+    scroll-margin-top: 30vh; }
 
 
 .menu-category-namee{
@@ -211,7 +211,7 @@ a {
     font-size: 1.75em;
     color: #083755;
     font-weight: 520;
-     scroll-margin-top: 25vh;
+     scroll-margin-top: 30vh;
     /*top: -10vh;*/
     /*margin-top: -10vh;*/
     /*padding-top: 10vh;*/
@@ -236,7 +236,7 @@ a {
     border: none;
     /*margin: 50px 200px;*/
     height: 1px;
-    background: linear-gradient(to right, black, #FF5C00);
+    background: linear-gradient(to right, #FF5C00, black);
     border-radius: 10px;
 }
 
