@@ -5,7 +5,7 @@
 
 html, body{
     height: 100%;
-    background-color: #E5E5E5;
+    background-color: #E8E9EB;
 
 }
 
@@ -29,7 +29,11 @@ a {
     float: left;
     width: 67%;
     z-index: 100;
-    background-color: #fff;
+/*<<<<<<< Updated upstream*/
+/*    background-color: #fff;*/
+/*=======*/
+    /*height: 20vh;*/
+    background-color: #E0DFD5;
 }
 
 #menu-section{
@@ -37,7 +41,7 @@ a {
     width:70%;
     height: 100vh;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #E0DFD5;
     overflow-y: auto;
 }
 
@@ -92,12 +96,33 @@ a {
 .menu-category-name{
     display: block;
     font-size: 20px;
+    scroll-margin-top: 25vh;
+}
+
+.menu-category-namee{
+    display: inline-block;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.75em;
+    color: #083755;
+    font-weight: 520;
+    /*top: -10vh;*/
+    /*margin-top: -10vh;*/
+    /*padding-top: 10vh;*/
+    /*max-height: 3vh;*/
+}
+
+.huh{
+    height: 10px;
 }
 
 .menu-category-name-underlined{
-    width: 20%;
-    margin: 0;
-    margin-top: 10px;
+    width: 28%;
+    margin: 10px 0 0 0;
+    border: none;
+    /*margin: 50px 200px;*/
+    height: 1px;
+    background: linear-gradient(to right, black, #FF5C00);
+    border-radius: 10px;
 }
 
 .menu-categories{
@@ -132,7 +157,7 @@ a {
 .menu-category-item h5{
     text-align: center;
     margin-top: 5px;
-    overflow-x: none;
+    overflow-x: hidden;
 }
 
 .menu-category-item-image{
