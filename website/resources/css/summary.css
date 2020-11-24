@@ -223,10 +223,15 @@ label{
     /*outline: 2px solid black;*/
 }
 
+#summary-page-price{
+    text-align: center;
+}
+
 .order-info{
     margin-top:5px;
     font-size: 20px;
     text-align: right;
+    letter-spacing: 3px;
 }
 
 .order-price{
