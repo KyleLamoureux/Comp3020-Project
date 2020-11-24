@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Menu Page</title>
+        <title>OrbEat</title>
         <link rel="stylesheet" href="../resources/css/menu.css">
         <link rel="stylesheet" href="../resources/css/summary.css">
         <link rel="stylesheet" href="../resources/css/cart.css">
@@ -23,9 +23,11 @@
 
         <div id="background">
             <section id="menu-section">
-        
-                <div class= "categories">
-                    <h2 class="heading-text">Restaurant name</h2>
+                <div class= "categories">   
+                    <div class="heading">
+                        <h2 class="heading-text">Restaurant name</h2>   
+                        <p>4.8</p>
+                    </div>              
                 <hr>
                     <div class="scrollbar-category">
                         <!--category orbs here-->
@@ -40,15 +42,8 @@
             </section> <!--end menu section (left side)-->
     
             <section id="cart-section">
-                <h2 class="heading-text">Cart</h2>
+                <h2 class="cart-heading">Cart</h2>
                 <hr>
-    
-                <div class="cart-row">
-                    <span class="cart-item cart-header cart-title-column">Food Item</span>
-                    <span class="cart-price cart-header cart-title-column">Price</span>
-                    <span class="cart-modify cart-header cart-title-column">Remove</span>
-                </div>
-
                 <div class="order-div">
                     <div class="cart-items">
                         <!--list of cart items go here-->
@@ -60,6 +55,7 @@
                     <button class="btnCheckout" onclick="proceedCheckout()" type="button">Checkout</button>
                 </div>
 
+                <hr>
 
                 <div class="nutritional-info">
                     <div class="nutritional-info-checkbox">
@@ -74,12 +70,6 @@
                     </div>
                 </div>
 
-
-
-
-
-
-    
             </section><!--end cart section (right side)-->
             
         </div> <!--end background (Menu page)-->
@@ -97,7 +87,6 @@
         <div id="summary-page" class="modal">
             <!-- Order Summary page content -->
             <div class="modal-content">
-                <span class="close" onclick="cancelCheckout()">&times;</span>
                 <!--TODO: Put Summary html here-->
                 <div id="content">
                     <section id="left-side">
@@ -117,16 +106,16 @@
                             <hr>
                             <div id="user-input-group">
                                 <div id="user-inputs">
-                                    <input type="text" class="user-information" id="user-Name" placeholder="Enter First Name">
-                                    <input type="text" class="user-information" id="user-Phone" placeholder="Enter Last Name">
+                                    <input type="text" class="user-information" id="user-first-name" placeholder="Enter First Name">
+                                    <input type="text" class="user-information" id="user-last-name" placeholder="Enter Last Name">
                                     <input type="text" class="user-information" id="user-address" placeholder="Enter Address">
                                 </div> 
                                 <div id="user-card-info">
-                                    <input type="text" class="user-information" id="user-card" placeholder="16 digit card number">
-                                    <input type="text" class="user-information" id="user-securit-code" placeholder="Security code">
+                                    <input type="number" class="user-information" id="user-card" placeholder="16 digit card number">
+                                    <input type="number" class="user-information" id="user-security-code" placeholder="Security code">
                                     <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
-                                    <input type="number" class="expiry-date-information" id="expiry-year" placeholder="Year(YY)">
-                                    <input type="number" class="expiry-date-information" id="expiry-month" placeholder="Month(MM)">
+                                    <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)">
+                                    <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)">
                                 </div>
 
                             </div>
@@ -170,8 +159,8 @@
                                 </div>
 
                                 <div id="summary-page-buttons">
-                                    <button class="sum-page-button">Cancel</button>
-                                    <button class="sum-page-button">Pay</button>
+                                    <button class="sum-page-button" onclick="cancelCheckout()">Cancel</button>
+                                    <button class="sum-page-button" id="payment-btn" onclick="payOrder()">Pay</button>
                                 </div>
                             </div>
 

@@ -11,8 +11,25 @@ body{
     position: relative;
     background-size: cover;
     background-position: 50% 50%;
-/*     background-image: url("../resources/homepage_background.jpg"); */
     background-image: url("../images/homepage/homepage_background.jpg");
+}
+
+.homepage-logo{
+    display: inline-flex;
+    align-items: flex-end;
+    color: #FF5C00;
+    margin-bottom: 20em;
+    background-color: #F2EFE4;
+    border-radius: 50%;
+    font-family: 'Roboto', sans-serif;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    justify-content: center;
+    font-weight: bolder;
+    background-image: url("../images/web-logo.png");
+    background-size: 12em;
+    background-position: 50% -260%;
 }
 
 .homepage-content{
@@ -32,6 +49,7 @@ body{
     color: white;
     font-weight: 900;
     text-align: center;
+    position: absolute;
 }
 
 .bar-container{
@@ -40,8 +58,9 @@ body{
     height: 45px;
     width: 400px;
     border-radius: 50px;
-    position: relative;
+    position: absolute;
     padding: 0px 10px;
+    margin-top: 10em;
 }
 
 .bar-element{
