@@ -30,7 +30,7 @@ body{
     padding-left: 20px;
     justify-content: center;
     /*border: 1px solid black;*/
-    margin-right: 15vw;
+    /*margin-right: 15vw;*/
 /* } */
 /*     position: absolute; */
 /* }  */
@@ -47,7 +47,7 @@ body{
 /* .service{
     display:inline-block;
     margin-left: 18vw; */
-}
+/*}*/
 
 .search{
     border: 0.5px solid black;
