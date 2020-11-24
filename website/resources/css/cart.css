@@ -1,7 +1,8 @@
 .cart-header {
-    font-weight: bold;
     font-size: 18px;
-    color: #333;
+    color: #083755;
+    font-family: "Roboto", sans-serif;
+    font-weight: 510;
 }
 
 .cart-row {

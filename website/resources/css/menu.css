@@ -5,7 +5,7 @@
 
 html, body{
     height: 100%;
-    background-color: #E5E5E5;
+    background-color: #E8E9EB;
 
 }
 
@@ -43,6 +43,7 @@ a {
     width:70%;
     height: 100vh;
     box-sizing: border-box;
+/*     background-color: #E0DFD5; */
     background-color: #F2EFE4;
     overflow-y: auto;
 }
@@ -225,9 +226,14 @@ a {
     display: block;
     scroll-margin-top: 25vh; }
 
+
 .menu-category-namee{
     display: inline-block;
-    font-size: 20px;
+    font-family: "Roboto", sans-serif;
+    font-size: 1.75em;
+    color: #083755;
+    font-weight: 520;
+     scroll-margin-top: 25vh;
     /*top: -10vh;*/
     /*margin-top: -10vh;*/
     /*padding-top: 10vh;*/
@@ -247,9 +253,13 @@ a {
 /*}*/
 
 .menu-category-name-underlined{
-    width: 20%;
-    margin: 0;
-    margin-top: 10px;
+    width: 28%;
+    margin: 10px 0 0 0;
+    border: none;
+    /*margin: 50px 200px;*/
+    height: 1px;
+    background: linear-gradient(to right, black, #FF5C00);
+    border-radius: 10px;
 }
 
 .menu-categories{
@@ -288,7 +298,7 @@ a {
 .menu-category-item h5{
     text-align: center;
     margin-top: 5px;
-    overflow-x: none;
+    overflow-x: hidden;
 }
 
 .menu-category-item-image{
