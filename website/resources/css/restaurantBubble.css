@@ -97,6 +97,7 @@
     margin-top: 10px;
     text-decoration:none ;
     padding: 3px;
+    cursor: pointer;
 }
 .restaurant-image-overlay:hover{
     opacity: 1;/*show the text when image is hovered*/

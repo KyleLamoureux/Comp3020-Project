@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Menu Page</title>
+        <title>OrbEat</title>
         <link rel="stylesheet" href="../resources/css/menu.css">
         <link rel="stylesheet" href="../resources/css/summary.css">
         <link rel="stylesheet" href="../resources/css/cart.css">
@@ -23,9 +23,11 @@
 
         <div id="background">
             <section id="menu-section">
-        
-                <div class= "categories">
-                    <h2 class="heading-text">Restaurant name</h2>
+                <div class= "categories">   
+                    <div class="heading">
+                        <h2 class="heading-text">Restaurant name</h2>   
+                        <p>4.8</p>
+                    </div>              
                 <hr>
                     <div class="scrollbar-category">
                         <!--category orbs here-->
@@ -40,9 +42,8 @@
             </section> <!--end menu section (left side)-->
     
             <section id="cart-section">
-                <h2 class="heading-text">Cart</h2>
+                <h2 class="cart-heading">Cart</h2>
                 <hr>
-    
                 <div class="order-div">
                     <div class="cart-items">
                         <!--list of cart items go here-->
@@ -54,6 +55,7 @@
                     <button class="btnCheckout" onclick="proceedCheckout()" type="button">Checkout</button>
                 </div>
 
+                <hr>
 
                 <div class="nutritional-info">
                     <div class="nutritional-info-checkbox">

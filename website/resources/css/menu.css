@@ -29,7 +29,13 @@ a {
     float: left;
     width: 67%;
     z-index: 100;
-    background-color: #fff;
+    background-image: url("../images/Res-background/Olive-Garden.jpg");
+    background-color: rgba(0,0,0,.5);
+    background-size: cover; 
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-blend-mode: darken;
+    border-bottom-right-radius: 30px;
 }
 
 #menu-section{
@@ -37,14 +43,15 @@ a {
     width:70%;
     height: 100vh;
     box-sizing: border-box;
-    background-color: #fff;
+    background-color: #F2EFE4;
     overflow-y: auto;
 }
 
+#menu-section hr{
+    width: 80%;
+}
 /**Food category is done with scrollbar. Just need the option to click the image*/
 .scrollbar-category{
-    border: 0.5px solid #333;
-    border-radius: 10px;
     overflow-x: auto;
     height: auto;
     width: 90%;
@@ -59,26 +66,57 @@ a {
     align-items: center;
     justify-content: center;
     margin: 6px 0;
-    background: #333;
+    background: #e8e8e8;
     margin-left: 10px;
     margin-right: 3%;
-    color: #fff;
+    color: #083755;
     text-align: center;
     border-radius: 50%;
     width: 85px;
     height: 85px;
     text-decoration: none;
-    cursor: pointer;
-    box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transition: 0.2s ease;
+}
+
+.category-item:hover{
+    background:#c5c5c5;
+}
+
+.category-item:active{
+    background: rgb(223, 223, 223);
 }
 
 .category-item h5{
     font-size: 16px;
-    font-weight: lighter;    
+}
+
+.heading{
+    display: flex;
+    align-items: left;
+    position: relative;
+}
+
+.heading p{
+    background-color: #FF5C00;
+    align-self: center;
+    font-size: 18px;
+    width: 30px;
+    height: auto;
+    border-radius: 5px;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
 }
 
 .heading-text {
-    float: left;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+}
+
+.cart-heading{
+    color: black;
+    font-family: 'Roboto',sans-serif;
+    font-weight: bolder;
 }
 
 
@@ -166,6 +204,7 @@ a {
 
 .menu-category-item-image-overlay:hover{
     opacity: 1;/*show the text when image is hovered*/
+    cursor: pointer;
 }
 
 /*Animation: Text is pushed up when image is hovered*/
@@ -195,14 +234,13 @@ a {
 /*For Menu modal*/
 
 #menu-modal {
-    height: 700px;
-    width: 700px;
+    height: 500px;
+    width: 500px;
     border: 1px solid gray;
     background-color: #fff;
     border-radius: 50%;
-    display: none;
     position: fixed;
-    left: 25%;
+    left: 30%;
     top: 2%;
     z-index: 300;
     overflow: hidden;
@@ -224,7 +262,6 @@ a {
 }
 
 .modal-food-price {
-    font-size: 30px;
     margin-top: 10px;
 }
 
@@ -233,7 +270,7 @@ a {
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -241,8 +278,8 @@ a {
     position: absolute;
     top: 28%;
     left: 50%;
-    width: 550px;
-    max-height: 220px;
+    width: 400px;
+    max-height: 165px;
     overflow-y: scroll;
     transform: translateX(-50%);
     background-color: whitesmoke;
@@ -262,7 +299,7 @@ a {
 
 .checkbox-option, .radio-button-option{
     display: block;
-    width: 60%;
+    width: 95%;
     margin: 15px auto;
 }
 
@@ -294,14 +331,36 @@ a {
     text-align: center;
 }
 
-#plus, #minus, #num-food {
-    height: 50px;
-    width: 50px;
+#num-food {
+    height: 35px;
+    width: 70px;
     margin: 3px;
     text-align: center;
     font-size: 20px;
     border-radius: 10px;
-    border: none;
+    outline: none;
+}
+
+#plus, #minus {
+    height:30px;
+    width: 30px;
+    margin: 3px;
+    text-align: center;
+    font-size: 20px;
+    border-radius: 50%;
+    border: 3px solid black;
+    background: none;
+    outline: none;
+    font-weight: bolder;
+    transition: 0.2s ease;
+}
+
+#plus:hover, #minus:hover{
+    cursor: pointer;
+}
+
+#plus:active, #minus:active{
+    background: #c4c4c4;
 }
 
 #num-food {
@@ -315,7 +374,7 @@ margin: 0;
 
 .modify-cart {
     position: absolute;
-    display: inline;
+    display: inline-flex;
     top: 75%;
     left: 50%;
     transform: translateX(-50%);
@@ -324,21 +383,23 @@ margin: 0;
 
 .button-cancel-cart{
     height: 50px;
-    width: 170px;
+    width: 100px;
     text-align: center;
     border: none;
     background-color: lightgray;
     margin-top: 10px;
+    margin-left: 2em;
     border-radius: 10px;
     font-size: 16px;
     border: 1px solid #333;
-
+    outline: none;
+    transition: 0.2s ease;
 }
 
 
 .button-add-to-cart {
     height: 50px;
-    width: 170px;
+    width: 100px;
     text-align: center;
     border: none;
     background-color: lightgray;
@@ -346,7 +407,13 @@ margin: 0;
     border-radius: 10px;
     font-size: 16px;
     border: 1px solid #333;
+    outline: none;
+    transition: 0.2s ease;
+}
 
+.button-add-to-cart:hover, .button-cancel-cart:hover{
+    cursor: pointer;
+    background: #e4e4e4;
 }
 
 .button-save-to-cart {
@@ -383,6 +450,12 @@ margin: 0;
     overflow-y: auto;
     min-height:25vh;
     flex-grow: 30;
+    background: url("../images/shopping-cart.png");
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-color: #E5E5E5;
+    background-blend-mode: overlay;
+    background-position: 50% 50%;
 }
 
 #cart-section h2{
@@ -402,18 +475,32 @@ margin: 0;
     width: 100%;
     margin-top: 10px;
     margin-bottom: 10px;
-    display: inline-block;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checkout-div h4{
+    align-self: center;
+    font-size: 18px;
+    margin-right:-1em;
 }
 
 
 .btnCheckout{
-    margin-top: 10px;
-    padding: 3px;
-    width: 80%;
-    height: 40px;
-    border-radius: 10px;
-    border: 1px solid #333;
+    outline: none;
+    border: 2px solid black;
+    border-radius: 15px;
+    width: 40%;
+    height: 30%;
+    font-size: 24px;
+    background-color: #FF5C00;
+    margin-left: 5em;
+    transition: 0.2s ease;
 }
 
-
+.btnCheckout:hover{
+    color: white;
+    background: #cf4c00;
+    cursor: pointer;
+}
