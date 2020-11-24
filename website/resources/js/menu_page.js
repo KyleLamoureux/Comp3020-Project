@@ -255,9 +255,7 @@ function openFoodModal(event){
     let foodNumBtns = document.createElement("div");
     foodNumBtns.classList.add("food-number-button");
     foodNumBtns.innerHTML = `
-    <button class="minus-btn" onclick="subtractFoodQuantity()">-</button>
     <input class="num-food-input" type="number" value="${foodItemQuantity}">
-    <button class="plus-btn" onclick="addFoodQuantity()">+</button>
     `;
 
     let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
@@ -758,8 +756,8 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   <div class="cart-bottom-section">
     <h4 class="cart-price">${foodItemPrice}</h4>
     <div class="btn">
-      <button class="btn btn-remove" type="button">REMOVE</button>
-      <button class="btn btn-edit" type="button">EDIT</button>
+      <button class="btn btn-edit" type="button"><img src="../resources/images/edit.png"></button>
+      <button class="btn btn-remove" type="button"><img src="../resources/images/cancel.png"/></button>
     </div>  
   </div> 
   `;

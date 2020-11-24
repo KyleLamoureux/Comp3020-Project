@@ -45,7 +45,6 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg){
   </div>
   <div class="options">
     <ul class="list-options">
-    <h4>Options</h4>
       <li class="list-option-item">item 1</li>
       <li class="list-option-item">item 2</li>
       <li class="list-option-item">item 3</li>
