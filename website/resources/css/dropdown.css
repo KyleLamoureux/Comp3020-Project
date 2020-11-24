@@ -93,13 +93,23 @@
     z-index: -1;
 }
 
-.dropdown_menu li{
+.dropdownoption{
     display: none;
     color: white;
     background: #a34900;
     padding: 10px 20px;
     font-size: 1em;
     opacity: 0;
+}
+
+.dropdownoption div{
+    float: right;
+    /*background-color: black;*/
+    width: 25px;
+    font-size: 13px;
+    height: 25px;
+    color: white;
+    margin-right: -10px;
 }
 
 .dropdown_menu li:hover{
