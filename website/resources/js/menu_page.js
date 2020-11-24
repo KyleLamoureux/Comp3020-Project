@@ -55,7 +55,7 @@ function loaded(){
       selectedOptions = ["Classic","Pepperoni","Bacon","Cheddar","Onions","Black Olives"];
       localStorage.getItem('dish', title);
     }
-    addItemToCart(title, price, image, options)
+    addItemToCart(title, price, 1, image, options)
     document.getElementById(presetDish()).click();
   }
   else if(localStorage.getItem('dish') !== null){
@@ -778,7 +778,7 @@ function updateOptionsForCartItem(index){
  * @param {*} foodItemImage  is the image of the food.
  * @param {*} foodItemOptions is the div options content for the food including the selected options.
  */
-function addItemToCart(foodItemTitle,foodItemPrice,foodItemImage,foodItemOptions){
+function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,foodItemOptions){
   console.log(foodItemPrice)
   console.log(foodItemOptions)
   let cartRow = document.createElement("div");//row to be created
