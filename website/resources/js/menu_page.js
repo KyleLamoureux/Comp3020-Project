@@ -688,7 +688,7 @@ function updateOptionsForCartItem(index){
     for(let i = 0; i < selectedOptions.length; i++){
       let newOptionItem = document.createElement("li");
       newOptionItem.classList.add("list-option-item");
-      newOptionItem.innerText = selectedOptions[i];
+      newOptionItem.innerText = "- " + selectedOptions[i];
       ulTag.append(newOptionItem);
     }//end for
 
@@ -763,8 +763,8 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   <div class="cart-bottom-section">
     <h4 class="cart-price">${foodItemPrice}</h4>
     <div class="btn">
-      <button class="btn btn-edit" type="button" title="Edit"><img title ="editImage" src="../resources/images/edit.png"/></button>
-      <button class="btn btn-remove" type="button" title="Remove"><img title ="Remove" src="../resources/images/cancel.png"/></button>
+      <button class="btn btn-edit" type="button" title="Edit">Edit</button>
+      <button class="btn btn-remove" type="button" title="Remove">Remove</button>
     </div>  
   </div> 
   `;
@@ -792,10 +792,10 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   cartItems.append(cartRow);//add the new row to the last row.
   //add the functionality to the (new) remove button since its been added after the document has been loaded
   cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click",removeCartItem);
-  cartRow.getElementsByClassName("btn-remove")[0].title = foodItemTitle;
+  cartRow.getElementsByClassName("btn-remove")[0].foodTitle = foodItemTitle;
   //pass information from edit to the food modal.
   cartRow.getElementsByClassName("btn-edit")[0].addEventListener("click",editCartItem);
-  cartRow.getElementsByClassName("btn-edit")[0].title = foodItemTitle;
+  cartRow.getElementsByClassName("btn-edit")[0].foodTitle = foodItemTitle;
   cartRow.getElementsByClassName("btn-edit")[0].price = foodItemPrice;
   cartRow.getElementsByClassName("btn-edit")[0].image = foodItemImage;
   cartRow.getElementsByClassName("btn-edit")[0].quantity = foodQuantity;
@@ -849,7 +849,7 @@ function removeCartItem(event){
   console.log("removeCartItem function: ");
 
   let buttonClicked = event.target;
-  if(confirm("Do you want to delete the order " + buttonClicked.title + "?")){
+  if(confirm("Do you want to delete the order " + buttonClicked.foodTitle + "?")){
     let cartItem = buttonClicked.parentElement.parentElement.parentElement;
 
     cartItem.remove();
@@ -864,7 +864,7 @@ function editCartItem(event){
  // alert("edit btn has been clicked");
   let foodItem = event.target;
   foodItem.addEventListener("click",openFoodModal);//eidt btn is clicked
-  foodItem.editFoodTitle = foodItem.title;
+  foodItem.editFoodTitle = foodItem.foodTitle;
   foodItem.editFoodImage= foodItem.image;
   foodItem.editFoodQuantity= foodItem.quantity;
   foodItem.editFoodOptionsDiv = foodItem.options;

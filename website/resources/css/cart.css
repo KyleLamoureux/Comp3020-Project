@@ -76,6 +76,7 @@
 
 .list-option-item{
     margin-bottom: 3px;
+    font-size: 14px;
 }
 
 .list-option-item::after {
@@ -114,7 +115,7 @@
     margin-left: 10px;
 }
 
-
+/*
 .btn-remove img{
     width: 19px;
     height: 19px;
@@ -127,3 +128,4 @@
     height: 21px;
     background: transparent;
 }
+*/
