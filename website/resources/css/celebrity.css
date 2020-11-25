@@ -30,6 +30,7 @@
 
 .chevron2:hover{
     opacity: 100%;
+    cursor: pointer;
 }
 
 .slick-disabled {

@@ -54,6 +54,11 @@ a {
     padding-left: 5px;
 }
 
+.back-button:hover{
+    -webkit-filter: brightness(145%);
+    transition: 0.2s ease-in; 
+}
+
 .fa-chevron-circle-left::before {
     color: #FF5C00;
 }
