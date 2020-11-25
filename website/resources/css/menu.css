@@ -29,7 +29,7 @@ a {
     float: left;
     width: 67%;
     z-index: 100;
-    background-image: url("../images/Res-background/Olive-Garden.jpg");
+    /* background-image: url("../images/Res-background/Olive-Garden.jpg"); */
     background-color: rgba(0,0,0,.5);
     background-size: cover; 
     background-position: 50% 50%;
@@ -37,6 +37,16 @@ a {
     background-blend-mode: darken;
     border-bottom-right-radius: 30px;
 }
+
+/* How does one do this dynamically hummmmmmmmm */
+.perkins{ background-image: url("../images/Res-background/Perkins.jpg"); }
+.mcdonalds{ background-image: url("../images/Res-background/McDonalds.jpg"); }
+.olive_garden{ background-image: url("../images/Res-background/Olive-Garden.jpg"); }
+.mucho_burrito{ background-image: url("../images/Res-background/Mucho-Burrito.jpg"); }
+.asia_palace{ background-image: url("../images/Res-background/Asia-Palace.jpg"); }
+.kimchi_sushi{ background-image: url("../images/Res-background/Kimchi-sushi.jpg"); }
+.boston_pizza{ background-image: url("../images/Res-background/Boston-Pizza.jpg"); }
+.clay_oven{ background-image: url("../images/Res-background/Clay-Oven.jpg"); }
 
 #menu-section{
     float: left;
