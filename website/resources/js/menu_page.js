@@ -26,18 +26,19 @@ function loaded(){
   if(localStorage.getItem('celeb') !== null){
     var celeb = localStorage.getItem('celeb');
     localStorage.removeItem('celeb');
-    var title, price, image, options;
+    var title, price, image, options, nav;
 
     var parser = new DOMParser();
     var doc = parser.parseFromString(celebs[celeb], 'text/html');
 
     if("zendaya" === celeb){
       title = "Build Your Own Burrito";
-      price = "$11.99";
+      price = "$13.99";
       image = "../resources/images/restaurant-page/restaurants/mucho_burrito/build_your_own/burrito.jpg";
       options = doc.body.children[0];
-      selectedOptions = [];
+      selectedOptions = ["Beyond Meat", "Corn", "Rice", "Beans", "Grilled veg", "Lettuce", "Cheese", "Salsa", "Guacamole"];
       localStorage.setItem('dish', title);
+      nav = "hidden_category_Custom";
     }
     else if("keanu" === celeb){
       title = "Deluxe Chow Mein";
@@ -46,17 +47,19 @@ function loaded(){
       options = doc.body.children[0];
       selectedOptions = [];
       localStorage.getItem('dish', title);
+      nav = "hidden_category_Chow Mein";
     }
     else if("kevin" === celeb){
       title = "Build Your Own";
-      price = "Price: $12.99";
+      price = "Price: $16.99";
       image = "../resources/images/restaurant-page/restaurants/boston_pizza/pizza/pizza.png";
       options = doc.body.children[0];
-      selectedOptions = ["Classic","Pepperoni","Bacon","Cheddar","Onions","Black Olives"];
+      selectedOptions = ["Pepperoni","Bacon","Classic","Cheddar","Onions","Black Olives"];
       localStorage.getItem('dish', title);
+      nav = "hidden_category_Pizza";
     }
     addItemToCart(title, price, 1, image, options)
-    document.getElementById(presetDish()).click();
+    document.getElementById(nav).click();
   }
   else if(localStorage.getItem('dish') !== null){
     var orb = document.getElementById(presetDish()).click();
@@ -114,6 +117,8 @@ function presetDish(){
   var dishName = localStorage.getItem('dish');
   var restMenu = menus[localStorage.getItem('restaurant')];
   var keys = Object.keys(restMenu);
+
+  console.log(keys);
 
   keys.forEach(key => {
     restMenu[key].forEach(item => {
@@ -783,8 +788,6 @@ function updateOptionsForCartItem(index){
  * @param {*} foodItemOptions is the div options content for the food including the selected options.
  */
 function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,foodItemOptions){
-  console.log(foodItemPrice)
-  console.log(foodItemOptions)
   let cartRow = document.createElement("div");//row to be created
   cartRow.classList.add("cart-row");//get the css style for this div.
 
