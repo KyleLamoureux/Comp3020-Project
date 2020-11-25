@@ -40,7 +40,7 @@ function main(){
         for(let category in menus[restaurant]){
           if(menus[restaurant].hasOwnProperty(category)){
               //category categories
-              addMenuCategory(category);
+              addMenuCategory(category, menus[restaurant][category][0].image);
               //food item list for each category.
               let categoryFoodItems = menus[restaurant][category]; //list of food items from the category.
               for(let j = 0; j < categoryFoodItems.length; j++){
@@ -86,7 +86,7 @@ function presetDish(){
  * addMenuCategory - a function that adds menu category 'orb' to the menu page.
  * @param {*} categoryName the category that will be added to the menu page.
  */
-function addMenuCategory(categoryName){
+function addMenuCategory(categoryName, img){
   let categoryDiv = document.getElementsByClassName("scrollbar-category")[0];
   let aTag = document.createElement("a");
   aTag.href = "#category_"+categoryName;
@@ -94,7 +94,10 @@ function addMenuCategory(categoryName){
 
   let aTagContent = `
   <div class="category-item">
-  <h5>${categoryName}</h5>
+          <p>${categoryName}</p>
+  </div>
+
+
   </div>
   `;
 
@@ -114,7 +117,8 @@ function addMenuCategoryTitle(categoryName){
 
   let menuCategoryID = "category_"+categoryName;
   let menuCategoryContent = `
-  <h3 id="${menuCategoryID}" class="menu-category-name">${categoryName}</h3>
+  <div class="huh"></div>
+  <h3 id="${menuCategoryID}" class="menu-category-namee">${categoryName}</h3>
   <hr class="menu-category-name-underlined">
   <div class="menu-category-grouped-items">
       <!--Food items for Appetizer are inserted in menu_page.js-->
@@ -142,7 +146,7 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItem
   //need to determine which category the food belongs to. 
   let index = 0;
   for(let i = 0; i < categoryNames.length; i++){
-    if(foodCategory === categoryNames[i].getElementsByClassName("menu-category-name")[0].innerText){
+    if(foodCategory === categoryNames[i].getElementsByClassName("menu-category-namee")[0].innerText){
       index = i;
     }//end if
   }//end for
