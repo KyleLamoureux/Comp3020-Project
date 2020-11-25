@@ -407,11 +407,25 @@ a {
     top: 28%;
     left: 50%;
     width: 550px;
-    max-height: 220px;
+    max-height: 200px;
     overflow-y: scroll;
     transform: translateX(-50%);
     background-color: whitesmoke;
     border: black 2px solid;
+}
+
+#special-request-box {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    width: 550px;
+    min-height: 50px;
+    max-height: 100px;
+    overflow-y: scroll;
+    transform: translateX(-50%);
+    background-color: whitesmoke;
+    border: black 2px solid;
+    font-size: large;
 }
 
 ::-webkit-scrollbar {
@@ -453,7 +467,7 @@ a {
 
 .food-number-button {
     position: absolute;
-    top: 65%;
+    top: 75%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -480,19 +494,20 @@ a {
 
 .modify-cart {
     position: absolute;
-    top: 75%;
+    top: 85%;
     left: 50%;
+    width: 280px;
     transform: translateX(-50%);
 }
 
 
 .button-cancel-cart{
+    display: inline;
     height: 50px;
-    width: 170px;
+    width: 120px;
+    float: left;
     text-align: center;
-    border: none;
     background-color: lightgray;
-    margin-top: 10px;
     border-radius: 10px;
     font-size: 16px;
     border: 1px solid #333;
@@ -500,12 +515,12 @@ a {
 
 
 .button-add-to-cart {
+    display: inline;
     height: 50px;
-    width: 170px;
+    width: 120px;
+    float: right;
     text-align: center;
-    border: none;
     background-color: lightgray;
-    margin-top: 10px;
     border-radius: 10px;
     font-size: 16px;
     border: 1px solid #333;
@@ -519,9 +534,8 @@ a {
 
 .button-save-to-cart {
     height: 50px;
-    width: 170px;
+    width: 120px;
     text-align: center;
-    border: none;
     background-color: lightgray;
     margin-top: 10px;
     border-radius: 10px;
