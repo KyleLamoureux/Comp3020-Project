@@ -15,7 +15,14 @@ function getOrderedItems(){
         let cartItemImg = cartItem.getElementsByClassName("cart-item-image")[0].src;
         let cartItemPrices = cartItemsDiv.getElementsByClassName("cart-price");//price is not inside the cartItem div
         let cartItemPrice = cartItemPrices[i].innerText;
-        displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg);
+        let cartItemQuantity = cartItem.getElementsByClassName("cart-item-quantity")[0].innerText;
+        let cartItemOptions = cartItem.getElementsByClassName("list-option-item");
+        let options = [];
+        for(let j = 0; j < cartItemOptions.length; j++){
+          options.push(cartItemOptions[j].innerText);
+        }
+        
+        displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options);
     }//end for
     displayTotalPrice();
   }//end getOrderedItems
@@ -25,37 +32,52 @@ function getOrderedItems(){
  * displayOrderedItem - display a single ordered item in the order summary section.
  * @param {*} cartItemTitle is the name of the food item.
  * @param {*} cartItemprice is the price of the food item.
+ * @param {*} cartItemQuantity is the quantity of the food item.
  * @param {*} cartItemImg  is the image of the food item.
+ * @param {*} options list of selected options.
  */
-function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemImg){
+function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options){
   let orderedListDiv = document.getElementById("ordered-list");
-  console.log("in display???")
+  //console.log("in display???")
 
   let orderedItemNames = document.getElementsByClassName("ordered-item-title");
 
-  //TODO: NEED TO FIX DUPLICATE CALCULATION
-  //console.log("no duplicate");
   let newOrderedItem = document.createElement("div");
   newOrderedItem.classList.add("order-row");  
-  let orderedItemContent = `
+
+  let topContent = `
   <div class="cart-item-info">
     <img class="cart-item-image" src="${cartItemImg}" alt=${cartItemTitle}>               
     <h4 class="cart-item-title">${cartItemTitle}</h4>
-  <div class="cart-item-quantity">Quantity: 1</div>
-  </div>
-  <div class="options">
-    <ul class="list-options">
-      <li class="list-option-item">item 1</li>
-      <li class="list-option-item">item 2</li>
-      <li class="list-option-item">item 3</li>
-      <li class="list-option-item">item 4</li>
-    </ul>
-  </div>
-  <div class="cart-bottom-section">
-    <h4 class="cart-price">${cartItemPrice}</h4>
+  <div class="cart-item-quantity">${cartItemQuantity}</div>
   </div>
   `;
-  newOrderedItem.innerHTML = orderedItemContent;
+  
+  //mid content
+  let optionDiv = document.createElement("div");
+  optionDiv.classList.add("options");
+
+  let ulTag = document.createElement("ul");
+  ulTag.classList.add("list-options");
+
+  for(let i = 0; i < options.length; i++){
+    let liTag = document.createElement("li");
+    liTag.classList.add("list-option-item");
+    liTag.innerText = options[i];
+    ulTag.append(liTag);
+  }//end for
+  optionDiv.append(ulTag);
+
+  //bot content
+  let botContent = `
+  <div class="cart-bottom-section">
+    <h4 class="cart-price">Price:${cartItemPrice}</h4>
+  </div>
+  `;
+
+  newOrderedItem.innerHTML = topContent;
+  newOrderedItem.append(optionDiv);
+  newOrderedItem.innerHTML += botContent;
   orderedListDiv.append(newOrderedItem);
 
 }//end displayOrderedItem
@@ -69,66 +91,20 @@ function payOrder(){
   let userAddress = document.getElementById("user-address").value;
   let userCard = document.getElementById("user-card").value;
   let userSecurityCode = document.getElementById("user-security-code").value;
+  let expiryYear = document.getElementById("expiry-year").value;
+  let expiryMonth = document.getElementById("expiry-month").value;
 
 
-  if(userFirstName.length === 0){
-    alert("Please enter your first name.");
-  }else if(userLastName.length ===0){
-    alert("Please enter your last name.");
-  }else if(userAddress.length === 0){
-    alert("Please enter your addres.");
-  }else if(userCard.length < 16){
-    alert("Please enter your 16 digit card number.");
-  }else if(userSecurityCode.length < 3){//TODO: make security code input box to store only 3 digits.
-    alert("Please enter your 3 digit security code.");
-  }else{
-    location.href = "../app/restaurant-page.html"
-    alert("Thank you for your purchase " + userFirstName + " " + userLastName + "!");
-  }
-
-
-  checkValidMonth();
-  checkValidYear();
-
+  if((userFirstName.length > 0 && userLastName.length > 0 
+      && userAddress.length > 0 && userCard.length  > 0
+      && userSecurityCode.length > 0 && expiryYear.length > 0
+      && expiryMonth > 0)){
+        console.log("worked?????");
+        window.location.href = "../app/restaurant-page.html"; 
+        return false;
+      }
 
 }//end payOrder
-
-/**
- * checkUserInput - check if user information is valid.
- */
-function checkUserInput(){
-
-  let userFirstName = document.getElementById("user-first-name").value;
-  let userLastName = document.getElementById("user-last-name").value;
-  let userAddress = document.getElementById("user-address").value;
-
-  if(userFirstName.length === 0){
-    alert("Please enter your first name.");
-  }else if(userLastName.length ===0){
-    alert("Please enter your last name.");
-  }else if(userAddress.length === 0){
-    alert("Please enter your addres.");
-  }
-
-}//end checkUserInput
-
-/**
- * checkUserCard - check if user's card info is valid.
- */
-function checkUserCard(){
-  let userCard = document.getElementById("user-card").value;
-  let userSecurityCode = document.getElementById("user-security-code").value;
-
-  //TODO: make security code input box to store only 3 digits.
-  if(userCard.length < 16){
-    alert("Please enter your 16 digit card number.");
-  }else if(userSecurityCode.length < 3){
-    alert("Please enter your 3 digit security code.");
-  }
-
-
-}//end displayOrderedItem
-
 
 
 /**
@@ -156,17 +132,3 @@ function displayTotalPrice(){
     
 }// end displayTotalPrice
 
-
-function checkValidMonth() {
-  let expiryMonth = document.getElementById("expiry-month");
-  if(parseInt(expiryMonth.value) < 1 || parseInt(expiryMonth.value) > 12 || (expiryMonth.value).length === 1 ){
-    alert("Invalid Input");
-  }
-}
-
-function checkValidYear() {
-let expiryMonth = document.getElementById("expiry-year");
-if( parseInt(expiryMonth.value) < 20 || (expiryMonth.value).length === 1 ){
-  alert("Invalid Input");
-}
-}

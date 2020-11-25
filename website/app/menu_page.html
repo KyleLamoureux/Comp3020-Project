@@ -89,9 +89,10 @@
             <div class="modal-content">
                 <!--TODO: Put Summary html here-->
                 <div id="content">
+                    <form>
                     <section id="left-side">
                         <div class="wrapper">
-                            <h2 class="heading-text">Order Summary</h2>
+                            <h2>Order Summary</h2>
                             <hr>
                             
                             <div id="ordered-list">
@@ -106,16 +107,16 @@
                             <hr>
                             <div id="user-input-group">
                                 <div id="user-inputs">
-                                    <input type="text" class="user-information" id="user-first-name" placeholder="Enter First Name">
-                                    <input type="text" class="user-information" id="user-last-name" placeholder="Enter Last Name">
-                                    <input type="text" class="user-information" id="user-address" placeholder="Enter Address">
+                                    <input type="text" class="user-information" id="user-first-name" placeholder="Enter First Name" required>
+                                    <input type="text" class="user-information" id="user-last-name" placeholder="Enter Last Name" required>
+                                    <input type="text" class="user-information" id="user-address" placeholder="Enter Address" required>
                                 </div> 
                                 <div id="user-card-info">
-                                    <input type="number" class="user-information" id="user-card" placeholder="16 digit card number">
-                                    <input type="number" class="user-information" id="user-security-code" placeholder="Security code">
+                                    <input type="number" class="user-information" id="user-card" placeholder="16 digit card number" required>
+                                    <input type="number" class="user-information" id="user-security-code" placeholder="Security code" required>
                                     <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
-                                    <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)">
-                                    <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)">
+                                    <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)" required>
+                                    <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)" required>
                                 </div>
 
                             </div>
@@ -162,7 +163,8 @@
 
                                 <div id="summary-page-buttons">
                                     <button class="sum-page-button" onclick="cancelCheckout()">Cancel</button>
-                                    <button class="sum-page-button" id="payment-btn" onclick="payOrder()">Pay</button>
+                                    
+                                    <input  class="sum-page-button" id="payment-btn" type="submit" value="Pay" onclick="return payOrder()">
                                 </div>
                             </div>
 
@@ -174,7 +176,7 @@
                         </div>
             
                     </section> <!--end right-side section-->
-
+                </form>
                 </div> <!--end content div-->
 
             </div> <!--end modal-content div-->

@@ -68,17 +68,21 @@
 }
 
 .list-options{
-    margin: 5% 3%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    margin-left:15px;
+    list-style-type: none;
 }
 
 .list-option-item{
-    display: inline;
-    
+    margin-bottom: 3px;
 }
 
 .list-option-item::after {
-    content: '|';
-    margin: 0 10px
+    /*
+    content: ',';
+    */
+    margin: 0 10px;
 }
 
 /*bottom section*/
@@ -93,22 +97,33 @@
     margin-left: 5%;
 }
 
-.btn{
-    padding-right: 5%;
-}
 
 .btn-edit{
-    color: black;
+    background: transparent;
+    width: auto;
+    height: auto;
     border: none;
-    font-weight: bold;
 }
 
 .btn-remove{
-    color: black;
+    background: transparent;
+    width: auto;
+    height: auto;
     border: none;
-    font-weight: bold;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
-.btn-remove:hover{
-    color: red;
+
+.btn-remove img{
+    width: 19px;
+    height: 19px;
+    background: transparent;
+}
+
+
+.btn-edit img{
+    width: 21px;
+    height: 21px;
+    background: transparent;
 }

@@ -222,6 +222,7 @@ function openFoodModal(event){
       foodItemImage = edtFoodImage;
       foodItemQuantity = edtFoodQuantity;
       foodOptionsDiv = edtFoodOptionsDiv;
+      console.log(foodOptionsDiv);
       //"Save" buton instead of "add to cart" if the click is from edit btn
       buttonsContent = `
       <button class="button-save-to-cart">Save</button><br>
@@ -762,8 +763,8 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   <div class="cart-bottom-section">
     <h4 class="cart-price">${foodItemPrice}</h4>
     <div class="btn">
-      <button class="btn btn-edit" type="button"><img src="../resources/images/edit.png"></button>
-      <button class="btn btn-remove" type="button"><img src="../resources/images/cancel.png"/></button>
+      <button class="btn btn-edit" type="button" title="Edit"><img title ="editImage" src="../resources/images/edit.png"/></button>
+      <button class="btn btn-remove" type="button" title="Remove"><img title ="Remove" src="../resources/images/cancel.png"/></button>
     </div>  
   </div> 
   `;
@@ -778,7 +779,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   for(let i = 0; i < selectedOptions.length; i++){
     let optionItem = document.createElement("li");
     optionItem.classList.add("list-option-item");
-    optionItem.innerText = selectedOptions[i];
+    optionItem.innerText = "- " + selectedOptions[i];
     optionsList.append(optionItem);
   }//end for
 
@@ -789,7 +790,6 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   cartRow.innerHTML +=botContent;
 
   cartItems.append(cartRow);//add the new row to the last row.
-  
   //add the functionality to the (new) remove button since its been added after the document has been loaded
   cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click",removeCartItem);
   cartRow.getElementsByClassName("btn-remove")[0].title = foodItemTitle;
@@ -800,6 +800,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   cartRow.getElementsByClassName("btn-edit")[0].image = foodItemImage;
   cartRow.getElementsByClassName("btn-edit")[0].quantity = foodQuantity;
   cartRow.getElementsByClassName("btn-edit")[0].options = foodItemOptions;
+
 }//end addItemToCart
 
 /**

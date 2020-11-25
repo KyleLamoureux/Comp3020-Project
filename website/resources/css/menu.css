@@ -558,11 +558,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 5px 4px;
 }
 
-.btn-remove img, .btn-edit img{
-    width: 30px;
-    height: 30px;
-}
-
 
 /*checkout-div*/
 .checkout-div{
