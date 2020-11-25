@@ -97,6 +97,7 @@
     color: black;
     border: none;
     font-weight: bold;
+    background-image: url("../images/edit.png");
 }
 
 .btn-remove{
