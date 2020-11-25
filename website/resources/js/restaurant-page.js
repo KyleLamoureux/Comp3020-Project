@@ -193,6 +193,22 @@ function randomItemClick(item){
     window.location.href='./menu_page.html';
 }
 
+// Celeb clicked. Hardcoded like no fuckin tomorrow
+function celebOrder(celeb){
+    if("zendaya" === celeb) {
+        localStorage.setItem('restaurant', "Mucho Burrito");
+    }
+    else if("keanu" === celeb) {
+        localStorage.setItem('restaurant', "Asia Palace");
+    }
+    else if("kevin" === celeb) {
+        localStorage.setItem('restaurant', "Boston Pizza");
+    }
+    localStorage.setItem('celeb', celeb);
+    window.location.href='./menu_page.html';
+}
+
+
 function clearSelection(){
     restaurants_categories.forEach(iter => {
         iter["active"] = true;

@@ -3,7 +3,7 @@ const mRoot = "../resources/images/restaurant-page/restaurants";
 const constDrinks = [
     {
         name : 'Coca-Cola',
-        description : '',
+        description : 'Cool and refreshing classic',
         price : 0.99,
         image : mRoot+'/global_menu/coke.jpg',
         options : {
@@ -11,7 +11,7 @@ const constDrinks = [
     },
     {
         name : 'Diet Coke',
-        description : '',
+        description : 'Cool and refreshing classic',
         price : 0.99,
         image : mRoot+'/global_menu/dietCoke.png',
         options : {
@@ -19,7 +19,7 @@ const constDrinks = [
     },
     {
         name : 'Root Beer',
-        description : '',
+        description : 'Cool and refreshing classic',
         price : 0.99,
         image : mRoot+'/global_menu/rootBeer.jpg',
         options : {
@@ -27,7 +27,7 @@ const constDrinks = [
     },
     {
         name : 'Ginger Ale',
-        description : '',
+        description : 'Cool and refreshing classic',
         price : 0.99,
         image : mRoot+'/global_menu/ginger.jpg',
         options : {
@@ -51,6 +51,10 @@ const buildYourOwnOptions = {
             {
                 name : 'Pork',
                 price : 1.25
+            },
+            {
+                name: 'Beyond Meat',
+                price : 0.75
             }
         ]
     },
@@ -150,7 +154,7 @@ const menus = {
             },
             {
                 name : 'The Everything',
-                description : 'Diced grilled ham, crimini mushrooms, tomatoes, onions, green peppers and American cheese – this classic omelet has it all!',
+                description : 'Diced grilled ham, crimini mushrooms, tomatoes, onions, green peppers and American cheese - this classic omelet has it all!',
                 price : 10.99,
                 image : mRoot+'/perkins/omelets/everything.jpg',
                 options : {
@@ -1097,13 +1101,13 @@ const menus = {
         ],
         'Drinks' : constDrinks
     },
-    'Muncho Burrito' : {
+    'Mucho Burrito' : {
         'Signature' : [
             {
                 name : 'Smoked Peach + Chili Mango Bowl',
                 description : 'Chili-mango sauce, peach & mango chili salsa, tomato-cucumber salad, crispy jalapeño chips and chipotle-peach crema.',
                 price : 12.99,
-                image : mRoot+'/muncho_burrito/signature/peach.png',
+                image : mRoot+'/mucho_burrito/signature/peach.png',
                 options : {
                     
                 }
@@ -1112,7 +1116,7 @@ const menus = {
                 name : 'Zesty Chimichurri Bowl',
                 description : 'House-made cilantro & lime chimichurri sauce, roasted seasonal squash, in-house pickled red onions, tricoloured tortilla strips and serrano-chili crema.',
                 price : 12.99,
-                image : mRoot+'/muncho_burrito/signature/zesty.png',
+                image : mRoot+'/mucho_burrito/signature/zesty.png',
                 options : {
 
                 }
@@ -1121,7 +1125,7 @@ const menus = {
                 name : 'Grilled Pineapple Chili Bowl',
                 description : 'Caramelized pineapple & jalapeño sauce, grilled pineapple, in-house pickled red onions, crispy jalapeño chips and pineapple-habanero crema.',
                 price : 12.99,
-                image : mRoot+'/muncho_burrito/signature/pineapple.png',
+                image : mRoot+'/mucho_burrito/signature/pineapple.png',
                 options : {
 
                 }
@@ -1130,7 +1134,7 @@ const menus = {
                 name : 'Ghost Pepper Burrito',
                 description : 'Ghost pepper bacon, ghost pepper & fig marmalade, chipotle black beans, salsa, sour cream, Monterey Jack cheese, ghost pepper hot sauce, jalapeños.',
                 price : 11.99,
-                image : mRoot+'/muncho_burrito/signature/ghost.png',
+                image : mRoot+'/mucho_burrito/signature/ghost.png',
                 options : {
                     Extras : {
                         type : 'checkbox',
@@ -1147,30 +1151,30 @@ const menus = {
         'Custom' : [
             {
                 name : 'Build Your Own Burrito',
-                description : 'Fresh and fantastic, our burritos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                description : 'Fresh and fantastic, our burritos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeno and sauce.',
                 price : 9.99,
-                image : mRoot+'/muncho_burrito/build_your_own/burrito.jpg',
+                image : mRoot+'/mucho_burrito/build_your_own/burrito.jpg',
                 options : buildYourOwnOptions
             },
             {
                 name : 'Build Your Own Taco (3)',
-                description : 'Fresh and fantastic, our tacos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                description : 'Fresh and fantastic, our tacos can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeno and sauce.',
                 price : 8.99,
-                image : mRoot+'/muncho_burrito/build_your_own/taco.jpg',
+                image : mRoot+'/mucho_burrito/build_your_own/taco.jpg',
                 options : buildYourOwnOptions
             },
             {
                 name : 'Build Your Own Bowl',
-                description : 'Fresh and fantastic, our bowls can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                description : 'Fresh and fantastic, our bowls can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeno and sauce.',
                 price : 10.99,
-                image : mRoot+'/muncho_burrito/build_your_own/bowl.jpg',
+                image : mRoot+'/mucho_burrito/build_your_own/bowl.jpg',
                 options : buildYourOwnOptions
             },
             {
                 name : 'Build Your Own Quesadilla',
-                description : 'Fresh and fantastic, our quesadillas can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeño and sauce.',
+                description : 'Fresh and fantastic, our quesadillas can be built anyway you like. Customize it with your choice of base, protein, beans, veggies, cheese, toppings, cilantro, jalapeno and sauce.',
                 price : 9.99,
-                image : mRoot+'/muncho_burrito/build_your_own/quesa.jpg',
+                image : mRoot+'/mucho_burrito/build_your_own/quesa.jpg',
                 options : buildYourOwnOptions
             }
         ],
@@ -1179,7 +1183,7 @@ const menus = {
                 name : 'Tortilla Chips with Salsa',
                 description : 'Fresh everyday tortilla chips and salsa',
                 price : 2.25,
-                image : mRoot+'/muncho_burrito/sides/salsa.jpg',
+                image : mRoot+'/mucho_burrito/sides/salsa.jpg',
                 options : {
                     Upscale : {
                         type : 'radio',
@@ -1200,7 +1204,7 @@ const menus = {
                 name : 'Tortilla Chips with Queso',
                 description : 'Fresh everyday tortilla chips and queso',
                 price : 2.75,
-                image : mRoot+'/muncho_burrito/sides/queso.jpg',
+                image : mRoot+'/mucho_burrito/sides/queso.jpg',
                 options : {
                     Upscale : {
                         type : 'radio',
@@ -1221,7 +1225,7 @@ const menus = {
                 name : 'Tortilla Chips with Guacamole',
                 description : 'Fresh everyday tortilla chips and guacamole',
                 price : 3.25,
-                image : mRoot+'/muncho_burrito/sides/guac.jpg',
+                image : mRoot+'/mucho_burrito/sides/guac.jpg',
                 options : {
                     Upscale : {
                         type : 'radio',
@@ -1882,7 +1886,7 @@ const menus = {
                         ]
                     },
                     Sauce : {
-                        type : 'checkbox',
+                        type : 'radio',
                         data : [
                             {
                                 name : 'Classic',
@@ -2021,6 +2025,261 @@ const menus = {
         ],
         'Drinks' : constDrinks
     },
+}
+
+
+celebs = {
+    "kevin" : `<div class="food-options"><div class="checkbox-option"><h3 class="option-category">Protein</h3>
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Pepperoni" name="food-options" value="Pepperoni" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Pepperoni">Pepperoni</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$1.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Sausage" name="food-options" value="Sausage" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Sausage">Sausage</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$1.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Bacon" name="food-options" value="Bacon" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Bacon">Bacon</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$1.25</label>
+    </div>
+    </div><div class="radio-button-option"><h3 class="option-category">Sauce</h3>
+    <div class="food-option-name">
+    <input checked class="food-option-item-radiobtn" type="radio" id="Classic" name="food-options" value="Classic" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Classic">Classic</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="White" name="food-options" value="White" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="White">White</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="Spicy" name="food-options" value="Spicy" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Spicy">Spicy</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$0.00</label>
+    </div>
+    </div><div class="checkbox-option"><h3 class="option-category">Extra Cheese</h3>
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Feta" name="food-options" value="Feta" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Feta">Feta</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.75</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Cheddar" name="food-options" value="Cheddar" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Cheddar">Cheddar</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.75</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Provolone" name="food-options" value="Provolone" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Provolone">Provolone</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.75</label>
+    </div>
+    </div><div class="checkbox-option"><h3 class="option-category">Toppings</h3>
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Onions" name="food-options" value="Onions" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Onions">Onions</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.50</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Mushrooms" name="food-options" value="Mushrooms" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Mushrooms">Mushrooms</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.50</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Black Olives" name="food-options" value="Black Olives" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Black Olives">Black Olives</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.50</label>
+    </div>
+    </div></div>`,
+
+    "keanu": `<div class="food-options">
+    <div class="checkbox-option"><h3 class="option-category">Extras</h3>
+        <div class="food-option-name">
+            <input class="food-option-item-checkbox" type="checkbox" id="Double beef" name="food-options" value="Double beef" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double beef">Double beef</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$4.00</label>
+        </div>
+        
+        <div class="food-option-name">
+            <input class="food-option-item-checkbox" type="checkbox" id="Double chicken" name="food-options" value="Double chicken" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double chicken">Double chicken</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$3.00</label>
+        </div>
+        
+        <div class="food-option-name">
+            <input class="food-option-item-checkbox" type="checkbox" id="Double shrimp" name="food-options" value="Double shrimp" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double shrimp">Double shrimp</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$4.00</label>
+        </div>
+        
+        <div class="food-option-name">
+            <input class="food-option-item-checkbox" type="checkbox" id="Double scallop" name="food-options" value="Double scallop" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double scallop">Double scallop</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$4.50</label>
+        </div>
+        
+        <div class="food-option-name">
+            <input class="food-option-item-checkbox" type="checkbox" id="Double squid" name="food-options" value="Double squid" onclick="updateFoodPrice()"> 
+            <label class="food-option-name-label" for="Double squid">Double squid</label>
+            </div>
+            <div class="food-option-price">
+            <label class="food-option-price-label">+$5.00</label>
+        </div>
+    </div>
+</div>
+    `,
+
+    "zendaya" : `
+    <div class="food-options">
+    <div class="radio-button-option"><h3 class="option-category">Protein</h3>
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="Chicken" name="food-options" value="Chicken" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Chicken">Chicken</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$1.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="Beef" name="food-options" value="Beef" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Beef">Beef</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$1.50</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input class="food-option-item-radiobtn" type="radio" id="Pork" name="food-options" value="Pork" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Pork">Pork</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$1.25</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-radiobtn" type="radio" id="Beyond Meat" name="food-options" value="Beyond Meat" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Beyond Meat">Beyond Meat</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">$0.75</label>
+    </div>
+    </div><div class="checkbox-option"><h3 class="option-category">Toppings</h3>
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Corn" name="food-options" value="Corn" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Corn">Corn</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Rice" name="food-options" value="Rice" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Rice">Rice</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Beans" name="food-options" value="Beans" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Beans">Beans</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Grilled veg" name="food-options" value="Grilled veg" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Grilled veg">Grilled veg</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Lettuce" name="food-options" value="Lettuce" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Lettuce">Lettuce</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Cheese" name="food-options" value="Cheese" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Cheese">Cheese</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    </div><div class="checkbox-option"><h3 class="option-category">Sauce</h3>
+    <div class="food-option-name">
+    <input class="food-option-item-checkbox" type="checkbox" id="Sour cream" name="food-options" value="Sour cream" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Sour cream">Sour cream</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Salsa" name="food-options" value="Salsa" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Salsa">Salsa</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$0.00</label>
+    </div>
+    
+    <div class="food-option-name">
+    <input checked class="food-option-item-checkbox" type="checkbox" id="Guacamole" name="food-options" value="Guacamole" onclick="updateFoodPrice()"> 
+    <label class="food-option-name-label" for="Guacamole">Guacamole</label>
+    </div>
+    <div class="food-option-price">
+    <label class="food-option-price-label">+$1.25</label>
+    </div>
+    </div></div>
+    `
 }
 
 
