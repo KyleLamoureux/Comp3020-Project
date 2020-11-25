@@ -47,6 +47,7 @@ a {
 .kimchi_sushi{ background-image: url("../images/Res-background/Kimchi-sushi.jpg"); }
 .boston_pizza{ background-image: url("../images/Res-background/Boston-Pizza.jpg"); }
 .clay_oven{ background-image: url("../images/Res-background/Clay-Oven.jpg"); }
+
 .back-button{
     font-size: 35px;
     padding-top: 5px;
@@ -54,7 +55,7 @@ a {
 }
 
 .fa-chevron-circle-left::before {
-    color: wheat;
+    color: #FF5C00;
 }
 
 #menu-section{

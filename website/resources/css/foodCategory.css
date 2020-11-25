@@ -141,6 +141,14 @@
     transition: opacity 0.4s;
 }
 
+.random-hover:hover{
+    background-color: rgba(0,0,0,0.7);
+    opacity: 75%;
+    transition: opacity 0.4s;
+    width: 73.34px;
+    height: 73.34px;
+}
+
 .food-item-overlay:hover{
     opacity: 100%;
 }
