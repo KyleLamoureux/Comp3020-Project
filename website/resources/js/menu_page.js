@@ -274,7 +274,7 @@ function openFoodModal(event){
     modal.append(foodOptionsDiv);
     modal.append(foodNumBtns);
     modal.append(buttonsDiv);
-    modal.style.display = "block";
+    document.getElementById("menu-modal-page").style.display = "block";
     blurControl();
     modalOn = true;
   
@@ -831,7 +831,8 @@ function updateCartTotal(){
  * closeMenuModal - closes the menu modal when cancel button is clicked.
  */
 function closeMenuModal() {
-  let modal = document.getElementById("menu-modal");
+  //let modal = document.getElementById("menu-modal");
+  let modal = document.getElementById("menu-modal-page");
   modal.style.display = "none";
   blurControl();
   modalOn = false;  
