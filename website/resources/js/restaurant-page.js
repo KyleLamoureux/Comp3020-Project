@@ -322,8 +322,10 @@ function createItemOrb(element, random=false, color=false){
         var img = document.createElement("img");
         img.src = e["img"];
         img.alt = e["dish"] + "," + e['restaurant'];
-        if (random)
+        if (random){
             img.onclick = randomItemClick;
+            img.className = "random-hover";
+        }
 
         var title = document.createElement("h6");
         var text = document.createTextNode(e["name"]);

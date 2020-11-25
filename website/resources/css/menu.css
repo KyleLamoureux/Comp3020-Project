@@ -48,6 +48,16 @@ a {
 .boston_pizza{ background-image: url("../images/Res-background/Boston-Pizza.jpg"); }
 .clay_oven{ background-image: url("../images/Res-background/Clay-Oven.jpg"); }
 
+.back-button{
+    font-size: 35px;
+    padding-top: 5px;
+    padding-left: 5px;
+}
+
+.fa-chevron-circle-left::before {
+    color: #FF5C00;
+}
+
 #menu-section{
     float: left;
     width:70%;
@@ -163,8 +173,11 @@ a {
 
 .heading{
     display: flex;
-    /*align-items: left;*/
     position: relative;
+}
+
+.heading a{
+    font-size: 15px;
 }
 
 .heading p{
@@ -261,7 +274,7 @@ a {
 }
 
 .menu-categories:first-child{
-    margin-top: 200px;
+    margin-top: 240px;
     width: 95%;
 }
 
