@@ -273,8 +273,8 @@ function openFoodModal(event){
       console.log(foodOptionsDiv);
       //"Save" buton instead of "add to cart" if the click is from edit btn
       buttonsContent = `
-      <button class="button-save-to-cart">Save</button><br>
       <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
+      <button class="button-save-to-cart">Save</button>
       `;
 
     }else{
@@ -291,8 +291,8 @@ function openFoodModal(event){
       
       //add to cart button if the click is from the food item.
       buttonsContent = `
-      <button class="button-add-to-cart">Add to cart</button><br>
       <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
+      <button class="button-add-to-cart">Add to cart</button>
       `;
     
     }//end if-else
@@ -306,6 +306,13 @@ function openFoodModal(event){
         <h5 class="modal-food-price">Price: ${foodItemPrice}</h5>
     </div>`;
     
+    //show the textbox for special requests
+    let foodSpecialRequestDiv = document.createElement("div");
+    foodSpecialRequestDiv.classList.add("food-special-request");
+    foodSpecialRequestDiv.innerHTML = `
+    <textarea id="special-request-box" cols="300" rows="4" placeholder="Please write special requests here......"></textarea>
+    `;
+
     //TODO:FUNCTIONALITY FOR THE QUANTITY
     let foodNumBtns = document.createElement("div");
     foodNumBtns.classList.add("food-number-button");
@@ -320,6 +327,7 @@ function openFoodModal(event){
     //add all content to the modal.
     modal.innerHTML = foodModalContent;
     modal.append(foodOptionsDiv);
+    modal.append(foodSpecialRequestDiv);
     modal.append(foodNumBtns);
     modal.append(buttonsDiv);
     document.getElementById("menu-modal-page").style.display = "block";
