@@ -270,6 +270,7 @@ function openFoodModal(event){
       foodItemImage = edtFoodImage;
       foodItemQuantity = edtFoodQuantity;
       foodOptionsDiv = edtFoodOptionsDiv;
+      console.log(foodOptionsDiv);
       //"Save" buton instead of "add to cart" if the click is from edit btn
       buttonsContent = `
       <button class="button-save-to-cart">Save</button><br>
@@ -309,9 +310,7 @@ function openFoodModal(event){
     let foodNumBtns = document.createElement("div");
     foodNumBtns.classList.add("food-number-button");
     foodNumBtns.innerHTML = `
-    <button class="minus-btn" onclick="subtractFoodQuantity()">-</button>
     <input class="num-food-input" type="number" value="${foodItemQuantity}">
-    <button class="plus-btn" onclick="addFoodQuantity()">+</button>
     `;
 
     let buttonsDiv = document.createElement("div");//add and cancel button in the modal.
@@ -323,7 +322,7 @@ function openFoodModal(event){
     modal.append(foodOptionsDiv);
     modal.append(foodNumBtns);
     modal.append(buttonsDiv);
-    modal.style.display = "block";
+    document.getElementById("menu-modal-page").style.display = "block";
     blurControl();
     modalOn = true;
   
@@ -737,7 +736,7 @@ function updateOptionsForCartItem(index){
     for(let i = 0; i < selectedOptions.length; i++){
       let newOptionItem = document.createElement("li");
       newOptionItem.classList.add("list-option-item");
-      newOptionItem.innerText = selectedOptions[i];
+      newOptionItem.innerText = "- " + selectedOptions[i];
       ulTag.append(newOptionItem);
     }//end for
 
@@ -812,8 +811,8 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   <div class="cart-bottom-section">
     <h4 class="cart-price">${foodItemPrice}</h4>
     <div class="btn">
-      <button class="btn btn-remove" type="button">REMOVE</button>
-      <button class="btn btn-edit" type="button">EDIT</button>
+      <img class="btn-edit" title ="Edit" src="../resources/images/edit.png"/>
+      <img class ="btn-remove" title ="Remove" src="../resources/images/cancel.png"/>
     </div>  
   </div> 
   `;
@@ -828,7 +827,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   for(let i = 0; i < selectedOptions.length; i++){
     let optionItem = document.createElement("li");
     optionItem.classList.add("list-option-item");
-    optionItem.innerText = selectedOptions[i];
+    optionItem.innerText = "- " + selectedOptions[i];
     optionsList.append(optionItem);
   }//end for
 
@@ -839,17 +838,17 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   cartRow.innerHTML +=botContent;
 
   cartItems.append(cartRow);//add the new row to the last row.
-  
   //add the functionality to the (new) remove button since its been added after the document has been loaded
   cartRow.getElementsByClassName("btn-remove")[0].addEventListener("click",removeCartItem);
-  cartRow.getElementsByClassName("btn-remove")[0].title = foodItemTitle;
+  cartRow.getElementsByClassName("btn-remove")[0].foodTitle = foodItemTitle;
   //pass information from edit to the food modal.
   cartRow.getElementsByClassName("btn-edit")[0].addEventListener("click",editCartItem);
-  cartRow.getElementsByClassName("btn-edit")[0].title = foodItemTitle;
+  cartRow.getElementsByClassName("btn-edit")[0].foodTitle = foodItemTitle;
   cartRow.getElementsByClassName("btn-edit")[0].price = foodItemPrice;
   cartRow.getElementsByClassName("btn-edit")[0].image = foodItemImage;
   cartRow.getElementsByClassName("btn-edit")[0].quantity = foodQuantity;
   cartRow.getElementsByClassName("btn-edit")[0].options = foodItemOptions;
+
 }//end addItemToCart
 
 /**
@@ -880,7 +879,8 @@ function updateCartTotal(){
  * closeMenuModal - closes the menu modal when cancel button is clicked.
  */
 function closeMenuModal() {
-  let modal = document.getElementById("menu-modal");
+  //let modal = document.getElementById("menu-modal");
+  let modal = document.getElementById("menu-modal-page");
   modal.style.display = "none";
   blurControl();
   modalOn = false;  
@@ -897,7 +897,7 @@ function removeCartItem(event){
   console.log("removeCartItem function: ");
 
   let buttonClicked = event.target;
-  if(confirm("Do you want to delete the order " + buttonClicked.title + "?")){
+  if(confirm("Do you want to delete the order " + buttonClicked.foodTitle + "?")){
     let cartItem = buttonClicked.parentElement.parentElement.parentElement;
 
     cartItem.remove();
@@ -912,7 +912,7 @@ function editCartItem(event){
  // alert("edit btn has been clicked");
   let foodItem = event.target;
   foodItem.addEventListener("click",openFoodModal);//eidt btn is clicked
-  foodItem.editFoodTitle = foodItem.title;
+  foodItem.editFoodTitle = foodItem.foodTitle;
   foodItem.editFoodImage= foodItem.image;
   foodItem.editFoodQuantity= foodItem.quantity;
   foodItem.editFoodOptionsDiv = foodItem.options;
