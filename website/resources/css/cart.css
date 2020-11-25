@@ -101,15 +101,15 @@
 
 .btn-edit{
     background: transparent;
-    width: auto;
-    height: auto;
+    width: 21px;
+    height: 21px;
     border: none;
 }
 
 .btn-remove{
     background: transparent;
-    width: auto;
-    height: auto;
+    width: 19px;
+    height: 19px;
     border: none;
     margin-right: 10px;
     margin-left: 10px;

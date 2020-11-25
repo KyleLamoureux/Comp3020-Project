@@ -763,8 +763,8 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
   <div class="cart-bottom-section">
     <h4 class="cart-price">${foodItemPrice}</h4>
     <div class="btn">
-      <button class="btn btn-edit" type="button" title="Edit">Edit</button>
-      <button class="btn btn-remove" type="button" title="Remove">Remove</button>
+      <img class="btn-edit" title ="Edit" src="../resources/images/edit.png"/>
+      <img class ="btn-remove" title ="Remove" src="../resources/images/cancel.png"/>
     </div>  
   </div> 
   `;

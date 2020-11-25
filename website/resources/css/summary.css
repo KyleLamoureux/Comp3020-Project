@@ -248,3 +248,13 @@ label{
     margin-top: 30px;
     margin-left: 30px;
 }
+
+#user-card::-webkit-outer-spin-button,
+#user-card::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#user-security-code::-webkit-outer-spin-button,
+#user-security-code::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}

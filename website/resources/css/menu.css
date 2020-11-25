@@ -462,14 +462,13 @@ a {
     border: 1px solid #333;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button {  
+.num-food-input::-webkit-inner-spin-button, 
+.num-food-input::-webkit-outer-spin-button {  
    opacity: 1;
 }
 
 .modify-cart {
     position: absolute;
-    display: inline-flex;
     top: 75%;
     left: 50%;
     transform: translateX(-50%);
