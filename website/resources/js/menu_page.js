@@ -660,7 +660,7 @@ function saveClicked(event){
   }
  
   //find the cart item that has the same information as foodName, foodPrice and foodOptions.
-  let whichPosition = findCartItem(foodName,foodPrice,foodOptions);
+  let whichPosition = findCartItem(foodName,foodPrice,foodQuantity);
   
   console.log("THE POSITION WHERE THE CART ITEM IS FOUND IS " + whichPosition);
   console.log("and selected options are : " +selectedOptions);
@@ -681,49 +681,23 @@ function saveClicked(event){
  * @foodOptions is the list of selected options for the entire cart items. (2d array)
  * @return it will return the position of the cart item if found. -1 if not not found.
  */
-function findCartItem(foodName,foodPrice,foodOptions){
-  //console.log("FIND CART ITEM FUNCTION");
-  //console.log(foodName,foodPrice,foodOptions);
-  let cartItems = document.getElementsByClassName("cart-row");
-
-  let isFound = false;
+function findCartItem(foodName,foodPrice,foodQuantity){
+  console.log(" ");
+  console.log("findCartItem function: ");
+  console.log("food name is " + foodName,foodPrice, foodQuantity);
   let index = -1;
+  let isFound = false;
+  //TODO: might give the wrong position if we have duplicate items in the cart.
+  //FIX : by checking the price as well but foodQuantity parameter sometimes give the wrong value.
+  for (let i = 0; i < listOrderedItems.length && !isFound; i++){
+    if(foodName === listOrderedItems[i][0].name){
 
-  for(let i = 0; i < cartItems.length && !isFound; i++){
-    let cartItemName = cartItems[i].getElementsByClassName("cart-item-title")[0].innerText;
-    let cartItemPrice = cartItems[i].getElementsByClassName("cart-price")[0].innerText;
-    cartItemPrice = cartItemPrice.replace("$","");
-    
-    //console.log(cartItemName,cartItemPrice);
-    
-    let listOptions = cartItems[i].getElementsByClassName("list-option-item");
-    let isOptionFound = false;
-    for(let i = 0; i < foodOptions.length; i++){
-    
-      
-      if(foodOptions[i].length === listOptions.length){
+      isFound =true;
+      index = i;
 
-        if(foodOptions[i].length === 0 && listOptions.length === 0){
-          isOptionFound = true;
-        }else{
-
-          for (let j = 0; j < listOptions.length && !isOptionFound; j++){
-            let cartItemOptions = listOptions[j].innerText;
-            isOptionFound = foodOptions[i][j] === cartItemOptions;
-          }//end nested for
-
-        }//end nested-if-else
-
-      }//end if
-
-    }//end for
-    
-
-    isFound = (foodName === cartItemName) && isOptionFound;
-    index = i;
+    }//end if
   }//end for
-
-  //console.log("findcartItem is found? "  + isFound + " at positon " + index);
+  console.log("isFound is "+ isFound + ", and pos is " + index);
   return index;
 
 }//end findCartItem
@@ -749,10 +723,12 @@ function updateOptionsForCartItem(index){
     //remove all the li tags before adding the new changes.
     ulTag.innerHTML = ``; //remove the li tags
 
+    listOrderedItems[index][4].options = [];//update the options for ordered items.
     for(let i = 0; i < selectedOptions.length; i++){
       let newOptionItem = document.createElement("li");
       newOptionItem.classList.add("list-option-item");
       newOptionItem.innerText = "- " + selectedOptions[i];
+      listOrderedItems[index][4].options.push("- " + selectedOptions[i]);
       ulTag.append(newOptionItem);
     }//end for
 
@@ -774,6 +750,9 @@ function updateOptionsForCartItem(index){
       //cartItemPrice.innerText = "$" + originalPrice;//no additions selected
       cartItemPrice.innerText = "$" + totalPrice.toFixed(2);
       cartItemQuantity.innerText = "Quantity: " + quantity;
+
+      listOrderedItems[index][1].price = cartItemPrice.innerText;
+      listOrderedItems[index][2].quantity = quantity;
       console.log("a)original price is " + originalPrice + " new price is " + totalPrice);
     }else{
 
@@ -785,6 +764,9 @@ function updateOptionsForCartItem(index){
       //console.log("originalprice " + originalPrice + ", additionalPrice " + additionalPrice + " = " + totalPrice);
       cartItemPrice.innerText = "$" + totalPrice.toFixed(2);
       cartItemQuantity.innerText = "Quantity: " + quantity;
+
+      listOrderedItems[index][1].price = cartItemPrice.innerText;
+      listOrderedItems[index][2].quantity = quantity
       console.log("b)original price is " + originalPrice + " new price is " + totalPrice);
 
     }//end nested-f-else
