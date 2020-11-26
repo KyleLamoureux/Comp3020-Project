@@ -81,11 +81,13 @@
         <!--NOT DONE. LAYOUT NEED TO BE FIXED-->
           <!-- Menu decription modal-->
         <div id="menu-modal-page" class="modal">
-              <div id="menu-modal">
-                <!--Food Item content-->
+            <div id="modal-div">
+                <button id="modal-close" onclick="closeMenuModal()">x</button>
+                <div id="menu-modal">
+                    <!--Food Item content-->
 
-              </div>
-          
+                </div>
+            </div>
         </div> <!-- Menu decription modal end-->
 
     
@@ -93,7 +95,7 @@
         <div id="summary-page" class="modal">
             <!-- Order Summary page content -->
             <div class="modal-content">
-                <button class=close-modal onclick="cancelCheckout()">x</button>
+                <button class=close onclick="cancelCheckout()">x</button>
                 <!--TODO: Put Summary html here-->
                 <div id="content">
                     <form>
