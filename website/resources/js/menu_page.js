@@ -19,6 +19,8 @@ let isRadiobtnClicked = false;
 let selectedOptions = []; //selected options per cart item.
 let savedPrice = null;
 let listOrderedItems = [];//items added to cart.
+let specialInstruction = null;//global var to avoid changing the paramters in the addItemToCart func.
+
 
 loaded();
 
@@ -52,14 +54,15 @@ function loaded(){
     }
     else if("kevin" === celeb){
       title = "Build Your Own";
-      price = "Price: $16.99";
+      price = "$16.99";
       image = "../resources/images/restaurant-page/restaurants/boston_pizza/pizza/pizza.png";
       options = doc.body.children[0];
       selectedOptions = ["Pepperoni","Bacon","Classic","Cheddar","Onions","Black Olives"];
       localStorage.getItem('dish', title);
       nav = "hidden_category_Pizza";
     }
-    addItemToCart(title, price, 1, image, options)
+    addItemToCart(title, price, 1, image, options);
+    document.getElementsByClassName("total-order")[0].innerText = "Subtotal: " + price;
     document.getElementById(nav).click();
   }
   else if(localStorage.getItem('dish') !== null){
@@ -562,7 +565,6 @@ function quantityChanged(event) {
  * addToCartClicked - event click listener when the add button is clicked in the food modal window. Also updates the cart subtotal.
  * @param{event} event will provide the information of the food-item in order to pass it to the cart section.
  */
-let specialInstruction = null;//global var to avoid changing the paramters in the addItemToCart func.
 function addToCartClicked(event){
   console.log(" ");
   console.log("addToCartClicked function");
@@ -846,6 +848,10 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
     optionsList.push(liTag.innerText);
     ulTag.append(liTag);
   }//end for
+
+  if(specialInstruction === null){
+    specialInstruction = "";
+  }
 
   let orderedItem = [{name:foodItemTitle},{price:foodItemPrice},
                       {quantity:foodQuantity},{image:foodItemImage},
