@@ -189,7 +189,7 @@ a {
     background-color: #FF5C00;
     align-self: center;
     font-size: 18px;
-    width: 30px;
+    width: auto;
     height: auto;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
