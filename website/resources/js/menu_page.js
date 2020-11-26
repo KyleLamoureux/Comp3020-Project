@@ -61,6 +61,7 @@ function loaded(){
       nav = "hidden_category_Pizza";
     }
     addItemToCart(title, price, 1, image, options);
+    savedPrices.push(price);
     document.getElementsByClassName("total-order")[0].innerText = "Subtotal: " + price;
     document.getElementById(nav).click();
   }
