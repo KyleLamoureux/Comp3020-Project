@@ -18,6 +18,7 @@ let modalOn = false;
 let isRadiobtnClicked = false;
 let selectedOptions = []; //selected options per cart item.
 let savedPrice = null;
+let listOrderedItems = [];//items added to cart.
 
 loaded();
 
@@ -310,7 +311,7 @@ function openFoodModal(event){
     let foodSpecialRequestDiv = document.createElement("div");
     foodSpecialRequestDiv.classList.add("food-special-request");
     foodSpecialRequestDiv.innerHTML = `
-    <textarea id="special-request-box" cols="300" rows="4" placeholder="Please write special requests here......"></textarea>
+    <textarea class="special-request-box" cols="300" rows="4" placeholder="Please write special requests here......"></textarea>
     `;
 
     //TODO:FUNCTIONALITY FOR THE QUANTITY
@@ -556,10 +557,12 @@ function quantityChanged(event) {
   }
 }//end quantityChanged
 
+
 /**
  * addToCartClicked - event click listener when the add button is clicked in the food modal window. Also updates the cart subtotal.
  * @param{event} event will provide the information of the food-item in order to pass it to the cart section.
  */
+let specialInstruction = null;//global var to avoid changing the paramters in the addItemToCart func.
 function addToCartClicked(event){
   console.log(" ");
   console.log("addToCartClicked function");
@@ -577,6 +580,9 @@ function addToCartClicked(event){
     let foodItemOptions =event.target.foodItemOptions;
     let foodQuantity = foodModalInfo.getElementsByClassName("num-food-input")[0].value;
     foodQuantity = parseFloat(foodQuantity);
+    let foodSpecialInstruction = foodModalInfo.getElementsByClassName("special-request-box")[0].value;
+    specialInstruction = foodSpecialInstruction;
+    //console.log("special instruction entered: " + foodSpecialInstruction);
 
     //check if the price needs to be updated.
     foodItemPrice = foodItemPrice.replace("Price:","");
@@ -827,20 +833,27 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
 
   //mid section of div.
   //need to seperate the options div since we have to loop through the selectedOptions list.
+  let optionsList = [];
   let optionsDiv = document.createElement("div");
   optionsDiv.classList.add("options");
-  let optionsList = document.createElement("ul");
-  optionsList.classList.add("list-options");
+  let ulTag = document.createElement("ul");
+  ulTag.classList.add("list-options");
 
   for(let i = 0; i < selectedOptions.length; i++){
-    let optionItem = document.createElement("li");
-    optionItem.classList.add("list-option-item");
-    optionItem.innerText = "- " + selectedOptions[i];
-    optionsList.append(optionItem);
+    let liTag = document.createElement("li");
+    liTag.classList.add("list-option-item");
+    liTag.innerText = "- " + selectedOptions[i];
+    optionsList.push(liTag.innerText);
+    ulTag.append(liTag);
   }//end for
 
+  let orderedItem = [{name:foodItemTitle},{price:foodItemPrice},
+                      {quantity:foodQuantity},{image:foodItemImage},
+                        {options:optionsList},{instruction:specialInstruction}];
 
-  optionsDiv.append(optionsList);
+  listOrderedItems.push(orderedItem);
+
+  optionsDiv.append(ulTag);
   cartRow.innerHTML = topContent;
   cartRow.append(optionsDiv);
   cartRow.innerHTML +=botContent;
@@ -906,6 +919,13 @@ function removeCartItem(event){
 
   let buttonClicked = event.target;
   if(confirm("Do you want to delete the order " + buttonClicked.foodTitle + "?")){
+
+    for(let i = 0; i < listOrderedItems.length; i++){
+      if(listOrderedItems[i][0].name === buttonClicked.foodTitle){
+          listOrderedItems.splice(i,1);//delete the entire info in the specific index.
+      }
+    }//end for
+    
     let cartItem = buttonClicked.parentElement.parentElement.parentElement;
 
     cartItem.remove();
@@ -952,7 +972,7 @@ function editCartItem(event){
     let modal = document.getElementById("summary-page");
     modal.style.display = "block";
     blurControl();
-    getOrderedItems(); //FUNCTION FROM summary_page.js
+    getOrderedItems(listOrderedItems); //FUNCTION FROM summary_page.js
   }else{
     alert("Please add items to the cart.");
   }//end if-else
@@ -963,6 +983,8 @@ function editCartItem(event){
  */
 function cancelCheckout() {
   let modal = document.getElementById("summary-page");
+  let orderedListDiv = document.getElementById("ordered-list");
+  orderedListDiv.innerHTML = ``;//reset the orders
   // Get the <span> element that closes the modal
   let span = document.getElementsByClassName("close")[0];
   modal.style.display = "none";
