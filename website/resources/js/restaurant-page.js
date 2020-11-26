@@ -175,12 +175,10 @@ function createRandomization() {
     txt.innerHTML="<b>RANDOM</b> EATS"
     orbDiv.appendChild(txt);
 
-    var button = document.createElement("button");
-    button.innerText ="Order Now";
     
     // Create random menu item orbs
     var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true, true);
-    itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems, button]);
+    itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
 
     li.appendChild(itemDiv);
     return li; 
