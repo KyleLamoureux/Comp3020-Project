@@ -1,4 +1,28 @@
 'use strict'; 
+
+/*
+Object that watches for init to finish
+*/
+function Variable(initVal, onChange){
+  this.val = initVal;          //Value to be stored in this object
+  this.onChange = onChange;    //OnChange handler
+
+  //This method returns stored value
+  this.GetValue = function()  
+  {
+      return this.val;
+  }
+
+  //This method changes the value and calls the given handler       
+  this.SetValue = function(value)
+  {
+      this.val = value;
+      this.onChange();
+  }
+}
+
+var myVar = new Variable(false, loaded);
+
 //needed to load the content of the menu page and functionalities such as remove, add, etc.
 if(document.readyState === "loading"){
   document.addEventListener("DOMContentLoaded",main);
@@ -18,8 +42,6 @@ let modalOn = false;
 let isRadiobtnClicked = false;
 let selectedOptions = []; //selected options per cart item.
 let savedPrice = null;
-
-loaded();
 
 function loaded(){
   // Avert your eyes chaps it's about to get gross
@@ -59,6 +81,7 @@ function loaded(){
       nav = "hidden_category_Pizza";
     }
     addItemToCart(title, price, 1, image, options)
+    updateCartTotal();
     document.getElementById(nav).click();
   }
   else if(localStorage.getItem('dish') !== null){
