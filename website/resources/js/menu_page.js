@@ -64,6 +64,7 @@ function loaded(){
     savedPrices.push(price);
     document.getElementsByClassName("total-order")[0].innerText = "Subtotal: " + price;
     document.getElementById(nav).click();
+    selectedOptions = [];
   }
   else if(localStorage.getItem('dish') !== null){
     var orb = document.getElementById(presetDish()).click();
