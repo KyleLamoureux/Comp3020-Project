@@ -3,8 +3,10 @@
 /**
  * getOrderedItems - a function that gets the ordered items from the cart section and display it
  *                  in the summary modal.
+ * @param listOrderedItems - the orders from the menu page.
  */
-function getOrderedItems(){
+function getOrderedItems(listOrderedItems){
+  /*
     let cartItemsDiv = document.getElementsByClassName("cart-items")[0];
     let listCartItems = cartItemsDiv.getElementsByClassName("cart-row");
   
@@ -24,6 +26,26 @@ function getOrderedItems(){
         
         displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options);
     }//end for
+    */
+
+    console.log("list of ordered items are :\n");
+    for(let i = 0; i < listOrderedItems.length; i++){
+
+      let cartItemTitle = listOrderedItems[i][0].name;
+      let cartItemPrice =listOrderedItems[i][1].price;
+      let cartItemQuantity = listOrderedItems[i][2].quantity;
+      let cartItemImg = listOrderedItems[i][3].image;
+      let cartItemInstruction = listOrderedItems[i][5].instruction;
+      console.log(listOrderedItems[i][0].name);
+      let options = [];
+      for(let j = 0; j < listOrderedItems[i][4].options.length; j++){
+        options.push(listOrderedItems[i][4].options[j]);
+      }//end nested for
+      console.log("and options are:\n");
+      console.log(options);
+      displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options,cartItemInstruction);
+    }//end for
+
     displayTotalPrice();
   }//end getOrderedItems
   
@@ -36,7 +58,7 @@ function getOrderedItems(){
  * @param {*} cartItemImg  is the image of the food item.
  * @param {*} options list of selected options.
  */
-function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options){
+function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options,cartItemInstruction){
   let orderedListDiv = document.getElementById("ordered-list");
   //console.log("in display???")
 
@@ -60,12 +82,22 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartIte
   let ulTag = document.createElement("ul");
   ulTag.classList.add("list-options");
 
+  
   for(let i = 0; i < options.length; i++){
     let liTag = document.createElement("li");
     liTag.classList.add("list-option-item");
     liTag.innerText = options[i];
     ulTag.append(liTag);
   }//end for
+
+  
+  if(cartItemInstruction.length !== 0){
+    let liTag = document.createElement("li");
+    liTag.classList.add("list-option-item");
+    liTag.innerText = "Special Instruction: " + cartItemInstruction;
+    ulTag.append(liTag);
+  }
+  
   optionDiv.append(ulTag);
 
   //bot content
