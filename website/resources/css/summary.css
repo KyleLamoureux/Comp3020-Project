@@ -249,6 +249,14 @@ label{
     margin-left: 30px;
 }
 
+.close-modal{
+    float: right;
+    background-color: #fff;
+    border: none;
+    font-weight: bolder;
+    font-size: larger;
+}
+
 #user-card::-webkit-outer-spin-button,
 #user-card::-webkit-inner-spin-button {
   -webkit-appearance: none;
