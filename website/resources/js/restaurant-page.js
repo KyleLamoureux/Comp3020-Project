@@ -211,6 +211,7 @@ function celebOrder(celeb){
 
 
 function clearSelection(){
+    vanilla = true;
     restaurants_categories.forEach(iter => {
         iter["active"] = true;
     });
@@ -244,6 +245,7 @@ function clearSearch(){
     $('#categories-overlay').css("visibility", "hidden").css("opacity", "0%");
     createRestaurants();
     $('.dropdown').css("visibility", "visible");
+
 }
 
 // Creates li.
