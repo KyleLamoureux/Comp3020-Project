@@ -9,8 +9,8 @@ function onLoad(){
 
     input.addEventListener("keyup", function(event) {
         if (event.key === 'Enter') {
-          event.preventDefault();
-          saveAddress();
+            event.preventDefault();
+            saveAddress();
         }
     });
 }
