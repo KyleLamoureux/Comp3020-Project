@@ -639,8 +639,14 @@ function addToCartClicked(event){
 
     
   }else{
-    //TODO: change the message.
-    alert("please select the following option.");
+    let displayOptionMsg = "";
+    if(radioBtnDiv.length > 0){
+      for(let i = 0; i < radioBtnDiv.length; i++){
+        displayOptionMsg += radioBtnDiv[i].getElementsByClassName("option-category")[0].innerText + " ";
+      }//end for
+
+    }
+    alert("please select an option for " + displayOptionMsg);
   }//end if-else
   
 }//end addToCartClicked
@@ -706,7 +712,7 @@ function findCartItem(foodName,foodPrice,foodQuantity){
   let index = -1;
   let isFound = false;
   //TODO: might give the wrong position if we have duplicate items in the cart.
-  //FIX : by checking the price as well but foodQuantity parameter sometimes give the wrong value.
+  //FIX : by checking the price as well but foodPrice/foodQuantity parameters sometimes give the wrong value.
   for (let i = 0; i < listOrderedItems.length && !isFound; i++){
     if(foodName === listOrderedItems[i][0].name){   
       isFound =true;
