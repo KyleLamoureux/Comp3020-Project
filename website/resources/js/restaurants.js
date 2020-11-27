@@ -34,7 +34,7 @@ restaurants = [
         description: "Diverse moderately priced homestyle goodness, with a menu featuring breakfast, lunch, and bakery offerings.",
         backgroundColour: '#006300',
         backgroundImage: "../resources/images/Res-background/Perkins.jpg",
-        rating : "Rating: 2.9/5"
+        rating : "2.9/5"
     },
     {
         name: "McDonalds",

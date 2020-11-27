@@ -100,7 +100,7 @@ function main(){
   //CHOSEN RESTAURANT GOES HERE.
   let restaurantName = localStorage.getItem('restaurant');
   var val = restaurants.find(x => x.name === restaurantName);
-  document.getElementById("restRating").textContent = val["rating"];
+  document.getElementById("restRating").prepend(" " + val["rating"]);
   var bg = document.getElementById("restBackground")
   bg.className = bg.className + " " + val["id"]; // Change the background img. Tried other approaches but just gave up and settled for this
 
