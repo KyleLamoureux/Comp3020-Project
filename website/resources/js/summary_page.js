@@ -68,7 +68,7 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartIte
   if(cartItemInstruction.length !== 0){
     let liTag = document.createElement("li");
     liTag.classList.add("list-option-item");
-    liTag.innerText = "Special Instruction: " + cartItemInstruction;
+    liTag.innerText = "  Special Instruction - " + cartItemInstruction;
     ulTag.append(liTag);
   }
   
