@@ -60,7 +60,12 @@ svg > g > g:last-child { pointer-events: none }
 
 #piechart-info{
     text-align: center;
+<<<<<<< HEAD
     height: 59vh;
+||||||| 4b9f361
+=======
+    height:52vh;
+>>>>>>> b6e2b84d4ad02e7d51ea7dbebd5fac7659b49307
 }
 
 #piechart-info .nutritional-info-checkbox{
