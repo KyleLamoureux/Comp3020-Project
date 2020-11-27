@@ -81,11 +81,13 @@
         <!--NOT DONE. LAYOUT NEED TO BE FIXED-->
           <!-- Menu decription modal-->
         <div id="menu-modal-page" class="modal">
-              <div id="menu-modal">
-                <!--Food Item content-->
+            <div id="modal-div">
+                <button id="modal-close" onclick="closeMenuModal()">x</button>
+                <div id="menu-modal">
+                    <!--Food Item content-->
 
-              </div>
-          
+                </div>
+            </div>
         </div> <!-- Menu decription modal end-->
 
     
@@ -93,6 +95,7 @@
         <div id="summary-page" class="modal">
             <!-- Order Summary page content -->
             <div class="modal-content">
+                <button class=close onclick="cancelCheckout()">x</button>
                 <!--TODO: Put Summary html here-->
                 <div id="content">
                     <form>
@@ -118,8 +121,10 @@
                                     <input type="text" class="user-information" id="user-address" placeholder="Enter Address" required>
                                 </div> 
                                 <div id="user-card-info">
-                                    <input type="number" class="user-information" id="user-card" placeholder="16 digit card number" required>
-                                    <input type="number" class="user-information" id="user-security-code" placeholder="Security code" required>
+                                    <input type="text" class="user-information" id="user-card" placeholder="16 digit card number" maxlength="16" onkeypress="return onlyNumberKey(event)"
+                                    required>
+                                    <input type="text" class="user-information" id="user-security-code" placeholder="Security code" maxlength="3" onkeypress="return onlyNumberKey(event)"
+                                    required>
                                     <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
                                     <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)" required>
                                     <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)" required>

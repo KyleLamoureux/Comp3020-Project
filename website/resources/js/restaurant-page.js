@@ -172,11 +172,12 @@ function createRandomization() {
     var orbDiv = document.createElement("div");
     var txt = document.createElement("h2");
     txt.className = "random-restaurant-text";
-    txt.textContent = "Random Meals"
+    txt.innerHTML="<b>RANDOM</b> EATS"
     orbDiv.appendChild(txt);
+
     
     // Create random menu item orbs
-    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true, false);
+    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true, true);
     itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
 
     li.appendChild(itemDiv);
@@ -210,6 +211,7 @@ function celebOrder(celeb){
 
 
 function clearSelection(){
+    vanilla = true;
     restaurants_categories.forEach(iter => {
         iter["active"] = true;
     });
@@ -243,6 +245,7 @@ function clearSearch(){
     $('#categories-overlay').css("visibility", "hidden").css("opacity", "0%");
     createRestaurants();
     $('.dropdown').css("visibility", "visible");
+
 }
 
 // Creates li.
