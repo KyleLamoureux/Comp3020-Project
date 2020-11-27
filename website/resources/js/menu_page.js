@@ -299,7 +299,7 @@ function openFoodModal(event){
       //"Save" buton instead of "add to cart" if the click is from edit btn
       buttonsContent = `
       <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-      <button class="button-save-to-cart" onclick="saveClicked()">Save</button>
+      <button class="button-save-to-cart">Save</button>
       `;
 
     }else{
@@ -318,7 +318,7 @@ function openFoodModal(event){
       //add to cart button if the click is from the food item.
       buttonsContent = `
       <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
-      <button class="button-add-to-cart" onclick="addToCartClicked()">Add to cart</button>
+      <button class="button-add-to-cart">Add to cart</button>
       `;
     
     }//end if-else

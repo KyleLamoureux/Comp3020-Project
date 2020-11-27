@@ -14,7 +14,7 @@ function getOrderedItems(listOrderedItems){
       let cartItemQuantity = listOrderedItems[i][2].quantity;
       let cartItemImg = listOrderedItems[i][3].image;
       let cartItemInstruction = listOrderedItems[i][5].instruction;
-      console.log(listOrderedItems[i][0].name);
+
       let options = [];
       for(let j = 0; j < listOrderedItems[i][4].options.length; j++){
         options.push(listOrderedItems[i][4].options[j]);

@@ -18,7 +18,7 @@
     width: 100vw; /* Full width */
     height: 100vh; /* Full height */
     overflow-y: auto; /* Enable scroll if needed */
-    border: 2px solid #333
+    border: 2px solid #333;
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
