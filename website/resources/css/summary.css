@@ -9,15 +9,16 @@
     filter: blur(2px);
 }
 
+.modal-content h2{
+    text-align: left;
+}
 .modal {
     display: none; /* Hidden by default */
-    position: fixed; 
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
+    position: fixed;
+    width: 100vw; /* Full width */
+    height: 100vh; /* Full height */
     overflow-y: auto; /* Enable scroll if needed */
-    border: 2px solid #333;
+    border: 2px solid #333
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   }
   
@@ -25,12 +26,11 @@
   .modal-content {
     background-color: #fff;
     border-radius: 10px;
-    border: 2px solid #333;
-    margin: 40px auto; 
+    margin: 5vh auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 85%; 
-    height: 86vh;
+    width: 85vw;
+    height: 85vh;
   }
   
   /* The Close Button */
@@ -54,19 +54,20 @@
   }
 
   #content{
-      width: 100%;
-      height: 100%;
+      width: 84vw;
+      height: 84vh;
+      text-align: center;
+      border: none;
   }
 
-  
-.wrapper{
-    padding: 10px;
-    margin-right: 10px;
+
+
+#summary-left-top{
+    height: 55%;
 }
 
-.heading-text{
-    margin: 10px;
-    padding: 5px 4px;
+#summary-left-bottom{
+    height: 45%;
 }
 
 hr{
@@ -77,15 +78,15 @@ hr{
 /*Left side of the summary page*/
 #left-side{
     float: left;
-    width: 55%;
-    height: 100%;
+    width: 42vw;
+    height: 84vh;
     border-right: 0.2px solid #333;
 }
 
 #ordered-list{
     margin-top: 10px;
     padding: 5px;
-    height: 30vh;
+    height: 37vh;
     overflow-y: auto;
 }
 
@@ -124,49 +125,58 @@ hr{
 }
 
 #user-input-group{
-    margin-top: 10px;
+    display: flex;
+    margin-top: 15px;
+    height: 90%;
+    width: 41vw;
 }
 
 #user-inputs{
-    margin-top:  5px;
-    float: left;
-    width: 49%;
+    border-right: #333 solid 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: center;
+    padding: 5px;
+    width: 20vw;
 }
 
 #user-card-info{
-    margin-top: 5px;
-    float: right;
-    width: 49%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-end;
+    width: 20vw;
 }
 
 .user-information{
     display: block;
-    margin-top: 20px;
-    width: 88%;
+    width: 17vw;
     height: 25px;
-    margin-left: 20px;
     padding: 10px 10px;
     border-radius: 10px;
 }
 
-#user-inputs .user-information {
-    float: left;
-    margin-left: 0;
+
+
+#expiry-date-group{
+    display: inline-flex;
+    justify-content: flex-end;
+    align-content: center;
+    height: 45px;
 }
 
 #expiry-date-label{
+    height: 45px;
     font-size: 17px;
-    margin-top: 20px;
-    margin-left: 20px;
-    padding-top: 20px;
-    float: left;
+    padding-top: 10px;
+    width: 8vw;
 }
 
 .expiry-date-information{
     display: block;
-    margin-top: 20px;
     margin-left: 10px;
-    width: 20%;
+    width: 4vw;
     height: 25px;
     padding: 10px 10px;
     border-radius: 10px;
@@ -176,8 +186,11 @@ hr{
 
 /*Right side of the summary page*/
 #right-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     float: right;
-    width: 42%;
+    width: 41vw;
     height: 100%;
 }
 
@@ -208,6 +221,7 @@ label{
     font-size: 18px;
 }
 
+
 #total-order-information, #total-order-price{
     /*margin-top: 20px;*/
     width: fit-content;
@@ -218,7 +232,7 @@ label{
 #ordersummaryinfo{
     position: relative;
     bottom: auto;
-    width: 35vw;
+    width: 41vw;
     /*outline: 2px solid black;*/
 }
 
