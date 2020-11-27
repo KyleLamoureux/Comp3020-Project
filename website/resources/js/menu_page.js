@@ -317,7 +317,7 @@ function openFoodModal(event){
     let foodSpecialRequestDiv = document.createElement("div");
     foodSpecialRequestDiv.classList.add("food-special-request");
     foodSpecialRequestDiv.innerHTML = `
-    <textarea class="special-request-box" cols="300" rows="4" placeholder="Please write special requests here......"></textarea>
+    <textarea class="special-request-box" cols="300" rows="4" placeholder="Special requests (optional)..."></textarea>
     `;
 
     //for quantity
