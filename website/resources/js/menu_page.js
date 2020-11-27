@@ -326,6 +326,13 @@ function openFoodModal(event){
     
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    if(w < 700 || h < 700){
+      modal.style.width = "60%";
+      modal.style.height = "95%";
+    }
+
     let foodModalContent = `
     <div id="modal-description">
         <h4 class="modal-food-title">${foodItemTitle}</h4>
