@@ -650,3 +650,8 @@ a {
     background: #cf4c00;
     cursor: pointer;
 }
+
+.fa-sm::before {
+    font-size: .675em;
+    vertical-align: middle;
+}
