@@ -593,7 +593,10 @@ a {
 .btnCheckout{
     outline: none;
     border: 2px solid black;
-    border-radius: 15px;
+    font-family: 'Roboto', sans-serif;
+    border-top-color: rgb(118, 118, 118);
+    border-left-color: rgb(118, 118, 118);
+    border-radius: 50px;
     width: 40%;
     height: 30%;
     font-size: 24px;

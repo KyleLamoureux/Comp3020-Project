@@ -139,6 +139,8 @@
     font-family: 'Roboto', sans-serif;
     color: black;
     padding: 7px 13px;
+    border-top-color: rgb(118, 118, 118);
+    border-left-color: rgb(118, 118, 118);
     /*float: right;*/
     border-radius: 50px;
     background: #FF5C00;
