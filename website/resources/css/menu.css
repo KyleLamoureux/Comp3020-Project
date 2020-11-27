@@ -389,6 +389,10 @@ a {
     height: 700px;
     width: 700px;
     border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
     background-color: #fff;
     border-radius: 50%;
     position: fixed;
@@ -418,37 +422,51 @@ a {
 }
 
 #modal-description {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    /*top: 10%;*/
+    margin-top: 7%;
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
     font-size: 24px;
     text-align: center;
 }
 
 .food-options {
-    position: absolute;
-    top: 28%;
-    left: 50%;
-    width: 550px;
-    max-height: 200px;
+    position: relative;
+    /*top: 28%;*/
+    /*left: 50%;*/
+    width: 78.5%;
+    /*max-height: 200px;*/
     overflow-y: scroll;
-    transform: translateX(-50%);
+    margin-bottom: 10px;
+    /*transform: translateX(-50%);*/
     background-color: whitesmoke;
     border: black 2px solid;
+    margin-top: 8%;
+    flex-grow: 30;
+}
+
+.food-special-request{
+    position: relative;
+    margin-top: auto;
+    margin-bottom: 3%;
+    display: block;
+    margin-left: -3.6%;
+    width: 75.75%;
 }
 
 .special-request-box {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    width: 550px;
-    min-height: 50px;
-    max-height: 100px;
-    padding-top: 5px;
-    padding-left: 5px;
+    position: relative;
+    /*top: 60%;*/
+    /*left: 50%;*/
+    width: 100%;
+    min-height: 1em;
+    height: 1em;
+    /*max-height: 100px;*/
+    padding: 10px;
+    resize: none;
     overflow-y: scroll;
-    transform: translateX(-50%);
+    /*transform: translateX(-50%);*/
     background-color: whitesmoke;
     border: black 2px solid;
     font-size: large;
@@ -492,10 +510,10 @@ a {
 }
 
 .food-number-button {
-    position: absolute;
-    top: 75%;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    /*top: 75%;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
     text-align: center;
 }
 
@@ -519,18 +537,21 @@ a {
 }
 
 .modify-cart {
-    position: absolute;
-    top: 85%;
-    left: 50%;
-    width: 280px;
-    transform: translateX(-50%);
+    position: relative;
+    /*top: 85%;*/
+    /*left: 50%;*/
+    width: 40%;
+    max-height: 50px;
+    margin-bottom: 7%;
+    margin-top: 2%
+    /*transform: translateX(-50%);*/
 }
 
 
 .button-cancel-cart{
     display: inline;
     height: 50px;
-    width: 120px;
+    width: 45%;
     float: left;
     text-align: center;
     background-color: lightgray;
@@ -543,7 +564,7 @@ a {
 .button-add-to-cart {
     display: inline;
     height: 50px;
-    width: 120px;
+    width: 45%;
     float: right;
     text-align: center;
     background-color: lightgray;

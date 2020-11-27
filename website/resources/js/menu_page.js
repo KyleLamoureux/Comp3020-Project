@@ -328,8 +328,12 @@ function openFoodModal(event){
     var w = window.innerWidth;
     var h = window.innerHeight;
     if(w < 700 || h < 700){
-      modal.style.width = "60%";
-      modal.style.height = "95%";
+      var siz = 0.95*h;
+      modal.style.width = siz + "px";
+      modal.style.height = siz + "px";
+    }else{
+        modal.style.width = "700px";
+        modal.style.height = "700px";
     }
 
     let foodModalContent = `
@@ -342,7 +346,7 @@ function openFoodModal(event){
     let foodSpecialRequestDiv = document.createElement("div");
     foodSpecialRequestDiv.classList.add("food-special-request");
     foodSpecialRequestDiv.innerHTML = `
-    <textarea class="special-request-box" cols="300" rows="4" placeholder="Special requests (optional)..."></textarea>
+    <textarea class="special-request-box" cols="300" rows="1" placeholder="Special requests (optional)..."></textarea>
     `;
 
     //for quantity
