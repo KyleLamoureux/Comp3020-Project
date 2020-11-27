@@ -172,11 +172,12 @@ function createRandomization() {
     var orbDiv = document.createElement("div");
     var txt = document.createElement("h2");
     txt.className = "random-restaurant-text";
-    txt.textContent = "Random Meals"
+    txt.innerHTML="<b>RANDOM</b> EATS"
     orbDiv.appendChild(txt);
+
     
     // Create random menu item orbs
-    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true, false);
+    var menuItems = createItemOrb(listOfMenuItems.slice(0, 3), true, true);
     itemDiv = appendMultiple(itemDiv, [orbDiv, menuItems]);
 
     li.appendChild(itemDiv);
@@ -193,7 +194,24 @@ function randomItemClick(item){
     window.location.href='./menu_page.html';
 }
 
+// Celeb clicked. Hardcoded like no fuckin tomorrow
+function celebOrder(celeb){
+    if("zendaya" === celeb) {
+        localStorage.setItem('restaurant', "Mucho Burrito");
+    }
+    else if("keanu" === celeb) {
+        localStorage.setItem('restaurant', "Asia Palace");
+    }
+    else if("kevin" === celeb) {
+        localStorage.setItem('restaurant', "Boston Pizza");
+    }
+    localStorage.setItem('celeb', celeb);
+    window.location.href='./menu_page.html';
+}
+
+
 function clearSelection(){
+    vanilla = true;
     restaurants_categories.forEach(iter => {
         iter["active"] = true;
     });
@@ -227,6 +245,7 @@ function clearSearch(){
     $('#categories-overlay').css("visibility", "hidden").css("opacity", "0%");
     createRestaurants();
     $('.dropdown').css("visibility", "visible");
+
 }
 
 // Creates li.
@@ -306,8 +325,10 @@ function createItemOrb(element, random=false, color=false){
         var img = document.createElement("img");
         img.src = e["img"];
         img.alt = e["dish"] + "," + e['restaurant'];
-        if (random)
+        if (random){
             img.onclick = randomItemClick;
+            img.className = "random-hover";
+        }
 
         var title = document.createElement("h6");
         var text = document.createTextNode(e["name"]);

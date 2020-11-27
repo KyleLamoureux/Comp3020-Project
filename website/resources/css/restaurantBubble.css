@@ -31,11 +31,42 @@
 
 .random{
     margin-top: 0vw;
+    /*background-color: #F6B78A;*/
+    color: black;
+}
+
+.random > div{
+    background-color: #F6B78A;
+}
+
+
+
+.random button{
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    padding: 7px 13px;
+    /*float: right;*/
+    border-radius: 50px;
+    background: #FF5C00;
+    /*align-items: center;*/
+    justify-content: center;
+    /*display: flex;*/
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+    transition: 0.2s ease;
+}
+.random button:hover{
+    color: white;
+    background: #cf4c00;
+    cursor: pointer;
 }
 
 .restaurant-item{
     position: relative;
-    background-color: rgb(42, 107, 129);
+    background-color: #ff9800;
     width: 24vw;
     height: 24vw;
     margin-left: 15%;
@@ -58,18 +89,23 @@
 }
 
 .random-restaurant-text{
-    color: black;
-    border-radius: 40%;
-    width: 12vw;
-    height: 6.5vw;
-    padding:  1vw 0 0 0;
-    margin: 2vw auto auto auto;
+    font-family: "Roboto", sans-serif;
+    font-size: 2em;
+    color: #083755;
+    /*width: 12vw;*/
+    /*height: 6.5vw;*/
+    padding:  15% 0 0 0;
+    margin: 0 auto 5% auto;
     object-fit: contain;
-
+    /*border: 1px solid black;*/
     /*font-style: strong;*/
-    font-weight: 600;
-    font-size: 30px;
+    font-weight: normal;
+    /*font-weight: 600;*/
+    /*font-size: 30px;*/
     text-align: center;
+}
+.random-restaurant-text b{
+    font-weight: 620;
 }
 
 .restaurant-image-overlay{

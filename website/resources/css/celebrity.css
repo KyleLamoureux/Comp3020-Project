@@ -30,6 +30,7 @@
 
 .chevron2:hover{
     opacity: 100%;
+    cursor: pointer;
 }
 
 .slick-disabled {
@@ -109,7 +110,7 @@
     /*position: absolute;*/
     /*width: 20em;*/
     margin-top: 2vh;
-    margin-left: 5vw;
+    margin-left: 4vw;
     margin-right: 2vw;
     padding-top: 2vh;
     /*border: 1px solid black;*/
@@ -138,6 +139,8 @@
     font-family: 'Roboto', sans-serif;
     color: black;
     padding: 7px 13px;
+    border-top-color: rgb(118, 118, 118);
+    border-left-color: rgb(118, 118, 118);
     /*float: right;*/
     border-radius: 50px;
     background: #FF5C00;

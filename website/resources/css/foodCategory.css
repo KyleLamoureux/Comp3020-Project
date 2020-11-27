@@ -41,6 +41,7 @@
 }
 .chevron:hover{
     opacity: 100%;
+    cursor: pointer;
 }
 
 .food-item-check{
@@ -141,8 +142,20 @@
     transition: opacity 0.4s;
 }
 
+.random-hover{
+    transition: .4s;
+}
+
+.random-hover:hover{
+    background-color: rgba(0,0,0,0.7);
+    transform: scale(1.3);
+    cursor: pointer;
+    transition: 0.4s ease-out;
+}
+
 .food-item-overlay:hover{
     opacity: 100%;
+    cursor: pointer;
 }
 
 

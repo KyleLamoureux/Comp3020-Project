@@ -29,7 +29,7 @@ a {
     float: left;
     width: 67%;
     z-index: 100;
-    background-image: url("../images/Res-background/Olive-Garden.jpg");
+    /* background-image: url("../images/Res-background/Olive-Garden.jpg"); */
     background-color: rgba(0,0,0,.5);
     background-size: cover; 
     background-position: 50% 50%;
@@ -38,14 +38,29 @@ a {
     border-bottom-right-radius: 30px;
 }
 
+/* How does one do this dynamically hummmmmmmmm */
+.perkins{ background-image: url("../images/Res-background/Perkins.jpg"); }
+.mcdonalds{ background-image: url("../images/Res-background/McDonalds.jpg"); }
+.olive_garden{ background-image: url("../images/Res-background/Olive-Garden.jpg"); }
+.mucho_burrito{ background-image: url("../images/Res-background/Mucho-Burrito.jpg"); }
+.asia_palace{ background-image: url("../images/Res-background/Asia-Palace.jpg"); }
+.kimchi_sushi{ background-image: url("../images/Res-background/Kimchi-sushi.jpg"); }
+.boston_pizza{ background-image: url("../images/Res-background/Boston-Pizza.jpg"); }
+.clay_oven{ background-image: url("../images/Res-background/Clay-Oven.jpg"); }
+
 .back-button{
     font-size: 35px;
     padding-top: 5px;
     padding-left: 5px;
 }
 
+.back-button:hover{
+    -webkit-filter: brightness(145%);
+    transition: 0.2s ease-in; 
+}
+
 .fa-chevron-circle-left::before {
-    color: wheat;
+    color: #FF5C00;
 }
 
 #menu-section{
@@ -174,7 +189,7 @@ a {
     background-color: #FF5C00;
     align-self: center;
     font-size: 18px;
-    width: 30px;
+    width: auto;
     height: auto;
     border-radius: 5px;
     font-family: 'Roboto', sans-serif;
@@ -352,13 +367,13 @@ a {
 /*For Menu modal*/
 
 #menu-modal {
-    height: 500px;
-    width: 500px;
+    height: 700px;
+    width: 700px;
     border: 1px solid gray;
     background-color: #fff;
     border-radius: 50%;
     position: fixed;
-    left: 30%;
+    left: 25%;
     top: 2%;
     z-index: 300;
     overflow: hidden;
@@ -396,8 +411,8 @@ a {
     position: absolute;
     top: 28%;
     left: 50%;
-    width: 400px;
-    max-height: 165px;
+    width: 550px;
+    max-height: 220px;
     overflow-y: scroll;
     transform: translateX(-50%);
     background-color: whitesmoke;
@@ -449,50 +464,27 @@ a {
     text-align: center;
 }
 
-#num-food {
-    height: 35px;
-    width: 70px;
+.num-food-input {
+    height: 50px;
+    width: 170px;
     margin: 3px;
     text-align: center;
-    font-size: 20px;
+    font-size: 25px;
     border-radius: 10px;
-    outline: none;
-}
-
-#plus, #minus {
-    height:30px;
-    width: 30px;
-    margin: 3px;
-    text-align: center;
-    font-size: 20px;
-    border-radius: 50%;
-    border: 3px solid black;
-    background: none;
-    outline: none;
-    font-weight: bolder;
-    transition: 0.2s ease;
-}
-
-#plus:hover, #minus:hover{
-    cursor: pointer;
-}
-
-#plus:active, #minus:active{
-    background: #c4c4c4;
+    border: 1px solid #333;
 }
 
 #num-food {
     border: 1px solid #333;
 }
 
-input::-webkit-inner-spin-button {
--webkit-appearance: none;
-margin: 0;
+.num-food-input::-webkit-inner-spin-button, 
+.num-food-input::-webkit-outer-spin-button {  
+   opacity: 1;
 }
 
 .modify-cart {
     position: absolute;
-    display: inline-flex;
     top: 75%;
     left: 50%;
     transform: translateX(-50%);
@@ -501,23 +493,20 @@ margin: 0;
 
 .button-cancel-cart{
     height: 50px;
-    width: 100px;
+    width: 170px;
     text-align: center;
     border: none;
     background-color: lightgray;
     margin-top: 10px;
-    margin-left: 2em;
     border-radius: 10px;
     font-size: 16px;
     border: 1px solid #333;
-    outline: none;
-    transition: 0.2s ease;
 }
 
 
 .button-add-to-cart {
     height: 50px;
-    width: 100px;
+    width: 170px;
     text-align: center;
     border: none;
     background-color: lightgray;
@@ -525,8 +514,7 @@ margin: 0;
     border-radius: 10px;
     font-size: 16px;
     border: 1px solid #333;
-    outline: none;
-    transition: 0.2s ease;
+    
 }
 
 .button-add-to-cart:hover, .button-cancel-cart:hover{
@@ -544,7 +532,6 @@ margin: 0;
     border-radius: 10px;
     font-size: 16px;
     border: 1px solid #333;
-
 }
 
 
@@ -586,8 +573,6 @@ margin: 0;
 }
 
 
-
-
 /*checkout-div*/
 .checkout-div{
     width: 100%;
@@ -608,10 +593,13 @@ margin: 0;
 .btnCheckout{
     outline: none;
     border: 2px solid black;
-    border-radius: 15px;
-    width: 40%;
+    font-family: 'Roboto', sans-serif;
+    border-top-color: rgb(118, 118, 118);
+    border-left-color: rgb(118, 118, 118);
+    border-radius: 50px;
+    width: 35%;
     height: 30%;
-    font-size: 24px;
+    font-size: 1.2em;
     background-color: #FF5C00;
     margin-left: 5em;
     transition: 0.2s ease;

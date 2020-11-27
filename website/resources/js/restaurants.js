@@ -32,7 +32,9 @@ restaurants = [
         price: 20,
         popularity: 4,
         description: "Diverse moderately priced homestyle goodness, with a menu featuring breakfast, lunch, and bakery offerings.",
-        backgroundColour: '#006300'
+        backgroundColour: '#006300',
+        backgroundImage: "../resources/images/Res-background/Perkins.jpg",
+        rating : "Rating: 2.9/5"
     },
     {
         name: "McDonalds",
@@ -64,7 +66,9 @@ restaurants = [
         price: 5,
         popularity: 2,
         description: "We're McDonalds, you know what we're offering.",
-        backgroundColour: '#c7161c'
+        backgroundColour: '#c7161c',
+        backgroundImage: "../resources/images/Res-background/McDonalds.jpg",
+        rating : "Rating: 4.2/5"
     },
     {
         name: "Olive Garden",
@@ -96,30 +100,32 @@ restaurants = [
         price: 35,
         popularity: 3,
         description: "At Olive Garden, we know that life is better together and everyone is happiest when they’re with family. From never ending servings of our freshly baked breadsticks and iconic garden salad, to our homemade soups and sauces, there’s something for everyone to enjoy.",
-        backgroundColour: '#54301a'
+        backgroundColour: '#54301a',
+        backgroundImage: "../resources/images/Res-background/Olive-Garden.jpg",
+        rating : "Rating: 3.3/5"
     },
     {
-        name: "Muncho Burrito",
-        id: "muncho_burrito",
-        img: root+"/muncho_burrito/mbLogo.jpg",
+        name: "Mucho Burrito",
+        id: "mucho_burrito",
+        img: root+"/mucho_burrito/mbLogo.jpg",
         type: ['Mexican'],
         foodItems: [
             {
                 name: "Zesty Chimichurri",
-                img: root+"/muncho_burrito/signature/zesty.png",
-                restaurant: "Muncho Burrito",
+                img: root+"/mucho_burrito/signature/zesty.png",
+                restaurant: "Mucho Burrito",
                 dish: "Zesty Chimichurri Bowl"
             },
             {
                 name: "Chips & Salsa",
-                img: root+"/muncho_burrito/sides/salsa.jpg",
-                restaurant: "Muncho Burrito",
+                img: root+"/mucho_burrito/sides/salsa.jpg",
+                restaurant: "Mucho Burrito",
                 dish: "Tortilla Chips with Salsa"
             },
             {
                 name: "Build Your Own",
-                img: root+"/muncho_burrito/build_your_own/burrito.jpg",
-                restaurant: "Muncho Burrito",
+                img: root+"/mucho_burrito/build_your_own/burrito.jpg",
+                restaurant: "Mucho Burrito",
                 dish: "Build Your Own Burrito"
             }
         ],
@@ -129,7 +135,9 @@ restaurants = [
         popularity: 2,
         description: "Mexican-inspired food that lives up to their promise: Fresh Mexican Grill. Mucho Burrito only serves food that is mucho real and mucho fresh. It’s made by hand right in front of our guests’ eyes, using only the freshest ingredients, free of artificial flavours and preservatives.",
         backgroundColour: '#fdfdfd',
-        textColour: '#000000'
+        textColour: '#000000',
+        backgroundImage: "../resources/images/Res-background/Mucho-Burrito.jpg",
+        rating : "Rating: 3.5/5"
     },
     {
         name: "Asia Palace",
@@ -161,7 +169,9 @@ restaurants = [
         price: 15,
         popularity: 3,
         description: "Relaxed restaurant serving a menu of Pan-Asian dishes.",
-        backgroundColour: '#f37022'
+        backgroundColour: '#f37022',
+        backgroundImage: "../resources/images/Res-background/Asia-Palace.jpg",
+        rating : "Rating: 4.2/5"
     },
     {
         name: "Kimchi Sushi",
@@ -193,7 +203,9 @@ restaurants = [
         price: 20,
         popularity: 2,
         description: "Kimchi Sushi offers a wide range of excellent Japanese and Korean dishes, from classic sushi, sashimi, and tempura dishes, to Korean dishes like Bibimpap, Bulgogi, and more.",
-        backgroundColour: '#000000'
+        backgroundColour: '#000000',
+        backgroundImage: "../resources/images/Res-background/Kimchi-sushi.jpg",
+        rating : "Rating: 3.9/5"
     },
     {
         name: "Boston Pizza",
@@ -226,7 +238,9 @@ restaurants = [
         popularity: 4,
         description: "Famous for our gourmet pizzas made with our signature hand pressed dough, our extensive menu satisfies every appetite with our mouth-watering pasta dishes and a wide variety of, salads, entrées and desserts.",
         backgroundColour: '#fbffff',
-        textColour: '#000000'
+        textColour: '#000000',
+        backgroundImage: "../resources/images/Res-background/Boston-Pizza.jpg",
+        rating : "Rating: 3.2/5"
     },
     {
         name: "Clay Oven",
@@ -259,6 +273,8 @@ restaurants = [
         popularity: 1,
         description: "Clay Oven Restaurant proudly boasts of the best menu and the most delicious food.Delight in our appetizing soups and snacks. Both vegetarians and non vegetarians can enjoy our culinary feasts.",
         backgroundColour: '#000000',
+        backgroundImage: "../resources/images/Res-background/Clay-Oven.jpg",
+        rating : "Rating: 4.8/5"
     }
 ];
 
