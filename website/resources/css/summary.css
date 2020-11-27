@@ -161,16 +161,16 @@ hr{
 
 #expiry-date-group{
     display: inline-flex;
+    flex-direction: row;
     justify-content: flex-end;
-    align-content: center;
     height: 45px;
+    width: 18vw;
 }
 
 #expiry-date-label{
     height: 45px;
     font-size: 17px;
-    padding-top: 10px;
-    width: 8vw;
+    width: 5vw;
 }
 
 .expiry-date-information{
