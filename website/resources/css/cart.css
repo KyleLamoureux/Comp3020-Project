@@ -105,10 +105,13 @@
     width: 21px;
     height: 21px;
     border: none;
+    position: relative;
+    top: 0;
+    transition: top 0.15s ease;
 }
 .btn-edit:hover{
     cursor: pointer;
-    opacity: 75%;
+    top: -5px;
 }
 
 .btn-remove{
@@ -118,11 +121,14 @@
     border: none;
     margin-right: 10px;
     margin-left: 10px;
+    position: relative;
+    top: 0;
+    transition: top 0.15s ease;
 }
 
 .btn-remove:hover{
     cursor: pointer;
-    opacity: 75%;
+    top: -5px;
 }
 
 /*
