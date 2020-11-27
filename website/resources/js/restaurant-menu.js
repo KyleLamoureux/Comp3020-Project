@@ -1613,7 +1613,7 @@ const menus = {
                 image : mRoot+'/kimchi_sushi/entrees/chicken.jpg',
                 options : {
                     Extra : {
-                        type : 'radio',
+                        type : 'checkbox',
                         data : [
                             {
                                 name : 'Soy sauce',
@@ -1950,7 +1950,7 @@ const menus = {
                 image : mRoot+'/clay_oven/appetizer/samosa.jpg',
                 options : {
                     Sauce : {
-                        type : 'radio',
+                        type : 'checkbox',
                         data : [
                             {
                                 name : 'Mint Chutney',
@@ -1995,7 +1995,7 @@ const menus = {
                 image : mRoot+'/clay_oven/curry/lamb.jpg',
                 options : {
                     Extras : {
-                        type : 'radio',
+                        type : 'checkbox',
                         data : [
                             {
                                 name : 'Additional bowl of rice',
@@ -2012,7 +2012,7 @@ const menus = {
                 image : mRoot+'/clay_oven/curry/chicken.jpg',
                 options : {
                     Extras : {
-                        type : 'radio',
+                        type : 'checkbox',
                         data : [
                             {
                                 name : 'Additional bowl of rice',
