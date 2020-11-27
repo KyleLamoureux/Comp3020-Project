@@ -34,7 +34,7 @@ restaurants = [
         description: "Diverse moderately priced homestyle goodness, with a menu featuring breakfast, lunch, and bakery offerings.",
         backgroundColour: '#006300',
         backgroundImage: "../resources/images/Res-background/Perkins.jpg",
-        rating : "Rating: 2.9/5"
+        rating : "2.9/5"
     },
     {
         name: "McDonalds",
@@ -68,7 +68,7 @@ restaurants = [
         description: "We're McDonalds, you know what we're offering.",
         backgroundColour: '#c7161c',
         backgroundImage: "../resources/images/Res-background/McDonalds.jpg",
-        rating : "Rating: 4.2/5"
+        rating : "4.2/5"
     },
     {
         name: "Olive Garden",
@@ -102,7 +102,7 @@ restaurants = [
         description: "At Olive Garden, we know that life is better together and everyone is happiest when they’re with family. From never ending servings of our freshly baked breadsticks and iconic garden salad, to our homemade soups and sauces, there’s something for everyone to enjoy.",
         backgroundColour: '#54301a',
         backgroundImage: "../resources/images/Res-background/Olive-Garden.jpg",
-        rating : "Rating: 3.3/5"
+        rating : "3.3/5"
     },
     {
         name: "Mucho Burrito",
@@ -137,7 +137,7 @@ restaurants = [
         backgroundColour: '#fdfdfd',
         textColour: '#000000',
         backgroundImage: "../resources/images/Res-background/Mucho-Burrito.jpg",
-        rating : "Rating: 3.5/5"
+        rating : "3.5/5"
     },
     {
         name: "Asia Palace",
@@ -171,7 +171,7 @@ restaurants = [
         description: "Relaxed restaurant serving a menu of Pan-Asian dishes.",
         backgroundColour: '#f37022',
         backgroundImage: "../resources/images/Res-background/Asia-Palace.jpg",
-        rating : "Rating: 4.2/5"
+        rating : "4.2/5"
     },
     {
         name: "Kimchi Sushi",
@@ -205,7 +205,7 @@ restaurants = [
         description: "Kimchi Sushi offers a wide range of excellent Japanese and Korean dishes, from classic sushi, sashimi, and tempura dishes, to Korean dishes like Bibimpap, Bulgogi, and more.",
         backgroundColour: '#000000',
         backgroundImage: "../resources/images/Res-background/Kimchi-sushi.jpg",
-        rating : "Rating: 3.9/5"
+        rating : "3.9/5"
     },
     {
         name: "Boston Pizza",
@@ -240,7 +240,7 @@ restaurants = [
         backgroundColour: '#fbffff',
         textColour: '#000000',
         backgroundImage: "../resources/images/Res-background/Boston-Pizza.jpg",
-        rating : "Rating: 3.2/5"
+        rating : "3.2/5"
     },
     {
         name: "Clay Oven",
@@ -274,7 +274,7 @@ restaurants = [
         description: "Clay Oven Restaurant proudly boasts of the best menu and the most delicious food.Delight in our appetizing soups and snacks. Both vegetarians and non vegetarians can enjoy our culinary feasts.",
         backgroundColour: '#000000',
         backgroundImage: "../resources/images/Res-background/Clay-Oven.jpg",
-        rating : "Rating: 4.8/5"
+        rating : "4.8/5"
     }
 ];
 

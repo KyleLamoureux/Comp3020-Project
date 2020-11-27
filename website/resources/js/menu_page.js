@@ -104,7 +104,7 @@ function main(){
   //CHOSEN RESTAURANT GOES HERE.
   let restaurantName = localStorage.getItem('restaurant');
   var val = restaurants.find(x => x.name === restaurantName);
-  document.getElementById("restRating").textContent = val["rating"];
+  document.getElementById("restRating").append(" " + val["rating"]);
   var bg = document.getElementById("restBackground")
   bg.className = bg.className + " " + val["id"]; // Change the background img. Tried other approaches but just gave up and settled for this
 
@@ -325,6 +325,13 @@ function openFoodModal(event){
     
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    if(w < 700 || h < 700){
+      modal.style.width = "60%";
+      modal.style.height = "95%";
+    }
+
     let foodModalContent = `
     <div id="modal-description">
         <h4 class="modal-food-title">${foodItemTitle}</h4>
