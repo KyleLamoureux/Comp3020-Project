@@ -51,6 +51,8 @@ function init(){
     };
     chart1 = new google.visualization.PieChart(document.getElementById('piechart-1'));
     chart2 = new google.visualization.PieChart(document.getElementById('piechart-2'));
+
+    myVar.SetValue(true); // Notify the listening function that init has finished
 }
 
 

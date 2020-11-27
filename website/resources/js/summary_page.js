@@ -3,27 +3,26 @@
 /**
  * getOrderedItems - a function that gets the ordered items from the cart section and display it
  *                  in the summary modal.
+ * @param listOrderedItems - the orders from the menu page.
  */
-function getOrderedItems(){
-    let cartItemsDiv = document.getElementsByClassName("cart-items")[0];
-    let listCartItems = cartItemsDiv.getElementsByClassName("cart-row");
-  
-    for(let i = 0; i < listCartItems.length; i++){
-        let cartItem = listCartItems[i];
-        //console.log(cartItem);
-        let cartItemTitle = cartItem.getElementsByClassName("cart-item-title")[0].innerText;
-        let cartItemImg = cartItem.getElementsByClassName("cart-item-image")[0].src;
-        let cartItemPrices = cartItemsDiv.getElementsByClassName("cart-price");//price is not inside the cartItem div
-        let cartItemPrice = cartItemPrices[i].innerText;
-        let cartItemQuantity = cartItem.getElementsByClassName("cart-item-quantity")[0].innerText;
-        let cartItemOptions = cartItem.getElementsByClassName("list-option-item");
-        let options = [];
-        for(let j = 0; j < cartItemOptions.length; j++){
-          options.push(cartItemOptions[j].innerText);
-        }
-        
-        displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options);
+function getOrderedItems(listOrderedItems){
+
+    for(let i = 0; i < listOrderedItems.length; i++){
+
+      let cartItemTitle = listOrderedItems[i][0].name;
+      let cartItemPrice =listOrderedItems[i][1].price;
+      let cartItemQuantity = listOrderedItems[i][2].quantity;
+      let cartItemImg = listOrderedItems[i][3].image;
+      let cartItemInstruction = listOrderedItems[i][5].instruction;
+
+      let options = [];
+      for(let j = 0; j < listOrderedItems[i][4].options.length; j++){
+        options.push(listOrderedItems[i][4].options[j]);
+      }//end nested for
+      
+      displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options,cartItemInstruction);
     }//end for
+
     displayTotalPrice();
   }//end getOrderedItems
   
@@ -36,11 +35,8 @@ function getOrderedItems(){
  * @param {*} cartItemImg  is the image of the food item.
  * @param {*} options list of selected options.
  */
-function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options){
+function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options,cartItemInstruction){
   let orderedListDiv = document.getElementById("ordered-list");
-  //console.log("in display???")
-
-  let orderedItemNames = document.getElementsByClassName("ordered-item-title");
 
   let newOrderedItem = document.createElement("div");
   newOrderedItem.classList.add("order-row");  
@@ -49,7 +45,7 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartIte
   <div class="cart-item-info">
     <img class="cart-item-image" src="${cartItemImg}" alt=${cartItemTitle}>               
     <h4 class="cart-item-title">${cartItemTitle}</h4>
-  <div class="cart-item-quantity">${cartItemQuantity}</div>
+  <div class="cart-item-quantity">Quantity: ${cartItemQuantity}</div>
   </div>
   `;
   
@@ -60,12 +56,22 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartIte
   let ulTag = document.createElement("ul");
   ulTag.classList.add("list-options");
 
+  
   for(let i = 0; i < options.length; i++){
     let liTag = document.createElement("li");
     liTag.classList.add("list-option-item");
     liTag.innerText = options[i];
     ulTag.append(liTag);
   }//end for
+
+  
+  if(cartItemInstruction.length !== 0){
+    let liTag = document.createElement("li");
+    liTag.classList.add("list-option-item");
+    liTag.innerText = "  Special Instruction - " + cartItemInstruction;
+    ulTag.append(liTag);
+  }
+  
   optionDiv.append(ulTag);
 
   //bot content
@@ -99,10 +105,9 @@ function payOrder(){
       && userAddress.length > 0 && userCard.length  > 0
       && userSecurityCode.length > 0 && expiryYear.length > 0
       && expiryMonth > 0)){
-        console.log("worked?????");
         window.location.href = "../app/restaurant-page.html"; 
         return false;
-      }
+  }
 
 }//end payOrder
 

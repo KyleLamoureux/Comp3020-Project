@@ -98,4 +98,5 @@ body{
 .locate-button:hover{
     color: white;
     background: #cf4c00;
+    cursor: pointer;
 }

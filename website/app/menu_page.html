@@ -11,14 +11,14 @@
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript" src="../resources/js/nutrition.js"></script>
         <script src="../resources/js/menu_page.js" async></script>
-        <script src="../resources/js/summary_page.js" async></script>
-        <script src="../resources/js/restaurant-menu.js"></script>
-        <script src="../resources/js/restaurants.js"></script>
-        <script src="https://kit.fontawesome.com/c8bb39f35e.js" crossorigin="anonymous"></script>
         <script type="text/javascript">
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(init);
         </script>
+        <script src="../resources/js/summary_page.js" async></script>
+        <script src="../resources/js/restaurant-menu.js"></script>
+        <script src="../resources/js/restaurants.js"></script>
+        <script src="https://kit.fontawesome.com/c8bb39f35e.js" crossorigin="anonymous"></script>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
@@ -45,7 +45,7 @@
             </section> <!--end menu section (left side)-->
     
             <section id="cart-section">
-                <h2 class="cart-heading" style="color:#083755;">Cart</h2>
+                <h2 class="cart-heading" style="color:#083755;">Order</h2>
                 <hr>
                 <div class="order-div">
                     <div class="cart-items">
@@ -81,11 +81,13 @@
         <!--NOT DONE. LAYOUT NEED TO BE FIXED-->
           <!-- Menu decription modal-->
         <div id="menu-modal-page" class="modal">
-              <div id="menu-modal">
-                <!--Food Item content-->
+            <div id="modal-div">
+                <button id="modal-close" onclick="closeMenuModal()">x</button>
+                <div id="menu-modal">
+                    <!--Food Item content-->
 
-              </div>
-          
+                </div>
+            </div>
         </div> <!-- Menu decription modal end-->
 
     
@@ -93,23 +95,20 @@
         <div id="summary-page" class="modal">
             <!-- Order Summary page content -->
             <div class="modal-content">
+                <button class=close onclick="cancelCheckout()">x</button>
                 <!--TODO: Put Summary html here-->
                 <div id="content">
-                    <form>
+                <form>
                     <section id="left-side">
-                        <div class="wrapper">
+                        <div id="summary-left-top">
                             <h2>Order Summary</h2>
                             <hr>
-                            
                             <div id="ordered-list">
                                <!--list of ordered items here-->
-
                             </div>
-            
                         </div>
-                       
-                        <div class="wrapper">
-                            <h2 class="heading-text">User Information</h2>
+                        <div id="summary-left-bottom">
+                            <h2>User Information</h2>
                             <hr>
                             <div id="user-input-group">
                                 <div id="user-inputs">
@@ -118,20 +117,21 @@
                                     <input type="text" class="user-information" id="user-address" placeholder="Enter Address" required>
                                 </div> 
                                 <div id="user-card-info">
-                                    <input type="number" class="user-information" id="user-card" placeholder="16 digit card number" required>
-                                    <input type="number" class="user-information" id="user-security-code" placeholder="Security code" required>
-                                    <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
-                                    <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)" required>
-                                    <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)" required>
+                                    <input type="text" class="user-information" id="user-card" placeholder="16 digit card number" maxlength="16" onkeypress="return onlyNumberKey(event)"
+                                    required>
+                                    <input type="text" class="user-information" id="user-security-code" placeholder="Security code" maxlength="3" onkeypress="return onlyNumberKey(event)"
+                                    required>
+                                    <div id="expiry-date-group">
+                                        <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
+                                        <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)" required>
+                                        <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)" required>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
-            
                     </section> <!--end left-side section-->
 
                     <section id="right-side">
-                        <div class="wrapper">
                              <!--Pie chart goes here-->
                             <div id="piechart-info">
                                 <div class="nutritional-info-checkbox">
@@ -141,8 +141,7 @@
                                 <!--                    <img class="nutritional-info-img" src="images/piecharts/piechart6.png" alt="piechart1">-->
                                 <div class="nutrition">
                                     <h2 style="font-size: 15px; text-align: center; margin-top:1em;">Calories</h2>
-                                    <div id="piechart-2">
-                                    </div>
+                                    <div id="piechart-2"></div>
                                 </div>
                             </div>
 
@@ -174,10 +173,6 @@
                                 </div>
                             </div>
 
-
-                        </div>
-
-                        <div class="wrapper">
 
                         </div>
             

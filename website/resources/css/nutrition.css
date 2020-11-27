@@ -11,11 +11,9 @@
 svg > g > g:last-child { pointer-events: none }
 
 .nutritional-info-checkbox{
-    width: 80%;
-    position: relative;
+    left: 20px;
     display: block;
-    margin : 0 auto;;
-    display: block;
+    width: 280px;
 }
 
 #nutritional-info-text1{
@@ -31,14 +29,15 @@ svg > g > g:last-child { pointer-events: none }
     overflow: hidden;
     /*text-align: center;*/
     display: none;
+
 }
 
 #piechart-1{
     width: 25vw;
     height: 18vw;
-    margin: 0 auto 0 auto;
     padding: 0;
     z-index: -1;
+    text-align: center;
 }
 #piechart-2{
     /*position: relative;*/
@@ -57,4 +56,15 @@ svg > g > g:last-child { pointer-events: none }
     font-size: 1em;
     text-align: left;
     font-weight: normal;
+}
+
+#piechart-info{
+    text-align: center;
+    height:52vh;
+}
+
+#piechart-info .nutritional-info-checkbox{
+    text-align: left;
+    margin: 0;
+    padding: 0;
 }

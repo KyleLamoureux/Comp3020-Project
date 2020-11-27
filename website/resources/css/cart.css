@@ -73,6 +73,7 @@
     margin-bottom: 5px;
     margin-left:15px;
     list-style-type: none;
+    text-align: left;
 }
 
 .list-option-item{
@@ -106,9 +107,31 @@
     height: 21px;
     border: none;
 }
+.btn-edit:hover{
+    cursor: pointer;
+    opacity: 75%;
+}
+
+.btn-edit:hover{
+    background: lightcoral;
+    width: 21px;
+    height: 21px;
+    border: none;
+}
 
 .btn-remove{
     background: transparent;
+    width: 19px;
+    height: 19px;
+    border: none;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+.btn-remove:hover{
+    cursor: pointer;
+    opacity: 75%;
+    background: lightcoral;
     width: 19px;
     height: 19px;
     border: none;

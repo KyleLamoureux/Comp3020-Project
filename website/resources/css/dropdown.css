@@ -81,7 +81,8 @@
 }
 
 .dropdown:hover .dropdown_menu li{
-    display: block
+    display: block;
+    transition: 0.4s;
 }
 
 .dropdown_menu{
