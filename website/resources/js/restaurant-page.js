@@ -357,7 +357,6 @@ function createCategories(){
     restaurants_categories.forEach(element => {
         eleList.appendChild(createDivCat(element));
     });
-
     $(".food-item").click(function(event){
 
         // let element = $(this);

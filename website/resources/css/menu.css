@@ -29,6 +29,7 @@ a {
     float: left;
     width: 67%;
     z-index: 100;
+    height: 228px;
     /* background-image: url("../images/Res-background/Olive-Garden.jpg"); */
     background-color: rgba(0,0,0,.5);
     background-size: cover; 
@@ -230,7 +231,7 @@ a {
 :target {
     position: relative;
     display: block;
-    scroll-margin-top: 30vh; }
+    scroll-margin-top: 235px; }
 
 
 .menu-category-namee{
@@ -239,7 +240,7 @@ a {
     font-size: 1.75em;
     color: #083755;
     font-weight: 520;
-     scroll-margin-top: 30vh;
+     scroll-margin-top: 250px;
     /*top: -10vh;*/
     /*margin-top: -10vh;*/
     /*padding-top: 10vh;*/
