@@ -105,10 +105,9 @@ function payOrder(){
       && userAddress.length > 0 && userCard.length  > 0
       && userSecurityCode.length > 0 && expiryYear.length > 0
       && expiryMonth > 0)){
-        console.log("worked?????");
         window.location.href = "../app/restaurant-page.html"; 
         return false;
-      }
+  }
 
 }//end payOrder
 

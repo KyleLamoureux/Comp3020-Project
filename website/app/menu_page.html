@@ -121,8 +121,10 @@
                                     <input type="text" class="user-information" id="user-address" placeholder="Enter Address" required>
                                 </div> 
                                 <div id="user-card-info">
-                                    <input type="number" class="user-information" id="user-card" placeholder="16 digit card number" required>
-                                    <input type="number" class="user-information" id="user-security-code" placeholder="Security code" required>
+                                    <input type="text" class="user-information" id="user-card" placeholder="16 digit card number" maxlength="16" onkeypress="return onlyNumberKey(event)"
+                                    required>
+                                    <input type="text" class="user-information" id="user-security-code" placeholder="Security code" maxlength="3" onkeypress="return onlyNumberKey(event)"
+                                    required>
                                     <label for="expiry-date" id="expiry-date-label">Expiry Date</label>
                                     <input type="text" class="expiry-date-information" id="expiry-year" maxlength="2" placeholder="Year(YY)" onkeypress="return onlyNumberKey(event)" required>
                                     <input type="text" class="expiry-date-information" id="expiry-month" maxlength="2" placeholder="Month(MM)" onkeypress="return onlyNumberKey(event)" required>
