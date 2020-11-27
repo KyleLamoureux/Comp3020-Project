@@ -601,6 +601,10 @@ a {
     padding: 5px 4px;
 }
 
+.nutritional-info{
+    text-align: center;
+    background-color: #E5E5E5;
+}
 
 /*checkout-div*/
 .checkout-div{
