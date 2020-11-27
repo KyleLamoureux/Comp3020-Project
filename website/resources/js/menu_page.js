@@ -149,7 +149,7 @@ function presetDish(){
   var restMenu = menus[localStorage.getItem('restaurant')];
   var keys = Object.keys(restMenu);
 
-  console.log(keys);
+  //console.log(keys);
 
   keys.forEach(key => {
     restMenu[key].forEach(item => {
@@ -261,7 +261,6 @@ function addFoodItems(foodCategory,foodName,foodPrice,foodDesc,foodImg, foodItem
  */
 function openFoodModal(event){
   var item = $(this);
-  //console.log("openfoodmodal..");
   let foodItemTitle = null;
   let foodItemImage = null;
   //let foodItemDescription = null;
@@ -785,7 +784,6 @@ function updateInfoForCartItem(index){
     originalPrice = parseFloat(originalPrice);
     additionalPrice = parseFloat(additionalPrice);
     let totalPrice = (originalPrice + additionalPrice).toFixed(2) * quantity;
-    //console.log("originalprice " + originalPrice + ", additionalPrice " + additionalPrice + " = " + totalPrice);
     cartItemPrice.innerText = "$" + totalPrice.toFixed(2);
     cartItemQuantity.innerText = "Quantity: " + quantity;
 
@@ -961,7 +959,6 @@ function editCartItem(event){
 
   if(isFound){
 
-    //console.log("editCartItem fucntion : saved price is " + savedPrices[whichCart]);
     foodItem.editFoodPrice = savedPrices[whichCart].replace("Price: ","");
     foodItem.editCartItemIndex = whichCart;
   }else{
