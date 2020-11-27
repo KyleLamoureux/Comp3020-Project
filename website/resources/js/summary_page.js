@@ -6,29 +6,7 @@
  * @param listOrderedItems - the orders from the menu page.
  */
 function getOrderedItems(listOrderedItems){
-  /*
-    let cartItemsDiv = document.getElementsByClassName("cart-items")[0];
-    let listCartItems = cartItemsDiv.getElementsByClassName("cart-row");
-  
-    for(let i = 0; i < listCartItems.length; i++){
-        let cartItem = listCartItems[i];
-        //console.log(cartItem);
-        let cartItemTitle = cartItem.getElementsByClassName("cart-item-title")[0].innerText;
-        let cartItemImg = cartItem.getElementsByClassName("cart-item-image")[0].src;
-        let cartItemPrices = cartItemsDiv.getElementsByClassName("cart-price");//price is not inside the cartItem div
-        let cartItemPrice = cartItemPrices[i].innerText;
-        let cartItemQuantity = cartItem.getElementsByClassName("cart-item-quantity")[0].innerText;
-        let cartItemOptions = cartItem.getElementsByClassName("list-option-item");
-        let options = [];
-        for(let j = 0; j < cartItemOptions.length; j++){
-          options.push(cartItemOptions[j].innerText);
-        }
-        
-        displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options);
-    }//end for
-    */
 
-    console.log("list of ordered items are :\n");
     for(let i = 0; i < listOrderedItems.length; i++){
 
       let cartItemTitle = listOrderedItems[i][0].name;
@@ -41,8 +19,7 @@ function getOrderedItems(listOrderedItems){
       for(let j = 0; j < listOrderedItems[i][4].options.length; j++){
         options.push(listOrderedItems[i][4].options[j]);
       }//end nested for
-      console.log("and options are:\n");
-      console.log(options);
+      
       displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options,cartItemInstruction);
     }//end for
 
@@ -60,9 +37,6 @@ function getOrderedItems(listOrderedItems){
  */
 function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartItemImg,options,cartItemInstruction){
   let orderedListDiv = document.getElementById("ordered-list");
-  //console.log("in display???")
-
-  let orderedItemNames = document.getElementsByClassName("ordered-item-title");
 
   let newOrderedItem = document.createElement("div");
   newOrderedItem.classList.add("order-row");  
@@ -71,7 +45,7 @@ function displayOrderedItem(cartItemTitle,cartItemPrice,cartItemQuantity,cartIte
   <div class="cart-item-info">
     <img class="cart-item-image" src="${cartItemImg}" alt=${cartItemTitle}>               
     <h4 class="cart-item-title">${cartItemTitle}</h4>
-  <div class="cart-item-quantity">${cartItemQuantity}</div>
+  <div class="cart-item-quantity">Quantity: ${cartItemQuantity}</div>
   </div>
   `;
   

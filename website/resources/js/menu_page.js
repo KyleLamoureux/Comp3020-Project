@@ -153,9 +153,6 @@ function addMenuCategory(categoryName, img){
   <div class="category-item">
           <p>${categoryName}</p>
   </div>
-
-
-  </div>
   `;
 
   aTag.innerHTML = aTagContent;
@@ -270,14 +267,13 @@ function openFoodModal(event){
    
   
     if(isFromEditClick){
-      //console.log("edit button is clicked." + edtFoodTitle + ", " + edtFoodPrice);
+      //edit button is clicked.
       foodItemTitle = edtFoodTitle;
       foodItemPrice = edtFoodPrice;
       foodItemImage = edtFoodImage;
       foodItemQuantity = edtFoodQuantity;
       foodOptionsDiv = edtFoodOptionsDiv;
-      //console.log(foodOptionsDiv);
-
+     
       //"Save" buton instead of "add to cart" if the click is from edit btn
       buttonsContent = `
       <button class="button-cancel-cart" onclick="closeMenuModal()">Cancel</button>
@@ -285,7 +281,8 @@ function openFoodModal(event){
       `;
 
     }else{
-      //console.log("edit button is not clicked.");
+      //the click is from the food item orb.
+
       foodItemTitle = item.find(".menu-category-item-title").first().text();
       foodItemImage = item.find(".menu-category-item-image").first().attr('src');
       //foodItemDescription = item.find(".menu-category-item-description").first().text();
@@ -317,7 +314,7 @@ function openFoodModal(event){
     let foodSpecialRequestDiv = document.createElement("div");
     foodSpecialRequestDiv.classList.add("food-special-request");
     foodSpecialRequestDiv.innerHTML = `
-    <textarea class="special-request-box" cols="300" rows="4" placeholder="Please write special requests here......"></textarea>
+    <textarea class="special-request-box" cols="300" rows="4" placeholder="Special requests (optional)..."></textarea>
     `;
 
     //for quantity
@@ -343,23 +340,21 @@ function openFoodModal(event){
 
     //show saved special instruction and quantity when edit btn is clicked.
     if(edtFoodItemIndex !== undefined){
+      //display saved instruction
       let textAreaTag = document.getElementsByClassName("special-request-box")[0];
       textAreaTag.value = listOrderedItems[edtFoodItemIndex][5].instruction;
-      //console.log("instruction says: " + listOrderedItems[edtFoodItemIndex][5].instruction);
-
+      
+      //display saved quantity.
       let quantityTag = document.getElementsByClassName("num-food-input")[0];
       quantityTag.value = listOrderedItems[edtFoodItemIndex][2].quantity;
-      //console.log("quantity says: " + listOrderedItems[edtFoodItemIndex][2].quantity);
+
     }//end if
 
     addFunctionality(foodItemImage,foodOptionsDiv);
     quantityFunctionality();
-    //console.log("before saving the item has increased to size " + listOrderedItems.length);
     saveFunctionality(foodItemTitle,foodItemPrice,foodItemQuantity,selectedOptions);
     
-
   }//end if
-
 
 }//end openFoodModal
 
@@ -460,17 +455,15 @@ function updateFoodPrice(){
     for(let j = 0; j < radiobtns.length; j++){
 
       if(radiobtns[j].checked){
-        //console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
         priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
         isRadiobtnClicked = true;
 
         //save the selected radiobtn. no duplicates.
         if(!selectedOptions.includes(optionItemName[j].innerText)){
-          //console.log("inserting (radiobtn) " + optionItemName[j].innerText)
           selectedOptions.push(optionItemName[j].innerText);
         }
 
-      }
+      }//end if
 
     }//end nested for
 
@@ -485,12 +478,10 @@ function updateFoodPrice(){
     for(let j = 0; j < checkboxes.length; j++){
 
       if(checkboxes[j].checked){
-        //console.log(optionItemName[j].innerText + " is clicked with price " + optionItemPrice[j].innerText);
         priceDifference += parseFloat(optionItemPrice[j].innerText.replace("$",""));
 
         //save the selected checkbox. no duplicates.
         if(!selectedOptions.includes(optionItemName[j].innerText)){
-          //console.log("inserting (checkbox) " + optionItemName[j].innerText)
           selectedOptions.push(optionItemName[j].innerText);
         }
 
@@ -499,13 +490,11 @@ function updateFoodPrice(){
     }//end nested for
   }//end for
 
-
-  //console.log("from updatefoodprice method: " + selectedOptions + " with length " + selectedOptions.length +"\n");  
   //change the displayed price on the food modal.
   let modalFoodPrice = document.getElementsByClassName("modal-food-price")[0];
   let originalPrice = parseFloat(modalFoodPrice.innerText.replace("Price: $",""));
-  //console.log("Total difference = " + priceDifference.toFixed(2) + "\n");  
-  console.log("original price = " + modalFoodPrice.innerText + "\n");  
+  
+
   if(priceDifference == 0){
     modalFoodPrice.innerText = "Price: $" + originalPrice.toFixed(2);
   }else if(priceDifference > 0 ){
@@ -583,10 +572,9 @@ function quantityChanged(event) {
  * @param{event} event will provide the information of the food-item in order to pass it to the cart section.
  */
 function addToCartClicked(event){
-  console.log(" ");
-  console.log("addToCartClicked function");
-  
+ 
   let radioBtnDiv = document.getElementsByClassName("radio-button-option"); 
+
   //only lets the user add items to the cart if the radiobutton is clicked, or if there is no radiobutton in the food modal i.e. drinks.
   if(isRadiobtnClicked || radioBtnDiv.length === 0){
     let addButton = event.target;//target is the add button.
@@ -602,9 +590,8 @@ function addToCartClicked(event){
     let foodSpecialInstruction = foodModalInfo.getElementsByClassName("special-request-box")[0].value;
     specialInstruction = foodSpecialInstruction;
 
-    //console.log("special instruction entered: " + foodSpecialInstruction);
-    console.log("price from food modal is: " + foodItemPrice);
     savedPrices.push(foodItemPrice);
+    
     //check if the price needs to be updated.
     foodItemPrice = foodItemPrice.replace("Price:","");
     let posOne = foodItemPrice.indexOf("(");
@@ -614,7 +601,7 @@ function addToCartClicked(event){
       let newPrice = parseFloat(foodItemPrice.replace("$","")) * foodQuantity;
       newPrice = "Price: $" + newPrice.toFixed(2);
       addItemToCart(foodItemTitle,newPrice,foodQuantity,foodItemImage,foodItemOptions);
-      //alert(foodItemTitle + " with a price of" + foodItemPrice.replace("Price:","") + " has been added to the cart.");
+
     }else{
 
       let updatePrice = foodItemPrice.substring(posOne);//additional price based on the options selected.
@@ -625,12 +612,10 @@ function addToCartClicked(event){
       updatePrice = foodItemPrice.substring(posOne + 1, posTwo); //remove all the brackets.
       updatePrice = parseFloat(updatePrice.replace("$",""));//convert to float
 
-      //console.log(typeof(updatePrice))
       let newPrice = (originalPrice + updatePrice) * foodQuantity;
       newPrice = "Price: $" + newPrice.toFixed(2);
 
       addItemToCart(foodItemTitle,newPrice, foodQuantity,foodItemImage, foodItemOptions);
-      //alert(foodItemTitle + " with a price of " + originalPrice + " + " + updatePrice + " = " + newPrice);
     
     }//end if-else
 
@@ -640,6 +625,7 @@ function addToCartClicked(event){
 
     
   }else{
+
     let displayOptionMsg = "";
     if(radioBtnDiv.length > 0){
       for(let i = 0; i < radioBtnDiv.length; i++){
@@ -648,6 +634,7 @@ function addToCartClicked(event){
 
     }
     alert("please select an option for " + displayOptionMsg);
+
   }//end if-else
   
 }//end addToCartClicked
@@ -663,13 +650,12 @@ function saveClicked(event){
   let foodName = saveButton.foodItemTitle;
   let foodPrice = saveButton.foodItemPrice;
   let foodQuantity = saveButton.foodItemQuantity;
-  let foodOptions = saveButton.foodItemOptions;
-  
+
   let posOne = foodPrice.indexOf("(");
   let posTwo = foodPrice.indexOf(")");
-  console.log(" ");
-  console.log("saveClicked function");
+ 
   updateFoodPrice();
+ 
   if(posOne !== -1 && posTwo !== -1){
     
     let updatePrice = foodPrice.substring(posOne);//additional price based on the options selected.
@@ -684,67 +670,56 @@ function saveClicked(event){
     newPrice = newPrice.toFixed(2);
   }
  
-  //find the cart item that has the same information as foodName, foodPrice and foodOptions.
-  let whichPosition = findCartItem(foodName,foodPrice,foodQuantity);
+  //find the cart item that has the given food name.
+  let whichPosition = findCartItem(foodName);
   
-  console.log("THE POSITION WHERE THE CART ITEM IS FOUND IS " + whichPosition);
-  console.log("and selected options are : " +selectedOptions);
   if(whichPosition !== -1){
     updateInfoForCartItem(whichPosition);
   }
+
   updateCartTotal();
   closeMenuModal();
-  console.log("selectedOptions = " + selectedOptions);
+
   selectedOptions = [];
 
 }//end saveClicked
 
+
 /**
  * findCartItem - finds the cart item that has the given foodName, foodPrice, food options.
  * @foodName name of the food.
- * @foodPrice price of the food.
- * @foodOptions is the list of selected options for the entire cart items. (2d array)
  * @return it will return the position of the cart item if found. -1 if not not found.
  */
-function findCartItem(foodName,foodPrice,foodQuantity){
-  console.log(" ");
-  console.log("findCartItem function: ");
-  console.log("food name is " + foodName,foodPrice, foodQuantity);
+function findCartItem(foodName){
+  
   let index = -1;
   let isFound = false;
-  //TODO: might give the wrong position if we have duplicate items in the cart.
-  //FIX : by checking the price as well but foodPrice/foodQuantity parameters sometimes give the wrong value.
+  
+  //NOTE: might give the wrong position if we have duplicate items in the cart.
   for (let i = 0; i < listOrderedItems.length && !isFound; i++){
     if(foodName === listOrderedItems[i][0].name){   
       isFound =true;
       index = i;
  
     }//end if
+
   }//end for
-  console.log("isFound is "+ isFound + ", and pos is " + index);
   return index;
 
 }//end findCartItem
+
 
 /**
  * updateInfoForCartItem - updates the options for a cart item when the save button is clicked from food modal.
  * @param index is the position of the cart item that needs to be updated.
  */
 function updateInfoForCartItem(index){
-  console.log(" ");
-  console.log("updateInfoForCartItem function");
 
   let cartItem = document.getElementsByClassName("cart-row")[index];
-  //let cartItemName = cartItem.getElementsByClassName("cart-item-title")[0].innerText;
   let cartItemPrice = cartItem.getElementsByClassName("cart-price")[0];
   let cartItemQuantity = cartItem.getElementsByClassName("cart-item-quantity")[0];
   let ulTag = cartItem.getElementsByClassName("list-options")[0];
-  let liTag = cartItem.getElementsByClassName("list-option-item");
   
-  let savedQuantity = parseFloat(cartItemQuantity.innerText.replace("Quantity: ",""));
-  console.log("cartItemQuantity is " + savedQuantity);
- 
-
   //remove all the li tags before adding the new changes.
   ulTag.innerHTML = ``; //remove the li tags
 
@@ -764,11 +739,9 @@ function updateInfoForCartItem(index){
   savedPrices[index] = modalFoodPrice;
   let originalPrice = modalFoodPrice.replace("Price: $","");
   
-  //document.getElementsByClassName("num-food-input")[0].value = savedQuantity;
   let modalQuantity = document.getElementsByClassName("num-food-input")[0].value;
-  console.log("modal quantity " + modalQuantity);
-  let quantity = parseFloat(modalQuantity);
 
+  let quantity = parseFloat(modalQuantity);
   let posOne = originalPrice.indexOf("(");
   let posTwo = originalPrice.indexOf(")");
 
@@ -782,7 +755,7 @@ function updateInfoForCartItem(index){
 
     listOrderedItems[index][1].price = cartItemPrice.innerText;
     listOrderedItems[index][2].quantity = quantity;
-    console.log("a)original price is " + originalPrice + " new price is " + totalPrice);
+
   }else{
 
     let additionalPrice = originalPrice.substring(posOne + 1,posTwo).replace("$","");
@@ -796,12 +769,11 @@ function updateInfoForCartItem(index){
 
     listOrderedItems[index][1].price = cartItemPrice.innerText;
     listOrderedItems[index][2].quantity = quantity
-    console.log("b)original price is " + originalPrice + " new price is " + totalPrice);
 
   }//end if-else
-    
 
 }//end updateOptionsForCartItem
+
 
 /**
  * addItemToCart - a function that adds the given information from the food modal to the cart.
@@ -854,6 +826,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
     ulTag.append(liTag);
   }//end for
 
+  //error check for clicking the celebrity eats section.
   if(specialInstruction === null){
     specialInstruction = "";
   }
@@ -883,6 +856,7 @@ function addItemToCart(foodItemTitle,foodItemPrice,foodQuantity,foodItemImage,fo
 
 }//end addItemToCart
 
+
 /**
  * updateCartTotal - updates the subtotal of the cart.
  */
@@ -896,8 +870,6 @@ function updateCartTotal(){
       
       //CASE SENSITIVE. Will result NaN if the first parameter in replace is wrong.
       let price = parseFloat(priceElement.innerHTML.replace("$",""));//get the text inside the priceElement.
-      //console.log(price);
-
       total = total + price;
   }
   
@@ -906,6 +878,7 @@ function updateCartTotal(){
   updateNutrition();
 
 }//end updateCartTotal
+
 
 /**
  * closeMenuModal - closes the menu modal when cancel button is clicked.
@@ -920,13 +893,12 @@ function closeMenuModal() {
   selectedOptions = [];
 } //end closeMenuModal
 
+
 /**
  * removeCartItem - removes the selected item from the cart. Also updates the cart total.
  * @param {*} event 
  */
 function removeCartItem(event){
-  console.log(" ");
-  console.log("removeCartItem function: ");
 
   let buttonClicked = event.target;
   if(confirm("Do you want to delete the order " + buttonClicked.foodTitle + "?")){
@@ -945,11 +917,11 @@ function removeCartItem(event){
   }
 }//end removeCartItem
 
+
 /**
  * editCartItem - edit the cart by opening the food modal with the saved information.
  */
 function editCartItem(event){
- // alert("edit btn has been clicked");
   let foodItem = event.target;
   
   foodItem.addEventListener("click",openFoodModal);//eidt btn is clicked
@@ -974,9 +946,7 @@ function editCartItem(event){
     throw new Error("cart is not found.");
   }//end if-else
   
-  //console.log(foodItem.options.innerHTML);
 }//end editCartItem
-
 
 
  /**
@@ -999,6 +969,7 @@ function editCartItem(event){
   
 }//end proceedCheckout
 
+
 /**
  * cancelCheckout - closes the order summary window when the x button is clicked.
  */
@@ -1012,6 +983,7 @@ function cancelCheckout() {
   blurControl();
 }//end cancelCheckout
 
+
 /**
  * blurControl - controls the blur background when a modal (foodModal, summaryModal) is open.
  */
@@ -1024,50 +996,3 @@ function blurControl(){
       containerElement.setAttribute('class', 'blur');
   }
 }//end blurControl
-
-
-
-/**
- * addFoodQuantity - increase the food quantity in the food modal by 1
- */
-function addFoodQuantity() {
-    let currentQuantity = document.getElementsByClassName("num-food-input")[0].value;
-    let foodQuantity = document.getElementsByClassName("num-food-input")[0];
-    currentQuantity = parseInt(currentQuantity) + 1;
-    foodQuantity.setAttribute("value", currentQuantity);
-}
-
-
-
-/**
- * subtractFoodQuantity - decrease the food quantity in the food modal by 1
- *                        the quantity will not be updated if the current quantity is less than or equal to 1.
- */
-function subtractFoodQuantity() {
-  let currentQuantity = document.getElementsByClassName("num-food-input")[0].value;
-  let foodQuantity = document.getElementsByClassName("num-food-input")[0];
-  if (currentQuantity >= 2){
-    currentQuantity = parseInt(currentQuantity) - 1;
-  }
-
-  foodQuantity.setAttribute("value", currentQuantity);
-}
-
-
-
-function onlyNumberKey(evt) { 
-  // Only ASCII charactar in that range allowed 
-  var ASCIICode = (evt.which) ? evt.which : evt.keyCode 
-  if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57)) 
-      return false; 
-  return true; 
-} 
-
-
-function checkFoodQuantity(){
-    let foodQuantity = document.getElementById("num-food");
-    let currentQuantity = parseInt(foodQuantity.value);
-    if(currentQuantity === 0 ){
-      foodQuantity.setAttribute("value", 1);
-    }
-}
