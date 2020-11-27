@@ -111,6 +111,13 @@
     opacity: 75%;
 }
 
+.btn-edit:hover{
+    background: lightcoral;
+    width: 21px;
+    height: 21px;
+    border: none;
+}
+
 .btn-remove{
     background: transparent;
     width: 19px;
@@ -123,6 +130,12 @@
 .btn-remove:hover{
     cursor: pointer;
     opacity: 75%;
+    background: lightcoral;
+    width: 19px;
+    height: 19px;
+    border: none;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 /*
