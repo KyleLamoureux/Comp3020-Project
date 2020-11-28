@@ -115,12 +115,6 @@
     top: -5px;
 }
 
-.btn-edit:hover{
-    background: lightcoral;
-    width: 21px;
-    height: 21px;
-    border: none;
-}
 
 .btn-remove{
     background: transparent;

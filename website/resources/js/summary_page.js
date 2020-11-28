@@ -129,7 +129,7 @@ function displayTotalPrice(){
     let deliveryFee = 5.00;
 
     // Display all info in the order summary page
-    document.getElementById("subtotal").innerHTML = totalPrice;
+    document.getElementById("subtotal").innerHTML = totalPrice.toFixed(2);
     document.getElementById("gst").innerHTML = (totalPrice * gstRate).toFixed(2);
     document.getElementById("pst").innerHTML = (totalPrice * pstRate).toFixed(2);
     document.getElementById("delivery").innerHTML = deliveryFee.toFixed(2);
