@@ -101,13 +101,23 @@ function payOrder(){
   let expiryMonth = document.getElementById("expiry-month").value;
 
 
-  if((userFirstName.length > 0 && userLastName.length > 0 
-      && userAddress.length > 0 && userCard.length  > 0
-      && userSecurityCode.length > 0 && expiryYear.length > 0
+  if(userCard.length < 16 && userSecurityCode.length < 3){
+    alert("Card number must be entered in 16 digits and security code must be in 3 digits");
+  }else if(userCard.length < 16){
+    alert("Card number must be 16 digits long");
+  }else if(userSecurityCode.length < 3){
+    alert("Security code must be 3 digits long"); 
+  }else{
+
+    if((userFirstName.length > 0 && userLastName.length > 0 
+      && userAddress.length > 0 && userCard.length  === 16
+      && userSecurityCode.length === 3 && expiryYear.length === 2
       && expiryMonth > 0)){
         window.location.href = "../app/restaurant-page.html"; 
         return false;
-  }
+    }
+
+  }//end if-elses
 
 }//end payOrder
 
