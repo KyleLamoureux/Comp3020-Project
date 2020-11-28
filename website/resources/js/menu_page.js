@@ -104,7 +104,7 @@ function main(){
   //CHOSEN RESTAURANT GOES HERE.
   let restaurantName = localStorage.getItem('restaurant');
   var val = restaurants.find(x => x.name === restaurantName);
-  document.getElementById("restRating").textContent = val["rating"];
+  document.getElementById("restRating").append(" " + val["rating"]);
   var bg = document.getElementById("restBackground")
   bg.className = bg.className + " " + val["id"]; // Change the background img. Tried other approaches but just gave up and settled for this
 
@@ -325,6 +325,17 @@ function openFoodModal(event){
     
     //show the content based on the given information.
     let modal = document.getElementById("menu-modal");
+    var w = window.innerWidth;
+    var h = window.innerHeight;
+    if(w < 700 || h < 700){
+      var siz = 0.95*h;
+      modal.style.width = siz + "px";
+      modal.style.height = siz + "px";
+    }else{
+        modal.style.width = "700px";
+        modal.style.height = "700px";
+    }
+
     let foodModalContent = `
     <div id="modal-description">
         <h4 class="modal-food-title">${foodItemTitle}</h4>
@@ -335,7 +346,7 @@ function openFoodModal(event){
     let foodSpecialRequestDiv = document.createElement("div");
     foodSpecialRequestDiv.classList.add("food-special-request");
     foodSpecialRequestDiv.innerHTML = `
-    <textarea class="special-request-box" cols="300" rows="4" placeholder="Special requests (optional)..."></textarea>
+    <textarea class="special-request-box" cols="300" rows="1" placeholder="Special requests (optional)..."></textarea>
     `;
 
     //for quantity

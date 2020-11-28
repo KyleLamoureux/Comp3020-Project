@@ -1,8 +1,7 @@
 # Comp3020-Project
 
-## Organization
-### Auxillary 
-- contains .min's of different libraries we might use
+## Running
+open `website/` and run `index.html`
 
 
 ## Contributors
